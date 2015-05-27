@@ -84,4 +84,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias b="bash"
+alias ll="ls -aoghlGF"
 alias la="ls -AG"
