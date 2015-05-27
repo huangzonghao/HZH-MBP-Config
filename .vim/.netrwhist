@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/huangzonghao/.vim/template'
+let g:netrw_dirhist_2='/Users/huangzonghao/.vim/ftplugin'
+let g:netrw_dirhist_3='/Users/huangzonghao/.vim'
+let g:netrw_dirhist_4='/Users/huangzonghao/TEMP/hehe'
+let g:netrw_dirhist_5='/usr/local'
+let g:netrw_dirhist_6='/Users/huangzonghao/ros_catkin_ws/install_isolated'
