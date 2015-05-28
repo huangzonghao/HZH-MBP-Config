@@ -58,3 +58,11 @@ autocmd FileType html,css EmmetInstall
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+
+
+"+++++++++ Plugin Settings ++++++++
+" the vim pathogen package manager
+execute pathogen#infect()
+"the powerline
+let g:Powerline_symbols = 'fancy'
