@@ -1,0 +1,10 @@
+bash_profile
+bashrc
+gitconfig
+gitignore
+gitignore_global
+latexmkrc
+oh-my-zsh
+vim
+vimrc
+zshrc
