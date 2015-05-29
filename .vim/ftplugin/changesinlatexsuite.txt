@@ -1,3 +1,0 @@
-tex.vim
-main.vim
-imap.vim
