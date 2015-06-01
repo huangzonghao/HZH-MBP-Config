@@ -33,15 +33,6 @@ clearScrollback(){
         echo -e "\033]50;ClearScrollback\a"
 }
 
-
-# Setting PATH for Python 3.4
-# The orginal version is saved in .bash_profile.pysave
-#export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-
-# added by Anaconda 2.0.1 installer
-#export PATH="//anaconda/bin:$PATH"
-
-
 # path for open cv
 #export PATH="/usr/local/include/opencv2:$PATH"
 
@@ -59,8 +50,6 @@ alias laclean="rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps"
 alias lmk="latexmk -xelatex -pvc -pdf *.tex"
 #alias lmk="latexmk -pvc -pdf *.tex"
 
-# give piority to the brew path which makes sure the system will run the brew applications first
-#export PATH="/usr/local/bin:$PATH"
 
 # matlab cmd mode
 alias matlab="/Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
@@ -121,27 +110,15 @@ createTemplate(){
 
 alias tem="createTemplate"
 alias bashrc="source ~/.bash_profile"
-# a short for creating a latex template at the current directory --by huangzonghao@2014.10.28 modified at 2014.11.04
-#alias temla="cp -i /Users/huangzonghao/.vim/template/latex.tex hwk.tex "
-#CreateLatexTemlate() { /bin/cp -i /Users/huangzonghao/.vim/template/latex.tex $1.tex; vim $1.tex;}
-#alias temla="CreateLatexTemlate"
 
-# a short cut for creating a makefile
-#alias temmk="cp -i /Users/huangzonghao/.vim/template/makefile makefile && vim makefile"
 
-#alias tem="cd /Users/huangzonghao/TEMP "
 alias cao="./executable"
 
 alias cslab="ssh zhuangaj@csl2wk22.cse.ust.hk"
 alias hosts="sudo vim /etc/hosts"
-#alias exe="./executable"
-#alias cao="./executable <input >output; diff -w -B -E -b output sample"
-
-alias tembk="cp /Users/huangzonghao/.bash_profile /Users/huangzonghao/Dropbox/terminalbackup/bashrc ; cp /Users/huangzonghao/.vimrc /Users/huangzonghao/Dropbox/terminalbackup/vimrc ; cp -r /Users/huangzonghao/.vim /Users/huangzonghao/Dropbox/terminalbackup/vim"
 
 
 # short cut for the ielm professor server
-#alias ielm="echo password: 123456 & ssh hzh@verse.ielm.ust.hk"
 #alias ielm="setWhiteBackground && expect /Users/huangzonghao/Expect/ielmssh.sh"
 
 # alias for sshfs --Mon Jan 19 10:00:02 HKT 2015
@@ -180,14 +157,13 @@ alias gpumt="expect /Users/huangzonghao/Expect/gpu1mt.sh"
 alias gpu="setWhiteBackground && clearScrollback &&  expect /Users/huangzonghao/Expect/gpu1.sh"
 
 # --Thu Jan 22 01:44:07 HKT 2015
-alias pan="cd /Users/huangzonghao/mount/ielm"
+#alias pan="cd /Users/huangzonghao/mount/ielm"
 
 
 # alias for javascript interpretor --Thu Feb  5 16:48:50 HKT 2015
 alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc"
 
 #alias for the 5580 gpu server -- Feb 10
-#alias 5580="echo password : turtlebot & ssh ramp@143.89.47.8"
 #alias 5580="expect /Users/huangzonghao/Expect/5580ssh.sh"
 #alias 5580mt="sshfs ramp@143.89.47.8:/home/ramp /Users/huangzonghao/mount/5580"
 #alias 5580mt="expect /Users/huangzonghao/Expect/5580mtssh.sh"

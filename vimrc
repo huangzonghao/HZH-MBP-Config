@@ -75,7 +75,7 @@ endif
 let g:Powerline_symbols = 'fancy'
 
 "the tagbar
-nmap <leader>tg :TagbarToggle<CR>
+nmap <leader>tb :TagbarToggle<CR>
 "let g:tagbar_left=1
 
 "the nerdtree
@@ -87,7 +87,7 @@ nmap <leader>. :NERDTreeToggle<CR><c-w>l:TagbarToggle<CR>
 
 
 " the pathogen disable list
-let g:pathogen_disabled = ['clang_complete']
+let g:pathogen_disabled = ['clang_complete', 'syntastic']
 "let g:clang_library_path='/Users/huangzonghao/.vim/bundle/clang_complete/plugin'
 
 " this is the configuration of the libclang for the clang_complete
@@ -97,4 +97,6 @@ let g:pathogen_disabled = ['clang_complete']
 "endif
 
 " the vim pathogen package manager
+" Should be called at the end to make sure all the modification done in this
+" file take effect
 execute pathogen#infect()

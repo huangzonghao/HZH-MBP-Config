@@ -1,4 +1,4 @@
-source imaps.vim
+"source imaps.vim
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_FormatDependency_pdf = 'dvi,ps,pdf'
 "let g:Tex_FormatDependency_pdf = 'dvi,pdf'
@@ -15,11 +15,11 @@ let g:Tex_TreatMacViewerAsUNIX = 1
 let g:Tex_ExecuteUNIXViewerInForeground = 1
 let g:Tex_SmartKeyDot=0
 set spell
-nmap <F2> \lv
-map <F3> :up<CR>:silent call Tex_RunLaTeX()<CR>
+"nmap <F2> \lv
+"map <F3> :up<CR>:silent call Tex_RunLaTeX()<CR>
 "nmap <F2> :!latexmk -pv -pdf *.tex<CR><CR>
 
-au VimLeave :!laclean<CR>
+"au VimLeave :!laclean<CR>
 
 let g:tex_flavor='latex'
 
