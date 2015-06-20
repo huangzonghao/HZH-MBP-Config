@@ -1,3 +1,4 @@
+#Note this file is for the bash running in zsh
 ########################################################################
 ### be very careful of the spaces when you write the bash functions ####
 ########################################################################

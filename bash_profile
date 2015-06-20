@@ -1,3 +1,4 @@
+#Note this file is for sourcing by the zshrc file
 ########################################################################
 ### be very careful of the spaces when you write the bash functions ####
 ########################################################################
@@ -75,7 +76,7 @@ createTemplate(){
                 echo "The templates installed are latex, makefile, sbatch "
                 echo "Please enter the type of the template: "
                 read  USER_OPTION
-                if [ $USER_OPTION == "latex" ]  || [ $USER_OPTION == "makefile" ] || [ $USER_OPTION == "sbatch" ]
+                if [ $USER_OPTION = "latex" ]  || [ $USER_OPTION = "makefile" ] || [ $USER_OPTION = "sbatch" ]
                         then 
                                 STATUS=1
                                 OPTION=$USER_OPTION
