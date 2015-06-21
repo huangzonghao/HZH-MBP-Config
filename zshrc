@@ -86,3 +86,6 @@ source $ZSH/oh-my-zsh.sh
 alias b="bash"
 alias ll="ls -aoghlGF"
 alias la="ls -AG"
+
+#enable the bash-style comment
+setopt interactivecomments
