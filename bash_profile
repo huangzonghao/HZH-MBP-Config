@@ -3,6 +3,8 @@
 ### be very careful of the spaces when you write the bash functions ####
 ########################################################################
 
+#remove the .DS_Store file
+alias rmds="find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch"
 
 #just for fun --Thu May 21 14:57:27 HKT 2015
 #alias gcc="gcc-5"
