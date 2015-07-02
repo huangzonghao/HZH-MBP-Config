@@ -155,7 +155,9 @@ alias bigyellowmt="expect /Users/huangzonghao/Expect/bigyellowmt.sh"
 
 # Mon Apr  6 17:15:29 HKT 2015
 alias gpumt="expect /Users/huangzonghao/Expect/gpu1mt.sh"
-alias gpu="setWhiteBackground && clearScrollback &&  expect /Users/huangzonghao/Expect/gpu1.sh"
+#alias gpu="setWhiteBackground && clearScrollback &&  expect /Users/huangzonghao/Expect/gpu1.sh"
+#alias gpu="expect /Users/huangzonghao/Expect/gpu1.sh"
+alias gpu="ssh zhuangaj@gpu1.ust.hk"
 
 # --Thu Jan 22 01:44:07 HKT 2015
 #alias pan="cd /Users/huangzonghao/mount/ielm"
