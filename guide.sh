@@ -86,7 +86,7 @@ func_MOVE_helper(){
 func_ISOLATION(){
 	mkdir -p TEMP_FOLDER
 	#first copy the tools
-	mv guide.sh list_general TEMP_FOLDER/
+	mv guide.sh list_general bashrc_common TEMP_FOLDER/
 
 	if [ $1 = "mac" ]
 		then
