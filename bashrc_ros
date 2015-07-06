@@ -1,0 +1,68 @@
+#Note this file is for the ROS bash running in zsh
+########################################################################
+### be very careful of the spaces when you write the bash functions ####
+########################################################################
+
+source ~/dotfiles/bashrc_common
+
+#for ros --Fri May 22 13:30:22 HKT 2015
+alias ros="source ~/ros_catkin_ws/install_isolated/setup.bash && echo ros enabled"
+source ~/ros_catkin_ws/install_isolated/setup.bash
+
+
+export PS1="\e[1;31mBash for ROS\e[m\e[1;33m:\w\$\e[m "
+
+
+# resetting the java path for mac ox x mavericks --by huangzonghao@2014.7.15
+export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+
+
+# matlab cmd mode
+alias matlab="/Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
+alias mt="cd ~/TEMP/matlab && /Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
+
+
+# Mon Apr  6 17:15:29 HKT 2015
+alias gpumt="expect /Users/huangzonghao/Expect/gpu1mt.sh"
+
+
+
+# alias for javascript interpretor --Thu Feb  5 16:48:50 HKT 2015
+alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc"
+
+#alias for dot --Tue Mar  3 17:23:32 HKT 2015
+ComplieDot() {
+        if [ $# -eq 0 ] #the number of input arguments equal to zero
+                then
+                        /usr/local/bin/dot -Tpng -O *.dot;
+                else
+                        /usr/local/bin/dot -Tpng -o $1.png $1.dot;
+        fi
+}
+alias dt="ComplieDot"
+#alias dt="/usr/local/bin/dot -Tpng -O"
+
+
+
+#some funny commands
+# sl fortune cowsay cmatrix figlet
+# the alias for sublime text --Tue Apr 14 17:23:50 HKT 2015
+
+
+# the alias for apache --Sun Apr 26 14:21:29 HKT 2015
+alias apache="sudo apachectl"
+
+
+
+# add the git completion file --Sat May 16 16:57:16 HKT 2015
+source /usr/local/git/contrib/completion/git-completion.bash
+
+
+# add the brew completition file --Mon May 25 05:04:53 HKT 2015
+#source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
+
+
+# alias for youtube-dl --Sun May 17 13:09:28 HKT 2015
+alias ydl="youtube-dl"
+
+alias bashrc="source ~/.bashrc"

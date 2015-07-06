@@ -1,0 +1,35 @@
+source ~/dotfiles/bashrc_common
+
+export PS1="\e[0;31mMy Ubuntu\e[m\e[0;33m:\w\$\e[m "
+
+
+#need to install graphviz first
+#alias for dot --Tue Mar  3 17:23:32 HKT 2015
+ComplieDot() {
+        if [ $# -eq 0 ] #the number of input arguments equal to zero
+                then
+                        /usr/local/bin/dot -Tpng -O *.dot;
+                else
+                        /usr/local/bin/dot -Tpng -o $1.png $1.dot;
+        fi
+}
+alias dt="ComplieDot"
+
+
+
+#some funny commands
+# sl fortune cowsay cmatrix figlet
+# the alias for sublime text --Tue Apr 14 17:23:50 HKT 2015
+
+
+# the alias for apache --Sun Apr 26 14:21:29 HKT 2015
+alias apache="sudo apachectl"
+
+
+
+# need to install youtube-dl
+# alias for youtube-dl --Sun May 17 13:09:28 HKT 2015
+alias ydl="youtube-dl"
+
+alias bashrc="source ~/.bashrc"
+

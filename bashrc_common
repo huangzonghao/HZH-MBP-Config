@@ -1,0 +1,113 @@
+# set some alias for the ls commands --by huangzonghao@2014.7.18
+alias ls="ls -G"
+alias la="ls -AG"
+alias ll="ls -aoghlGF"
+
+# set the alias for latexmk -- by huangzonghao@2014.10.4
+# note the latexmk is usually installed together with tex distribution
+alias laclean="rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps"
+alias lmk="latexmk -xelatex -pvc -pdf *.tex"
+
+# remove the .DS_Store file
+#alias rmds="find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch"
+
+# add {} at the end in case the file name too long error
+alias rmds="find . -name .DS_Store | xargs -0 rm -f {}"
+
+#alias rmds ="find . -name .DS_Store -delete"
+# to disable the creation in network file system, run the following
+# "defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
+
+#export PATH="/usr/local/bin:$PATH"
+
+
+alias cao="./executable"
+alias hosts="sudo vim /etc/hosts"
+
+
+alias cslab="ssh zhuangaj@csl2wk22.cse.ust.hk"
+alias ielm="ssh hzh@verse.ust.hk"
+alias gpu="ssh zhuangaj@gpu1.ust.hk"
+
+#some funny commands
+# sl fortune cowsay cmatrix figlet
+# the alias for sublime text --Tue Apr 14 17:23:50 HKT 2015
+
+
+#############################
+######## functions ##########
+#############################
+
+# a function to package all the templates --Tue Apr  7 13:01:39 HKT 2015
+createTemplate(){
+        declare STATUS   # use declare to make all the variable local
+        declare OPTION
+        declare USER_OPTION
+        declare FILE_NAME
+        #declare USER
+        if [ $# -eq 0 ]
+                then
+                        STATUS=0
+                else
+                        STATUS=1
+                        OPTION=$1
+        fi
+
+        while [ $STATUS -eq 0 ]
+        do
+                echo "The templates installed are latex, makefile, sbatch "
+                echo "Please enter the type of the template: "
+                read  USER_OPTION
+                if [ $USER_OPTION = "latex" ]  || [ $USER_OPTION = "makefile" ] || [ $USER_OPTION = "sbatch" ]
+                        then
+                                STATUS=1
+                                OPTION=$USER_OPTION
+                fi
+        done
+
+        case $OPTION in
+                "latex")
+                        echo "Please enter the file name : "
+                        read FILE_NAME
+                        /bin/cp -i /Users/huangzonghao/.vim/template/latex.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                        ;;
+                "makefile")
+                        /bin/cp -i /Users/huangzonghao/.vim/template/makefile makefile && vim makefile
+                        ;;
+                "sbatch")
+                        echo "CPU version or GPU version?"
+                        read USER_OPTION
+                        echo "Please enter the file name : "
+                        read FILE_NAME
+                        case $USER_OPTION in
+                                "cpu")
+                                        /bin/cp -i /Users/huangzonghao/.vim/template/sbatchcpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
+                                        ;;
+                                "gpu")
+                                        /bin/cp -i /Users/huangzonghao/.vim/template/sbatchgpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
+                                        ;;
+                        esac
+                        ;;
+        esac
+}
+alias tem="createTemplate"
+
+# the function to kaiguang a cpp source file --Fri May 22 17:51:04 HKT 2015
+kaiguang(){
+        if [ $# -eq 0 ]
+        then
+                /bin/cat ~/.vim/template/godbless
+        else
+                /bin/cat ~/.vim/template/godbless $1 > TEMPFILE
+                mv TEMPFILE $1
+        fi
+}
+
+# the shortcut for making a directory and cd into it
+mcd(){
+        if [ $# != '0' ]
+        then
+                mkdir $1;
+                cd $1;
+        fi
+}
