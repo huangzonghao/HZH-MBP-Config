@@ -108,7 +108,7 @@ func_ISOLATION(){
 					func_MOVE_helper ./list_ubuntu_pub
 			fi
 	fi
-	ls -1 | grep -v TEMP_FOLDER | xargs rm -rf
+	ls -A1 | grep -v TEMP_FOLDER | xargs rm -rf
 	mv ./TEMP_FOLDER/* .
 	rm -r TEMP_FOLDER
 }
