@@ -1,2 +1,2 @@
 " slurm
-autocmd BufNewFile,BufRead *.{sh} set filetype=slurm
+"autocmd BufNewFile,BufRead *.{sh} set filetype=slurm
