@@ -58,7 +58,7 @@ func_LINK(){
 					rm ../.bashrc_mac_pub
 					ln -s ./dotfiles/bashrc_mac_pub ../.bash_profile
 			fi
-			source ../.bash_profile
+
 	elif [ $1 = "ubuntu" ]
 		then
 			if [ $2 = "me" ]
@@ -72,7 +72,6 @@ func_LINK(){
 					rm ../.bashrc_ubuntu_pub
 					ln -s ./dotfiles/bashrc_ubuntu_pub ../.bashrc
 			fi
-			source ../.bashrc
 	fi
 }
 
@@ -194,6 +193,13 @@ if [ $STATUS -eq 5 ]
 			then
 				func_LINK $USER_OPTION_OS $USER_OPTION_Ver
 		fi
+
+		if [ $USER_OPTION_OS = "mac" ]
+			then source ~/.bash_profile
+		elif [ $USER_OPTION_OS = "ubuntu" ]
+			then source ~/.bashrc
+		fi
+
 		# check if need to clean up the irrelevant files on pub computers
 		echo "Linking finished, need to clean up all the irrelevant file? (y, n)"
 		declare USER_OPTION
