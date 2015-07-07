@@ -253,7 +253,7 @@ fi
 
 if [ $STATUS -eq 21 ]
 	then
-		echo "Now we are gonna delete the entire dotfiles folder and copy your backuped files, are you sure? (y, n)"
+		echo "Now we are gonna delete the entire dotfiles folder and restore your backuped files, are you sure? (y, n)"
 		read USER_OPTION
 		if [ $USER_OPTION = "y" ]
 			then
