@@ -58,10 +58,9 @@ createTemplate(){
 
         while [ $STATUS -eq 0 ]
         do
-                echo "The templates installed are latex, makefile, sbatch "
-                echo "Please enter the type of the template: "
+                echo "Please enter the type of the template: (latex, makefile, sbatch, webpage, website)"
                 read  USER_OPTION
-                if [ $USER_OPTION = "latex" ]  || [ $USER_OPTION = "makefile" ] || [ $USER_OPTION = "sbatch" ]
+                if [ $USER_OPTION = "latex" ]  || [ $USER_OPTION = "makefile" ] || [ $USER_OPTION = "sbatch" ] || [ $USER_OPTION = "webpage" ] || [ $USER_OPTION = "website" ]
                         then
                                 STATUS=1
                                 OPTION=$USER_OPTION
@@ -72,10 +71,10 @@ createTemplate(){
                 "latex")
                         echo "Please enter the file name : "
                         read FILE_NAME
-                        /bin/cp -i /Users/huangzonghao/.vim/template/latex.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                        cp -i ~/.vim/template/latex.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
                         ;;
                 "makefile")
-                        /bin/cp -i /Users/huangzonghao/.vim/template/makefile makefile && vim makefile
+                        cp -i ~/.vim/template/makefile makefile && vim makefile
                         ;;
                 "sbatch")
                         echo "CPU version or GPU version?"
@@ -84,13 +83,21 @@ createTemplate(){
                         read FILE_NAME
                         case $USER_OPTION in
                                 "cpu")
-                                        /bin/cp -i /Users/huangzonghao/.vim/template/sbatchcpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
+                                        cp -i ~/.vim/template/sbatchcpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
                                         ;;
                                 "gpu")
-                                        /bin/cp -i /Users/huangzonghao/.vim/template/sbatchgpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
+                                        cp -i ~/.vim/template/sbatchgpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
                                         ;;
                         esac
                         ;;
+				"webpage")
+                        echo "Please enter the file name : "
+                        read FILE_NAME
+						cp -r ~/.vim/template/webpage.html ./$FILE_NAME.html && vim $FILE_NAME.html
+						;;
+				"website")
+						cp -r ~/.vim/template/website/* .
+						;;
         esac
 }
 alias tem="createTemplate"
