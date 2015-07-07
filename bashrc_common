@@ -17,6 +17,8 @@ alias lmk="latexmk -xelatex -pvc -pdf *.tex"
 # add {} at the end in case the file name too long error
 alias rmds="find . -name .DS_Store | xargs -0 rm -f {}"
 
+alias tree="tree -C"
+
 #alias rmds ="find . -name .DS_Store -delete"
 # to disable the creation in network file system, run the following
 # "defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
