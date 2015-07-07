@@ -35,7 +35,12 @@ func_BACKUP(){
 
 # para: default_bash_name bashname bashrc
 func_BASHNAME_helper(){
-	sed -i -e 's/$1/$2/g' $3
+		echo $1
+		echo $2
+		echo $3
+		echo "now 4"
+		echo $4
+	sed -i "" -e  's/$1/$2/g'  "$3"
 }
 # para: os ver bashname
 func_BASHNAME(){
@@ -44,10 +49,10 @@ func_BASHNAME(){
 			if [ $2 = "me" ]
 				then
 				# there is the ros bash problem
-					func_BASHNAME_helper "Private\ Mac" $3 bashrc_mac_me
+					func_BASHNAME_helper "Private\ Mac" "$3" bashrc_mac_me
 			elif [ $2 = "pub" ]
 				then
-					func_BASHNAME_helper "Public\ Mac" $3 bashrc_mac_pub
+					func_BASHNAME_helper "Public\ Mac" "$3" bashrc_mac_pub
 			fi
 
 	elif [ $1 = "ubuntu" ]
@@ -154,7 +159,8 @@ STATUS=0
 
 echo "===================="
 echo "Dotfiles Setup Guide"
-echo "version 1 \nby huangzonghao"
+echo "version 1"
+echo "by huangzonghao"
 echo "===================="
 echo "Make sure that this is ~/dotfiles before you move on"
 
@@ -193,10 +199,9 @@ done
 
 #no need to put this action into a while loop
 echo "Name for the shell?( leave blank for the default name )"
-read USER_OPTION_BASHNAME
-echo $USER_OPTION_BASHNAME
+read  USER_OPTION_BASHNAME
 if [ "$USER_OPTION_BASHNAME" != "" ] 
-		then func_BASHNAME $USER_OPTION_OS $USER_OPTION_Ver $USER_OPTION_BASHNAME
+		then func_BASHNAME $USER_OPTION_OS $USER_OPTION_Ver "$USER_OPTION_BASHNAME"
 fi
 
 while [ $STATUS -eq 3 ]
@@ -208,14 +213,18 @@ do
 	fi
 done
 
-while [ $STATUS -eq 4 ]
-do
-	echo "Clean the existing dotfiles first? (y, n)"
-	read enCLEAN
-	if [ $enCLEAN = "y" ] || [ $enCLEAN = "n" ]
-		then let STATUS=$STATUS+1
-	fi
-done
+#while [ $STATUS -eq 4 ]
+#do
+	#echo "Clean the existing dotfiles first? (y, n)"
+	#read enCLEAN
+	#if [ $enCLEAN = "y" ] || [ $enCLEAN = "n" ]
+		#then let STATUS=$STATUS+1
+	#fi
+#done
+
+#always clean first and no need to ask
+let STATUS=$STATUS+1
+enCLEAN=y
 
 # now start the operations
 if [ $STATUS -eq 5 ]
