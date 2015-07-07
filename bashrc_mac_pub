@@ -1,6 +1,8 @@
 source ~/dotfiles/bashrc_common
 
 export PS1="\e[0;31mPublic Mac\e[m\e[0;33m:\w\$\e[m "
+# ls color for the black background
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 
 # matlab cmd mode
@@ -9,3 +11,4 @@ alias mt="cd ~/TEMP/matlab && /Applications/MATLAB_R2014a.app/bin/matlab -nodesk
 
 
 alias bashrc="source ~/.bash_profile"
+alias ebashrc="vim ~/.bash_profile"

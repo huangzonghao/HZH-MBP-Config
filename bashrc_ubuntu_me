@@ -32,4 +32,5 @@ alias apache="sudo apachectl"
 alias ydl="youtube-dl"
 
 alias bashrc="source ~/.bashrc"
+alias ebashrc="vim ~/.bashrc"
 

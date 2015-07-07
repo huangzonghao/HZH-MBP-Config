@@ -11,11 +11,9 @@ source ~/dotfiles/bashrc_common
 
 
 #settings for the layout of the bash --Tue Apr  7 17:27:17 HKT 2015
-#export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
-#export PS1="\[\033[31m\]Bash for ROS \[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
-#export PS1="\e[0;31mBash for ROS\e[m\e[0;33m:\w\$\e[m "
+#export PS1="\e[0;31mPrivate Mac\e[m\e[0;33m:\w\$\e[m "
 #export CLICOLOR=1
-#export LSCOLORS=ExFxBxDxCxegedabagacad
+#export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 
 # a small function to change the iterm background color  --Wed Apr  8 03:29:48 HKT 2015
@@ -43,10 +41,11 @@ alias mt="cd ~/TEMP/matlab && /Applications/MATLAB_R2014a.app/bin/matlab -nodesk
 
 
 alias bashrc="source ~/.bash_profile"
+alias ebashrc="vim ~/.bash_profile"
 
 
 #brand new alias after putting ssh pub key into the server
-alias ielmmt="sshfs  hzh@verse.ust.hk:/Users/hzh/work /Users/huangzonghao/mount/ielm"
+alias ielmmt="sshfs  hzh@verse.ielm.ust.hk:/Users/hzh/work /Users/huangzonghao/mount/ielm"
 
 # a small function to tell whether to enable the display mode or not --Thu Apr 16 23:23:50 HKT 2015
 ConnectBigYellow(){
