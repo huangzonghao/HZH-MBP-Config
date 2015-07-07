@@ -7,6 +7,7 @@ declare STATUS
 declare USER_OPTION_Operation
 declare USER_OPTION_OS
 declare USER_OPTION_Ver
+declare USER_OPTION_BASHNAME
 declare enBACKUP=n
 declare enCLEAN=n
 declare enLINK=n
@@ -30,6 +31,35 @@ func_BACKUP(){
 		do
 			cp -r ../.$line ../.dotfiles_backup/$line
 	done < list_general
+}
+
+# para: default_bash_name bashname bashrc
+func_BASHNAME_helper(){
+	sed -i -e 's/$1/$2/g' $3
+}
+# para: os ver bashname
+func_BASHNAME(){
+		if [ $1 = "mac" ]
+		then
+			if [ $2 = "me" ]
+				then
+				# there is the ros bash problem
+					func_BASHNAME_helper "Private\ Mac" $3 bashrc_mac_me
+			elif [ $2 = "pub" ]
+				then
+					func_BASHNAME_helper "Public\ Mac" $3 bashrc_mac_pub
+			fi
+
+	elif [ $1 = "ubuntu" ]
+		then
+			if [ $2 = "me" ]
+				then
+					func_BASHNAME_helper "Private\ Ubuntu" $3  bashrc_ubuntu_me
+			elif [ $2 = "pub" ]
+				then
+					func_BASHNAME_helper "Public\ Ubuntu" $3 bashrc_ubuntu_pub
+			fi
+	fi
 }
 
 
@@ -122,7 +152,10 @@ func_RESTORE(){
 
 STATUS=0
 
-echo "====================\nDotfiles Setup Guide \nversion 1 \nby huangzonghao\n====================\n"
+echo "===================="
+echo "Dotfiles Setup Guide"
+echo "version 1 \nby huangzonghao"
+echo "===================="
 echo "Make sure that this is ~/dotfiles before you move on"
 
 # Frist ask for the setup specifications
@@ -158,9 +191,17 @@ do
 	fi
 done
 
+#no need to put this action into a while loop
+echo "Name for the shell?( leave blank for the default name )"
+read USER_OPTION_BASHNAME
+echo $USER_OPTION_BASHNAME
+if [ "$USER_OPTION_BASHNAME" != "" ] 
+		then func_BASHNAME $USER_OPTION_OS $USER_OPTION_Ver $USER_OPTION_BASHNAME
+fi
+
 while [ $STATUS -eq 3 ]
 do
-	echo "Need to backup the original files before install? (y, n)"
+	echo "Need to backup the original files before installation? (y, n)"
 	read enBACKUP
 	if [ $enBACKUP = "y" ] || [ $enBACKUP = "n" ]
 		then let STATUS=$STATUS+1
