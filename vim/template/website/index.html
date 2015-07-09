@@ -1,47 +1,47 @@
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
 	<title><+PageTabName+></title>
-    <link rel="stylesheet" href="stylesheets/front-page.css">
-    <!-- <link rel="stylesheet" href="stylesheets/contents.css"> -->
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+	<link rel="stylesheet" href="stylesheets/front-page.css">
+	<!-- <link rel="stylesheet" href="stylesheets/contents.css"> -->
+	<link rel="stylesheet" href="stylesheets/pygment_trac.css">
+	<script src="javascripts/scale.fix.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<!--[if lt IE 9]>
+	 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	 <![endif]-->
 </head>
 
 <body>
-    <div class="wrapper">
-        <header align="center">
-            <h1><+TITLE+></h1>
-            <h1 style="color:purple; font-size:15px"><+SUBTITLE+></h1>
-        </header>
-        <section>
-            <h1><+SECTIONTITLE+></h1>
+	<div class="wrapper">
+		<header align="center">
+			<h1><+TITLE+></h1>
+			<h1 style="color:purple; font-size:15px"><+SUBTITLE+></h1>
+		</header>
+		<section>
+			<h1><+SECTIONTITLE+></h1>
 
-        </section>
+		</section>
 
-    </div>
-    <footer>
-        <p>Last Update:
-            <i id="lastmodified"></i>
-        </p>
-        <script>
-        /*Safari is so stupid for not being able to print the correct "Last Modified time" !!!*/
+	</div>
+	<footer>
+		<p>Last Update:
+		<i id="lastmodified"></i>
+		</p>
+		<script>
+/*Safari is so stupid for not being able to print the correct "Last Modified time" !!!*/
 
-        var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-        var isFirefox = typeof InstallTrigger !== 'undefined';
-        var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
-        var isChrome = !!window.chrome && !isOpera;
+var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+var isFirefox = typeof InstallTrigger !== 'undefined';
+var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+var isChrome = !!window.chrome && !isOpera;
 
-        var lm_time = new Date(document.lastModified);
+var lm_time = new Date(document.lastModified);
 
-        if (isSafari)
-            lm_time.setHours(lm_time.getHours() + 8);
-        document.getElementById("lastmodified").innerHTML = lm_time;
-        </script>
-    </footer>
+if (isSafari)
+	lm_time.setHours(lm_time.getHours() + 8);
+	document.getElementById("lastmodified").innerHTML = lm_time;
+		</script>
+	</footer>
 
-    </html>
+	</html>
