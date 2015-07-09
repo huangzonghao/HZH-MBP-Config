@@ -1,6 +1,7 @@
 #Note this file is for sourcing by the zshrc file
 ########################################################################
 ### be very careful of the spaces when you write the bash functions ####
+# haha now i understand that this is because [ itself is a command! so of course you definitely need to leave it some space, otherwise how to differentiate the function call and the input parameters!!!! cool!!   --Thu Jul  9 14:44:27 HKT 2015
 ########################################################################
 
 source ~/dotfiles/bashrc_common

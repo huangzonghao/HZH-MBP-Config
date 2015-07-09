@@ -11,11 +11,8 @@ alias ll="ls -aoghlGF"
 alias laclean="rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps"
 alias lmk="latexmk -xelatex -pvc -pdf *.tex"
 
-# remove the .DS_Store file
-#alias rmds="find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch"
+alias ebrcc="vim ~/dotfiles/bashrc_common"
 
-# add {} at the end in case the file name too long error
-alias rmds="find . -name .DS_Store | xargs -0 rm -f {}"
 
 alias tree="tree -C"
 alias du="du -hsc"
@@ -44,10 +41,64 @@ alias gpu="ssh zhuangaj@gpu1.ust.hk"
 ######## functions ##########
 #############################
 
+# The function to remove the temp files, inspired by the following commands
+# remove the .DS_Store file
+#alias rmds="find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch"
+
+# add {} at the end in case the file name too long error
+#alias rmds="find . -name '.DS_Store' -print0 | xargs -0 rm -f {}"
+
+# rm temp files
+rmt(){
+		declare USER_OPTION;
+		declare STATUS=0;
+		while [ $STATUS -ne 1 ]
+		do	
+				echo "Which type of temp files would you like to get rid of ?"
+				echo ".DS_Store(d) Thumbs.db(t) or Customized (c)?"
+				read USER_OPTION
+
+				# make sure you finish processing d and t first because the USER_OPTION is gonna be changed in c and afterwards
+				if [[ $USER_OPTION = *d* ]]
+				then 
+						echo "Now start to remove .DS_Store file within this directory"
+						find . -name .DS_Store -print0 | xargs -0 rm -f {}
+						echo "done"
+						STATUS=1
+				fi
+				if [[ $USER_OPTION = *t* ]]
+				then
+						echo "Now start to remove Thumbs.db file within this directory"
+						find . -name Thumbs.db -print0 | xargs -0 rm -f {}
+						echo "done"
+						STATUS=1
+				fi
+				if [[ $USER_OPTION = *c* ]]
+				then
+						echo "type in the file name"
+						read USER_OPTION
+						echo "Now start to remove $USER_OPTION file within this directory"
+						find . -name $USER_OPTION -print0 | xargs -0 rm -f {}
+						echo "done"
+						STATUS=1
+				fi
+
+				if [[ $STATUS = 1 ]]
+				then
+						echo "Another round? (y/n)"
+						read USER_OPTION
+						if [[ $USER_OPTION = "y" ]]
+						then STATUS=0
+						fi
+				fi
+		done
+		echo "All process done, exit"
+
+}
+
 # a function to package all the templates --Tue Apr  7 13:01:39 HKT 2015
-createTemplate(){
+tem(){
         declare STATUS   # use declare to make all the variable local
-        declare OPTION
         declare USER_OPTION
         declare FILE_NAME
         #declare USER
@@ -61,49 +112,56 @@ createTemplate(){
 
         while [ $STATUS -eq 0 ]
         do
-                echo "Please enter the type of the template: (latex, makefile, sbatch, webpage, website)"
+				echo "Please enter the type of the template:  1)latex, 2)makefile, 3)sbatch, 4)webpage, 5)website"
                 read  USER_OPTION
-                if [ $USER_OPTION = "latex" ]  || [ $USER_OPTION = "makefile" ] || [ $USER_OPTION = "sbatch" ] || [ $USER_OPTION = "webpage" ] || [ $USER_OPTION = "website" ]
-                        then
-                                STATUS=1
-                                OPTION=$USER_OPTION
-                fi
-        done
 
-        case $OPTION in
-                "latex")
-                        echo "Please enter the file name : "
-                        read FILE_NAME
-                        cp -i ~/.vim/template/latex.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
-                        ;;
-                "makefile")
-                        cp -i ~/.vim/template/makefile makefile && vim makefile
-                        ;;
-                "sbatch")
-                        echo "CPU version or GPU version?"
-                        read USER_OPTION
-                        echo "Please enter the file name : "
-                        read FILE_NAME
-                        case $USER_OPTION in
-                                "cpu")
-                                        cp -i ~/.vim/template/sbatchcpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
-                                        ;;
-                                "gpu")
-                                        cp -i ~/.vim/template/sbatchgpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
-                                        ;;
-                        esac
-                        ;;
-				"webpage")
-                        echo "Please enter the file name : "
-                        read FILE_NAME
-						cp -r ~/.vim/template/webpage.html ./$FILE_NAME.html && vim $FILE_NAME.html
-						;;
-				"website")
-						cp -r ~/.vim/template/website/* .
-						;;
-        esac
+				case $USER_OPTION in
+						"latex" | "1")
+								echo "Please enter the file name : "
+								read FILE_NAME
+								cp -i ~/.vim/template/latex.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+								STATUS=1;
+								;;
+						"makefile" | "2")
+								cp -i ~/.vim/template/makefile makefile && vim makefile
+								STATUS=1;
+								;;
+						"sbatch" | "3")
+								echo "CPU version or GPU version?"
+								read USER_OPTION
+								echo "Please enter the file name : "
+								read FILE_NAME
+								case $USER_OPTION in
+										"cpu")
+												cp -i ~/.vim/template/sbatchcpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
+												;;
+										"gpu")
+												cp -i ~/.vim/template/sbatchgpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
+												;;
+								esac
+								STATUS=1;
+								;;
+						"webpage" | "4")
+								echo "Please enter the file name : "
+								read FILE_NAME
+								cp -r ~/.vim/template/webpage.html ./$FILE_NAME.html && vim $FILE_NAME.html
+								STATUS=1;
+								;;
+						"website" | "5")
+								cp -r ~/.vim/template/website/* .
+								STATUS=1;
+								;;
+				esac
+				if [ $STATUS -eq 1 ]
+				then
+						echo "Anther file? (y/n)";
+						read USER_OPTION;
+						if [[ $USER_OPTION = y ]]
+						then STATUS=0;
+						fi
+				fi
+        done
 }
-alias tem="createTemplate"
 
 # the function to kaiguang a cpp source file --Fri May 22 17:51:04 HKT 2015
 kaiguang(){

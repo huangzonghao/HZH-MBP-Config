@@ -200,7 +200,9 @@ done
 #no need to put this action into a while loop
 echo "Name for the shell?( leave blank for the default name )"
 read  USER_OPTION_BASHNAME
-if [ "$USER_OPTION_BASHNAME" != "" ] 
+#if [ "$USER_OPTION_BASHNAME" != "" ] 
+#-n is true when the string is not empty, -z for zero length
+if [ -n "$USER_OPTION_BASHNAME" ] 
 		then func_BASHNAME $USER_OPTION_OS $USER_OPTION_Ver "$USER_OPTION_BASHNAME"
 fi
 
