@@ -14,6 +14,7 @@ set backspace=2      "because of the stupid vim7.4
 set showcmd
 "set mouse=a
 set tabstop=4
+set shiftwidth=4        "this sets 4 spaces for each indention
 "set expandtab
 
 
@@ -22,34 +23,30 @@ set tabstop=4
 "+++++++++++ Global Keymappings ++++++++++
 let mapleader=","
 imap <F1> <Esc>:up<CR>
-nmap <F1> :up<CR>
+imap <C-V> <S-Insert>
+imap <C-L> <space><space><space><space>
 
 nmap <leader>sa :up<CR>
 nmap <leader>sw :wq<CR>
 nmap <leader>w :q<CR>
 nmap <leader>W :q!<CR>
-nmap <c-h> <c-w>h
-nmap <c-l> <c-w>l
-
+nmap <C-H> <C-W>h
+nmap <C-L> <C-W>l
+nmap <F1> :up<CR>
 nnoremap <F6> :e<CR>
-
 "nnoremap <C-j> :m .+1<CR>==
 "nnoremap <C-k> :m .-2<CR>==
-
 nnoremap j gj
 nnoremap k gk
 nnoremap J 5gj
 nnoremap K 5gk
-vmap j gj
-vmap k gk
-
 nnoremap W 5w
 nnoremap B 5b
-
 nnoremap <F9> :!open .<CR><CR>
 
-imap <c-v> <S-Insert>
-
+vmap j gj
+vmap k gk
+"+++++++++++++++++++++++++++++++++++++++++
 
 
 " some changes for emmet -- an editor for html --Sun Feb  8 02:55:52 HKT 2015
