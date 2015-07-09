@@ -76,10 +76,13 @@ nmap <leader>tb :TagbarToggle<CR>
 "let g:tagbar_left=1
 
 "the nerdtree
-nmap <leader>nt :NERDTreeToggle<CR>
+nmap <leader>tt :NERDTreeToggle<CR>
 
 "load the full environment
 nmap <leader>. :NERDTreeToggle<CR><c-w>l:TagbarToggle<CR>
+
+
+"So the toggles: bar: tb; tree: tt; mouse: tm;
 
 
 
@@ -97,3 +100,17 @@ let g:pathogen_disabled = ['clang_complete', 'syntastic']
 " Should be called at the end to make sure all the modification done in this
 " file take effect
 execute pathogen#infect()
+
+
+"++++++++++++++ my functions +++++++++++++
+function! ToggleMouse()
+    " check if mouse is enabled
+    if &mouse == 'a'
+        " disable mouse
+        set mouse=
+    else
+       " enable mouse everywhere
+        set mouse=a
+    endif
+endfunc
+nmap <leader>tm :call ToggleMouse()<CR>
