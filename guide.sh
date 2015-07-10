@@ -271,7 +271,13 @@ if [ $STATUS -eq 21 ]
 		fi
 fi
 
+unset STATUS
+unset USER_OPTION_Operation
+unset USER_OPTION_OS
+unset USER_OPTION_Ver
+unset USER_OPTION_BASHNAME
+unset enBACKUP
+unset enCLEAN
+unset enLINK
+
 echo "All processes done successfully, exit."
-
-
-
