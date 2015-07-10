@@ -97,6 +97,9 @@ nmap <leader>. :NERDTreeToggle<CR><c-w>l:TagbarToggle<CR>
 
 "So the toggles: bar: tb; tree: tt; mouse: tm;
 
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_working_path_mode = 'ra'
 
 
 " the pathogen disable list
