@@ -1,1 +1,1 @@
-source cpp.vim
+source cxx_common.vim
