@@ -5,6 +5,7 @@
 ########################################################################
 
 source ~/dotfiles/bashrc_common
+RC_FILE="~/.bash_profile"
 
 #just for fun --Thu May 21 14:57:27 HKT 2015
 #alias gcc="gcc-5"
@@ -39,10 +40,6 @@ export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Ho
 # matlab cmd mode
 alias matlab="/Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
 alias mt="cd ~/TEMP/matlab && /Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
-
-
-alias bashrc="source ~/.bash_profile"
-alias ebashrc="vim ~/.bash_profile"
 
 
 #brand new alias after putting ssh pub key into the server

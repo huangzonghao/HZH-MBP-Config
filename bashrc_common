@@ -6,12 +6,27 @@ alias ls="ls -G"
 alias la="ls -AG"
 alias ll="ls -aoghlGF"
 
+alias cp="cp -i"
+alias mv="mv -i"
+alias mkdir="mkdir -p"
+
 # set the alias for latexmk -- by huangzonghao@2014.10.4
 # note the latexmk is usually installed together with tex distribution
 alias laclean="rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps"
 alias lmk="latexmk -xelatex -pvc -pdf *.tex"
 
+# note alias doesn't take variables. so it has to be a function
+brc(){
+	eval source $RC_FILE
+}
+ebrc(){
+	eval vim $RC_FILE
+}
 alias ebrcc="vim ~/dotfiles/bashrc_common"
+alias evrc="vim ~/.vimrc"
+
+alias v="vim"
+alias vi="view"
 
 
 alias tree="tree -C"
@@ -62,30 +77,30 @@ rmt(){
 		if [[ $USER_OPTION = *d* ]]
 		then
 			echo "Now start to remove .DS_Store file within this directory"
-			find . -name .DS_Store -print0 | xargs -0 rm -f {}
-			echo "done"
+			find . -name .DS_Store -ls -delete
+			echo "Done"
 			STATUS=1
 		fi
 		if [[ $USER_OPTION = *t* ]]
 		then
 			echo "Now start to remove Thumbs.db file within this directory"
-			find . -name Thumbs.db -print0 | xargs -0 rm -f {}
-			echo "done"
+			find . -name Thumbs.db -ls -delete
+			echo "Done"
 			STATUS=1
 		fi
 		if [[ $USER_OPTION = *c* ]]
 		then
-			echo "type in the file name"
+			echo -n "type in the file name : "
 			read USER_OPTION
 			echo "Now start to remove $USER_OPTION file within this directory"
-			find . -name $USER_OPTION -print0 | xargs -0 rm -f {}
-			echo "done"
+			find . -name $USER_OPTION -ls -delete
+			echo "Done"
 			STATUS=1
 		fi
 
 		if [[ $STATUS = 1 ]]
 		then
-			echo "Another round? (y/n)"
+			echo -n "Another round? (y/n) : "
 			read USER_OPTION
 			if [[ $USER_OPTION = "y" ]]
 			then STATUS=0
@@ -117,7 +132,7 @@ tem(){
 
 		case $USER_OPTION in
 			"latex" | "1")
-				echo "Please enter the file name : "
+				echo -n "Please enter the file name : "
 				read FILE_NAME
 				cp -i ~/.vim/template/latex.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
 				STATUS=1;
@@ -127,22 +142,22 @@ tem(){
 				STATUS=1;
 				;;
 			"sbatch" | "3")
-				echo "CPU version or GPU version?"
+				echo -n "Which version? CPU or GPU : "
 				read USER_OPTION
-				echo "Please enter the file name : "
+				echo -n "Please enter the file name : "
 				read FILE_NAME
 				case $USER_OPTION in
-					"cpu")
+					"cpu" | "CPU")
 						cp -i ~/.vim/template/sbatchcpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
 						;;
-					"gpu")
+					"gpu" | "GPU")
 						cp -i ~/.vim/template/sbatchgpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
 						;;
 				esac
 				STATUS=1;
 				;;
 			"webpage" | "4")
-				echo "Please enter the file name : "
+				echo -n "Please enter the file name : "
 				read FILE_NAME
 				cp -r ~/.vim/template/webpage.html ./$FILE_NAME.html && vim $FILE_NAME.html
 				STATUS=1;
@@ -154,7 +169,7 @@ tem(){
 		esac
 		if [ $STATUS -eq 1 ]
 		then
-			echo "Anther file? (y/n)";
+			echo -n "Anther file? (y/n) : ";
 			read USER_OPTION;
 			if [[ $USER_OPTION = y ]]
 			then STATUS=0;
@@ -192,7 +207,7 @@ checkColor(){
 	done
 }
 
-trueclr(){
+trueColor(){
 	echo -en "\n   +  "
 	for i in {0..35}; do
 		printf "%2b " $i
@@ -212,7 +227,7 @@ trueclr(){
 	done
 	echo -e "\n"
 }
-8clr(){
+asciiColor(){
 	T='gYw'   # The test text
 	echo "The 'gYw' is the test text"
 	echo -e "\n                 40m     41m     42m     43m     44m     45m     46m     47m";
@@ -224,5 +239,4 @@ trueclr(){
 		done
 		echo;
 	done
-	echo "Usage: \ e[VALUE"
 }

@@ -1,4 +1,5 @@
 source ~/dotfiles/bashrc_common
+RC_FILE="~/.bashrc"
 
 export PS1="\e[0;31mMy Ubuntu\e[m\e[0;33m:\w\$\e[m "
 
@@ -30,7 +31,3 @@ alias apache="sudo apachectl"
 # need to install youtube-dl
 # alias for youtube-dl --Sun May 17 13:09:28 HKT 2015
 alias ydl="youtube-dl"
-
-alias bashrc="source ~/.bashrc"
-alias ebashrc="vim ~/.bashrc"
-

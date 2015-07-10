@@ -1,8 +1,5 @@
 source ~/dotfiles/bashrc_common
+RC_FILE="~/.bashrc"
 
 
 export PS1="\e[0;31mPublic Ubuntu\e[m\e[0;33m:\w\$\e[m "
-
-
-alias bashrc="source ~/.bashrc"
-alias ebashrc="vim ~/.bashrc"

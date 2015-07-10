@@ -7,6 +7,16 @@ colorscheme slate
 set number
 set ruler
 set cursorline
+set ttyfast "for fast terminal... but what the hell is this...
+set scrolloff=5
+set lazyredraw
+
+set list
+set listchars=tab:\ \ ,trail:.
+set autoread
+
+set more    " Use more prompt
+
 
 "+++++++++++ Global Behavior Settings ++++++++++
 " Note the settings for specific file type should go to ftplugin
@@ -28,13 +38,15 @@ imap <C-L> <space><space><space><space>
 
 nmap <leader>sa :up<CR>
 nmap <leader>sw :wq<CR>
-nmap <leader>w :q<CR>
-nmap <leader>W :q!<CR>
+nmap <leader><leader> :q<CR>
+nmap <leader>w :qa<CR>
+nmap <leader>WW :q!<CR>
+nmap <leader>Wa :qa!<CR>
 nmap <leader>th :noh<CR>
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
 nmap <F1> :up<CR>
-nnoremap <F6> :e<CR>
+"nnoremap <F6> :e<CR>
 "nnoremap <C-j> :m .+1<CR>==
 "nnoremap <C-k> :m .-2<CR>==
 nnoremap j gj
