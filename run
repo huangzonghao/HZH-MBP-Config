@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-
 # note that zsh is only enabled on my own mac
 
 declare STATUS
@@ -11,7 +10,6 @@ declare USER_OPTION_BASHNAME
 declare enBACKUP=n
 declare enCLEAN=n
 declare enLINK=n
-
 
 
 # three actions: backup, clean, build the links
@@ -35,7 +33,7 @@ func_BACKUP(){
 
 # para: default_bash_name bashname bashrc
 func_BASHNAME_helper(){
-	sed -i '' -e  "s/$1/$2/g"  "$3" 
+	sed -i '' -e  "s/$1/$2/g"  "$3"
 	#rm *.sed_bak
 }
 # para: os ver bashname
@@ -116,7 +114,7 @@ func_MOVE_helper(){
 func_ISOLATION(){
 	mkdir -p TEMP_FOLDER
 	# first copy the tools
-	mv guide.sh list_general bashrc_common bashrc_colors TEMP_FOLDER/
+	mv run list_general bashrc_common bashrc_colors TEMP_FOLDER/
 
 	if [ $1 = "mac" ]
 	then
@@ -196,9 +194,9 @@ done
 #no need to put this action into a while loop
 echo "Name for the shell?( leave blank for the default name )"
 read  USER_OPTION_BASHNAME
-#if [ "$USER_OPTION_BASHNAME" != "" ] 
+#if [ "$USER_OPTION_BASHNAME" != "" ]
 #-n is true when the string is not empty, -z for zero length
-if [ -n "$USER_OPTION_BASHNAME" ] 
+if [ -n "$USER_OPTION_BASHNAME" ]
 then func_BASHNAME $USER_OPTION_OS $USER_OPTION_Ver "$USER_OPTION_BASHNAME"
 fi
 
