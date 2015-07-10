@@ -30,6 +30,7 @@ nmap <leader>sa :up<CR>
 nmap <leader>sw :wq<CR>
 nmap <leader>w :q<CR>
 nmap <leader>W :q!<CR>
+nmap <leader>th :noh<CR>
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
 nmap <F1> :up<CR>
