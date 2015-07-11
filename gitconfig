@@ -26,6 +26,7 @@
 	sl = stash list
 	sa = stash apply
 	ss = stash save
+	pinfo = info --no-config
 [difftool]
 	prompt = false
 [core]
