@@ -45,6 +45,8 @@ nmap <leader>Wa :qa!<CR>
 nmap <leader>th :noh<CR>
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
 nmap <F1> :up<CR>
 "nnoremap <F6> :e<CR>
 "nnoremap <C-j> :m .+1<CR>==
@@ -97,9 +99,13 @@ nmap <leader>. :NERDTreeToggle<CR><c-w>l:TagbarToggle<CR>
 
 "So the toggles: bar: tb; tree: tt; mouse: tm;
 
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlP'
-"let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+"let g:ctrlp_show_hidden = 1
+set wildignore+=*.a,*.o
+set wildignore+=*.bmp,*.gif,*.jpg,*.png
 
 
 " the pathogen disable list

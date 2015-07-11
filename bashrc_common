@@ -23,7 +23,7 @@ ebrc(){
 	eval vim $RC_FILE
 }
 alias ebrcc="vim ~/dotfiles/bashrc_common"
-alias evrc="vim ~/.vimrc"
+alias evrc="vim ~/dotfiles/vimrc"
 
 alias v="vim"
 alias vi="view"
