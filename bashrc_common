@@ -26,6 +26,7 @@ alias ebrcc="vim ~/dotfiles/bashrc_common"
 alias evrc="vim ~/dotfiles/vimrc"
 
 alias v="vim"
+alias e="vim"
 alias vi="view"
 
 

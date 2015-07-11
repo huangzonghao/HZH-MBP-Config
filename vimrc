@@ -11,9 +11,9 @@ set ttyfast "for fast terminal... but what the hell is this...
 set scrolloff=5
 set lazyredraw
 
-set list
-set listchars=tab:\ \ ,trail:.
-set autoread
+"set list
+"set listchars=tab:\ \ ,trail:.
+"set autoread
 
 set more    " Use more prompt
 
