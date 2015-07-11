@@ -4,3 +4,4 @@ gitignore_global
 latexmkrc
 vim
 vimrc
+inputrc

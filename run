@@ -27,7 +27,10 @@ func_BACKUP(){
 	mkdir -p ../.dotfiles_backup
 	while read -r line
 	do
-		cp -r ../.$line ../.dotfiles_backup/$line
+		if [ -e "../.$line" ]
+			then
+				cp -a ../.$line ../.dotfiles_backup/$line
+		fi
 	done < list_general
 }
 
@@ -67,6 +70,13 @@ func_BASHNAME(){
 func_LINK_helper(){
 	while read -r line
 	do
+		if [ -e "../.$line" ]
+			then
+				if [ ! -e "../dotfiles_backup" ]
+					then mkdir ../dotfiles_backup
+				fi
+				cp -a ../.$line ../dotfiles_backup/$line && rm -rf ../.$line || echo "Something went wrong while copying."
+		fi
 		ln -s ./dotfiles/$line ../.$line
 	done < $1
 }
