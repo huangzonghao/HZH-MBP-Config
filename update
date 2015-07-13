@@ -1,0 +1,25 @@
+if [[ ! -e dotfiles.config ]]
+then echo "Cannot find dotfiles.config, abort."
+    return
+fi
+
+mkdir -p update_temp
+mv dotfiles.config update_temp
+cd update_temp
+echo "Now start to download the lastest version from github..."
+wget https://github.com/huangzonghao/dotfiles/archive/master.zip > /dev/null
+echo "Download finished, start to unzip..."
+unzip master.zip > /dev/null
+echo "Unzip done, start to run the script..."
+cd ..
+for i in *
+do
+    if [[ $i != "update_temp" ]] 
+    then rm -rf $i
+    fi
+done
+mv ./update_temp/dotfiles-master/* .
+mv ./update_temp/dotfiles.config .
+. ./run < dotfiles.config > /dev/null
+rm -rf update_temp
+echo "Now the dotfiles are the lastest version! All process finished!"

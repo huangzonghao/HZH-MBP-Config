@@ -125,6 +125,9 @@ func_ISOLATION(){
 	mkdir -p TEMP_FOLDER
 	# first copy the tools
 	mv run list_general bashrc_common bashrc_colors TEMP_FOLDER/
+    if [[ -e dotfiles.config ]]
+    then mv dotfiles.config update TEMP_FOLDER
+    fi
 
 	if [ $1 = "mac" ]
 	then
@@ -157,6 +160,20 @@ func_RESTORE(){
 	cd ..
 	rm -rf dotfiles
 	rm -rf .dotfiles_backup
+}
+
+func_CREATECONFIGFILE(){
+    if [ -e dotfiles.config ]
+        then return
+    fi
+    touch dotfiles.config
+    echo "i" >> dotfiles.config
+    echo $USER_OPTION_OS >> dotfiles.config
+    echo $USER_OPTION_Ver >> dotfiles.config
+    echo $USER_OPTION_BASHNAME >> dotfiles.config
+    echo "n" >> dotfiles.config
+    echo "y" >> dotfiles.config
+    return
 }
 
 STATUS=0
@@ -263,6 +280,9 @@ then
 	read USER_OPTION
 	if [[ $USER_OPTION = "y" ]]
 	then
+        if [[ ! -e dotfiles.config ]]
+            then func_CREATECONFIGFILE
+        fi
 		func_ISOLATION $USER_OPTION_OS $USER_OPTION_Ver
 	fi
 fi
