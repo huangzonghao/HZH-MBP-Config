@@ -11,6 +11,10 @@ set ttyfast "for fast terminal... but what the hell is this...
 set scrolloff=5
 set lazyredraw
 
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+
 "set list
 "set listchars=tab:\ \ ,trail:.
 "set autoread
@@ -20,10 +24,9 @@ set more    " Use more prompt
 " Note the settings for specific file type should go to ftplugin
 set backspace=2      "because of the stupid vim7.4
 set showcmd
-"set mouse=a
 set tabstop=4
 set shiftwidth=4        "this sets 4 spaces for each indention
-"set expandtab
+set expandtab
 
 
 
@@ -112,11 +115,31 @@ set wildignore+=*.bmp,*.gif,*.jpg,*.png
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+"only enable it when we want
+let g:syntastic_mode_map = {"mode": "passive" }
+function! ToggleSyntasticErrorsPanel()
+    let old_last_winnr = winnr('$')
+    lclose
+    if old_last_winnr == winnr('$')
+        " Nothing was closed, open syntastic error location panel
+        Errors
+    endif
+endfunction
+"toggle errors
+nmap <leader>te :call ToggleSyntasticErrorsPanel()<CR>
+nmap <leader>ts :call SyntasticToggleMode()<CR>
+"a sigle check
+nmap <leader>sc :call SyntasticCheck()<CR>
+nmap <leader>sr :call SyntasticReset()<CR>
+
+
+
+"powerline
+let g:Powerline_colorscheme = 'solarized256'
 
 
 " the pathogen disable list
@@ -145,5 +168,7 @@ function! ToggleMouse()
        " enable mouse everywhere
         set mouse=a
     endif
-endfunc
+endfunction
 nmap <leader>tm :call ToggleMouse()<CR>
+
+
