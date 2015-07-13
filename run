@@ -36,7 +36,7 @@ func_BACKUP(){
 
 # para: default_bash_name bashname bashrc
 func_BASHNAME_helper(){
-	sed -i '' -e  "s/$1/$2/g"  "$3"
+	sed -i  -e  "s/$1/$2/g"  "$3"
 	#rm *.sed_bak
 }
 # para: os ver bashname
@@ -67,6 +67,7 @@ func_BASHNAME(){
 
 
 # para: list
+#if there exists some non-general files, save them
 func_LINK_helper(){
 	while read -r line
 	do
@@ -75,7 +76,10 @@ func_LINK_helper(){
 				if [ ! -e "../dotfiles_backup" ]
 					then mkdir ../dotfiles_backup
 				fi
-				cp -a ../.$line ../dotfiles_backup/$line && rm -rf ../.$line || echo "Something went wrong while copying."
+                #{ [ -e "../dotfiles_backup/$line" ] ||  cp -a ../.$line ../dotfiles_backup/$line } && rm -rf ../.$line || echo "Something went wrong while copying."
+
+                 [ -e "../dotfiles_backup/$line" ] ||  cp -a ../.$line ../dotfiles_backup/$line
+                 rm -rf ../.$line
 		fi
 		ln -s ./dotfiles/$line ../.$line
 	done < $1
