@@ -234,7 +234,7 @@ if g:EasyMotion_do_mapping == 1
         exec 'map ' . g:EasyMotion_leader_key . ' <Plug>(easymotion-prefix)'
     else
         if !hasmapto('<Plug>(easymotion-prefix)')
-            map <Leader><Leader> <Plug>(easymotion-prefix)
+            map m <Plug>(easymotion-prefix)
         endif
     endif
     "}}}
