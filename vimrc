@@ -16,8 +16,6 @@ set lazyredraw
 "set autoread
 
 set more    " Use more prompt
-
-
 "+++++++++++ Global Behavior Settings ++++++++++
 " Note the settings for specific file type should go to ftplugin
 set backspace=2      "because of the stupid vim7.4
@@ -43,10 +41,13 @@ nmap <leader>w :qa<CR>
 nmap <leader>WW :q!<CR>
 nmap <leader>Wa :qa!<CR>
 nmap <leader>th :noh<CR>
-nmap <C-H> <C-W>h
-nmap <C-L> <C-W>l
-nmap <C-J> <C-W>j
-nmap <C-K> <C-W>k
+nmap <leader>au :let g:autoreadargs={'autoread':1}<CR>:execute WatchForChanges("*",autoreadargs)<CR>
+nmap th <C-W>h
+nmap tn <C-W>l
+nmap tj <C-W>j
+nmap tk <C-W>k
+nmap <C-L> gt
+nmap <C-H> gT
 nmap <F1> :up<CR>
 "nnoremap <F6> :e<CR>
 "nnoremap <C-j> :m .+1<CR>==
@@ -107,9 +108,19 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=*.a,*.o
 set wildignore+=*.bmp,*.gif,*.jpg,*.png
 
+"synstastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
 " the pathogen disable list
-let g:pathogen_disabled = ['clang_complete', 'syntastic']
+let g:pathogen_disabled = ['clang_complete']
 "let g:clang_library_path='/Users/huangzonghao/.vim/bundle/clang_complete/plugin'
 
 " this is the configuration of the libclang for the clang_complete
