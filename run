@@ -78,7 +78,7 @@ func_LINK_helper(){
 				fi
                 #{ [ -e "../dotfiles_backup/$line" ] ||  cp -a ../.$line ../dotfiles_backup/$line } && rm -rf ../.$line || echo "Something went wrong while copying."
 
-                 [ -e "../dotfiles_backup/$line" ] ||  cp -a ../.$line ../dotfiles_backup/$line
+                 [[ -e "../dotfiles_backup/$line" || -h "../dotfiles_backup/$line" ]] ||  cp -a ../.$line ../dotfiles_backup/$line
                  rm -rf ../.$line
 		fi
 		ln -s ./dotfiles/$line ../.$line
