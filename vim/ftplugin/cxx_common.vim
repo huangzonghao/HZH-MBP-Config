@@ -9,10 +9,10 @@ nnoremap <silent> <F5> :%!astyle --style=linux<CR>
 call IMAP('INT', "size_t","")
 call IMAP('TAG', "/************ <++> ************/","")
 "shortcut for true color
-call IMAP('TCLR', '\e[38;5;<++>m<++>',"")
+call IMAP('TCR', '\e[38;5;<++>m<++>',"")
 "shortcut for the background color
-call IMAP('BCLR', '\e[48;5;<++>m<++>',"")
+call IMAP('BCR', '\e[48;5;<++>m<++>',"")
 "shortcut for the ancii color
-call IMAP('ACLR', '\e[<++>m<++>',"")
+call IMAP('ACR', '\e[<++>m<++>',"")
 
 
