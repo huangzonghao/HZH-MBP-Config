@@ -10,6 +10,7 @@ set cursorline
 set ttyfast "for fast terminal... but what the hell is this...
 set scrolloff=5
 set lazyredraw
+set hlsearch
 
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline

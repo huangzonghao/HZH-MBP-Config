@@ -2380,7 +2380,7 @@ endfunction
 function s:Left(...)
     let params = a:0 ? a:1 : {}
 
-    let delim = has_key(params, 'alt') ? b:NERDCommenterDelims['leftAlt'] : b:NERDCommenterDelims['left'] 
+    let delim = has_key(params, 'alt') ? b:NERDCommenterDelims['leftAlt'] : b:NERDCommenterDelims['left']
 
     if delim == ''
         return ''
@@ -2559,7 +2559,7 @@ endfunction
 function s:Right(...)
     let params = a:0 ? a:1 : {}
 
-    let delim = has_key(params, 'alt') ? b:NERDCommenterDelims['rightAlt'] : b:NERDCommenterDelims['right'] 
+    let delim = has_key(params, 'alt') ? b:NERDCommenterDelims['rightAlt'] : b:NERDCommenterDelims['right']
 
     if delim == ''
         return ''
@@ -2749,8 +2749,9 @@ function! s:CreateMaps(modes, target, desc, combo)
         endif
     endfor
 endfunction
-call s:CreateMaps('nx', 'Comment',    'Comment', 'cc')
-call s:CreateMaps('nx', 'Toggle',     'Toggle', 'c<space>')
+"call s:CreateMaps('nx', 'Comment',    'Comment', 'cc')
+"call s:CreateMaps('nx', 'Toggle',     'Toggle', 'c<space>')
+call s:CreateMaps('nx', 'Toggle',     'Toggle', 'cc')
 call s:CreateMaps('nx', 'Minimal',    'Minimal', 'cm')
 call s:CreateMaps('nx', 'Nested',     'Nested', 'cn')
 call s:CreateMaps('n',  'ToEOL',      'To EOL', 'c$')
