@@ -35,6 +35,8 @@ set expandtab
 "+++++++++++ Global Keymappings ++++++++++
 let mapleader=","
 imap <F1> <Esc>:up<CR>
+"make sure to trigger the insertleave autocommand with <c-c>"
+inoremap <C-C> <ESC>
 imap <C-V> <S-Insert>
 imap <C-L> <space><space><space><space>
 
