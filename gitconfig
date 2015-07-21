@@ -1,6 +1,6 @@
 [user]
 	name = HuangZonghao
-	email = huangzonghao@yeah.net
+	email = coding@huangzonghao.com
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -33,7 +33,7 @@
 	excludesfile = /Users/huangzonghao/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
