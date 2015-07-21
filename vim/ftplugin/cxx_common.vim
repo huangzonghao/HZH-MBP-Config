@@ -1,6 +1,8 @@
 autocmd BufWritePost *.cpp :TlistUpdate
 autocmd BufWritePost *.cu :TlistUpdate
 
+set cc=80
+
 nnoremap <silent> <f8> :update<CR> :!make<CR>
 nnoremap <silent> <f7> :!./executable<CR>
 "add the autoformater for c --Wed May 13 12:42:36 HKT 2015

@@ -11,14 +11,18 @@ set ttyfast "for fast terminal... but what the hell is this...
 set scrolloff=5
 set lazyredraw
 set hlsearch
+set incsearch     " show search matches as you type
+set hidden    "then we don't have to save the file before shifting to
+set nowrap        " don't wrap lines
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
-"set list
-"set listchars=tab:\ \ ,trail:.
-"set autoread
+set list
+set listchars=tab:>.,trail:~,extends:#,nbsp:.
 
 set more    " Use more prompt
 "+++++++++++ Global Behavior Settings ++++++++++
@@ -27,34 +31,40 @@ set backspace=2      "because of the stupid vim7.4
 set showcmd
 set tabstop=4
 set shiftwidth=4        "this sets 4 spaces for each indention
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set expandtab
+set softtabstop=4 "delete 4 spaces at a time
+set pastetoggle=<F2>
 
 
 
 
 "+++++++++++ Global Keymappings ++++++++++
 let mapleader=","
-imap <F1> <Esc>:up<CR>
+inoremap <F1> <Esc>:up<CR>
 "make sure to trigger the insertleave autocommand with <c-c>"
 inoremap <C-C> <ESC>
-imap <C-V> <S-Insert>
-imap <C-L> <space><space><space><space>
+inoremap <C-V> <S-Insert>
+inoremap <C-L> <space><space><space><space>
+inoremap <C-B> <ESC>d0i
 
-nmap <leader>sa :up<CR>
-nmap <leader>sw :wq<CR>
-nmap <leader><leader> :q<CR>
-nmap <leader>w :qa<CR>
-nmap <leader>WW :q!<CR>
-nmap <leader>Wa :qa!<CR>
-nmap <leader>th :noh<CR>
-nmap <leader>au :let g:autoreadargs={'autoread':1}<CR>:execute WatchForChanges("*",autoreadargs)<CR>
-nmap th <C-W>h
-nmap tn <C-W>l
-nmap tj <C-W>j
-nmap tk <C-W>k
-nmap <C-L> gt
-nmap <C-H> gT
-nmap <F1> :up<CR>
+nnoremap <leader>sa :up<CR>
+nnoremap <leader>sw :wq<CR>
+nnoremap <leader><leader> :q<CR>
+nnoremap <leader>w :qa<CR>
+nnoremap <leader>WW :q!<CR>
+nnoremap <leader>Wa :qa!<CR>
+nnoremap <leader>th :noh<CR>
+nnoremap <leader>au :let g:autoreadargs={'autoread':1}<CR>:execute WatchForChanges("*",autoreadargs)<CR>
+nnoremap <leader>rt :retab<CR>
+nnoremap th <C-W>h
+nnoremap tn <C-W>l
+nnoremap tj <C-W>j
+nnoremap tk <C-W>k
+nnoremap <C-L> gt
+nnoremap <C-H> gT
+nnoremap <F1> :up<CR>
+nnoremap ; :
 "nnoremap <F6> :e<CR>
 "nnoremap <C-j> :m .+1<CR>==
 "nnoremap <C-k> :m .-2<CR>==
@@ -66,8 +76,11 @@ nnoremap W 5w
 nnoremap B 5b
 nnoremap <F9> :!open .<CR><CR>
 
-vmap j gj
-vmap k gk
+vnoremap j gj
+vnoremap k gk
+
+"So now do w!! once forget to sudo before editing
+cmap w!! w !sudo tee % >/dev/null
 "+++++++++++++++++++++++++++++++++++++++++
 
 
@@ -84,7 +97,7 @@ autocmd FileType html,css EmmetInstall
 
 "++++++++++ Some Functions +++++++++
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 
@@ -94,14 +107,14 @@ endif
 let g:Powerline_symbols = 'fancy'
 
 "the tagbar
-nmap <leader>tb :TagbarToggle<CR>
+nnoremap <leader>tb :TagbarToggle<CR>
 "let g:tagbar_left=1
 
 "the nerdtree
-nmap <leader>tt :NERDTreeToggle<CR>
+nnoremap <leader>tt :NERDTreeToggle<CR>
 
 "load the full environment
-nmap <leader>. :NERDTreeToggle<CR><c-w>l:TagbarToggle<CR>
+nnoremap <leader>. :NERDTreeToggle<CR><c-w>l:TagbarToggle<CR>
 
 
 "So the toggles: bar: tb; tree: tt; mouse: tm;
@@ -133,27 +146,19 @@ function! ToggleSyntasticErrorsPanel()
     endif
 endfunction
 "toggle errors
-nmap <leader>te :call ToggleSyntasticErrorsPanel()<CR>
-nmap <leader>ts :call SyntasticToggleMode()<CR>
+nnoremap <leader>te :call ToggleSyntasticErrorsPanel()<CR>
+nnoremap <leader>ts :call SyntasticToggleMode()<CR>
 "a sigle check
-nmap <leader>sc :call SyntasticCheck()<CR>
-nmap <leader>sr :call SyntasticReset()<CR>
-
-
+nnoremap <leader>sc :call SyntasticCheck()<CR>
+nnoremap <leader>sr :call SyntasticReset()<CR>
 
 "powerline
 let g:Powerline_colorscheme = 'solarized256'
 
 
 " the pathogen disable list
-let g:pathogen_disabled = ['clang_complete']
-"let g:clang_library_path='/Users/huangzonghao/.vim/bundle/clang_complete/plugin'
+let g:pathogen_disabled = ['']
 
-" this is the configuration of the libclang for the clang_complete
-"let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
-"if isdirectory(s:clang_library_path)
-		"let g:clang_library_path=s:clang_library_path
-"endif
 
 " the vim pathogen package manager
 " Should be called at the end to make sure all the modification done in this
@@ -168,10 +173,10 @@ function! ToggleMouse()
         " disable mouse
         set mouse=
     else
-       " enable mouse everywhere
+        " enable mouse everywhere
         set mouse=a
     endif
 endfunction
-nmap <leader>tm :call ToggleMouse()<CR>
+nnoremap <leader>tm :call ToggleMouse()<CR>
 
 
