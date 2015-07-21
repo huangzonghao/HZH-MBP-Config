@@ -46,7 +46,9 @@ inoremap <F1> <Esc>:up<CR>
 inoremap <C-C> <ESC>
 inoremap <C-V> <S-Insert>
 inoremap <C-L> <space><space><space><space>
-inoremap <C-B> <ESC>d0i
+"simulate the behavior of <C-U> which has been disabled by YouCompleteMe
+"inoremap <C-B> <ESC>d0xi<C-U>
+inoremap <leader>id <ESC>o<ESC>:. !date<CR>i<BS><ESC>A
 
 nnoremap <leader>sa :up<CR>
 nnoremap <leader>sw :wq<CR>
@@ -75,6 +77,7 @@ nnoremap K 5gk
 nnoremap W 5w
 nnoremap B 5b
 nnoremap <F9> :!open .<CR><CR>
+"nnoremap <leader>id o<ESC>:. !date<CR>i<BS><ESC>A
 
 vnoremap j gj
 vnoremap k gk
@@ -179,4 +182,19 @@ function! ToggleMouse()
 endfunction
 nnoremap <leader>tm :call ToggleMouse()<CR>
 
-
+function! DeleteLine()
+    " check the current cursor position
+    if col('.') == 1
+        exe "normal! i\<BS>\<ESC>"
+        if col(".") == col("$")-1
+            startinsert!
+        else
+            normal! l
+            startinsert
+        endif
+    else
+        normal! d0x
+        startinsert
+    endif
+endfunction
+inoremap <C-B> <ESC>:call DeleteLine()<CR>
