@@ -8,139 +8,170 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  *-----------------------------------------------------------------------------*/
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.function ==
-/* 
- * ===  FUNCTION  ======================================================================
+/*
+ * ===  FUNCTION  ==============================================================
  *         Name:  |?FUNCTION_NAME|
  *  Description:  <CURSOR>
- * =====================================================================================
+ * =============================================================================
  */
-$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.method ==
 /*
- *--------------------------------------------------------------------------------------
+ *------------------------------------------------------------------------------
  *       Class:  |?CLASSNAME|
  *      Method:  |?CLASSNAME| :: |?METHODNAME|
  * Description:  <CURSOR>
- *--------------------------------------------------------------------------------------
+ *------------------------------------------------------------------------------
  */
-$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.class ==
 /*
- * =====================================================================================
+ * =============================================================================
  *        Class:  |?CLASSNAME|
  *  Description:  <CURSOR>
- * =====================================================================================
+ * =============================================================================
  */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-description == start ==
+$/*
+$ * =============================================================================
+$ *
+$ *       Filename:  |FILENAME|
+$ *
+$ *    Description:  <CURSOR>
+$ *
+$ *        Version:  1.0
+$ *        Created:  |DATE| |TIME|
+$ *       Revision:  none
+$ *       Compiler:  gcc
+$ *
+$ *         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
+$ *   Organization:  |ORGANIZATION|
+$ *
+$ * =============================================================================
+$ */
+$#include <stdlib.h>
 /*
- * =====================================================================================
+ * =============================================================================
  *
  *       Filename:  |FILENAME|
  *
  *    Description:  <CURSOR>
  *
- *        Version:  1.0
- *        Created:  |DATE| |TIME|
- *       Revision:  none
- *       Compiler:  gcc
+ *        Created:  |DATE|
+ *       Modified:  |DATE|
  *
- *         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
- *   Organization:  |ORGANIZATION|
+ *         Author:  |AUTHOR|
+ *          Email:  |EMAIL|
  *
- * =====================================================================================
+ * =============================================================================
  */
 #include <stdlib.h>
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-description-header == start ==
+$/*
+$ * =============================================================================
+$ *
+$ *       Filename:  |FILENAME|
+$ *
+$ *    Description:  <CURSOR>
+$ *
+$ *        Version:  1.0
+$ *        Created:  |DATE| |TIME|
+$ *       Revision:  none
+$ *       Compiler:  gcc
+$ *
+$ *         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
+$ *   Organization:  |ORGANIZATION|
+$ *
+$ * =============================================================================
+$ */
 /*
- * =====================================================================================
+ * =============================================================================
  *
  *       Filename:  |FILENAME|
  *
  *    Description:  <CURSOR>
  *
- *        Version:  1.0
- *        Created:  |DATE| |TIME|
- *       Revision:  none
- *       Compiler:  gcc
+ *        Created:  |DATE|
+ *       Modified:  |DATE|
  *
- *         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
- *   Organization:  |ORGANIZATION|
+ *         Author:  |AUTHOR|
+ *          Email:  |EMAIL|
  *
- * =====================================================================================
+ * =============================================================================
  */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-header-includes  == 
-/* #####   HEADER FILE INCLUDES   ################################################### */
+== comment.file-section-cpp-header-includes  ==
+/* #####   HEADER FILE INCLUDES   ############################################ */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-macros  == 
-/* #####   MACROS  -  LOCAL TO THIS SOURCE FILE   ################################### */
+== comment.file-section-cpp-macros  ==
+/* #####   MACROS  -  LOCAL TO THIS SOURCE FILE   ############################ */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-typedefs  == 
-/* #####   TYPE DEFINITIONS  -  LOCAL TO THIS SOURCE FILE   ######################### */
+== comment.file-section-cpp-typedefs  ==
+/* #####   TYPE DEFINITIONS  -  LOCAL TO THIS SOURCE FILE   ################## */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-data-types  == 
-/* #####   DATA TYPES  -  LOCAL TO THIS SOURCE FILE   ############################### */
+== comment.file-section-cpp-data-types  ==
+/* #####   DATA TYPES  -  LOCAL TO THIS SOURCE FILE   ######################## */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-class-defs  == 
-/* #####   CLASS DEFINITIONS  -  LOCAL TO THIS SOURCE FILE   ######################## */
+== comment.file-section-cpp-class-defs  ==
+/* #####   CLASS DEFINITIONS  -  LOCAL TO THIS SOURCE FILE   ################# */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-local-variables  == 
-/* #####   VARIABLES  -  LOCAL TO THIS SOURCE FILE   ################################ */
+== comment.file-section-cpp-local-variables  ==
+/* #####   VARIABLES  -  LOCAL TO THIS SOURCE FILE   ######################### */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-prototypes  == 
-/* #####   PROTOTYPES  -  LOCAL TO THIS SOURCE FILE   ############################### */
+== comment.file-section-cpp-prototypes  ==
+/* #####   PROTOTYPES  -  LOCAL TO THIS SOURCE FILE   ######################## */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-function-defs-exported  == 
-/* #####   FUNCTION DEFINITIONS  -  EXPORTED FUNCTIONS   ############################ */
+== comment.file-section-cpp-function-defs-exported  ==
+/* #####   FUNCTION DEFINITIONS  -  EXPORTED FUNCTIONS   ##################### */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-function-defs-local  == 
-/* #####   FUNCTION DEFINITIONS  -  LOCAL TO THIS SOURCE FILE   ##################### */
+== comment.file-section-cpp-function-defs-local  ==
+/* #####   FUNCTION DEFINITIONS  -  LOCAL TO THIS SOURCE FILE   ############## */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-class-implementations-exported  == 
-/* #####   CLASS IMPLEMENTATIONS  -  EXPORTED CLASSES   ############################# */
+== comment.file-section-cpp-class-implementations-exported  ==
+/* #####   CLASS IMPLEMENTATIONS  -  EXPORTED CLASSES   ###################### */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-cpp-class-implementations-local  == 
-/* #####   CLASS IMPLEMENTATIONS  -  LOCAL CLASSES   ################################ */
+== comment.file-section-cpp-class-implementations-local  ==
+/* #####   CLASS IMPLEMENTATIONS  -  LOCAL CLASSES   ######################### */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-section-hpp-header-includes  == 
-/* #####   HEADER FILE INCLUDES   ################################################### */
+== comment.file-section-hpp-header-includes  ==
+/* #####   HEADER FILE INCLUDES   ############################################ */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-section-hpp-macros  ==
-/* #####   EXPORTED MACROS   ######################################################## */
+/* #####   EXPORTED MACROS   ################################################# */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-section-hpp-exported-typedefs  ==
-/* #####   EXPORTED TYPE DEFINITIONS   ############################################## */
+/* #####   EXPORTED TYPE DEFINITIONS   ####################################### */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-section-hpp-exported-data-types  ==
-/* #####   EXPORTED DATA TYPES   #################################################### */
+/* #####   EXPORTED DATA TYPES   ############################################# */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-section-hpp-exported-class-defs  ==
-/* #####   EXPORTED CLASS DEFINITIONS   ############################################# */
+/* #####   EXPORTED CLASS DEFINITIONS   ###################################### */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-section-hpp-exported-variables  ==
-/* #####   EXPORTED VARIABLES   ##################################################### */
+/* #####   EXPORTED VARIABLES   ############################################## */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-section-hpp-exported-function-declarations  ==
-/* #####   EXPORTED FUNCTION DECLARATIONS   ######################################### */
+/* #####   EXPORTED FUNCTION DECLARATIONS   ################################## */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.keyword-bug == append ==
@@ -148,7 +179,9 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.keyword-compiler == append ==
  /* :COMPILER:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-todo == append ==
- /* :TODO:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
+ /* :TODO:|DATE| |TIME|:|AUTHORREF|:
+  * <CURSOR>
+  */
 == comment.keyword-tricky == append ==
  /* :TRICKY:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-warning == append ==
@@ -177,3 +210,30 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.special-constant-type-is-unsigned-long == append ==
  /* constant type is unsigned long */<CURSOR>
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== comment.kaiguang  == start ==
+/* =============================================================================
+ *
+ *                                _ooOoo_
+ *                               o8888888o
+ *                               88" . "88
+ *                               (| -_- |)
+ *                               O\  =  /O
+ *                            ____/`---'\____
+ *                          .'  \\|     |//  `.
+ *                         /  \\|||  :  |||//  \
+ *                        /  _||||| -:- |||||-  \
+ *                        |   | \\\  -  /// |   |
+ *                        | \_|  ''\---/''  |   |
+ *                        \  .-\__  `-`  ___/-. /
+ *                      ___`. .'  /--.--\  `. . __
+ *                   ."" '<  `.___\_<|>_/___.'  >'"".
+ *                  | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+ *                  \  \ `-.   \_ __\ /__ _/   .-` /  /
+ *             ======`-.____`-.___\_____/___.-`____.-'======
+ *                                `=---='
+ *             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *                      佛祖保佑       永无漏洞
+ *                      godbless      no bugs
+ *
+ * =============================================================================
+ */

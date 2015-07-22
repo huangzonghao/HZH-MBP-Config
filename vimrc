@@ -1,4 +1,5 @@
 " +++++++++++ Environment Settings ++++++++++
+let g:C_FormatDate = '%a %b %d, %y'
 syntax on
 filetype on
 filetype plugin on
@@ -25,6 +26,7 @@ set list
 set listchars=tab:>.,trail:~,extends:#,nbsp:.
 
 set more    " Use more prompt
+
 "+++++++++++ Global Behavior Settings ++++++++++
 " Note the settings for specific file type should go to ftplugin
 set backspace=2      "because of the stupid vim7.4
@@ -48,7 +50,9 @@ inoremap <C-V> <S-Insert>
 inoremap <C-L> <space><space><space><space>
 "simulate the behavior of <C-U> which has been disabled by YouCompleteMe
 "inoremap <C-B> <ESC>d0xi<C-U>
-inoremap <leader>id <ESC>o<ESC>:. !date<CR>i<BS><ESC>A
+"inoremap <leader>id <ESC>o<ESC>:. !date<CR>i<BS><ESC>A
+" the function is provide by CVim
+inoremap <leader>id <ESC>:call C_InsertDateAndTime('d')<CR>a
 
 nnoremap <leader>sa :up<CR>
 nnoremap <leader>sw :wq<CR>
@@ -158,6 +162,11 @@ nnoremap <leader>sr :call SyntasticReset()<CR>
 "powerline
 let g:Powerline_colorscheme = 'solarized256'
 
+
+" CVim time format
+" for the settings of the date, check man strftime
+let g:C_FormatDate            = '%c'
+let g:C_FormatTime            = '%H:%M'
 
 " the pathogen disable list
 let g:pathogen_disabled = ['']

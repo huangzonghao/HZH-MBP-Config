@@ -67,7 +67,7 @@ if	s:MSWIN
   " ==========  MS Windows  ======================================================
 	"
 	" change '\' to '/' to avoid interpretation as escape character
-	if match(	substitute( expand("<sfile>"), '\', '/', 'g' ), 
+	if match(	substitute( expand("<sfile>"), '\', '/', 'g' ),
 				\		substitute( expand("$HOME"),   '\', '/', 'g' ) ) == 0
 		"
 		" USER INSTALLATION ASSUMED
@@ -303,7 +303,7 @@ let s:C_ForTypes     = [
     \ 'short'                 ,
     \ 'short int'             ,
     \ 'size_t'                ,
-    \ 'unsigned'              , 
+    \ 'unsigned'              ,
     \ 'unsigned char'         ,
     \ 'unsigned int'          ,
     \ 'unsigned long'         ,
@@ -335,7 +335,7 @@ let s:C_ForTypes_Check_Order     = [
     \ 'unsigned'              ,
     \ ]
 
-let s:MsgInsNotAvail	= "insertion not available for a fold" 
+let s:MsgInsNotAvail	= "insertion not available for a fold"
 let s:MenuRun         = s:C_Root.'&Run'
 
 "------------------------------------------------------------------------------
@@ -1922,7 +1922,7 @@ endfunction    " ----------  end of function C_Compile ----------
 "===  FUNCTION  ================================================================
 "          NAME:  C_CheckForMain
 "   DESCRIPTION:  check if current buffer contains a main function
-"    PARAMETERS:  
+"    PARAMETERS:
 "       RETURNS:  0 : no main function
 "===============================================================================
 function! C_CheckForMain ()
@@ -2623,7 +2623,7 @@ function! C_Help( type )
 	endif
 	setlocal	modifiable
 	"
-	if a:type == 'm' 
+	if a:type == 'm'
 		"
 		" Is there more than one manual ?
 		"
@@ -2639,7 +2639,7 @@ function! C_Help( type )
 		" Select manuals where the name exactly matches
 		"
 		for line in catalogs
-			if line =~ '^'.item.'\s\+(' 
+			if line =~ '^'.item.'\s\+('
 				let	itempart	= split( line, '\s\+' )
 				let	catalog		= itempart[1][1:-2]
 				if match( catalog, '.p$' ) == -1
@@ -2779,13 +2779,13 @@ function! C_RereadTemplates ( msg )
 				echomsg "Please set your personal details in file '".s:C_LocalTemplateFile."'."
 			endif
 		else
-			let template	= [ '|AUTHOR|    = YOUR NAME', 
+			let template	= [ '|AUTHOR|    = YOUR NAME',
 						\						'|COPYRIGHT| = Copyright (c) |YEAR|, |AUTHOR|'
 						\		]
 			if finddir( s:C_LocalTemplateDir ) == ''
 				" try to create a local template directory
 				if exists("*mkdir")
-					try 
+					try
 						call mkdir( s:C_LocalTemplateDir, "p" )
 						" write a default local template file
 						call writefile( template, s:C_LocalTemplateFile )
@@ -2806,7 +2806,7 @@ function! C_RereadTemplates ( msg )
 			call C_ReadTemplates( s:C_LocalTemplateFile )
 			let	messsage	= "Templates read from '".s:C_LocalTemplateFile."'"
 		else
-			echomsg "Local template file '".s:C_LocalTemplateFile."' not readable." 
+			echomsg "Local template file '".s:C_LocalTemplateFile."' not readable."
 			return
 		endif
 		"
@@ -2852,7 +2852,7 @@ let	s:style			= 'default'
 
 function! C_CheckAndRereadTemplates ()
 	if s:C_TemplatesLoaded == 'no'
-		call C_RereadTemplates('no')        
+		call C_RereadTemplates('no')
 		let s:C_TemplatesLoaded	= 'yes'
 	endif
 endfunction    " ----------  end of function C_CheckAndRereadTemplates  ----------
@@ -2884,7 +2884,7 @@ function! C_ReadTemplates ( templatefile )
 			"-------------------------------------------------------------------------------
       "
       let string  = matchlist( line, s:C_TemplateIf )
-      if !empty(string) 
+      if !empty(string)
 				if !has_key( s:C_Template, string[1] )
 					" new s:style
 					let	s:style	= string[1]
@@ -2991,7 +2991,7 @@ endfunction    " ----------  end of function C_StyleList  ----------
 
 "------------------------------------------------------------------------------
 " C_OpenFold     {{{1
-" Open fold and go to the first or last line of this fold. 
+" Open fold and go to the first or last line of this fold.
 "------------------------------------------------------------------------------
 function! C_OpenFold ( mode )
 	if foldclosed(".") >= 0
@@ -3017,7 +3017,7 @@ endfunction    " ----------  end of function C_OpenFold  ----------
 function! C_InsertTemplate ( key, ... )
 
 	if s:C_TemplatesLoaded == 'no'
-		call C_RereadTemplates('no')        
+		call C_RereadTemplates('no')
 		let s:C_TemplatesLoaded	= 'yes'
 	endif
 
@@ -3028,7 +3028,7 @@ function! C_InsertTemplate ( key, ... )
 		return
 	endif
 
-	if &foldenable 
+	if &foldenable
 		let	foldmethod_save	= &foldmethod
 		set foldmethod=manual
 	endif
@@ -3212,7 +3212,7 @@ function! C_InsertTemplate ( key, ... )
 	" define a pattern to highlight
 	call C_HighlightJumpTargets ()
 
-	if &foldenable 
+	if &foldenable
 		" restore folding method
 		exe "set foldmethod=".foldmethod_save
 		normal zv
@@ -3238,7 +3238,7 @@ function! C_JumpCtrlJ ()
 		" remove the target
 		call setline( match, substitute( getline('.'), s:C_TemplateJumpTarget1.'\|'.s:C_TemplateJumpTarget2, '', '' ) )
 	else
-		" try to jump behind parenthesis or strings in the current line 
+		" try to jump behind parenthesis or strings in the current line
 		if match( getline(".")[col(".") - 1], "[\]})\"'`]"  ) != 0
 			call search( "[\]})\"'`]", '', line(".") )
 		endif
@@ -3263,9 +3263,9 @@ function! C_ExpandUserMacros ( key )
   "  renew the predefined macros and expand them
 	"  can be replaced, with e.g. |?DATE|
   "------------------------------------------------------------------------------
-	let	s:C_Macro['|BASENAME|']	= toupper(expand("%:t:r"))
+  let	s:C_Macro['|BASENAME|']	= toupper(expand("%:t:r"))
   let s:C_Macro['|DATE|']  		= C_DateAndTime('d')
-  let s:C_Macro['|FILENAME|'] = expand("%:t")
+  let s:C_Macro['|FILENAME|']   = expand("%:t")
   let s:C_Macro['|PATH|']  		= expand("%:p:h")
   let s:C_Macro['|SUFFIX|'] 	= expand("%:e")
   let s:C_Macro['|TIME|']  		= C_DateAndTime('t')
@@ -3464,7 +3464,7 @@ function! C_InsertTemplateWrapper ()
 	"
 	call C_CheckAndRereadTemplates()
 	if isdirectory(expand('%:p:h'))
-		if index( s:C_SourceCodeExtensionsList, expand('%:e') ) >= 0 
+		if index( s:C_SourceCodeExtensionsList, expand('%:e') ) >= 0
 			call C_InsertTemplate("comment.file-description")
 		else
 			call C_InsertTemplate("comment.file-description-header")
@@ -3477,18 +3477,18 @@ endfunction    " ----------  end of function C_InsertTemplateWrapper  ----------
 "-------------------------------------------------------------------------------
 "   Comment : C/C++ File Sections             {{{1
 "-------------------------------------------------------------------------------
-let s:CFileSection	= { 
-	\ "Header\ File\ Includes" : "file-section-cpp-header-includes"               , 
-	\ "Local\ Macros"					 : "file-section-cpp-macros"                        , 
-	\ "Local\ Type\ Def\."		 : "file-section-cpp-typedefs"                      , 
-	\ "Local\ Data\ Types"		 : "file-section-cpp-data-types"                    , 
-	\ "Local\ Variables"			 : "file-section-cpp-local-variables"               , 
-	\ "Local\ Prototypes"			 : "file-section-cpp-prototypes"                    , 
-	\ "Exp\.\ Function\ Def\." : "file-section-cpp-function-defs-exported"        , 
-	\ "Local\ Function\ Def\." : "file-section-cpp-function-defs-local"           , 
-	\ "Local\ Class\ Def\."		 : "file-section-cpp-class-defs"                    , 
-	\ "Exp\.\ Class\ Impl\."	 : "file-section-cpp-class-implementations-exported", 
-	\ "Local\ Class\ Impl\."	 : "file-section-cpp-class-implementations-local"   , 
+let s:CFileSection	= {
+	\ "Header\ File\ Includes" : "file-section-cpp-header-includes"               ,
+	\ "Local\ Macros"					 : "file-section-cpp-macros"                        ,
+	\ "Local\ Type\ Def\."		 : "file-section-cpp-typedefs"                      ,
+	\ "Local\ Data\ Types"		 : "file-section-cpp-data-types"                    ,
+	\ "Local\ Variables"			 : "file-section-cpp-local-variables"               ,
+	\ "Local\ Prototypes"			 : "file-section-cpp-prototypes"                    ,
+	\ "Exp\.\ Function\ Def\." : "file-section-cpp-function-defs-exported"        ,
+	\ "Local\ Function\ Def\." : "file-section-cpp-function-defs-local"           ,
+	\ "Local\ Class\ Def\."		 : "file-section-cpp-class-defs"                    ,
+	\ "Exp\.\ Class\ Impl\."	 : "file-section-cpp-class-implementations-exported",
+	\ "Local\ Class\ Impl\."	 : "file-section-cpp-class-implementations-local"   ,
 	\ "All\ sections,\ C"			 : "c",
 	\ "All\ sections,\ C++"		 : "cpp",
 	\ }
@@ -3501,7 +3501,7 @@ function! C_CFileSectionListInsert ( arg )
 	if has_key( s:CFileSection, a:arg )
 		if s:CFileSection[a:arg] == 'c' || s:CFileSection[a:arg] == 'cpp'
 			call C_Comment_C_SectionAll( 'comment.'.s:CFileSection[a:arg] )
-			return 
+			return
 		endif
 		call C_InsertTemplate( 'comment.'.s:CFileSection[a:arg] )
 	else
@@ -3512,7 +3512,7 @@ endfunction    " ----------  end of function C_CFileSectionListInsert  ---------
 "-------------------------------------------------------------------------------
 "   Comment : H File Sections             {{{1
 "-------------------------------------------------------------------------------
-let s:HFileSection	= { 
+let s:HFileSection	= {
 	\	"Header\ File\ Includes"    : "file-section-hpp-header-includes"               ,
 	\	"Exported\ Macros"          : "file-section-hpp-macros"                        ,
 	\	"Exported\ Type\ Def\."     : "file-section-hpp-exported-typedefs"             ,
@@ -3532,7 +3532,7 @@ function! C_HFileSectionListInsert ( arg )
 	if has_key( s:HFileSection, a:arg )
 		if s:HFileSection[a:arg] == 'c' || s:HFileSection[a:arg] == 'cpp'
 			call C_Comment_C_SectionAll( 'comment.'.s:HFileSection[a:arg] )
-			return 
+			return
 		endif
 		call C_InsertTemplate( 'comment.'.s:HFileSection[a:arg] )
 	else
@@ -3543,7 +3543,7 @@ endfunction    " ----------  end of function C_HFileSectionListInsert  ---------
 "-------------------------------------------------------------------------------
 "   Comment : Keyword Comments             {{{1
 "-------------------------------------------------------------------------------
-let s:KeywordComment	= { 
+let s:KeywordComment	= {
 	\	'BUG'          : 'keyword-bug',
 	\	'COMPILER'     : 'keyword-compiler',
 	\	'TODO'         : 'keyword-todo',
@@ -3561,7 +3561,7 @@ function! C_KeywordCommentListInsert ( arg )
 	if has_key( s:KeywordComment, a:arg )
 		if s:KeywordComment[a:arg] == 'c' || s:KeywordComment[a:arg] == 'cpp'
 			call C_Comment_C_SectionAll( 'comment.'.s:KeywordComment[a:arg] )
-			return 
+			return
 		endif
 		call C_InsertTemplate( 'comment.'.s:KeywordComment[a:arg] )
 	else
@@ -3572,7 +3572,7 @@ endfunction    " ----------  end of function C_KeywordCommentListInsert  -------
 "-------------------------------------------------------------------------------
 "   Comment : Special Comments             {{{1
 "-------------------------------------------------------------------------------
-let s:SpecialComment	= { 
+let s:SpecialComment	= {
 	\	'EMPTY'                                    : 'special-empty' ,
 	\	'FALL\ THROUGH'                            : 'special-fall-through' ,
 	\	'IMPL\.\ TYPE\ CONV'                       : 'special-implicit-type-conversion")' ,
@@ -3592,7 +3592,7 @@ function! C_SpecialCommentListInsert ( arg )
 	if has_key( s:SpecialComment, a:arg )
 		if s:SpecialComment[a:arg] == 'c' || s:SpecialComment[a:arg] == 'cpp'
 			call C_Comment_C_SectionAll( 'comment.'.s:SpecialComment[a:arg] )
-			return 
+			return
 		endif
 		call C_InsertTemplate( 'comment.'.s:SpecialComment[a:arg] )
 	else
@@ -3719,7 +3719,7 @@ if has("autocmd")
 	"
 	" DELAYED LOADING OF THE TEMPLATE DEFINITIONS
 	"
-	autocmd BufNewFile,BufRead  *                   
+	autocmd BufNewFile,BufRead  *
 				\	if (&filetype=='cpp' || &filetype=='c') |
 				\	  call C_CreateMenusDelayed()           |
 				\ endif
@@ -3736,7 +3736,7 @@ if has("autocmd")
 				"
 			else
 				"-------------------------------------------------------------------------------
-				" template styles are related to file extensions 
+				" template styles are related to file extensions
 				"-------------------------------------------------------------------------------
 				for [ pattern, stl ] in items( g:C_Styles )
 					exe "autocmd BufNewFile,BufRead,BufEnter ".pattern." call C_Style( '".stl."' )"

@@ -3,14 +3,14 @@
 " Vim filetype plugin file
 "
 "   Language :  C / C++
-"     Plugin :  c.vim 
+"     Plugin :  c.vim
 " Maintainer :  Fritz Mehner <mehner@fh-swf.de>
 "   Revision :  $Id: c.vim,v 1.71 2011/12/27 21:04:33 mehner Exp $
 "
 " ------------------------------------------------------------------------------
 "
 " Only do this when not done yet for this buffer
-" 
+"
 if exists("b:did_C_ftplugin")
   finish
 endif
@@ -27,18 +27,18 @@ endif
 "
 if exists("g:C_MapLeader")
   let maplocalleader  = g:C_MapLeader
-endif    
+endif
 "
 " ---------- C/C++ dictionary -----------------------------------
 " This will enable keyword completion for C and C++
 " using Vim's dictionary feature |i_CTRL-X_CTRL-K|.
 " Set the new dictionaries in front of the existing ones
-" 
+"
 if exists("g:C_Dictionary_File")
   let save=&dictionary
   silent! exe 'setlocal dictionary='.g:C_Dictionary_File
   silent! exe 'setlocal dictionary+='.save
-endif    
+endif
 "
 " ---------- F-key mappings  ------------------------------------
 "
@@ -103,6 +103,7 @@ vnoremap    <buffer>  <silent>  <LocalLeader>co         :call C_CommentToCode()<
  noremap    <buffer>  <silent>  <LocalLeader>ccl        :call C_InsertTemplate("comment.class")<CR>
  noremap    <buffer>  <silent>  <LocalLeader>cfdi       :call C_InsertTemplate("comment.file-description")<CR>
  noremap    <buffer>  <silent>  <LocalLeader>cfdh       :call C_InsertTemplate("comment.file-description-header")<CR>
+ noremap    <buffer>  <silent>  <LocalLeader>ckg        :call C_InsertTemplate("comment.kaiguang")<CR>
 
 inoremap    <buffer>  <silent>  <LocalLeader>cfr   <Esc>:call C_InsertTemplate("comment.frame")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>cfu   <Esc>:call C_InsertTemplate("comment.function")<CR>
@@ -117,7 +118,7 @@ vnoremap    <buffer>  <silent>  <LocalLeader>cd   s<Esc>:call C_InsertDateAndTim
  noremap    <buffer>  <silent>  <LocalLeader>ct    <Esc>:call C_InsertDateAndTime('dt')<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>ct    <Esc>:call C_InsertDateAndTime('dt')<CR>a
 vnoremap    <buffer>  <silent>  <LocalLeader>ct   s<Esc>:call C_InsertDateAndTime('dt')<CR>a
-" 
+"
  noremap    <buffer>  <silent>  <LocalLeader>cx         :call C_CommentToggle( )<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>cx    <Esc>:call C_CommentToggle( )<CR>
 vnoremap    <buffer>  <silent>  <LocalLeader>cx         :call C_CommentToggle( )<CR>
@@ -127,13 +128,15 @@ vnoremap    <buffer>  <silent>  <LocalLeader>cx         :call C_CommentToggle( )
  noremap    <buffer>            <LocalLeader>ccs   <Esc>:CFileSection<Space>
  noremap    <buffer>            <LocalLeader>chs   <Esc>:HFileSection<Space>
  noremap    <buffer>            <LocalLeader>ckc   <Esc>:KeywordComment<Space>
+ noremap    <buffer>            <LocalLeader>ctd   <Esc>:KeywordComment TODO<CR>
  noremap    <buffer>            <LocalLeader>csc   <Esc>:SpecialComment<Space>
 "
 inoremap    <buffer>            <LocalLeader>ccs   <Esc>:CFileSection<Space>
 inoremap    <buffer>            <LocalLeader>chs   <Esc>:HFileSection<Space>
 inoremap    <buffer>            <LocalLeader>ckc   <Esc>:KeywordComment<Space>
+inoremap    <buffer>            <LocalLeader>ctd   <Esc>:KeywordComment TODO<CR>
 inoremap    <buffer>            <LocalLeader>csc   <Esc>:SpecialComment<Space>
-" 
+"
 " ---------- statements menu  ------------------------------------------------
 "
  noremap    <buffer>  <silent>  <LocalLeader>sd         :call C_InsertTemplate("statements.do-while")<CR>
@@ -214,13 +217,14 @@ inoremap    <buffer>  <silent>  <LocalLeader>pu   <Esc>:call C_InsertTemplate("p
  noremap    <buffer>  <silent>  <LocalLeader>pid       :call C_InsertTemplate("preprocessor.ifdef-else-endif")<CR>
  noremap    <buffer>  <silent>  <LocalLeader>pin       :call C_InsertTemplate("preprocessor.ifndef-else-endif")<CR>
  noremap    <buffer>  <silent>  <LocalLeader>pind      :call C_InsertTemplate("preprocessor.ifndef-def-endif")<CR>
+ noremap    <buffer>  <silent>  <LocalLeader>ph        :call C_InsertTemplate("preprocessor.header-protector")<CR>
 
 vnoremap    <buffer>  <silent>  <LocalLeader>pif  <Esc>:call C_InsertTemplate("preprocessor.if-endif", "v")<CR>
 vnoremap    <buffer>  <silent>  <LocalLeader>pie  <Esc>:call C_InsertTemplate("preprocessor.if-else-endif", "v")<CR>
 vnoremap    <buffer>  <silent>  <LocalLeader>pid  <Esc>:call C_InsertTemplate("preprocessor.ifdef-else-endif", "v")<CR>
 vnoremap    <buffer>  <silent>  <LocalLeader>pin  <Esc>:call C_InsertTemplate("preprocessor.ifndef-else-endif", "v")<CR>
 vnoremap    <buffer>  <silent>  <LocalLeader>pind <Esc>:call C_InsertTemplate("preprocessor.ifndef-def-endif", "v")<CR>
-                                     
+
 inoremap    <buffer>  <silent>  <LocalLeader>pif  <Esc>:call C_InsertTemplate("preprocessor.if-endif")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>pie  <Esc>:call C_InsertTemplate("preprocessor.if-else-endif")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>pid  <Esc>:call C_InsertTemplate("preprocessor.ifdef-else-endif")<CR>
@@ -319,7 +323,7 @@ inoremap    <buffer>  <silent>  <LocalLeader>ne    <Esc>:call C_CodeSnippet("e")
  noremap    <buffer>  <silent>  <LocalLeader>np        :call C_ProtoPick("function")<CR>
 vnoremap    <buffer>  <silent>  <LocalLeader>np        :call C_ProtoPick("function")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>np   <Esc>:call C_ProtoPick("function")<CR>
-"                                                                                 
+"
  noremap    <buffer>  <silent>  <LocalLeader>nf        :call C_ProtoPick("function")<CR>
 vnoremap    <buffer>  <silent>  <LocalLeader>nf        :call C_ProtoPick("function")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>nf   <Esc>:call C_ProtoPick("function")<CR>
@@ -446,7 +450,7 @@ imap    <buffer>  <silent>  <LocalLeader>ro    <C-C>:call C_Toggle_Gvim_Xterm()<
 "
 " Abraxas CodeCheck (R)
 "
-if executable("check") 
+if executable("check")
   map    <buffer>  <silent>  <LocalLeader>rk         :call C_CodeCheck()<CR>:call C_HlMessage()<CR>
   map    <buffer>  <silent>  <LocalLeader>rka        :call C_CodeCheckArguments()<CR>
  imap    <buffer>  <silent>  <LocalLeader>rk    <C-C>:call C_CodeCheck()<CR>:call C_HlMessage()<CR>
@@ -466,7 +470,7 @@ inoremap  <buffer>  /*       /*<Space><Space>*/<Left><Left><Left>
 vnoremap  <buffer>  /*      s/*<Space><Space>*/<Left><Left><Left><Esc>p
 "
 "-------------------------------------------------------------------------------
-" additional mapping : complete a classical C multi-line comment: 
+" additional mapping : complete a classical C multi-line comment:
 "                      '/*<CR>' =>  /*
 "                                    * |
 "                                    */
