@@ -3,17 +3,17 @@
 %%         File:  c-hotkeys.tex
 %%
 %%  Description:  c-support.vim : Key mappings for Vim without GUI.
-%%                
-%%                
+%%
+%%
 %%       Author:  Dr.-Ing. Fritz Mehner
 %%        Email:  mehner@fh-swf.de
 %%    Copyright:  Copyright (C)  2006-2010  Dr.-Ing. Fritz Mehner  (mehner@fh-swf.de)
 %%      Version:  1.0
 %%      Created:  10.11.2006
 %%     Revision:  $Id: c-hotkeys.tex,v 1.50 2012/03/03 19:17:56 mehner Exp $
-%%                
-%%        Notes:  
-%%                
+%%
+%%        Notes:
+%%
 %%=====================================================================================
 
 \documentclass[oneside,11pt,landscape,DIV17]{scrartcl}
@@ -71,7 +71,7 @@
 \textbf{\textsc{\small{Vim-Plugin}}}\\
 \textbf{\LARGE{c-support.vim}}\\
 \textbf{\textsc{\small{Version \Pluginversion}}}\\
-\textbf{\textsc{\Huge{Hot keys}}}\\ 
+\textbf{\textsc{\Huge{Hot keys}}}\\
 Key mappings for Vim with and without GUI.\\
 Plugin: http://vim.sourceforge.net\\
 \vspace{3.0mm}
@@ -108,7 +108,7 @@ Plugin: http://vim.sourceforge.net\\
 \hline \verb'\cd' & date                                    \hfill (n,v,i)\\
 \hline \verb'\ct' & date \& time                            \hfill (n,v,i)\\
 \hline \Rep\verb'\cx' & toggle comments: C $\leftrightarrow$ C++                  \hfill (n,v,i)\\
-\hline 
+\hline
 \end{tabular}\\
 %%~~~~~ TABULAR :  end  ~~~~~~~~~~
 %
@@ -171,7 +171,7 @@ Plugin: http://vim.sourceforge.net\\
 %%----------------------------------------------------------------------
 %%  snippet menu
 %%----------------------------------------------------------------------
-\hline 
+\hline
 \multicolumn{2}{|r|}{\textsl{S\textbf{n}ippet}} \\
 \hline     \verb'\nr'  & read code snippet         \hfill (n,i)\\
 \hline     \verb'\nw'  & write code snippet        \hfill (n,v,i)\\
@@ -190,7 +190,7 @@ Plugin: http://vim.sourceforge.net\\
 %%----------------------------------------------------------------------
 %%  idioms menu
 %%----------------------------------------------------------------------
-\hline 
+\hline
 \multicolumn{2}{|r|}{\textsl{\textbf{I}dioms}}   \\
 \hline \verb'\if'  & function                         \hfill (n,v,i)\\
 \hline \verb'\isf' & static function                  \hfill (n,v,i)\\
@@ -232,39 +232,39 @@ $^1$ {system-wide installation only}\\
 %%----------------------------------------------------------------------
 %%  C++ menu
 %%----------------------------------------------------------------------
-\hline 
+\hline
 \multicolumn{2}{|r|}{\textsl{C\textbf{++}}} \\
-\hline \verb'\+co'  & \verb'cout << << endl; '                \hfill (n,i)\\
-\hline \verb'\+"'   & \verb'<< ""'                \hfill (n,i)\\
-\hline \verb'\+c'   & class                                   \hfill (n,i)\\
-\hline \verb'\+ps'  & \verb$#include<...> STL$                \hfill (n,i)\\
-\hline \verb'\+pc'  & \verb$#include<c..> C$                  \hfill (n,i)\\
-\hline \verb'\+cn'  & class (using \verb'new')                \hfill (n,i)\\
-\hline \verb'\+ci'  & class  implementation                   \hfill (n,i)\\
-\hline \verb'\+cni' & class (using \verb'new') implementation \hfill (n,i)\\
-\hline \verb'\+mi'  & method implementation                   \hfill (n,i)\\
-\hline \verb'\+ai'  & accessor implementation                 \hfill (n,i)\\
-\hline \verb'\+tc'  & template class                          \hfill (n,i)\\
-\hline \verb'\+tcn' & template class (using \verb'new')       \hfill (n,i)\\
-\hline \verb'\+tci' & template class  implementation          \hfill (n,i)\\
-\hline \verb'\+tcni'& template class (using \verb'new') impl. \hfill (n,i)\\
-\hline \verb'\+tmi' & template method implementation          \hfill (n,i)\\
-\hline \verb'\+tai' & template accessor implementation        \hfill (n,i)\\
-\hline \verb'\+tf'  & template function                       \hfill (n,i)\\
-\hline \verb'\+ec'  & error class                             \hfill (n,i)\\
-\hline \verb'\+tr'  & \verb'try' \dots \verb'catch'           \hfill (n,v,i)\\
-\hline \verb'\+ca'  & \verb'catch'                            \hfill (n,v,i)\\
-\hline \verb'\+c.'  & \verb'catch(...)'                       \hfill (n,v,i)\\
-\hline 
+\hline \verb'\eco'  & \verb'cout << << endl; '                \hfill (n,i)\\
+\hline \verb'\e"'   & \verb'<< ""'                \hfill (n,i)\\
+\hline \verb'\ec'   & class                                   \hfill (n,i)\\
+\hline \verb'\eps'  & \verb$#include<...> STL$                \hfill (n,i)\\
+\hline \verb'\epc'  & \verb$#include<c..> C$                  \hfill (n,i)\\
+\hline \verb'\ecn'  & class (using \verb'new')                \hfill (n,i)\\
+\hline \verb'\eci'  & class  implementation                   \hfill (n,i)\\
+\hline \verb'\ecni' & class (using \verb'new') implementation \hfill (n,i)\\
+\hline \verb'\emi'  & method implementation                   \hfill (n,i)\\
+\hline \verb'\eai'  & accessor implementation                 \hfill (n,i)\\
+\hline \verb'\etc'  & template class                          \hfill (n,i)\\
+\hline \verb'\etcn' & template class (using \verb'new')       \hfill (n,i)\\
+\hline \verb'\etci' & template class  implementation          \hfill (n,i)\\
+\hline \verb'\etcni'& template class (using \verb'new') impl. \hfill (n,i)\\
+\hline \verb'\etmi' & template method implementation          \hfill (n,i)\\
+\hline \verb'\etai' & template accessor implementation        \hfill (n,i)\\
+\hline \verb'\etf'  & template function                       \hfill (n,i)\\
+\hline \verb'\eec'  & error class                             \hfill (n,i)\\
+\hline \verb'\etr'  & \verb'try' \dots \verb'catch'           \hfill (n,v,i)\\
+\hline \verb'\eca'  & \verb'catch'                            \hfill (n,v,i)\\
+\hline \verb'\ec.'  & \verb'catch(...)'                       \hfill (n,v,i)\\
+\hline
 %%
 %%----------------------------------------------------------------------
 %%  show plugin help
 %%----------------------------------------------------------------------
-\hline 
+\hline
 \multicolumn{2}{|r|}{\textsl{\textbf{H}elp}}\\
 \hline \verb'\hm'   & manual for word under cursor  \hfill (n,i)\\
 \hline \verb'\hp'   & help (c-support) \hfill (n,i)\\
-\hline 
+\hline
 \end{tabular}
 \vspace{100mm}
 %%~~~~~ TABULAR : begin ~~~~~~~~~~
@@ -308,7 +308,7 @@ $^1$ {system-wide installation only}\\
 \hline \verb'/*<CR>'  & \verb'/*'\hfill (i)\newline\verb' * |'\newline\verb' */'\\
 \hline \verb'{<CR>'  	& \verb'{'\hfill (i)\newline\verb'  |'\newline\verb'}' 		\\
 \hline \verb'{<CR>'  	& \verb'{'\hfill (v)\newline\verb'  '\fbox{\small{(multiline) marked text}}\newline\verb'}'\\
-\hline 
+\hline
 \end{tabular}
 %\end{spacing}
 %%~~~~~ TABULAR :  end  ~~~~~~~~~~

@@ -34,14 +34,13 @@ $ */
  *      @return:  |?RETURN_VALUES|
  * =============================================================================
  */
-static |?FUNC_TYPE| |FUNCTION_NAME| ( <+argument list+> )
-{
+static |?FUNC_TYPE| |FUNCTION_NAME| ( <+argument list+> ) {
 <SPLIT> return <+return value+>;
 }       /* -----  end of static function |FUNCTION_NAME|  ----- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.main ==
-#include    <stdlib.h>
-
+$#include    <stdlib.h>
+$
 /*
  * ===  FUNCTION  ==============================================================
  *         Name:  main
@@ -50,7 +49,7 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  */
 int main ( int argc, char *argv[] ) {
 <SPLIT><CURSOR>
-<SPLIT> return EXIT_SUCCESS;
+<SPLIT>return EXIT_SUCCESS;
 }       /* ----------  end of function main  ---------- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.enum ==

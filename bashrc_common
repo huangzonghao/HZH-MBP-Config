@@ -10,6 +10,9 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
 
+# an alias to open vim plugin folder faster --Thu Jul 23 16:02:47 2015
+alias vimp="open ~/.vim/bundle"
+
 # set the alias for latexmk -- by huangzonghao@2014.10.4
 # note the latexmk is usually installed together with tex distribution
 alias laclean="rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps"

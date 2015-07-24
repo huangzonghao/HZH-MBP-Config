@@ -249,7 +249,7 @@ endif
 "------------------------------------------------------------------------------
 "  Control variables (not user configurable)
 "------------------------------------------------------------------------------
-let s:Attribute                = { 'below':'', 'above':'', 'start':'', 'append':'', 'insert':'' }
+let s:Attribute                = { 'below':'', 'above':'', 'start':'', 'end':'', 'append':'', 'insert':'' }
 let s:C_Attribute              = {}
 let s:C_ExpansionLimit         = 10
 let s:C_FileVisited            = []
@@ -3082,6 +3082,18 @@ function! C_InsertTemplate ( key, ... )
 			let ins	= pos2-pos1+1
 			exe "normal ".ins."=="
 			"
+		"if you want to make a new mode, you need to register in the C_Attribute list first
+		elseif mode == 'end'
+			normal G
+			call C_OpenFold('below')
+			let pos1  = line('.')
+			put =val
+			let pos2  = line(".")
+			" proper indenting
+			exe ":".pos1
+			let ins	= pos2-pos1+1
+			exe "normal ".ins."=="
+			"
 		elseif mode == 'append'
 			if &foldenable && foldclosed(".") >= 0
 				echohl WarningMsg | echomsg s:MsgInsNotAvail  | echohl None
@@ -3263,7 +3275,7 @@ function! C_ExpandUserMacros ( key )
   "  renew the predefined macros and expand them
 	"  can be replaced, with e.g. |?DATE|
   "------------------------------------------------------------------------------
-  let	s:C_Macro['|BASENAME|']	= toupper(expand("%:t:r"))
+  let s:C_Macro['|BASENAME|']	= toupper(expand("%:t:r"))
   let s:C_Macro['|DATE|']  		= C_DateAndTime('d')
   let s:C_Macro['|FILENAME|']   = expand("%:t")
   let s:C_Macro['|PATH|']  		= expand("%:p:h")

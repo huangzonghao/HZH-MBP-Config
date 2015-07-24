@@ -20,11 +20,11 @@ $
 |includefile| = c.preprocessor.template
 |includefile| = c.statements.template
 $
-== IF |STYLE| IS CPP ==
-|includefile| = cpp.comments.template
-|includefile| = cpp.cpp.template
-|includefile| = cpp.idioms.template
-|includefile| = cpp.preprocessor.template
-|includefile| = cpp.statements.template
-== ENDIF ==
+$== IF |STYLE| IS CPP ==
+$|includefile| = cpp.comments.template
+$|includefile| = cpp.cpp.template
+$|includefile| = cpp.idioms.template
+$|includefile| = cpp.preprocessor.template
+$|includefile| = cpp.statements.template
+$== ENDIF ==
 $

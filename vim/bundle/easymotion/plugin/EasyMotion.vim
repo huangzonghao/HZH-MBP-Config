@@ -23,7 +23,8 @@ set cpo&vim
 " == Default configuration {{{
 " -- Option ------------------------------ {{{
 let g:EasyMotion_keys               = get(g:,
-    \ 'EasyMotion_keys', 'asdghklqwertyuiopzxcvbnmfj;')
+    \ 'EasyMotion_keys', 'aoeidtn,.pyfgcrl;qjkxbmwvzuhs') " i tell you what, this is dvorak!!! -- 2015-7-23
+    "\ 'EasyMotion_keys', 'asdghklqwertyuiopzxcvbnmfj;')
     " \ 'EasyMotion_keys', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 let g:EasyMotion_do_mapping         = get(g: , 'EasyMotion_do_mapping'         , 1)
 let g:EasyMotion_do_shade           = get(g: , 'EasyMotion_do_shade'           , 1)
@@ -234,7 +235,7 @@ if g:EasyMotion_do_mapping == 1
         exec 'map ' . g:EasyMotion_leader_key . ' <Plug>(easymotion-prefix)'
     else
         if !hasmapto('<Plug>(easymotion-prefix)')
-            map m <Plug>(easymotion-prefix)
+            map <leader><leader> <Plug>(easymotion-prefix)
         endif
     endif
     "}}}
