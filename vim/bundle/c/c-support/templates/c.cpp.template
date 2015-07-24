@@ -52,8 +52,15 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 << uppercase <CURSOR>
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.method-implementation ==
-void<CURSOR>
-|?CLASSNAME|::|?METHODNAME| ( <+argument list+> ) {
+/*
+ *------------------------------------------------------------------------------
+ *       Class:  |CLASSNAME|
+ *      Method:  |?METHODNAME|
+ * Description:  <CURSOR>
+ *------------------------------------------------------------------------------
+ */
+<+FUNC_TYPE+> |?CLASSNAME|::|?METHODNAME| ( <+argument list+> ) {
+    <+FUNCTION+>
     return ;
 }       /* -----  end of method |CLASSNAME|::|?METHODNAME|  ----- */
 

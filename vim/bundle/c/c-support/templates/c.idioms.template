@@ -14,7 +14,7 @@ $ */
  *      @return:  <+RETURN_VALUES+>
  * =============================================================================
  */
-<+FUNC_TYPE+> |FUNCTION_NAME| ( <+argument list+> ){
+<+FUNC_TYPE+> |FUNCTION_NAME|(<+argument list+>){
 
 <SPLIT> return <+return value+>;
 }       /* -----  end of function |FUNCTION_NAME|  ----- */
@@ -30,12 +30,12 @@ $ */
  * ===  FUNCTION  ==============================================================
  *         Name:  |?FUNCTION_NAME|
  *  Description:  <CURSOR>
- *       @param:  |?PARAMETERS|
- *      @return:  |?RETURN_VALUES|
+ *       @param:  <+PARAMETERS+>
+ *      @return:  <+RETURN_VALUES+>
  * =============================================================================
  */
-static |?FUNC_TYPE| |FUNCTION_NAME| ( <+argument list+> ) {
-<SPLIT> return <+return value+>;
+static <+FUNC_TYPE+> |FUNCTION_NAME|(<+argument list+>) {
+<SPLIT>return <+return value+>;
 }       /* -----  end of static function |FUNCTION_NAME|  ----- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.main ==
@@ -47,7 +47,7 @@ $
  *  Description:
  * =============================================================================
  */
-int main ( int argc, char *argv[] ) {
+int main (int argc, char **argv) {
 <SPLIT><CURSOR>
 <SPLIT>return EXIT_SUCCESS;
 }       /* ----------  end of function main  ---------- */
@@ -76,21 +76,21 @@ printf ( "<CURSOR>\n" );
 scanf ( "<CURSOR>", & );
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.calloc ==
-|?POINTER|  = calloc ( (size_t)(<CURSOR><+COUNT+>), sizeof(<+TYPE+>) );
+|?POINTER|  = calloc((size_t)(<CURSOR><+COUNT+>), sizeof(<+TYPE+>));
 if ( |POINTER|==NULL ) {
     fprintf ( stderr, "\ndynamic memory allocation failed\n" );
     exit (EXIT_FAILURE);
 }
 
-free (|POINTER|);
+free(|POINTER|);
 |POINTER|   = NULL;
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.malloc ==
-|?POINTER|  = malloc ( sizeof(<CURSOR><+TYPE+>) );
+|?POINTER|  = malloc(sizeof(<CURSOR><+TYPE+>));
 if ( |POINTER|==NULL ) {
-    fprintf ( stderr, "\ndynamic memory allocation failed\n" );
-    exit (EXIT_FAILURE);
+    fprintf(stderr, "\ndynamic memory allocation failed\n");
+    exit(EXIT_FAILURE);
 }
 
 free (|POINTER|);
@@ -98,10 +98,10 @@ free (|POINTER|);
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.realloc ==
-|?POINTER|  = realloc ( |POINTER|, sizeof(<CURSOR><+TYPE+>) );
+|?POINTER|  = realloc(|POINTER|, sizeof(<CURSOR><+TYPE+>));
 if ( |POINTER|==NULL ) {
-    fprintf ( stderr, "\ndynamic memory reallocation failed\n" );
-    exit (EXIT_FAILURE);
+    fprintf(stderr, "\ndynamic memory reallocation failed\n");
+    exit(EXIT_FAILURE);
 }
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -118,13 +118,13 @@ char    *|FILEPOINTER|_file_name = "<CURSOR>";      /* input-file name    */
 if ( |FILEPOINTER| == NULL ) {
     fprintf ( stderr, "couldn't open file '%s'; %s\n",
             |FILEPOINTER|_file_name, strerror(errno) );
-    exit (EXIT_FAILURE);
+    exit(EXIT_FAILURE);
 }
 <SPLIT>{-continue here-}
 if( fclose(|FILEPOINTER|) == EOF ) {                /* close input file   */
-    fprintf ( stderr, "couldn't close file '%s'; %s\n",
-            |FILEPOINTER|_file_name, strerror(errno) );
-    exit (EXIT_FAILURE);
+    fprintf(stderr, "couldn't close file '%s'; %s\n",
+            |FILEPOINTER|_file_name, strerror(errno));
+    exit(EXIT_FAILURE);
 }
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,18 +136,18 @@ char    *|FILEPOINTER|_file_name = "<CURSOR>";      /* output-file name    */
 if ( |FILEPOINTER| == NULL ) {
     fprintf ( stderr, "couldn't open file '%s'; %s\n",
             |FILEPOINTER|_file_name, strerror(errno) );
-    exit (EXIT_FAILURE);
+    exit(EXIT_FAILURE);
 }
 <SPLIT>{-continue here-}
 if( fclose(|FILEPOINTER|) == EOF ) {                /* close output file   */
-    fprintf ( stderr, "couldn't close file '%s'; %s\n",
-            |FILEPOINTER|_file_name, strerror(errno) );
-    exit (EXIT_FAILURE);
+    fprintf(stderr, "couldn't close file '%s'; %s\n",
+            |FILEPOINTER|_file_name, strerror(errno));
+    exit(EXIT_FAILURE);
 }
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.fprintf == insert ==
-fprintf ( |?FILEPOINTER|, "<CURSOR>\n",  );
+fprintf(|?FILEPOINTER|, "<CURSOR>\n",);
 == idioms.fscanf == insert ==
-fscanf ( |?FILEPOINTER|, "<CURSOR>", & );
+fscanf(|?FILEPOINTER|, "<CURSOR>", &);
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
