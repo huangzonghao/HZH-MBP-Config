@@ -1,1 +1,0 @@
-inoremap {{ {<cr>}<esc>O

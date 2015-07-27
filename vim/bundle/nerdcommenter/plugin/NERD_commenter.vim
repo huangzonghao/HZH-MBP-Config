@@ -64,6 +64,10 @@ call s:InitVariable("g:NERDSpaceDelims", 0)
 
 let s:NERDFileNameEscape="[]#*$%'\" ?`!&();<>\\"
 
+" note the following changes has been made in 2015.7.26
+
+" I like the c style comment for cpp more...
+" \ 'cpp': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
 let s:delimiterMap = {
     \ 'aap': { 'left': '#' },
     \ 'abc': { 'left': '%' },
@@ -115,7 +119,7 @@ let s:delimiterMap = {
     \ 'coffee': { 'left': '#' },
     \ 'conkyrc': { 'left': '#' },
     \ 'context': { 'left': '%', 'leftAlt': '--' },
-    \ 'cpp': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'cpp': { 'left': '/*','right': '*/', 'leftAlt': '//' },
     \ 'cuda': { 'left': '/*','right': '*/', 'leftAlt': '//' },
     \ 'crontab': { 'left': '#' },
     \ 'cs': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },

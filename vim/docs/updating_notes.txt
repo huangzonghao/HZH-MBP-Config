@@ -1,0 +1,63 @@
+==============================================================================
+                           Editing Notes
+==============================================================================
+Notes on -- Fri Jul 24 18:00:06 2015
+Note I want to make the <leader> do more programming stuff and the <space>
+do more text editing stuff.
+Inserting templates are currently considered as text editing
+
+--Fri Jul 24 18:23:53 2015
+Ok now I have made up my mind, let's just forget about the global defined
+<leader> key and refer each key with it name directly
+1) ',' shall be the leader for all programming functionality, including
+    trigging the programming supporting plugins
+2) '<Space>' shall be the leader for text editing and shall control the
+    functions like opening, closing, saving, spell checking and so on
+3) '-' and '.' shall be the leader for template insertion and all kinds of
+    text expansion, and can be chosen based on the filetypes.
+4) '\' may be used as a leader for functions in insert mode.
+5) I may want to cross map '/' and '\' since both characters are rarely used
+    in all kinds of circumstance, except for '\' in latex. So here is the
+    solution : use '/' as the leader, map '\' to '/' and use other combinations
+    to represent '\' in programming. And simply cross map the two in latex
+    since we use IMAPS in latex thus a leader in insert mode is less useful
+    (And note the leader cannot be indirectly set... So even though the mapping
+     is established, the leader remain unchanged..)
+
+6) Try my best to map the file navigation functions to bare keystrokes
+    after all no body wants to be bothered with the leader keys when just
+    looking around the files
+
+--Sat Jul 25 13:24:47 2015
+haha easy motion really freed my hands!!! Now i have easy-motion controlling
+all the jumpings ( controlled by w and b ) and the freed hljk now take care
+of jumping between windows. What a brilliant mapping!!! And note I only mapped
+the normal mode, so this won't affect my experience in visual mode.
+And still need to find a better use for the capital version of those letters.
+
+--Sat Jul 25 14:53:02 2015
+finally made up my mind on the navigation now. My design is to use etw as the
+three motion keys cooperating with easy-motion, e will take care of jumping
+backward and t will take care of jumping forward. w will jump to the end
+of a forward world. The capital version of e and t will be responsible for
+line jumpings and the capital of w will jump to the end of a backward word.
+And now we have a free b which will be a super suitable key to take care of
+the buffers. Say bn will create a new buffer and bt a new tab and bb to list
+the buffer... This gonna make my user experience really enjoyable!!
+
+--Sun Jul 26 23:30:32 2015
+I should cross map f and n since I may need inline search a lot and this is
+related with navigation. And for jumping to the next object of the global
+finding, it would be no problem for my finger to leave the keyboard.
+Also I should take the <c-space> mapping back from the alfred. This can be
+a very useful mapping in insert mode, especially for jumping out of the
+braces ( or if I can somehow change the behavior of auto pairs and make
+"'" serve as ultimate jump key ). But after all, changing the keyboard
+layout should not take the keymap of <Super-Space>. It's too luxurious.
+I am sure option+space will do the job well.
+--Mon Jul 27 22:17:45 2015
+Now that it's clear the ycm disabled syntastic for various reasons, and
+of course i am happpy to see this since it seems ycm checker has better
+performance. But the problem is that ycm checker is only for c faimily
+languages. So i still need to rely on syntastic for other filetypes.
+Need to find a way to resolve this problem.

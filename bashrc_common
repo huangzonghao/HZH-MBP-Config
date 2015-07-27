@@ -27,6 +27,7 @@ ebrc(){
 }
 alias ebrcc="vim ~/dotfiles/bashrc_common"
 alias evrc="vim ~/dotfiles/vimrc"
+alias evn="vim ~/dotfiles/vim/docs/updating_notes.txt"
 
 alias e="vim"
 alias v="view"
@@ -171,16 +172,20 @@ tem(){
                 STATUS=1;
                 ;;
             "cmakelist" | "6")
-                echo -n "cuda or opencl? (c, o) :"
+                echo -n "cuda or opencl or common? (c, cl, com) :"
                 read FILE_NAME
                 if [[ $FILE_NAME = "c" ]]
                 then 
                     cp ~/.vim/template/cmake_cuda.txt ./CMakeLists.txt
                     vim CMakeLists.txt
-                elif [[ $FILE_NAME = "o" ]]
+                elif [[ $FILE_NAME = "cl" ]]
                 then 
                     cp ~/.vim/template/cmake_opencl.txt ./CMakeLists.txt
                     cp -r ~/.vim/template/cmake_opencl_module ./cmake_module
+                    vim CMakeLists.txt
+                elif [[ $FILE_NAME = "com" ]]
+                then 
+                    cp ~/.vim/template/cmake_common.txt ./CMakeLists.txt
                     vim CMakeLists.txt
                 else echo "invalid operation, abort"
                 fi

@@ -44,6 +44,7 @@ function! s:initVariable(var, value)
     return 0
 endfunction
 
+
 "SECTION: Init variable calls and other random constants {{{2
 call s:initVariable("g:NERDTreeAutoCenter", 1)
 call s:initVariable("g:NERDTreeAutoCenterThreshold", 3)
@@ -116,9 +117,11 @@ call s:initVariable("g:NERDTreeMapJumpNextSibling", "<C-j>")
 call s:initVariable("g:NERDTreeMapJumpParent", "p")
 call s:initVariable("g:NERDTreeMapJumpPrevSibling", "<C-k>")
 call s:initVariable("g:NERDTreeMapJumpRoot", "P")
-call s:initVariable("g:NERDTreeMapOpenExpl", "e")
-call s:initVariable("g:NERDTreeMapOpenInTab", "t")
-call s:initVariable("g:NERDTreeMapOpenInTabSilent", "T")
+call s:initVariable("g:NERDTreeMapOpenExpl", "d")
+" call s:initVariable("g:NERDTreeMapOpenInTab", "t")
+" call s:initVariable("g:NERDTreeMapOpenInTabSilent", "T")
+call s:initVariable("g:NERDTreeMapOpenInTab", "n")
+call s:initVariable("g:NERDTreeMapOpenInTabSilent", "N")
 call s:initVariable("g:NERDTreeMapOpenRecursively", "O")
 call s:initVariable("g:NERDTreeMapOpenSplit", "i")
 call s:initVariable("g:NERDTreeMapOpenVSplit", "s")

@@ -28,8 +28,7 @@ set grepprg=grep\ -nH\ $*
 
 
 noremap  <Tab> <C-j>
-"nnoremap  <Tab> <C-j>
-"inoremap  <Tab> <C-j>
+
 
 call IMAP ('_', '_{<++>}<++>', "tex")
 call IMAP ('^', '^{<++>}<++>', "tex")
@@ -40,9 +39,6 @@ call IMAP ('BFL', '\left \lfloor <++> \right \rfloor <++>', "tex")
 call IMAP ('LCL', '\lceil <++> \rceil <++>', "tex")
 call IMAP ('BCL', '\left \lceil <++> \right \rceil <++>', "tex")
 call IMAP ('SST', '\subsection*{<++>}<++>', "tex")
-"call IMAP ('PPP', '\paragraph{<++>}<++>', "tex")
-"call IMAP ('TIT', '\textit{<++>}<++>', "tex")
-"call IMAP ('TBF', '\textbf{<++>}<++>', "tex")
 call IMAP ('||', '|<++>|<++>', "tex")
 call IMAP ('E$', '$$<++>$$<++>', "tex")
 call IMAP ('&=& =', '==', "tex")
@@ -50,3 +46,7 @@ call IMAP ('HAT', '\hat{<++>}<++>', "tex")
 call IMAP ('BAR', '\bar{<++>}<++>', "tex")
 call IMAP ('DOT', '\dot{<++>}<++>', "tex")
 call IMAP ('SMTX', '\begin{smallmatrix} <++> \end{smallmatrix} <++>', "tex")
+
+" map the slash keys as mentioned in the update note --Sat Jul 25 01:32:14 2015
+inoremap / \
+inoremap \ /

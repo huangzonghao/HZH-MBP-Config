@@ -456,7 +456,13 @@ function! nerdtree#ui_glue#openBookmark(name)
         call targetNode.open({'where': 'p'})
     endif
 endfunction
-
+" -- Sat Jul 25 16:27:46 2015
+" I think it's too ugly to hide all mappings here
+" but anyway, I am just gonna configura directly
+" here to make it work better
+" but since all the variables are controlled
+" by some global variable, just go to the
+" plugin folder and make the changes
 " FUNCTION: s:openHSplit(target) {{{1
 function! s:openHSplit(target)
     call a:target.activate({'where': 'h'})
@@ -488,6 +494,7 @@ function! s:openNodeRecursively(node)
     call a:node.openRecursively()
     call b:NERDTree.render()
     redraw
+
     call nerdtree#echo("Recursively opening node. Please wait... DONE")
 endfunction
 

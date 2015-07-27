@@ -1,1 +1,1 @@
-source cxx_common.vim
+source ~/dotfiles/vim/ftplugin/cxx_common.vim

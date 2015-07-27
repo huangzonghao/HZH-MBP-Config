@@ -24,7 +24,7 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /*
  *------------------------------------------------------------------------------
  *       Class:  |?CLASSNAME|
- *      Method:  |?CLASSNAME| :: |?METHODNAME|
+ *      Method:  |?METHODNAME|
  * Description:  <CURSOR>
  *------------------------------------------------------------------------------
  */
@@ -38,24 +38,6 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-description == start ==
-$/*
-$ * =============================================================================
-$ *
-$ *       Filename:  |FILENAME|
-$ *
-$ *    Description:  <CURSOR>
-$ *
-$ *        Version:  1.0
-$ *        Created:  |DATE| |TIME|
-$ *       Revision:  none
-$ *       Compiler:  gcc
-$ *
-$ *         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
-$ *   Organization:  |ORGANIZATION|
-$ *
-$ * =============================================================================
-$ */
-$#include <stdlib.h>
 /*
  * =============================================================================
  *
@@ -71,41 +53,7 @@ $#include <stdlib.h>
  *
  * =============================================================================
  */
-$#include <stdlib.h>
-$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== comment.file-description-header == start ==
-$/*
-$ * =============================================================================
-$ *
-$ *       Filename:  |FILENAME|
-$ *
-$ *    Description:  <CURSOR>
-$ *
-$ *        Version:  1.0
-$ *        Created:  |DATE| |TIME|
-$ *       Revision:  none
-$ *       Compiler:  gcc
-$ *
-$ *         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
-$ *   Organization:  |ORGANIZATION|
-$ *
-$ * =============================================================================
-$ */
-/*
- * =============================================================================
- *
- *       Filename:  |FILENAME|
- *
- *    Description:  <CURSOR>
- *
- *        Created:  |DATE|
- *       Modified:  |DATE|
- *
- *         Author:  |AUTHOR|
- *          Email:  |EMAIL|
- *
- * =============================================================================
- */
+
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.file-section-cpp-header-includes  ==
 /* #####   HEADER FILE INCLUDES   ############################################ */
@@ -179,22 +127,26 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /* #####   EXPORTED FUNCTION DECLARATIONS   ################################## */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== comment.keyword-remarks ==
+/* :REMARKS:|DATE|:|AUTHORREF|:
+ *  <CURSOR>
+ */
 == comment.keyword-bug == append ==
- /* :BUG:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
+/* :BUG:|DATE|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-compiler == append ==
- /* :COMPILER:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
+/* :COMPILER:|DATE|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-todo == append ==
- /* :TODO:|DATE| |TIME|:|AUTHORREF|:
-  * <CURSOR>
-  */
+/* :TODO:|DATE|:|AUTHORREF|:
+ *  <CURSOR>
+ */
 == comment.keyword-tricky == append ==
- /* :TRICKY:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
+/* :TRICKY:|DATE|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-warning == append ==
- /* :WARNING:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
+/* :WARNING:|DATE|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-workaround == append ==
- /* :WORKAROUND:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
+/* :WORKAROUND:|DATE|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-keyword == append ==
- /* :|?KEYWORD:u|:|DATE| |TIME|:|AUTHORREF|: <CURSOR> */
+/* :|?KEYWORD:u|:|DATE|:|AUTHORREF|: <CURSOR> */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.special-empty == append ==
  /* EMPTY */<CURSOR>
@@ -216,6 +168,7 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  /* constant type is unsigned long */<CURSOR>
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == comment.end-of-file == end ==
+
 
 /* =============================================================================
  *                         end of file |FILENAME|

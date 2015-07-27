@@ -23,7 +23,7 @@ set cpo&vim
 " == Default configuration {{{
 " -- Option ------------------------------ {{{
 let g:EasyMotion_keys               = get(g:,
-    \ 'EasyMotion_keys', 'aoeidtn,.pyfgcrl;qjkxbmwvzuhs') " i tell you what, this is dvorak!!! -- 2015-7-23
+    \ 'EasyMotion_keys', 'aoeuid,.pyfgcrl;qjxmwkbhtns') " i tell you what, this is dvorak!!! -- 2015-7-23
     "\ 'EasyMotion_keys', 'asdghklqwertyuiopzxcvbnmfj;')
     " \ 'EasyMotion_keys', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 let g:EasyMotion_do_mapping         = get(g: , 'EasyMotion_do_mapping'         , 1)

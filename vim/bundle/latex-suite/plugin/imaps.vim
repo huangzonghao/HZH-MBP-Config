@@ -490,7 +490,6 @@ vmap <silent> <Plug>IMAP_JumpBack          <C-\><C-N>`<i<c-r>=IMAP_Jumpfunc('b',
 " add the <c-j> config back since <tab> may have other uses in insert mode  --by huangzonghao@2015.5.27
 if !hasmapto('<Plug>IMAP_JumpForward', 'i')
     imap <C-J> <Plug>IMAP_JumpForward
-    imap <C-G>n <Plug>IMAP_JumpForward
     "imap <Tab> <Plug>IMAP_JumpForward
 endif
 if !hasmapto('<Plug>IMAP_JumpForward', 'n')

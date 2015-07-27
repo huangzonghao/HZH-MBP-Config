@@ -7,6 +7,17 @@ let g:NERDTreeCreator = s:Creator
 
 "FUNCTION: s:Creator._bindMappings() {{{1
 function! s:Creator._bindMappings()
+
+
+    " Some modifications on --Sun Jul 26 01:49:08 2015
+    " I am trying to map the keys here to have better
+    " nevigation experience in the nerdtree window
+    " but i really have no idea how to make it beautiful
+    " so i just drop the dirt here
+    nmap <silent> <buffer> t <Plug>(easymotion-j)
+    nmap <silent> <buffer> e <Plug>(easymotion-k)
+    nnoremap <silent> <buffer> T j
+    nnoremap <silent> <buffer> E k
     "make <cr> do the same as the activate node mapping
     nnoremap <silent> <buffer> <cr> :call nerdtree#ui_glue#invokeKeyMap(g:NERDTreeMapActivateNode)<cr>
 
@@ -42,7 +53,7 @@ endfunction
 "name: the name of a bookmark or a directory
 function! s:Creator.createPrimary(name)
     let path = self._pathForString(a:name)
-    
+
     "abort if exception was thrown (bookmark/dir doesn't exist)
     if empty(path)
         return

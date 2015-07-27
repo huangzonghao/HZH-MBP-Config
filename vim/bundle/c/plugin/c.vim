@@ -3043,6 +3043,7 @@ function! C_InsertTemplate ( key, ... )
 
   let mode  = s:C_Attribute[a:key]
 
+
 	" remove <SPLIT> and insert the complete macro
 	"
 	if a:0 == 0
@@ -3130,6 +3131,34 @@ function! C_InsertTemplate ( key, ... )
 		endif
 		"
 	else
+		"
+		" =====  insertion mode  ===============================
+		"
+		" if insertion, then i always want the template to be appended
+  		"--Sat Jul 25 02:28:53 2015
+  		" note a:0 stores the total number of the arguments
+  		" and the uncertain argument index starts from 1
+  		" So in this case var key is not considered as an uncertain var, so
+  		" 'i' should be referred to as a:1
+		if a:1 == 'i'
+			let val = C_ExpandUserMacros (a:key)
+			if empty(val)
+				return
+			endif
+			let val	= C_ExpandSingleMacro( val, '<SPLIT>', '' )
+
+			if &foldenable && foldclosed(".") >= 0
+				echohl WarningMsg | echomsg s:MsgInsNotAvail  | echohl None
+				exe "set foldmethod=".foldmethod_save
+				return
+			else
+				let pos1  = line(".")
+				put =val
+				let pos2  = line(".")-1
+				exe ":".pos1
+				:join!
+			endif
+		endif
 		"
 		" =====  visual mode  ===============================
 		"
