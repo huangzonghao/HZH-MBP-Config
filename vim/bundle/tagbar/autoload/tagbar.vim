@@ -984,6 +984,14 @@ function! s:MapKeys() abort
         endfor
         unlet def
     endfor
+    " my personal preference -- 2015.07.31
+    nmap <silent> <buffer> t <Plug>(easymotion-j)
+    nmap <silent> <buffer> e <Plug>(easymotion-k)
+    nnoremap <silent> <buffer> T j
+    nnoremap <silent> <buffer> L j
+    nnoremap <silent> <buffer> E k
+    nnoremap <silent> <buffer> H k
+
 
     let b:tagbar_mapped_keys = 1
 endfunction

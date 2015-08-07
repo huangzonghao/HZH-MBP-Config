@@ -17,7 +17,9 @@ function! s:Creator._bindMappings()
     nmap <silent> <buffer> t <Plug>(easymotion-j)
     nmap <silent> <buffer> e <Plug>(easymotion-k)
     nnoremap <silent> <buffer> T j
+    nnoremap <silent> <buffer> L j
     nnoremap <silent> <buffer> E k
+    nnoremap <silent> <buffer> H k
     "make <cr> do the same as the activate node mapping
     nnoremap <silent> <buffer> <cr> :call nerdtree#ui_glue#invokeKeyMap(g:NERDTreeMapActivateNode)<cr>
 

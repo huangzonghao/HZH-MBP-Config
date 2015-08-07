@@ -54,15 +54,15 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.method-implementation ==
 /*
  *------------------------------------------------------------------------------
- *       Class:  |CLASSNAME|
+ *       Class:  |?CLASSNAME|
  *      Method:  |?METHODNAME|
  * Description:  <CURSOR>
  *------------------------------------------------------------------------------
  */
-<+FUNC_TYPE+> |?CLASSNAME|::|?METHODNAME| ( <+argument list+> ) {
+<+FUNC_TYPE+> |CLASSNAME|::|METHODNAME| (<+argument list+>) {
     <+FUNCTION+>
     return ;
-}       /* -----  end of method |CLASSNAME|::|?METHODNAME|  ----- */
+}       /* -----  end of method |CLASSNAME|::|METHODNAME|  ----- */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.accessor-implementation ==
@@ -73,7 +73,7 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  *------------------------------------------------------------------------------
  */
 inline |?RETURNTYPE|
-|CLASSNAME|::get_|ATTRIBUTE| (  ) const {
+|CLASSNAME|::get_|ATTRIBUTE| () const {
     return |ATTRIBUTE|;
 }       /* -----  end of method |CLASSNAME|::get_|ATTRIBUTE|  ----- */
 
@@ -84,53 +84,11 @@ inline |?RETURNTYPE|
  *------------------------------------------------------------------------------
  */
 inline void
-|CLASSNAME|::set_|ATTRIBUTE| ( |RETURNTYPE| value ) {
+|CLASSNAME|::set_|ATTRIBUTE| (|RETURNTYPE| value) {
     |ATTRIBUTE| = value;
     return ;
 }       /* -----  end of method |CLASSNAME|::set_|ATTRIBUTE|  ----- */
 <CURSOR>
-$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== cpp.class-definition ==
-/*
- * =============================================================================
- *        Class:  |?CLASSNAME:c|
- *  Description:  <CURSOR>
- * =============================================================================
- */
-class |CLASSNAME| {
-  public:
-    /* =========================   LIFECYCLE   =============================== */
-
-    /* constructor */
-    |CLASSNAME| ();
-
-    /* =========================   ACCESSORS   =============================== */
-
-    /* =========================   MUTATORS    =============================== */
-
-    /* =========================   OPERATORS   =============================== */
-
-  protected:
-    /* ========================  DATA MEMBERS  =============================== */
-
-  private:
-    /* ========================  DATA MEMBERS  =============================== */
-
-};     /* -----  end of class |CLASSNAME|  ----- */
-
-$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== cpp.class-implementation ==
-/*
- *------------------------------------------------------------------------------
- *       Class:  |?CLASSNAME:c|
- *      Method:  |CLASSNAME|
- * Description:  constructor
- *------------------------------------------------------------------------------
- */
-|CLASSNAME|::|CLASSNAME| ()
-{<CURSOR>
-}  /* -----  end of method |CLASSNAME|::|CLASSNAME|  (constructor)  ----- */
-
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.class-using-new-definition ==
 /*
@@ -146,7 +104,7 @@ class |CLASSNAME| {
     /* constructor */
     |CLASSNAME| ();
     /* copy constructor */
-    |CLASSNAME| ( const |CLASSNAME| &other );
+    |CLASSNAME| (const |CLASSNAME| &other);
     /* destructor */
     ~|CLASSNAME| ();
 
@@ -157,12 +115,14 @@ class |CLASSNAME| {
     /* =========================   OPERATORS   =============================== */
 
     /* assignment operator */
-    |CLASSNAME|& operator = ( const |CLASSNAME| &other );
+    |CLASSNAME|& operator = (const |CLASSNAME| &other);
 
   protected:
     /* ========================  DATA MEMBERS  =============================== */
 
   private:
+    /* =======================  PRIVATE FUNCTIONS  =========================== */
+
     /* ========================  DATA MEMBERS  =============================== */
 
 }; /* -----  end of class |CLASSNAME|  ----- */
@@ -186,7 +146,7 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  * Description:  copy constructor
  *------------------------------------------------------------------------------
  */
-|CLASSNAME|::|CLASSNAME| ( const |CLASSNAME| &other ) {
+|CLASSNAME|::|CLASSNAME| (const |CLASSNAME| &other) {
 }  /* -----  end of method |CLASSNAME|::|CLASSNAME|  (copy constructor)  ----- */
 
 /*
@@ -207,8 +167,8 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  *------------------------------------------------------------------------------
  */
 |CLASSNAME|&
-|CLASSNAME|::operator = ( const |CLASSNAME| &other ) {
-  if ( this != &other ) {
+|CLASSNAME|::operator = (const |CLASSNAME| &other) {
+  if (this != &other) {
   }
   return *this;
 }  /* -----  end of method |CLASSNAME|::operator =  (assignment operator)  ----- */
@@ -222,16 +182,16 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  * =============================================================================
  */
 class |CLASSNAME| {
-  public:     |CLASSNAME| ( string msg = "|CLASSNAME|" ):message(msg)  { }
-              virtual ~|CLASSNAME| ( )  { }
-              virtual string what ( ) const throw ( )  { return message; }
+  public:     |CLASSNAME| (string msg = "|CLASSNAME|"):message(msg)  { }
+              virtual ~|CLASSNAME| ()  { }
+              virtual string what () const throw ()  { return message; }
   protected:  string  message;
 }; /* -----  end of class |CLASSNAME|  ----- */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.template-method-implementation ==
 template < class T >
-void<CURSOR> |?CLASSNAME|<T>::|?METHODNAME| ( <+argument list+> ) {
+void<CURSOR> |?CLASSNAME|<T>::|?METHODNAME| (<+argument list+>) {
     return ;
 }       /* -----  end of method |CLASSNAME|<T>::|METHODNAME|  ----- */
 
@@ -244,7 +204,7 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  *------------------------------------------------------------------------------
  */
 template < class T >
-inline  |?RETURNTYPE| |CLASSNAME|<T>::get_|ATTRIBUTE| (  ) const {
+inline  |?RETURNTYPE| |CLASSNAME|<T>::get_|ATTRIBUTE| () const {
     return |ATTRIBUTE|;
 }       /* -----  end of method |CLASSNAME|<T>::get_|ATTRIBUTE|  ----- */
 
@@ -255,55 +215,10 @@ inline  |?RETURNTYPE| |CLASSNAME|<T>::get_|ATTRIBUTE| (  ) const {
  *------------------------------------------------------------------------------
  */
 template < class T >
-inline  void |CLASSNAME|<T>::set_|ATTRIBUTE| ( |RETURNTYPE| value ) {
+inline  void |CLASSNAME|<T>::set_|ATTRIBUTE| (|RETURNTYPE| value) {
     |ATTRIBUTE| = value;
     return ;
 }       /* -----  end of method |CLASSNAME|<T>::set_|ATTRIBUTE|  ----- */
-
-$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== cpp.template-class-definition ==
-/*
- * =============================================================================
- *        Class:  |?CLASSNAME:c|
- *  Description:  <CURSOR>
- * =============================================================================
- */
-template < class T >
-class |CLASSNAME| {
-  public:
-    /* =========================   LIFECYCLE   =============================== */
-
-    /* constructor */
-    |CLASSNAME| ();
-
-    /* =========================   ACCESSORS   =============================== */
-
-    /* =========================   MUTATORS    =============================== */
-
-    /* =========================   OPERATORS   =============================== */
-
-  protected:
-    /* ========================  DATA MEMBERS  =============================== */
-
-  private:
-    /* ========================  DATA MEMBERS  =============================== */
-
-}; /* ----------  end of template class |CLASSNAME|  ---------- */
-
-$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== cpp.template-class-implementation ==
-/*
- *------------------------------------------------------------------------------
- *       Class:  |?CLASSNAME:c|
- *      Method:  |CLASSNAME|
- * Description:
- *------------------------------------------------------------------------------
- */
-template < class T >
-|CLASSNAME| < T >::|CLASSNAME| () {
-<SPLIT><CURSOR>
-}  /* ----------  end of constructor of template class |CLASSNAME|  ---------- */
-
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.template-class-using-new-definition ==
@@ -322,7 +237,7 @@ class |CLASSNAME| {
     /* constructor */
     |CLASSNAME| ();
     /* copy constructor */
-    |CLASSNAME| ( const |CLASSNAME| &other );
+    |CLASSNAME| (const |CLASSNAME| &other);
     /* destructor */
     ~|CLASSNAME| ();
 
@@ -333,7 +248,7 @@ class |CLASSNAME| {
     /* =========================   OPERATORS   =============================== */
 
     /* assignment operator */
-    |CLASSNAME|& operator = ( const |CLASSNAME| &other );
+    |CLASSNAME|& operator = (const |CLASSNAME| &other);
 
   protected:
     /* ========================  DATA MEMBERS  =============================== */
@@ -365,7 +280,7 @@ template < class T >
  *------------------------------------------------------------------------------
  */
 template < class T >
-|CLASSNAME|< T >::|CLASSNAME| ( const |CLASSNAME| &other ) {
+|CLASSNAME|< T >::|CLASSNAME| (const |CLASSNAME| &other) {
 }  /* ----------  end of copy constructor of template class |CLASSNAME|  ---------- */
 
 /*
@@ -387,27 +302,27 @@ template < class T >
  *------------------------------------------------------------------------------
  */
 template < class T >
-|CLASSNAME|< T >& |CLASSNAME|< T >::operator = ( const |CLASSNAME| &other ) {
+|CLASSNAME|< T >& |CLASSNAME|< T >::operator = (const |CLASSNAME| &other) {
   return *this;
 }  /* ----------  end of assignment operator of template class |CLASSNAME|  ------ */
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.template-function ==
 template <class T>
-void<CURSOR> |?TEMPALTE_FUNCTION_NAME| ( <+argument list+> ) {
+void<CURSOR> |?TEMPALTE_FUNCTION_NAME| (<+argument list+>) {
     return ;
 }       /* -----  end of template function |?TEMPALTE_FUNCTION_NAME|  ----- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.operator-in ==
 ostream &
-operator << ( ostream & os, const |?CLASSNAME| & obj ) {
+operator << (ostream & os, const |?CLASSNAME| & obj) {
     os << obj.<CURSOR> ;
     return os;
 }       /* -----  end of function operator <<  ----- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.operator-out ==
 istream &
-operator >> ( istream & is, |?CLASSNAME| & obj ) {
+operator >> (istream & is, |?CLASSNAME| & obj) {
     is >> obj.<CURSOR> ;
     return is;
 }       /* -----  end of function operator >>  ----- */
@@ -415,14 +330,14 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.try-catch ==
 try {
 <SPLIT>}
-catch ( const <CURSOR> &ExceptObj ) {       /* handle exception: */
+catch (const <CURSOR> &ExceptObj) {       /* handle exception: */
 }
 catch (...) {       /* handle exception: unspecified */
 }
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.catch ==
-catch ( const <CURSOR> &ExceptObj ) {       /* handle exception: */
+catch (const <CURSOR> &ExceptObj) {       /* handle exception: */
 <SPLIT>}
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.catch-points ==
@@ -437,25 +352,25 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 string    ifs_file_name = "<CURSOR>";                 /* input  file name */
 ifstream  ifs;                                  /* create ifstream object */
 
-ifs.open ( ifs_file_name.c_str() );             /* open ifstream */
+ifs.open (ifs_file_name.c_str());                        /* open ifstream */
 if (!ifs) {
     cerr << "\nERROR : failed to open input  file " << ifs_file_name << endl;
     exit (EXIT_FAILURE);
 }
 <SPLIT>{-continue here-}
-ifs.close ();                                   /* close ifstream */
+ifs.close ();                                          /* close ifstream */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.open-output-file ==
 string    ofs_file_name = "<CURSOR>";                 /* input  file name */
 ofstream  ofs;                                  /* create ofstream object */
 
-ofs.open ( ofs_file_name.c_str() );             /* open ofstream */
+ofs.open (ofs_file_name.c_str());                        /* open ofstream */
 if (!ofs) {
     cerr << "\nERROR : failed to open output file " << ofs_file_name << endl;
     exit (EXIT_FAILURE);
 }
 <SPLIT>{-continue here-}
-ofs.close ();                                   /* close ofstream */
+ofs.close ();                                          /* close ofstream */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.namespace-std ==
 using namespace std;
@@ -481,7 +396,7 @@ reinterpret_cast<>(<CURSOR><SPLIT>)
 $
 == cpp.rtti-dynamic-cast == insert ==
 dynamic_cast<>(<CURSOR><SPLIT>)
-$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.function ==
 $/*
@@ -523,16 +438,16 @@ static <+FUNC_TYPE+> |FUNCTION_NAME|(<+argument list+>) {
 }       /* -----  end of static function |FUNCTION_NAME|  ----- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.main ==
-$#include    <stdlib.h>
+$#include <stdlib.h>
 $
 /*
  * ===  FUNCTION  ==============================================================
  *         Name:  main
- *  Description:
+ *  Description:  <CURSOR>
  * =============================================================================
  */
 int main (int argc, char **argv) {
-<SPLIT><CURSOR>
+<SPLIT><++>
 <SPLIT>return EXIT_SUCCESS;
 }       /* ----------  end of function main  ---------- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -555,14 +470,14 @@ union |?UNION_NAME| {<CURSOR>
 typedef union |UNION_NAME| |UNION_NAME:c|;
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.printf == insert ==
-printf ( "<CURSOR>\n" );
+printf ("<CURSOR>\n");
 == idioms.scanf == insert ==
-scanf ( "<CURSOR>", & );
+scanf ("<CURSOR>", &);
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.calloc ==
 |?POINTER|  = calloc((size_t)(<CURSOR><+COUNT+>), sizeof(<+TYPE+>));
-if ( |POINTER|==NULL ) {
-    fprintf ( stderr, "\ndynamic memory allocation failed\n" );
+if (|POINTER|==NULL) {
+    fprintf (stderr, "\ndynamic memory allocation failed\n");
     exit (EXIT_FAILURE);
 }
 
@@ -572,7 +487,7 @@ free(|POINTER|);
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.malloc ==
 |?POINTER|  = malloc(sizeof(<CURSOR><+TYPE+>));
-if ( |POINTER|==NULL ) {
+if (|POINTER|==NULL) {
     fprintf(stderr, "\ndynamic memory allocation failed\n");
     exit(EXIT_FAILURE);
 }
@@ -583,7 +498,7 @@ free (|POINTER|);
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.realloc ==
 |?POINTER|  = realloc(|POINTER|, sizeof(<CURSOR><+TYPE+>));
-if ( |POINTER|==NULL ) {
+if (|POINTER|==NULL) {
     fprintf(stderr, "\ndynamic memory reallocation failed\n");
     exit(EXIT_FAILURE);
 }
@@ -598,14 +513,14 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FILE    *|?FILEPOINTER|;                            /* input-file pointer */
 char    *|FILEPOINTER|_file_name = "<CURSOR>";      /* input-file name    */
 
-|FILEPOINTER|   = fopen( |FILEPOINTER|_file_name, "r" );
-if ( |FILEPOINTER| == NULL ) {
-    fprintf ( stderr, "couldn't open file '%s'; %s\n",
-            |FILEPOINTER|_file_name, strerror(errno) );
+|FILEPOINTER|   = fopen(|FILEPOINTER|_file_name, "r");
+if (|FILEPOINTER| == NULL) {
+    fprintf (stderr, "couldn't open file '%s'; %s\n",
+            |FILEPOINTER|_file_name, strerror(errno));
     exit(EXIT_FAILURE);
 }
 <SPLIT>{-continue here-}
-if( fclose(|FILEPOINTER|) == EOF ) {                /* close input file   */
+if(fclose(|FILEPOINTER|) == EOF) {                 /* close input file   */
     fprintf(stderr, "couldn't close file '%s'; %s\n",
             |FILEPOINTER|_file_name, strerror(errno));
     exit(EXIT_FAILURE);
@@ -616,14 +531,14 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FILE    *|?FILEPOINTER|;                            /* output-file pointer */
 char    *|FILEPOINTER|_file_name = "<CURSOR>";      /* output-file name    */
 
-|FILEPOINTER|   = fopen( |FILEPOINTER|_file_name, "w" );
-if ( |FILEPOINTER| == NULL ) {
-    fprintf ( stderr, "couldn't open file '%s'; %s\n",
-            |FILEPOINTER|_file_name, strerror(errno) );
+|FILEPOINTER|   = fopen(|FILEPOINTER|_file_name, "w");
+if (|FILEPOINTER| == NULL) {
+    fprintf (stderr, "couldn't open file '%s'; %s\n",
+            |FILEPOINTER|_file_name, strerror(errno));
     exit(EXIT_FAILURE);
 }
 <SPLIT>{-continue here-}
-if( fclose(|FILEPOINTER|) == EOF ) {                /* close output file   */
+if(fclose(|FILEPOINTER|) == EOF) {                 /* close output file   */
     fprintf(stderr, "couldn't close file '%s'; %s\n",
             |FILEPOINTER|_file_name, strerror(errno));
     exit(EXIT_FAILURE);
@@ -701,29 +616,29 @@ $-------------------------------------------------------------------------
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.do-while ==
 do {
-<SPLIT>} while ( <CURSOR> ); /* -----  end do-while  ----- */
+<SPLIT>} while (<CURSOR>); /* -----  end do-while  ----- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.for ==
-for ( <CURSOR>; ; )
+for (<CURSOR>)
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.for-block ==
-for ( <CURSOR>; ; ) {
+for (<CURSOR>) {
 <SPLIT>}
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.if ==
-if ( <CURSOR> )
+if (<CURSOR>)
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.if-block ==
-if ( <CURSOR> ) {
+if (<CURSOR>) {
 <SPLIT><+IF PART+>
 }
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.if-else ==
-if ( <CURSOR> )
+if (<CURSOR>)
 <SPLIT>else
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.if-block-else ==
-if ( <CURSOR> ) {
+if (<CURSOR>) {
 <SPLIT><+IF PART+>
 }
 else {
@@ -736,31 +651,28 @@ else {
 }
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.while ==
-while ( <CURSOR> )
+while (<CURSOR>)
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.while-block ==
-while ( <CURSOR> ) {
+while (<CURSOR>) {
 <SPLIT>}
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.switch ==
-switch ( <CURSOR> ) {
+switch (<CURSOR>) {
     case <+LABEL+>:
         <SPLIT>break;
-
     case <+LABEL+>:
         break;
-
     case <+LABEL+>:
         break;
-
+        <++>
     default:
         break;
 }            /* -----  end switch  ----- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== statements.case ==
+== statements.case == append ==
 case <CURSOR>:
 break;
-
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.block ==
 {

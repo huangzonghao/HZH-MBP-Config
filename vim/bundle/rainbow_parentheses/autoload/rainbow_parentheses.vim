@@ -3,7 +3,8 @@
 "               by Martin Krischik and others.
 "               2011-10-12: Use less code.  Leave room for deeper levels.
 "==============================================================================
-
+" have to ban this color since i am using a black background --2015.8.6
+"\ ['black',       'SeaGreen3'],
 let s:pairs = [
 	\ ['brown',       'RoyalBlue3'],
 	\ ['Darkblue',    'SeaGreen3'],
@@ -14,7 +15,6 @@ let s:pairs = [
 	\ ['darkmagenta', 'DarkOrchid3'],
 	\ ['brown',       'firebrick3'],
 	\ ['gray',        'RoyalBlue3'],
-	\ ['black',       'SeaGreen3'],
 	\ ['darkmagenta', 'DarkOrchid3'],
 	\ ['Darkblue',    'firebrick3'],
 	\ ['darkgreen',   'RoyalBlue3'],

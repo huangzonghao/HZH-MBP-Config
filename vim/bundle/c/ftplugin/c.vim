@@ -158,14 +158,17 @@ exe s:C_N_Mode_Code_Leader."oif  :call C_InsertTemplate('idioms.open-input-file'
 "                          V Mode Insertion Keymappings
 " -------------------------------------------------------------------------------
 " ****************************   Comments  ************************************ "
-"
+exe s:C_V_Mode_Comment_Leader."fr  <Esc>:call C_InsertTemplate('comment.frame','v' )<CR>"
+exe s:C_V_Mode_Comment_Leader."fl  <Esc>:call C_InsertTemplate('comment.frame-large','v' )<CR>"
+
 " ******************************   Codes  ************************************* "
-exe s:C_V_Mode_Code_Leader."dw  <Esc>:call C_InsertTemplate('statements.do-while','v' )<CR> "
-exe s:C_V_Mode_Code_Leader."fr  <Esc>:call C_InsertTemplate('statements.for-block','v' )<CR> "
-exe s:C_V_Mode_Code_Leader."if  <Esc>:call C_InsertTemplate('statements.if-block','v' )<CR> "
-exe s:C_V_Mode_Code_Leader."el  <Esc>:call C_InsertTemplate('statements.else-block','v' )<CR> "
-exe s:C_V_Mode_Code_Leader."wh  <Esc>:call C_InsertTemplate('statements.while-block','v' )<CR> "
-exe s:C_V_Mode_Code_Leader."trh <Esc>:call C_InsertTemplate('cpp.try-catch','v' )<CR> "
+exe s:C_V_Mode_Code_Leader."dw  <Esc>:call C_InsertTemplate('statements.do-while','v' )<CR>"
+exe s:C_V_Mode_Code_Leader."fr  <Esc>:call C_InsertTemplate('statements.for-block','v' )<CR>"
+exe s:C_V_Mode_Code_Leader."if  <Esc>:call C_InsertTemplate('statements.if-block','v' )<CR>"
+exe s:C_V_Mode_Code_Leader."el  <Esc>:call C_InsertTemplate('statements.else-block','v' )<CR>"
+exe s:C_V_Mode_Code_Leader."wh  <Esc>:call C_InsertTemplate('statements.while-block','v' )<CR>"
+exe s:C_V_Mode_Code_Leader."trh <Esc>:call C_InsertTemplate('cpp.try-catch','v' )<CR>"
+exe s:C_V_Mode_Code_Leader."sw  <Esc>:call C_InsertTemplate('statements.switch','v' )<CR>"
 "
 
 " ------------------------------------------------------------------------------

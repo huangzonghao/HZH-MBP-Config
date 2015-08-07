@@ -35,6 +35,7 @@
 ##############
 *.cache
 *.swp
+.ycm_extra_conf.py*
 
 # OS generated files #
 ######################

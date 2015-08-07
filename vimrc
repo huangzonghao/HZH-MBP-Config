@@ -82,6 +82,10 @@ nnoremap <C-L> gt
 nnoremap <C-H> gT
 nnoremap <F1> :up<CR>
 nnoremap ; :
+nnoremap <C-W>m <C-W>_
+nnoremap <C-W>w <C-W>=
+nnoremap <C-W>k 2<C-W>-
+nnoremap <C-W>j 2<C-W>+
 "nnoremap <F6> :e<CR>
 "nnoremap <C-j> :m .+1<CR>==
 "nnoremap <C-k> :m .-2<CR>=="
@@ -92,10 +96,11 @@ nnoremap <F9> :!open .<CR><CR>
 nnoremap gtf <C-W>gf
 
 " buffer commands -- b as leader
-nnoremap bb :buffers!<CR>:buffer<Space>
-nnoremap bd :buffers!<CR>:bdelete<Space>
-nnoremap L  :bnext<CR>
-nnoremap H  :bprevious<CR>
+nnoremap bb  :buffers!<CR>:buffer<Space>
+nnoremap bd  :buffers!<CR>:Bdelete<Space>
+nnoremap bo  :Bdelete %<CR>
+nnoremap L   :bnext<CR>
+nnoremap H   :bprevious<CR>
 nnoremap bsn :sbnext<CR>
 nnoremap bsp :sbprevious<CR>
 nnoremap bsb :buffers<CR>:sb<Space>
@@ -130,6 +135,7 @@ vmap E <Plug>(easymotion-e)
 " switch f and n for better experience
 nnoremap n f
 nnoremap f n
+nnoremap N F
 
 " ------------------------------------------------------------------------------
 "                           Programming Keymappings
@@ -137,15 +143,15 @@ nnoremap f n
 "****************************** Toggles ****************************************
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>tt :NERDTreeToggle<CR>
-" load the full environment
-nnoremap <leader>. :NERDTreeToggle<CR><c-w>l:TagbarToggle<CR>
-" So the toggles: bar: tb; tree: tt; mouse: tm;
+nnoremap <leader>. :call ToggleProgrammingEnv()<CR>
+
 " toggle errors
 "nnoremap <leader>te :call ToggleSyntasticErrorsPanel()<CR>
 "nnoremap <leader>ts :call SyntasticToggleMode()<CR>
 " to toggle the error list; function provided by ycm
 let g:lt_location_list_toggle_map = "<leader>te"
 let g:lt_quickfix_list_toggle_map = "<leader>tq"
+let g:ycm_key_detailed_diagnostics = "<leader>si"
 
 "*************************** Toggles end ***************************************
 " a single check
@@ -153,7 +159,6 @@ let g:lt_quickfix_list_toggle_map = "<leader>tq"
 "nnoremap <leader>sr :call SyntasticReset()<CR>
 nnoremap <leader>sf :YcmForceCompileAndDiagnostics<CR>
 nnoremap <leader>sd :YcmDiags<CR>
-let g:ycm_key_detailed_diagnostics = "<leader>si"
 nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>yc :YcmDiags<CR>
 nnoremap <leader>gt :GoTo<CR>
@@ -170,16 +175,15 @@ nmap <leader>ea <Plug>(EasyAlign)
 nnoremap <Space>sd :!subl .<CR><CR>
 nnoremap <Space>sf :!subl %<CR><CR>
 
-
-" the function is provide by CVim
-nnoremap <Space>id :call C_InsertDateAndTime('d')<CR>a
-nnoremap <Space>ww :up<CR>
-nnoremap <Space>wq :wq<CR>
 nnoremap <Space><Space> :q<CR>
-nnoremap <Space>qq :qa<CR>
-nnoremap <Space>Q :q!<CR>
-nnoremap <Space>qQ :qa!<CR>
-nnoremap <Space>h :noh<CR>
+" the function is provide by CVim
+nnoremap <Space>id : call C_InsertDateAndTime('d')<CR>a
+nnoremap <Space>ww : up<CR>
+nnoremap <Space>wq : wq<CR>
+nnoremap <Space>qq : qa<CR>
+nnoremap <Space>Q  : q!<CR>
+nnoremap <Space>qQ : qa!<CR>
+nnoremap <Space>h  : noh<CR>
 nnoremap <Space>tu :let g:autoreadargs={'autoread':1}<CR>
                   \:execute WatchForChanges("*",autoreadargs)<CR>
 nnoremap <Space>tm :call ToggleMouse()<CR>
@@ -203,6 +207,9 @@ nnoremap <Space>sc z=
 " provided by better-whitespace
 nnoremap <Space>cws :StripWhitespace<CR>
 
+nnoremap <Space>p "*p
+vnoremap <Space>p "*p
+vnoremap <Space>y "*y
 
 " ==============================================================================
 "                            Global Commands
@@ -247,7 +254,7 @@ let NERDSpaceDelims = 1 "So we have padding spaces
 
 
 " CtrlP
-let g:ctrlp_map = '<Space>f'    " f stands for find here
+let g:ctrlp_map = 'F'    " f stands for find here
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -256,23 +263,23 @@ set wildignore+=*.a,*.o
 set wildignore+=*.bmp,*.gif,*.jpg,*.png
 
 " synstastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_check_on_wq = 0
 " only enable it when we want
-let g:syntastic_mode_map = {"mode": "passive" }
-function! ToggleSyntasticErrorsPanel()
-    let old_last_winnr = winnr('$')
-    lclose
-    if old_last_winnr == winnr('$')
-        " Nothing was closed, open syntastic error location panel
-        Errors
-    endif
-endfunction
+"let g:syntastic_mode_map = {"mode": "passive" }
+"function! ToggleSyntasticErrorsPanel()
+"    let old_last_winnr = winnr('$')
+"    lclose
+"    if old_last_winnr == winnr('$')
+"        " Nothing was closed, open syntastic error location panel
+"        Errors
+"    endif
+"endfunction
 
 
 " powerline
@@ -294,25 +301,25 @@ autocmd FileType html,css EmmetInstall
 
 " rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+au Syntax   * RainbowParenthesesLoadRound
+au Syntax   * RainbowParenthesesLoadSquare
+au Syntax   * RainbowParenthesesLoadBraces
 
 " YCM
 let g:ycm_global_ycm_extra_conf = '~/dotfiles/vim/bundle/YouCompleteMe/
                             \third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "let g:ycm_confirm_extra_conf = 0
-let g:ycm_filetype_whitelist = { 'c': 1,
-                                \'cpp': 1,
-                                \ 'cuda':1,
-                                \ 'python':1}
+let g:ycm_filetype_whitelist ={  'c'      : 1,
+                                \'cpp'    : 1,
+                                \'cuda'   : 1,
+                                \'python' : 1}
 
 let g:ycm_warning_symbol = '->'
 let g:ycm_complete_in_comments = 1
 
 " pathogen
 " the pathogen disable list
-let g:pathogen_disabled = ['better-whitespace, syntastic']
+let g:pathogen_disabled = ['better-whitespace, syntastic, YouCompleteMe']
 " Should be called at the end to make sure all the modification done in this
 " file take effect
 execute pathogen#infect()
@@ -363,3 +370,16 @@ function! CheckStartupStatus()
 endfunction
 autocmd VimEnter * call CheckStartupStatus()
 
+function! ToggleProgrammingEnv()
+    let s:tagbarwinnr = bufwinnr("__Tagbar__")
+    let s:nerdtreewinnr = bufwinnr("NERD_tree_1")
+    if s:tagbarwinnr != -1 && s:nerdtreewinnr != -1 ||
+      \s:tagbarwinnr == -1 && s:nerdtreewinnr == -1
+        NERDTreeToggle
+        TagbarToggle
+    elseif s:tagbarwinnr == -1
+        TagbarToggle
+    elseif s:nerdtreewinnr == -1
+        NERDTreeToggle
+    endif
+endfunction
