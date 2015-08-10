@@ -43,7 +43,7 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  *
  *       Filename:  |FILENAME|
  *
- *    Description:  <CURSOR>
+ *    Description: <CURSOR>
  *
  *        Created:  |DATE|
  *       Modified:  |DATE|

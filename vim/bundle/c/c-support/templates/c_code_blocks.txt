@@ -92,8 +92,8 @@ inline void
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.class-using-new-definition ==
 /*
- * =============================================================================
- *        Class:  |?CLASSNAME:c|
+ * ===  CLASS  =================================================================
+ *         Name:  |?CLASSNAME:c|
  *  Description:  <CURSOR>
  * =============================================================================
  */
@@ -223,8 +223,8 @@ inline  void |CLASSNAME|<T>::set_|ATTRIBUTE| (|RETURNTYPE| value) {
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == cpp.template-class-using-new-definition ==
 /*
- * =============================================================================
- *        Class:  |?CLASSNAME:c|
+ * ===  CLASS  =================================================================
+ *         Name:  |?CLASSNAME:c|
  *  Description:  <CURSOR>
  * =============================================================================
  */
@@ -399,12 +399,6 @@ dynamic_cast<>(<CURSOR><SPLIT>)
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.function ==
-$/*
-$ * ===  FUNCTION  =============================================================
-$ *         Name:  |?FUNCTION_NAME|
-$ *  Description:
-$ * ============================================================================
-$ */
 /*
  * ===  FUNCTION  ==============================================================
  *         Name:  |?FUNCTION_NAME|
@@ -414,17 +408,40 @@ $ */
  * =============================================================================
  */
 <+FUNC_TYPE+> |FUNCTION_NAME|(<+argument list+>){
-
-<SPLIT> return <+return value+>;
+    <+body+>
+<SPLIT>return <+return value+>;
 }       /* -----  end of function |FUNCTION_NAME|  ----- */
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.kernel-global ==
+/*
+ * ===  GLOBAL KERNEL  =========================================================
+ *         Name:  g_|?KERNEL_NAME|
+ *  Description:  <CURSOR>
+ *       @param:  <+PARAMETERS+>
+ * =============================================================================
+ */
+__global__
+void g_|KERNEL_NAME|(<+argument list+>){
+    <+body+>
+<SPLIT>return;
+}       /* -----  end of global kernel g_|KERNEL_NAME|  ----- */
+$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== idioms.kernel-device ==
+/*
+ * ===  DEVICE KERNEL  =========================================================
+ *         Name:  d_|?KERNEL_NAME|
+ *  Description:  <CURSOR>
+ *       @param:  <+PARAMETERS+>
+ *      @return:  <+RETURN_VALUES+>
+ * =============================================================================
+ */
+__device__
+<+FUNC_TYPE+> d_|KERNEL_NAME|(<+argument list+>){
+    <+body+>
+<SPLIT>return <+return value+>;
+}       /* -----  end of device kernel d_|KERNEL_NAME|  ----- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.function-static ==
-$/*
-$ * ===  FUNCTION  =============================================================
-$ *         Name:  |?FUNCTION_NAME|
-$ *  Description:
-$ * ============================================================================
-$ */
 /*
  * ===  FUNCTION  ==============================================================
  *         Name:  |?FUNCTION_NAME|
@@ -452,15 +469,26 @@ int main (int argc, char **argv) {
 }       /* ----------  end of function main  ---------- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.enum ==
+/*
+ * ===  ENUM  ==================================================================
+ *         Name:  |?ENUM_NAME|
+ *  Description:  <CURSOR>
+ * =============================================================================
+ */
 enum |?ENUM_NAME| {<CURSOR>
 <SPLIT>};       /* ----------  end of enum |ENUM_NAME|  ---------- */
 
 typedef enum |ENUM_NAME| |ENUM_NAME:c|;
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.struct ==
-struct |?STRUCT_NAME| {<CURSOR>
+/*
+ * ===  SRUCT  =================================================================
+ *         Name:  |?STRUCT_NAME:c|
+ *  Description:  <CURSOR>
+ * =============================================================================
+ */
+struct |STRUCT_NAME| {<CURSOR>
 <SPLIT>};       /* ----------  end of struct |STRUCT_NAME|  ---------- */
-
 typedef struct |STRUCT_NAME| |STRUCT_NAME:c|;
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.union ==
@@ -475,30 +503,30 @@ printf ("<CURSOR>\n");
 scanf ("<CURSOR>", &);
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.calloc ==
-|?POINTER|  = calloc((size_t)(<CURSOR><+COUNT+>), sizeof(<+TYPE+>));
-if (|POINTER|==NULL) {
+|?POINTER|  = calloc((size_t)(<CURSOR>), <++>sizeof(<+TYPE+>));
+if (|POINTER| == NULL) {
     fprintf (stderr, "\ndynamic memory allocation failed\n");
     exit (EXIT_FAILURE);
 }
 
 free(|POINTER|);
-|POINTER|   = NULL;
+|POINTER| = NULL;
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.malloc ==
-|?POINTER|  = malloc(sizeof(<CURSOR><+TYPE+>));
-if (|POINTER|==NULL) {
+|?POINTER| = malloc(<CURSOR>sizeof(<+TYPE+>));
+if (|POINTER| == NULL) {
     fprintf(stderr, "\ndynamic memory allocation failed\n");
     exit(EXIT_FAILURE);
 }
 
 free (|POINTER|);
-|POINTER|   = NULL;
+|POINTER| = NULL;
 
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.realloc ==
-|?POINTER|  = realloc(|POINTER|, sizeof(<CURSOR><+TYPE+>));
-if (|POINTER|==NULL) {
+|?POINTER|  = realloc(|POINTER|, <CURSOR>sizeof(<+TYPE+>));
+if (|POINTER| == NULL) {
     fprintf(stderr, "\ndynamic memory reallocation failed\n");
     exit(EXIT_FAILURE);
 }

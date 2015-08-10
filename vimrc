@@ -29,6 +29,7 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 set list
 " set listchars=tab:>.,trail:~,extends:#,nbsp:.
 set listchars=tab:>.,extends:#,nbsp:.
+set cc=80
 
 " ==============================================================================
 "                            Global Behavior Settings
@@ -96,8 +97,8 @@ nnoremap <F9> :!open .<CR><CR>
 nnoremap gtf <C-W>gf
 
 " buffer commands -- b as leader
-nnoremap bb  :buffers!<CR>:buffer<Space>
-nnoremap bd  :buffers!<CR>:Bdelete<Space>
+nnoremap bb  :buffers<CR>:buffer<Space>
+nnoremap bd  :buffers<CR>:Bdelete<Space>
 nnoremap bo  :Bdelete %<CR>
 nnoremap L   :bnext<CR>
 nnoremap H   :bprevious<CR>
@@ -136,6 +137,8 @@ vmap E <Plug>(easymotion-e)
 nnoremap n f
 nnoremap f n
 nnoremap N F
+
+nnoremap zz z-
 
 " ------------------------------------------------------------------------------
 "                           Programming Keymappings
