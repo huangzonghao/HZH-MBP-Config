@@ -1,6 +1,6 @@
 CXX = 	g++
 
-CXXFLAGS =	-O2 -g -Wall 
+CXXFLAGS =	-O2 -g -Wall
 
 OBJS =	main.o <++>
 
@@ -15,6 +15,6 @@ all:	$(TARGET)
 
 main.o: main.cpp <++>
 		$(CXX) $(CXXFLAGS) -c main.cpp
-		
+
 clean:
 	rm -f $(OBJS) $(TARGET)

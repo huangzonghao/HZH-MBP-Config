@@ -125,6 +125,7 @@ exe s:C_N_Mode_Code_Leader."p'   :call C_InsertTemplate('preprocessor.include-lo
 exe s:C_N_Mode_Code_Leader."pd   :call C_InsertTemplate('preprocessor.define')<CR>"
 exe s:C_N_Mode_Code_Leader."pu   :call C_InsertTemplate('preprocessor.undefine')<CR>"
 exe s:C_N_Mode_Code_Leader."fu   :call C_InsertTemplate('idioms.function' )<CR>"
+exe s:C_N_Mode_Code_Leader."fi   :call C_InsertTemplate('idioms.inline-function' )<CR>"
 exe s:C_N_Mode_Code_Leader."keg  :call C_InsertTemplate('idioms.kernel-global')<CR>"
 exe s:C_N_Mode_Code_Leader."ked  :call C_InsertTemplate('idioms.kernel-device')<CR>"
 exe s:C_N_Mode_Code_Leader."mn   :call C_InsertTemplate('idioms.main' )<CR>"
@@ -193,6 +194,7 @@ exe s:C_I_Mode_Code_Leader."wh  <Esc>:call C_InsertTemplate('statements.while-bl
 exe s:C_I_Mode_Code_Leader."sw  <Esc>:call C_InsertTemplate('statements.switch', 'i')<CR>"
 exe s:C_I_Mode_Code_Leader."cs  <Esc>:call C_InsertTemplate('statements.case', 'i')<CR>"
 exe s:C_I_Mode_Code_Leader."fu  <Esc>:call C_InsertTemplate('idioms.function', 'i')<CR>"
+exe s:C_I_Mode_Code_Leader."fi  <Esc>:call C_InsertTemplate('idioms.inline-function', 'i')<CR>"
 exe s:C_I_Mode_Code_Leader."keg <Esc>:call C_InsertTemplate('idioms.kernel-global', 'i')<CR>"
 exe s:C_I_Mode_Code_Leader."ked <Esc>:call C_InsertTemplate('idioms.kernel-device', 'i')<CR>"
 exe s:C_I_Mode_Code_Leader."p<  <Esc>:call C_InsertTemplate('preprocessor.include-global', 'i')<CR>"
@@ -240,3 +242,7 @@ command! -nargs=1 -complete=customlist,C_C99LibraryIncludesList  IncludeC99Libra
 command! -nargs=1 -complete=customlist,C_CppLibraryIncludesList  IncludeCppLibrary  call C_CppLibraryIncludesInsert (<f-args>)
 command! -nargs=1 -complete=customlist,C_CppCLibraryIncludesList IncludeCppCLibrary call C_CppCLibraryIncludesInsert(<f-args>)
 command! -nargs=1 -complete=customlist,C_StyleList               CStyle             call C_Style                    (<f-args>)
+
+" ==============================================================================
+"                            Function Calls
+" ==============================================================================

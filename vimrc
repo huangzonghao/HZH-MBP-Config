@@ -8,7 +8,7 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
-colorscheme slate
+colorscheme dahuangsyn
 
 set number
 set ruler
@@ -86,7 +86,11 @@ nnoremap ; :
 nnoremap <C-W>m <C-W>_
 nnoremap <C-W>w <C-W>=
 nnoremap <C-W>k 2<C-W>-
+nnoremap <Up> 2<C-W>-
 nnoremap <C-W>j 2<C-W>+
+nnoremap <Down> 2<C-W>+
+nnoremap <Left> 2<C-W><
+nnoremap <Right> 2<C-W>>
 "nnoremap <F6> :e<CR>
 "nnoremap <C-j> :m .+1<CR>==
 "nnoremap <C-k> :m .-2<CR>=="
@@ -253,7 +257,8 @@ let g:tagbar_sort=0
 "let g:tagbar_left=1
 
 " the nerd-commenter
-let NERDSpaceDelims = 1 "So we have padding spaces
+let g:NERDSpaceDelims = 1 "So we have padding spaces
+let g:NERDDahuangSexyComs = 1 "So we have my preferred sexy comments
 
 
 " CtrlP
@@ -319,6 +324,9 @@ let g:ycm_filetype_whitelist ={  'c'      : 1,
 
 let g:ycm_warning_symbol = '->'
 let g:ycm_complete_in_comments = 1
+
+" markdown
+let g:vim_markdown_math=1
 
 " pathogen
 " the pathogen disable list

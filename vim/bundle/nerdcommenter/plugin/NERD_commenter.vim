@@ -68,6 +68,7 @@ let s:NERDFileNameEscape="[]#*$%'\" ?`!&();<>\\"
 
 " I like the c style comment for cpp more...
 " \ 'cpp': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+" \ 'mkd': { 'left': '>' },
 let s:delimiterMap = {
     \ 'aap': { 'left': '#' },
     \ 'abc': { 'left': '%' },
@@ -248,7 +249,7 @@ let s:delimiterMap = {
     \ 'mel': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'mib': { 'left': '--' },
     \ 'mirah': {'left': '#'},
-    \ 'mkd': { 'left': '>' },
+    \ 'mkd': { 'left': '[//]: # (','right' : ')' },
     \ 'mma': { 'left': '(*', 'right': '*)' },
     \ 'model': { 'left': '$', 'right': '$' },
     \ 'moduala.': { 'left': '(*', 'right': '*)' },
@@ -825,10 +826,43 @@ function s:CommentLinesSexy(topline, bottomline)
     " we jam the comment as far to the right as possible
     let leftAlignIndx = s:LeftMostIndx(1, 1, a:topline, a:bottomline)
 
+    " my personal preferred sex comments : compacted at the top but not the bottom
+    " -- 2015.8.10
+    if g:NERDDahuangSexyComs
+    " if my personal preference is set, then no matter the compact var is set or
+    " not it doesn't matter any more
+    let a:SexyComsLineNumOffset = 0
+        let spaceString = (g:NERDSpaceDelims ? s:spaceStr : '')
+
+        "comment the top line
+        let theLine = getline(a:topline)
+        let lineHasTabs = s:HasLeadingTabs(theLine)
+        if lineHasTabs
+            let theLine = s:ConvertLeadingTabsToSpaces(theLine)
+        endif
+        let theLine = s:SwapOutterMultiPartDelimsForPlaceHolders(theLine)
+        let theLine = s:AddLeftDelimAligned(left . spaceString, theLine, leftAlignIndx)
+        if lineHasTabs
+            let theLine = s:ConvertLeadingSpacesToTabs(theLine)
+        endif
+        call setline(a:topline, theLine)
+
+        " add the right delimiter after bottom line
+        call cursor(a:bottomline, 1)
+        execute 'normal! o'
+        let theLine = repeat(' ', leftAlignIndx) . repeat(' ', strlen(left)-strlen(sexyComMarker)) . right
+
+        " Make sure tabs are respected
+        if !&expandtab
+           let theLine = s:ConvertLeadingSpacesToTabs(theLine)
+        endif
+        call setline(a:bottomline+1, theLine)
+
     "check if we should use the compact style i.e that the left/right
     "delimiters should appear on the first and last lines of the code and not
     "on separate lines above/below the first/last lines of code
-    if g:NERDCompactSexyComs
+    elseif g:NERDCompactSexyComs
+        let a:SexyComsLineNumOffset = 0
         let spaceString = (g:NERDSpaceDelims ? s:spaceStr : '')
 
         "comment the top line
@@ -858,8 +892,9 @@ function s:CommentLinesSexy(topline, bottomline)
             let theLine = s:ConvertLeadingSpacesToTabs(theLine)
         endif
         call setline(a:bottomline, theLine)
-    else
 
+    else
+        let a:SexyComsLineNumOffset = 1
         " add the left delimiter one line above the lines that are to be commented
         call cursor(a:topline, 1)
         execute 'normal! O'
@@ -888,7 +923,7 @@ function s:CommentLinesSexy(topline, bottomline)
     " go thru each line adding the sexyComMarker marker to the start of each
     " line in the appropriate place to align them with the comment delims
     let currentLine = a:topline+1
-    while currentLine <= a:bottomline + !g:NERDCompactSexyComs
+    while currentLine <= a:bottomline + a:SexyComsLineNumOffset
         " get the line and convert the tabs to spaces
         let theLine = getline(currentLine)
         let lineHasTabs = s:HasLeadingTabs(theLine)
