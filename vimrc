@@ -30,6 +30,7 @@ set list
 " set listchars=tab:>.,trail:~,extends:#,nbsp:.
 set listchars=tab:>.,extends:#,nbsp:.
 set cc=80
+highlight ColorColumn ctermbg=gray
 
 " ==============================================================================
 "                            Global Behavior Settings
@@ -185,12 +186,12 @@ nnoremap <Space>sf :!subl %<CR><CR>
 nnoremap <Space><Space> :q<CR>
 " the function is provide by CVim
 nnoremap <Space>id : call C_InsertDateAndTime('d')<CR>a
-nnoremap <Space>ww : up<CR>
-nnoremap <Space>wq : wq<CR>
-nnoremap <Space>qq : qa<CR>
-nnoremap <Space>Q  : q!<CR>
-nnoremap <Space>qQ : qa!<CR>
-nnoremap <Space>h  : noh<CR>
+nnoremap <Space>w  :up<CR>
+nnoremap <Space>W  :wq<CR>
+nnoremap <Space>qq :qa<CR>
+nnoremap <Space>Q  :q!<CR>
+nnoremap <Space>qQ :qa!<CR>
+nnoremap <Space>h  :noh<CR>
 nnoremap <Space>tu :let g:autoreadargs={'autoread':1}<CR>
                   \:execute WatchForChanges("*",autoreadargs)<CR>
 nnoremap <Space>tm :call ToggleMouse()<CR>

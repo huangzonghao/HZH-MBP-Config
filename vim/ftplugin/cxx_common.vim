@@ -1,5 +1,3 @@
-set cc=80
-highlight ColorColumn ctermbg=gray
 nnoremap <silent> <f8> :update<CR> :!make<CR>
 nnoremap <silent> <f7> :!./executable<CR>
 " add the autoformater for c --Wed May 13 12:42:36 HKT 2015
@@ -46,4 +44,4 @@ function! C_UpdateModifiedTimeStamp()
     let @/=_s
     call cursor(l, c)
 endfunction
-autocmd BufWritePre *.{c,,cc,cpp,h,cu,cuda} call C_UpdateModifiedTimeStamp()
+autocmd BufWritePre *.{c,,cc,cpp,h,cu,cuda,cuh} call C_UpdateModifiedTimeStamp()

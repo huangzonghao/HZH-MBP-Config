@@ -42,6 +42,7 @@ alias du="du -hsc"
 # "defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
 
 #export PATH="/usr/local/bin:$PATH"
+export PATH="/Users/huangzonghao/local/bin:$PATH"
 
 
 alias cao="./executable"
@@ -50,12 +51,22 @@ alias hosts="sudo vim /etc/hosts"
 
 alias cslab="ssh zhuangaj@csl2wk22.cse.ust.hk"
 alias ielm="ssh hzh@verse.ielm.ust.hk"
+alias qglab="ssh huangzonghao@143.89.135.120"
 alias gpu="ssh zhuangaj@gpu1.ust.hk"
+
+alias tum="ssh team101@praksrv.sec.in.tum.de"
+alias tumtask="sshfs team101@praksrv.sec.in.tum.de:/tasks/rk/ /Users/huangzonghao/mount/tum/task/"
+alias tummt="sshfs team101@praksrv.sec.in.tum.de:/home/team101 /Users/huangzonghao/mount/tum/workspace/"
 
 #some funny commands
 # sl fortune cowsay cmatrix figlet
 # the alias for sublime text --Tue Apr 14 17:23:50 HKT 2015
 
+# recode the gb18030 to utf8
+alias g2u="recode gb18030..utf8"
+
+# alias for a kindle tool Fri Aug 21 23:55:33 2015
+alias kindletool="k2pdfopt"
 
 #############################
 ######## functions ##########
@@ -175,16 +186,16 @@ tem(){
                 echo -n "cuda or opencl or common? (c, cl, com) :"
                 read FILE_NAME
                 if [[ $FILE_NAME = "c" ]]
-                then 
+                then
                     cp ~/.vim/template/cmake_cuda.txt ./CMakeLists.txt
                     vim CMakeLists.txt
                 elif [[ $FILE_NAME = "cl" ]]
-                then 
+                then
                     cp ~/.vim/template/cmake_opencl.txt ./CMakeLists.txt
                     cp -r ~/.vim/template/cmake_opencl_module ./cmake_module
                     vim CMakeLists.txt
                 elif [[ $FILE_NAME = "com" ]]
-                then 
+                then
                     cp ~/.vim/template/cmake_common.txt ./CMakeLists.txt
                     vim CMakeLists.txt
                 else echo "invalid operation, abort"

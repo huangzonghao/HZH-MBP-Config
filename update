@@ -14,7 +14,7 @@ echo "Unzip done, start to run the script..."
 cd ..
 for i in *
 do
-    if [[ $i != "update_temp" ]] 
+    if [[ $i != "update_temp" ]]
     then rm -rf $i
     fi
 done
