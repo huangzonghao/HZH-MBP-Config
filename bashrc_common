@@ -1,9 +1,5 @@
 export PATH="$HOME/local/bin:$PATH"
 
-# set some alias for the ls commands --by huangzonghao@2014.7.18
-# note the ls settings are not for the zsh, check zshrc to change the behavior of ls in zsh
-alias ls="ls -G"
-
 # depends on different linux distributions
 # for common linux distributions the following command is needed for colorful ls
 if [[ $SYSTEM_VER = "linux" ]]
@@ -11,6 +7,7 @@ then
     alias ls="ls --color=auto"
 fi
 
+alias ls="ls -G"
 alias la="ls -AG"
 alias ll="ls -aoghlGF"
 alias cp="cp -i"

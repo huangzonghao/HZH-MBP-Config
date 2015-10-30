@@ -1,9 +1,5 @@
-#Note this file is for sourcing by the zshrc file
-########################################################################
-### be very careful of the spaces when you write the bash functions ####
-# haha now i understand that this is because [ itself is a command! so of course you definitely need to leave it some space, otherwise how to differentiate the function call and the input parameters!!!! cool!!   --Thu Jul  9 14:44:27 HKT 2015
-########################################################################
 SYSTEM_VER="mac"
+
 source ~/dotfiles/bashrc_common
 RC_FILE="~/.bash_profile"
 
@@ -16,14 +12,6 @@ setWhiteBackground() {
         echo -e "\033]Pg000000\033\\"
 }
 
-# a function to clear the history in iterm --Wed Apr  8 09:31:42 HKT 2015
-clearScrollback(){
-        echo -e "\033]50;ClearScrollback\a"
-}
-
-# path for open cv
-#export PATH="/usr/local/include/opencv2:$PATH"
-
 # resetting the java path for mac ox x mavericks --by huangzonghao@2014.7.15
 export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 
@@ -33,50 +21,30 @@ export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Ho
 alias matlab="/Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
 alias mt="cd ~/TEMP/matlab && /Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
 
-
-#brand new alias after putting ssh pub key into the server
-alias ielmmt="sshfs  hzh@verse.ielm.ust.hk:/Users/hzh/work /Users/huangzonghao/mount/ielm"
-
-# a small function to tell whether to enable the display mode or not --Thu Apr 16 23:23:50 HKT 2015
-ConnectBigYellow(){
-        setWhiteBackground
-        if [ $# -eq 0 ]
-                then
-                        expect /Users/huangzonghao/Expect/bigyellow.sh
-                else
-                        if [ $1 == "X" ]
-                                then
-                                expect /Users/huangzonghao/Expect/bigyellowX.sh
-                        fi
-        fi
-}
-
-
-
 # alias for javascript interpretor --Thu Feb  5 16:48:50 HKT 2015
 alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc"
 
 
 #alias for dot --Tue Mar  3 17:23:32 HKT 2015
 ComplieDot() {
-        if [ $# -eq 0 ] #the number of input arguments equal to zero
-                then
-                        /usr/local/bin/dot -Tpng -O *.dot;
-                else
-                        /usr/local/bin/dot -Tpng -o $1.png $1.dot;
-        fi
+    if [ $# -eq 0 ] #the number of input arguments equal to zero
+    then
+        /usr/local/bin/dot -Tpng -O *.dot;
+    else
+        /usr/local/bin/dot -Tpng -o $1.png $1.dot;
+    fi
 }
 alias dt="ComplieDot"
 #alias dt="/usr/local/bin/dot -Tpng -O"
 
 #the function to beauitfy the js code -Sat Mar 28 14:19:03 HKT 2015
 beautifyJS(){
-        #if [ $# -eq 1]
-        #then
-                js-beautify -f $1 -r --type $2;
-                #rm $1;
-                #mv __temp_$1 $1;
-        #fi
+    #if [ $# -eq 1]
+    #then
+    js-beautify -f $1 -r --type $2;
+    #rm $1;
+    #mv __temp_$1 $1;
+    #fi
 }
 alias btf="beautifyJS"
 #by the way this plugin is just garbage, you should use the plugin in the sublime text 3
@@ -93,23 +61,15 @@ alias apache="sudo apachectl"
 
 # the setup for visual studio code --Sat May  9 12:07:11 HKT 2015
 vsc () {
-            if [[ $# = 0 ]]
-                then
-            echo shabileba;
-                        open -a "Visual Studio Code"
-                else
-                        [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-                        open -a "Visual Studio Code" --args "$F"
-            fi
+    if [[ $# = 0 ]]
+    then
+        echo shabileba;
+        open -a "Visual Studio Code"
+    else
+        [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+        open -a "Visual Studio Code" --args "$F"
+    fi
 }
-
-# add the git completion file --Sat May 16 16:57:16 HKT 2015
-#source /usr/local/git/contrib/completion/git-completion.bash
-
-
-# add the brew completition file --Mon May 25 05:04:53 HKT 2015
-#source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
-
 
 # alias for youtube-dl --Sun May 17 13:09:28 HKT 2015
 alias ydl="youtube-dl"

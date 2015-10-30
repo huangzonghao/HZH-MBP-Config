@@ -1,45 +1,48 @@
 [user]
-	name = HuangZonghao
-	email = coding@huangzonghao.com
+    name = HuangZonghao
+    email = coding@huangzonghao.com
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
 [push]
-	default = matching
+    default = matching
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [alias]
-	d = difftool
-	lg = log --abbrev-commit
-	la = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate --graph
-	ll = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate  --numstat
-	st = status -s
-	cm = commit -m
-	unstage = reset HEAD --
-	r = reset
-	r1 = reset HEAD^
-	r2 = reset HEAD^^
-	rh = reset --hard
-	rh1 = reset HEAD^ --hard
-	rh2 = reset HEAD^^ --hard
-	sl = stash list
-	sa = stash apply
-	ss = stash save
-	pinfo = info --no-config
+    d = difftool
+    lg = log --abbrev-commit
+    la = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate --graph
+    ll = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate  --numstat
+    st = status -s
+    aa = stage -A
+    cm = commit -m
+    ci = commit
+    unstage = reset HEAD --
+    r = reset
+    r1 = reset HEAD^
+    r2 = reset HEAD^^
+    rh = reset --hard
+    rh1 = reset HEAD^ --hard
+    rh2 = reset HEAD^^ --hard
+    sl = stash list
+    sa = stash apply
+    ss = stash save
+    pinfo = info --no-config
 [difftool]
-	prompt = false
+    prompt = false
 [core]
-	excludesfile = /Users/huangzonghao/.gitignore_global
+    excludesfile = /Users/huangzonghao/.gitignore_global
+    editor = vim
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
 [log]
-	decorate = true
+    decorate = true
