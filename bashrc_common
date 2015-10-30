@@ -1,17 +1,21 @@
+export PATH="$HOME/local/bin:$PATH"
+
 # set some alias for the ls commands --by huangzonghao@2014.7.18
 # note the ls settings are not for the zsh, check zshrc to change the behavior of ls in zsh
 alias ls="ls -G"
+
 # depends on different linux distributions
-#alias ls="ls --color=auto"
+# for common linux distributions the following command is needed for colorful ls
+if [[ $SYSTEM_VER = "linux" ]]
+then
+    alias ls="ls --color=auto"
+fi
+
 alias la="ls -AG"
 alias ll="ls -aoghlGF"
-
 alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
-
-# an alias to open vim plugin folder faster --Thu Jul 23 16:02:47 2015
-alias vimp="open ~/.vim/bundle"
 
 # set the alias for latexmk -- by huangzonghao@2014.10.4
 # note the latexmk is usually installed together with tex distribution
@@ -25,38 +29,25 @@ brc(){
 ebrc(){
     eval vim $RC_FILE
 }
+
 alias ebrcc="vim ~/dotfiles/bashrc_common"
 alias evrc="vim ~/dotfiles/vimrc"
 alias evn="vim ~/dotfiles/vim/docs/updating_notes.txt"
-
 alias e="vim"
 alias v="view"
 alias vd="vimdiff"
-
-
 alias tree="tree -C"
 alias du="du -hsc"
-
-#alias rmds ="find . -name .DS_Store -delete"
-# to disable the creation in network file system, run the following
-# "defaults write com.apple.desktopservices DSDontWriteNetworkStores true"
-
-#export PATH="/usr/local/bin:$PATH"
-export PATH="/Users/huangzonghao/local/bin:$PATH"
-
-
 alias cao="./executable"
 alias hosts="sudo vim /etc/hosts"
 
-
-alias cslab="ssh zhuangaj@csl2wk22.cse.ust.hk"
-alias ielm="ssh hzh@verse.ielm.ust.hk"
-alias qglab="ssh huangzonghao@143.89.135.120"
-alias gpu="ssh zhuangaj@gpu1.ust.hk"
-
-alias tum="ssh team101@praksrv.sec.in.tum.de"
-alias tumtask="sshfs team101@praksrv.sec.in.tum.de:/tasks/rk/ /Users/huangzonghao/mount/tum/task/"
-alias tummt="sshfs team101@praksrv.sec.in.tum.de:/home/team101 /Users/huangzonghao/mount/tum/workspace/"
+# alias cslab="ssh zhuangaj@csl2wk22.cse.ust.hk"
+# alias ielm="ssh hzh@verse.ielm.ust.hk"
+# alias qglab="ssh huangzonghao@143.89.135.120"
+# alias gpu="ssh zhuangaj@gpu1.ust.hk"
+# alias tum="ssh team101@praksrv.sec.in.tum.de"
+# alias dorm="ssh -X huangzonghao@10.150.55.166"
+# alias dormin="ssh -X huangzonghao@192.168.3.6"
 
 #some funny commands
 # sl fortune cowsay cmatrix figlet
@@ -65,8 +56,32 @@ alias tummt="sshfs team101@praksrv.sec.in.tum.de:/home/team101 /Users/huangzongh
 # recode the gb18030 to utf8
 alias g2u="recode gb18030..utf8"
 
-# alias for a kindle tool Fri Aug 21 23:55:33 2015
-alias kindletool="k2pdfopt"
+# load all the alias for ssh and sshfs
+# first the alias for ssh
+declare READ_SSH_TEMP
+while read -r line
+do
+    if [[ `echo $line | head -c 1` != "#" ]]
+    then
+        READ_SSH_TEMP=( $line )
+        if [[ ${READ_SSH_TEMP[0]} == 0 ]]
+        then
+            alias ${READ_SSH_TEMP[1]}="ssh ${READ_SSH_TEMP[2]}"
+        else
+            alias ${READ_SSH_TEMP[1]}="ssh -X ${READ_SSH_TEMP[2]}"
+        fi
+    fi
+done < ~/dotfiles/ssh_list.txt
+
+# then the alias for sshfs
+while read -r line
+do
+    if [[ `echo $line | head -c 1` != "#" ]]
+    then
+        READ_SSH_TEMP=( $line )
+            alias ${READ_SSH_TEMP[0]}="sshfs ${READ_SSH_TEMP[1]} ${READ_SSH_TEMP[2]}"
+    fi
+done < ~/dotfiles/ssh_mount_list.txt
 
 #############################
 ######## functions ##########
@@ -75,7 +90,6 @@ alias kindletool="k2pdfopt"
 # The function to remove the temp files, inspired by the following commands
 # remove the .DS_Store file
 #alias rmds="find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch"
-
 # add {} at the end in case the file name too long error
 #alias rmds="find . -name '.DS_Store' -print0 | xargs -0 rm -f {}"
 

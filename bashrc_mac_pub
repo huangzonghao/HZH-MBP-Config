@@ -1,3 +1,4 @@
+SYSTEM_VER="mac"
 source ~/dotfiles/bashrc_common
 RC_FILE="~/.bash_profile"
 

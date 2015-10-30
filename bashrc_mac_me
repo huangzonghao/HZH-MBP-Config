@@ -3,20 +3,12 @@
 ### be very careful of the spaces when you write the bash functions ####
 # haha now i understand that this is because [ itself is a command! so of course you definitely need to leave it some space, otherwise how to differentiate the function call and the input parameters!!!! cool!!   --Thu Jul  9 14:44:27 HKT 2015
 ########################################################################
-
+SYSTEM_VER="mac"
 source ~/dotfiles/bashrc_common
 RC_FILE="~/.bash_profile"
 
-#just for fun --Thu May 21 14:57:27 HKT 2015
-#alias gcc="gcc-5"
-#alias g++="g++-5"
-
-
 #settings for the layout of the bash --Tue Apr  7 17:27:17 HKT 2015
-#export PS1="\e[0;31mPrivate Mac\e[m\e[0;33m:\w\$\e[m "
-#export CLICOLOR=1
-#export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
+export PS1="\e[32mHZH-MBP\e[m\e[0;33m:\w\$\e[m "
 
 # a small function to change the iterm background color  --Wed Apr  8 03:29:48 HKT 2015
 setWhiteBackground() {
@@ -59,13 +51,6 @@ ConnectBigYellow(){
         fi
 }
 
-
-# Mon Apr  6 17:15:29 HKT 2015
-alias gpumt="expect /Users/huangzonghao/Expect/gpu1mt.sh"
-
-
-# --Thu Jan 22 01:44:07 HKT 2015
-#alias pan="cd /Users/huangzonghao/mount/ielm"
 
 
 # alias for javascript interpretor --Thu Feb  5 16:48:50 HKT 2015
@@ -110,7 +95,7 @@ alias apache="sudo apachectl"
 vsc () {
             if [[ $# = 0 ]]
                 then
-			echo shabileba;
+            echo shabileba;
                         open -a "Visual Studio Code"
                 else
                         [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
@@ -128,3 +113,6 @@ vsc () {
 
 # alias for youtube-dl --Sun May 17 13:09:28 HKT 2015
 alias ydl="youtube-dl"
+
+# alias for a kindle tool Fri Aug 21 23:55:33 2015
+alias kindletool="k2pdfopt"

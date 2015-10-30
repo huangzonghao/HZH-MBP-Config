@@ -1,3 +1,4 @@
+SYSTEM_VER="linux"
 source ~/dotfiles/bashrc_common
 RC_FILE="~/.bashrc"
 

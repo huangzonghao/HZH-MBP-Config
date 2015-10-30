@@ -210,6 +210,9 @@ nnoremap <Space>s. ]s
 nnoremap <Space>s, [s
 nnoremap <Space>sa zg
 nnoremap <Space>sc z=
+nnoremap <Space>dr :diffg RE<CR>
+nnoremap <Space>db :diffg BA<CR>
+nnoremap <Space>dl :diffg LO<CR>
 
 " clean the trailing white spaces
 " provided by better-whitespace
