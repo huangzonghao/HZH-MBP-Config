@@ -1,6 +1,7 @@
 SYSTEM_VER="mac"
-source ~/dotfiles/bashrc_common
 RC_FILE="~/.bash_profile"
+
+source ~/dotfiles/bashrc_common
 
 export PS1="\e[0;31mPublic Mac\e[m\e[0;33m:\w\$\e[m "
 # ls color for the black background

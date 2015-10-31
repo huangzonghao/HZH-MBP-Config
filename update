@@ -5,6 +5,13 @@ fi
 
 mkdir -p update_temp
 mv dotfiles.config update_temp
+if [[ -e ssh_list.txt ]]
+then mv ssh_list.txt update_temp
+fi
+if [[ -e ssh_mount_list.txt ]]
+then mv ssh_mount_list.txt update_temp
+fi
+
 cd update_temp
 echo "Now start to download the lastest version from github..."
 wget https://github.com/huangzonghao/dotfiles/archive/master.zip > /dev/null

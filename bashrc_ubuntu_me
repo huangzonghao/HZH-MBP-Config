@@ -1,6 +1,7 @@
 SYSTEM_VER="linux"
-source ~/dotfiles/bashrc_common
 RC_FILE="~/.bashrc"
+
+source ~/dotfiles/bashrc_common
 
 export PS1="\e[0;31mMy Ubuntu\e[m\e[0;33m:\w\$\e[m "
 
