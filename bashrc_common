@@ -5,9 +5,10 @@ export PATH="$HOME/local/bin:$PATH"
 if [[ $SYSTEM_VER = "linux" ]]
 then
     alias ls="ls --color=auto"
+else
+    alias ls="ls -G"
 fi
 
-alias ls="ls -G"
 alias la="ls -AG"
 alias ll="ls -aoghlGF"
 alias cp="cp -i"
