@@ -39,13 +39,6 @@ alias du="du -hsc"
 alias cao="./executable"
 alias hosts="sudo vim /etc/hosts"
 
-# alias cslab="ssh zhuangaj@csl2wk22.cse.ust.hk"
-# alias ielm="ssh hzh@verse.ielm.ust.hk"
-# alias qglab="ssh huangzonghao@143.89.135.120"
-# alias gpu="ssh zhuangaj@gpu1.ust.hk"
-# alias tum="ssh team101@praksrv.sec.in.tum.de"
-# alias dorm="ssh -X huangzonghao@10.150.55.166"
-# alias dormin="ssh -X huangzonghao@192.168.3.6"
 
 #some funny commands
 # sl fortune cowsay cmatrix figlet
@@ -57,29 +50,35 @@ alias g2u="recode gb18030..utf8"
 # load all the alias for ssh and sshfs
 # first the alias for ssh
 declare READ_SSH_TEMP
-while read -r line
-do
-    if [[ `echo $line | head -c 1` != "#" ]]
-    then
-        READ_SSH_TEMP=( $line )
-        if [[ ${READ_SSH_TEMP[0]} == 0 ]]
+if [[ -e ssh_list.txt ]]
+then
+    while read -r line
+    do
+        if [[ `echo $line | head -c 1` != "#" ]]
         then
-            alias ${READ_SSH_TEMP[1]}="ssh ${READ_SSH_TEMP[2]}"
-        else
-            alias ${READ_SSH_TEMP[1]}="ssh -X ${READ_SSH_TEMP[2]}"
+            READ_SSH_TEMP=( $line )
+            if [[ ${READ_SSH_TEMP[0]} == 0 ]]
+            then
+                alias ${READ_SSH_TEMP[1]}="ssh ${READ_SSH_TEMP[2]}"
+            else
+                alias ${READ_SSH_TEMP[1]}="ssh -X ${READ_SSH_TEMP[2]}"
+            fi
         fi
-    fi
-done < ~/dotfiles/ssh_list.txt
+    done < ~/dotfiles/ssh_list.txt
+fi
 
 # then the alias for sshfs
-while read -r line
-do
-    if [[ `echo $line | head -c 1` != "#" ]]
-    then
-        READ_SSH_TEMP=( $line )
+if [[ -e ssh_mount_list.txt ]]
+then
+    while read -r line
+    do
+        if [[ `echo $line | head -c 1` != "#" ]]
+        then
+            READ_SSH_TEMP=( $line )
             alias ${READ_SSH_TEMP[0]}="sshfs ${READ_SSH_TEMP[1]} ${READ_SSH_TEMP[2]}"
-    fi
-done < ~/dotfiles/ssh_mount_list.txt
+        fi
+    done < ~/dotfiles/ssh_mount_list.txt
+fi
 
 #############################
 ######## functions ##########

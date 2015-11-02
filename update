@@ -25,8 +25,15 @@ do
     then rm -rf $i
     fi
 done
-mv ./update_temp/dotfiles-master/* .
-mv ./update_temp/dotfiles.config .
+for i in ./update_temp
+do
+    if [[ $i == "dotfiles-master" ]]
+    then
+        mv ./update_temp/$1/* .
+    else
+        mv ./update_temp/$1 .
+    fi
+done
 . ./run < dotfiles.config > /dev/null
 rm -rf update_temp
 echo "Now the dotfiles are the lastest version! All process finished!"
