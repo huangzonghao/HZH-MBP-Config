@@ -25,13 +25,13 @@ do
     then rm -rf $i
     fi
 done
-for i in ./update_temp
+for i in ./update_temp/*
 do
-    if [[ $i == "dotfiles-master" ]]
+    if [[ $i == "./update_temp/dotfiles-master" ]]
     then
-        mv ./update_temp/$1/* .
+        mv $i/* .
     else
-        mv ./update_temp/$1 .
+        mv $i .
     fi
 done
 . ./run < dotfiles.config > /dev/null
