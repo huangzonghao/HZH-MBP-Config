@@ -190,6 +190,9 @@ echo "by huangzonghao"
 echo "===================="
 echo "Make sure that this is ~/dotfiles before you move on"
 
+# make sure all the submodules are loaded
+git submodule update --init --recursive
+
 # Frist ask for the setup specifications
 while [ $STATUS -eq 0 ]
 do

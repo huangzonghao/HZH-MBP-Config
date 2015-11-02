@@ -1,6 +1,3 @@
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = https://github.com/huangzonghao/oh-my-zsh.git
 [submodule "YouCompleteMe"]
 	path = vim/buddle/YouCompleteMe
-	url = https://github.com/huangzonghao/YouCompleteMe.git
+	url = https://github.com/Valloric/YouCompleteMe.git
