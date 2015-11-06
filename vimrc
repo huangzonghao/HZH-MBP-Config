@@ -253,7 +253,7 @@ endif
 " ==============================================================================
 
 " the powerline
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
 
 " the tagbar
 " please don't sort the tags by name....
