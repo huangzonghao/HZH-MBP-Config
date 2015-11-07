@@ -7,3 +7,4 @@ oh-my-zsh
 vim
 vimrc
 zshrc
+tmux.conf

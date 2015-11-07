@@ -5,3 +5,4 @@ latexmkrc
 vim
 vimrc
 inputrc
+tmux.conf
