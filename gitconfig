@@ -33,7 +33,7 @@
     prompt = false
 [core]
     excludesfile = /Users/huangzonghao/.gitignore_global
-    editor = vim
+    editor = nano
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path =
