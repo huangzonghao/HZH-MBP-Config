@@ -39,7 +39,6 @@ alias du="du -hsc"
 alias cao="./executable"
 alias hosts="sudo vim /etc/hosts"
 
-
 #some funny commands
 # sl fortune cowsay cmatrix figlet
 # the alias for sublime text --Tue Apr 14 17:23:50 HKT 2015
@@ -287,3 +286,40 @@ asciiColor(){
         echo;
     done
 }
+
+# a function to indent c source file with preset styles
+beautifyC(){
+    declare style=mine
+    if [[ $1 == "-l" || $1 == "--linux"  ]]
+    then
+        style=linux
+    elif [[ $i == "-gnu" ]]
+    then
+        style=gnu
+    fi
+
+    for i in $@
+    do
+        if [[ -e $i ]]
+        then
+            if [[ $style == "mine" ]]
+            then
+                indent --no-blank-lines-after-declarations \
+                       --blank-lines-after-procedures \
+                       --braces-on-if-line -nce \
+                       --braces-on-func-def-line \
+                       --braces-on-struct-decl-line \
+                       --case-indentation2 \
+                       --case-brace-indentation0 \
+                       $i
+            elif [[ $style == "linux" ]]
+            then
+                indent --linux-style $i
+            elif [[ $style == "gnu" ]]
+            then
+                indent -gnu $i
+            fi
+        fi
+    done
+}
+alias btfc="beautifyC"
