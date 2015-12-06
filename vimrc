@@ -28,7 +28,7 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 
 set list
 " set listchars=tab:>.,trail:~,extends:#,nbsp:.
-set listchars=tab:>.,extends:#,nbsp:.
+set listchars=tab:..,extends:#,nbsp:.
 set cc=80
 highlight ColorColumn ctermbg=gray
 
@@ -213,6 +213,9 @@ nnoremap <Space>sc z=
 nnoremap <Space>dr :diffg RE<CR>
 nnoremap <Space>db :diffg BA<CR>
 nnoremap <Space>dl :diffg LO<CR>
+nnoremap <Space>du :diffupdate<CR>
+nnoremap <Space>d. /<<<<<CR>:noh<CR>+
+nnoremap <Space>d, 2?<<<<<CR>:noh<CR>+
 
 " clean the trailing white spaces
 " provided by better-whitespace
