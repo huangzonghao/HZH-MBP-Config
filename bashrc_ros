@@ -11,7 +11,7 @@ source ~/ros_catkin_ws/install_isolated/setup.bash
 
 
 export PS1="\e[1;31mBash for ROS\e[m\e[1;33m:\w\$\e[m "
-
+export PS1="\[\e[1;31m\]Bash for ROS\[\e[m\e[1;33m\]:\w\$\[\e[m\] "
 
 # resetting the java path for mac ox x mavericks --by huangzonghao@2014.7.15
 export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"

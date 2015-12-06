@@ -4,7 +4,9 @@ RC_FILE="~/.bash_profile"
 source ~/dotfiles/bashrc_common
 
 #settings for the layout of the bash --Tue Apr  7 17:27:17 HKT 2015
-export PS1="\e[32mHZH-MBP\e[m\e[0;33m:\w\$\e[m "
+export PS1="\[\e[32m\]HZH-MBP\[\e[m\e[0;33m\]:\w\$\[\e[m\] "
+# LSCOLORS default : exfxcxdxbxegedabagacad
+export LSCOLORS="GxFxcxdxbxegedabagacad"
 
 # a small function to change the iterm background color  --Wed Apr  8 03:29:48 HKT 2015
 setWhiteBackground() {
@@ -79,3 +81,7 @@ alias kindletool="k2pdfopt"
 
 # settings for autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh  ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+
+# settings for todo.txt
+alias t="todo.sh -d ~/Todo/todo.config"

@@ -4,6 +4,7 @@ RC_FILE="~/.bashrc"
 source ~/dotfiles/bashrc_common
 
 export PS1="\e[0;31mMy Ubuntu\e[m\e[0;33m:\w\$\e[m "
+export PS1="\[\e[0;31m\]My Ubuntu\[\e[m\e[0;33m\]:\w\$\[\e[m\] "
 
 
 #need to install graphviz first
