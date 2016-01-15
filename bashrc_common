@@ -1,4 +1,7 @@
-export PATH="$HOME/local/bin:$PATH"
+export PATH="usr/local/sbin:HOME/local/bin:$PATH"
+
+# always use the vi keymap mode in bash
+set -o vi
 
 # depends on different linux distributions
 # for common linux distributions the following command is needed for colorful ls
