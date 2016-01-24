@@ -15,7 +15,7 @@ setWhiteBackground() {
 }
 
 # resetting the java path for mac ox x mavericks --by huangzonghao@2014.7.15
-export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+# export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 
 
 
