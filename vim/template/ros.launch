@@ -1,0 +1,4 @@
+<launch>
+    <node name="<++>" pkg="<++>" type="<++>" />
+    <node name="<++>" pkg="<++>" type="<++>" output="screen" />
+</launch>
