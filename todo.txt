@@ -1,0 +1,3 @@
+Wed 27 Jan 2016 07:56:50 PM CET
+need to update the "run" and "update" script for the new local_config folder,
+the bash prompt, and the dotfiles.config

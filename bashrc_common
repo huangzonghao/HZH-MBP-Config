@@ -32,6 +32,7 @@ ebrc(){
 }
 
 alias ebrcc="vim ~/dotfiles/bashrc_common"
+alias ebrcl="vim ~/dotfiles/local_config/bashrc_local"
 alias evrc="vim ~/dotfiles/vimrc"
 alias evn="vim ~/dotfiles/vim/docs/updating_notes.txt"
 alias e="vim"
@@ -42,6 +43,7 @@ alias tree="tree -C"
 alias du="du -hsc"
 alias cao="./executable"
 alias hosts="sudo vim /etc/hosts"
+
 
 #some funny commands
 # sl fortune cowsay cmatrix figlet
@@ -157,7 +159,7 @@ tem(){
 
     while [ $STATUS -eq 0 ]
     do
-        echo "Please enter the type of the template:  1)latex, 2)makefile, 3)sbatch, 4)webpage, 5)website, 6)CMakeLists.txt"
+        echo "Please enter the type of the template:  1)latex, 2)makefile, 3)sbatch, 4)webpage, 5)website, 6)CMakeLists.txt, 7)roslaunch"
         read  USER_OPTION
 
         case $USER_OPTION in
@@ -214,6 +216,12 @@ tem(){
                     vim CMakeLists.txt
                 else echo "invalid operation, abort"
                 fi
+                STATUS=1;
+                ;;
+            "roslaunch" | "7")
+                echo -n "Please enter the file name : "
+                read FILE_NAME
+                cp -r ~/.vim/template/ros.launch ./$FILE_NAME.html && vim $FILE_NAME.launch
                 STATUS=1;
                 ;;
         esac

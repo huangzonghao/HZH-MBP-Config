@@ -1,5 +1,6 @@
 ssh_list.txt
 ssh_mount_list.txt
+local_config
 .DS_Store
 *.cache
 *.swp
