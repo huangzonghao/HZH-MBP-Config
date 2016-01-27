@@ -1,8 +1,8 @@
 " ==============================================================================
 "                            Environment Settings
 " ==============================================================================
-if filereadable("~/dotfiles/local_config/vimrc_local")
-    source ~/dotfiles/local_config/vimrc_local
+if filereadable(expand("$HOME/dotfiles/local_config/vimrc_local"))
+    source $HOME/dotfiles/local_config/vimrc_local
 endif
 
 let g:C_FormatDate = '%a %b %d, %y'
