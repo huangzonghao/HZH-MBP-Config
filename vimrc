@@ -1,14 +1,16 @@
 " ==============================================================================
 "                            Environment Settings
 " ==============================================================================
+if filereadable("~/dotfiles/local_config/vimrc_local")
+    source ~/dotfiles/local_config/vimrc_local
+endif
+
 let g:C_FormatDate = '%a %b %d, %y'
 
 syntax on
 filetype on
 filetype plugin on
 filetype plugin indent on
-
-colorscheme dahuangsyn
 
 set number
 set ruler
@@ -28,7 +30,7 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 
 set list
 " set listchars=tab:>.,trail:~,extends:#,nbsp:.
-set listchars=tab:..,extends:#,nbsp:.
+set listchars=tab:>.,extends:#,nbsp:.
 set cc=80
 highlight ColorColumn ctermbg=gray
 
