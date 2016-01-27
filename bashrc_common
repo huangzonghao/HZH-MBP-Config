@@ -1,4 +1,4 @@
-export PATH="usr/local/sbin:HOME/local/bin:$PATH"
+export PATH="usr/local/sbin:$HOME/local/bin:$PATH"
 
 # always use the vi keymap mode in bash
 set -o vi
