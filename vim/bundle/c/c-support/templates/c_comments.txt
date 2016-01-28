@@ -139,6 +139,10 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /* :TODO:|DATE|:|AUTHORREF|:
  *  <CURSOR>
  */
+== comment.keyword-fixit == append ==
+/* :FIXIT:|DATE|:|AUTHORREF|:
+ *  <CURSOR>
+ */
 == comment.keyword-tricky == append ==
 /* :TRICKY:|DATE|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-warning == append ==

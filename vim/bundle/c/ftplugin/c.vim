@@ -101,6 +101,7 @@ exe s:C_N_Mode_Comment_Leader."cl   :call C_InsertTemplate('comment.class')<CR>"
 exe s:C_N_Mode_Comment_Leader."me   :call C_InsertTemplate('comment.method')<CR>"
 exe s:C_N_Mode_Comment_Leader."rm   :call C_InsertTemplate('comment.keyword-remarks')<CR>"
 exe s:C_N_Mode_Comment_Leader."td   :call C_InsertTemplate('comment.keyword-todo')<CR>"
+exe s:C_N_Mode_Comment_Leader."fi   :call C_InsertTemplate('comment.keyword-fixit')<CR>"
 exe s:C_N_Mode_Comment_Leader."kg   :call C_InsertTemplate('comment.kaiguang')<CR>"
 exe s:C_N_Mode_Comment_Leader."kc   :KeywordComment<Space>"
 
