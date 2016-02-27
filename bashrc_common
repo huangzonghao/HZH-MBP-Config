@@ -1,4 +1,4 @@
-export PATH="usr/local/sbin:$HOME/local/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/local/bin:$PATH"
 
 # always use the vi keymap mode in bash
 set -o vi
@@ -20,8 +20,16 @@ alias mkdir="mkdir -p"
 
 # set the alias for latexmk -- by huangzonghao@2014.10.4
 # note the latexmk is usually installed together with tex distribution
-alias laclean="rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps"
-alias lmk="latexmk -xelatex -pvc -pdf *.tex"
+alias laclean="rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps 2>/dev/null"
+# alias lmk="latexmk -xelatex -pvc -pdf *.tex"
+lmk(){
+    latexmk -xelatex -pvc -pdf *.tex
+    if [[ $? == 0 ]]
+    then
+        laclean
+        echo "The temp files are cleared."
+    fi
+}
 
 # note alias doesn't take variables. so it has to be a function
 brc(){
