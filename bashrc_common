@@ -342,3 +342,19 @@ beautifyC(){
     done
 }
 alias btfc="beautifyC"
+
+# Drop an alias of the current folder or the selected file onto the desktop
+dropdesk(){
+    if [[ $# == 0 ]]
+    then
+        ln -s $(pwd) $HOME/Desktop/$(basename $(pwd))
+    else
+        if [[ -e $1 ]]
+        then
+            ln -s $(pwd)/$1 $HOME/Desktop/$1
+        else
+            echo "Error: cannot find the file $1" >&2
+            return 1
+        fi
+    fi
+}
