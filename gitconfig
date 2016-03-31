@@ -1,6 +1,6 @@
 [user]
     name = HuangZonghao
-    email = coding@huangzonghao.com
+    email = coding@hzh.io
 [filter "media"]
     required = true
     clean = git media clean %f
