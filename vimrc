@@ -403,3 +403,9 @@ function! ToggleProgrammingEnv()
         NERDTreeToggle
     endif
 endfunction
+
+"counting chinese characters
+function! CountingChineseCharacters()
+    exe '%s/\S/&/gn'
+endfunction
+nnoremap <Space>cc :call CountingChineseCharacters()<CR>
