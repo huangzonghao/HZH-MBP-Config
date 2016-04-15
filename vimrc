@@ -173,6 +173,15 @@ nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>yc :YcmDiags<CR>
 nnoremap <leader>gt :GoTo<CR>
 
+" shortcuts for git provided by fugitive
+nnoremap <leader>gst :Gstatus<CR>
+nnoremap <leader>gci :Gcommit<CR>
+nnoremap <leader>gbl :Gblame<CR>
+" this is to checkout the previous version of the file in the buffer
+nnoremap <leader>grd :Gread<CR>
+" this command can bring up and make editable the stage version of the file
+nnoremap <leader>gdf :Gdiff<CR>
+
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
