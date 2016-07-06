@@ -171,9 +171,20 @@ tem(){
 
         case $USER_OPTION in
             "latex" | "1")
-                echo -n "Please enter the file name : "
-                read FILE_NAME
-                cp -i ~/.vim/template/latex.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                echo "article(a) or letter(l)?"
+                read USER_OPTION
+                case $USER_OPTION in
+                    "acticle" | "a")
+                        echo -n "Please enter the file name : "
+                        read FILE_NAME
+                        cp -i ~/.vim/template/latex/article.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                        ;;
+                    "letter" | "l")
+                        echo -n "Please enter the file name : "
+                        read FILE_NAME
+                        cp -i ~/.vim/template/latex/letter.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                        ;;
+                esac
                 STATUS=1;
                 ;;
             "makefile" | "2")
