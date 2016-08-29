@@ -5,15 +5,11 @@ set -o vi
 
 # depends on different linux distributions
 # for common linux distributions the following command is needed for colorful ls
-if [[ $SYSTEM_VER = "linux" ]]
-then
-    alias ls="ls --color=auto"
-else
-    alias ls="ls -G"
-fi
+[[ $SYSTEM_VER = "linux" ]] && alias ls="ls --color=auto" || alias ls="ls -G"
 
-alias la="ls -AG"
-alias ll="ls -aoghlGF"
+alias la="ls -A"
+alias ll="ls -aoghlF"
+alias ld="ls -aoghlFd"
 alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
