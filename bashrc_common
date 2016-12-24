@@ -54,7 +54,14 @@ alias hosts="sudo vim /etc/hosts"
 # the alias for sublime text --Tue Apr 14 17:23:50 HKT 2015
 
 # recode the gb18030 to utf8
-alias g2u="recode gb18030..utf8"
+alias g2u="recode GB18030..UTF8"
+# recode all the files in the folder
+g2ua(){
+    for i in $(ls -p | grep -v /)
+    do
+            recode GB18030..UTF8 $i
+    done
+}
 
 # load all the alias for ssh and sshfs
 # first the alias for ssh
@@ -268,6 +275,26 @@ kaiguang(){
     else
         /bin/cat ~/.vim/template/godbless $1 > TEMPFILE
         mv TEMPFILE $1
+    fi
+}
+
+# the shortcut to go to a dir in $HOME
+cdh(){
+    if [ $# != '0' ]
+    then
+        cd $HOME/$1
+    else
+        cd $HOME
+    fi
+}
+
+# the shortcut t ogo to a dir in Desktop
+cdd(){
+    if [ $# != '0' ]
+    then
+        cd $HOME/Desktop/$1
+    else
+        cd $HOME/Desktop
     fi
 }
 
