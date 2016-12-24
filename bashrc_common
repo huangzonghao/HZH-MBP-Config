@@ -20,7 +20,7 @@ lmk(){
     if [[ $? == 0 ]]
     then
         laclean
-        echo "The temp files are cleared."
+        echo "The temp files have been cleared."
     else
         echo "Error occurred, temp files saved."
     fi
@@ -162,11 +162,20 @@ tem(){
 
     while [ $STATUS -eq 0 ]
     do
-        echo "Please enter the type of the template:  1)latex, 2)makefile, 3)sbatch, 4)webpage, 5)website, 6)CMakeLists.txt, 7)roslaunch"
+        cat <<-EndofCat
+Templates Available:
+l)atex,
+m)akefile,
+s)batch,
+wp)age,
+ws)ite,
+c)makelists.txt,
+r)oslaunch
+EndofCat
         read  USER_OPTION
 
         case $USER_OPTION in
-            "latex" | "1")
+            "latex" | "l")
                 echo "article(a) or letter(l)?"
                 read USER_OPTION
                 case $USER_OPTION in
@@ -183,11 +192,11 @@ tem(){
                 esac
                 STATUS=1;
                 ;;
-            "makefile" | "2")
+            "makefile" | "m")
                 cp -i ~/.vim/template/makefile makefile && vim makefile
                 STATUS=1;
                 ;;
-            "sbatch" | "3")
+            "sbatch" | "s")
                 echo -n "Which version? CPU or GPU : "
                 read USER_OPTION
                 echo -n "Please enter the file name : "
@@ -202,17 +211,17 @@ tem(){
                 esac
                 STATUS=1;
                 ;;
-            "webpage" | "4")
+            "webpage" | "wp")
                 echo -n "Please enter the file name : "
                 read FILE_NAME
                 cp -r ~/.vim/template/webpage.html ./$FILE_NAME.html && vim $FILE_NAME.html
                 STATUS=1;
                 ;;
-            "website" | "5")
+            "website" | "ws")
                 cp -r ~/.vim/template/website/* .
                 STATUS=1;
                 ;;
-            "cmakelist" | "6")
+            "cmakelist" | "c")
                 echo -n "cuda or opencl or common? (c, cl, com) :"
                 read FILE_NAME
                 if [[ $FILE_NAME = "c" ]]
@@ -232,7 +241,7 @@ tem(){
                 fi
                 STATUS=1;
                 ;;
-            "roslaunch" | "7")
+            "roslaunch" | "r")
                 echo -n "Please enter the file name : "
                 read FILE_NAME
                 cp -r ~/.vim/template/ros.launch ./$FILE_NAME.html && vim $FILE_NAME.launch
@@ -262,13 +271,7 @@ kaiguang(){
 }
 
 # the shortcut for making a directory and cd into it
-mcd(){
-    if [ $# != '0' ]
-    then
-        mkdir $1;
-        cd $1;
-    fi
-}
+mcd(){ [ $# != '0' ] && mkdir $1 && cd $1; }
 
 checkColor(){
     eval $(echo "no:global default;fi:normal file;di:directory;ln:symbolic link;pi:named pipe;so:socket;do:door;bd:block device;cd:character device;or:orphan symlink;mi:missing file;su:set uid;sg:set gid;tw:sticky other writable;ow:other writable;st:sticky;ex:executable;"|sed -e 's/:/="/g; s/\;/"\n/g')
@@ -354,11 +357,12 @@ alias btfc="beautifyC"
 dropdesk(){
     if [[ $# == 0 ]]
     then
-        ln -s $(pwd) $HOME/Desktop/$(basename $(pwd))
+        # make sure the spaces in the file names won't cause any troubles here
+        ln -s "$(pwd)" "$HOME/Desktop/$(basename $(pwd))"
     else
         if [[ -e $1 ]]
         then
-            ln -s $(pwd)/$1 $HOME/Desktop/$1
+            ln -s "$(pwd)/$1" "$HOME/Desktop/$1"
         else
             echo "Error: cannot find the file $1" >&2
             return 1
