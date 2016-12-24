@@ -290,6 +290,12 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "let g:ctrlp_show_hidden = 1
 set wildignore+=*.a,*.o
 set wildignore+=*.bmp,*.gif,*.jpg,*.png
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " ag makes ctrlp ridiculously faster omg
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 " synstastic
 "set statusline+=%#warningmsg#
