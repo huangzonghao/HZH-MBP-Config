@@ -54,7 +54,7 @@ else
 endif
 
 if exists("g:C_Normal_Mode_Leader")
-    let s:C_Normal_Mode_Leader = g:C_Insert_Mode_Leader
+    let s:C_Normal_Mode_Leader = g:C_Normal_Mode_Leader
 else
     let s:C_Normal_Mode_Leader ='.'
 endif
@@ -75,6 +75,8 @@ let s:C_I_Mode_Code_Leader    = s:I_Map_Prefix.s:C_Insert_Mode_Leader
 " ------------------------------------------------------------------------------
 "                           Programming Keymappings
 "-------------------------------------------------------------------------------
+" The programming leader is defined in the vimrc file
+" --Tue 20 Dec 2016 02:41:47 PM HKT
 exe s:N_Map_Prefix.g:Programming_Leader."cj         :call C_AdjustLineEndComm()<CR>"
 exe s:N_Map_Prefix.g:Programming_Leader."eco        :call C_InsertTemplate('cpp.cout')<CR>"
 exe s:N_Map_Prefix.g:Programming_Leader."nr         :call C_CodeSnippet('r')<CR>"

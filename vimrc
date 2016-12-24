@@ -100,7 +100,6 @@ nnoremap <Right> 2<C-W>>
 
 " nnoremap j gj
 " nnoremap k gk
-nnoremap <F9> :!open .<CR><CR>
 nnoremap gtf <C-W>gf
 
 " buffer commands -- b as leader
@@ -208,7 +207,7 @@ nnoremap <Space>tu :let g:autoreadargs={'autoread':1}<CR>
 nnoremap <Space>tm :call ToggleMouse()<CR>
 nnoremap <Space>rt :retab<CR>
 nnoremap <Space>o o<ESC>k
-nnoremap <Space>O O<ESC>
+nnoremap <Space>O O<ESC>j
 nnoremap <Space>j o<ESC>
 nnoremap <Space>k O<ESC>
 nnoremap <Space>J 2o<ESC>
@@ -226,6 +225,8 @@ nnoremap <Space>c, [c
 nnoremap <Space>dr :diffg RE<CR>
 nnoremap <Space>db :diffg BA<CR>
 nnoremap <Space>dl :diffg LO<CR>
+nnoremap <Space>db :diffg BA<CR>:diffupdate<CR>
+nnoremap <Space>dl :diffg LO<CR>:diffupdate<CR>
 nnoremap <Space>du :diffupdate<CR>
 nnoremap <Space>d. /<<<<<CR>:noh<CR>+
 nnoremap <Space>d, 2?<<<<<CR>:noh<CR>+
@@ -350,7 +351,7 @@ let g:vim_markdown_math=1
 
 " pathogen
 " the pathogen disable list
-let g:pathogen_disabled = ['better-whitespace, syntastic, YouCompleteMe']
+let g:pathogen_disabled = ['better-whitespace, syntastic']
 " Should be called at the end to make sure all the modification done in this
 " file take effect
 execute pathogen#infect()
