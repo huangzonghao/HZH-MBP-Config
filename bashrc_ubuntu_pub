@@ -1,3 +1,4 @@
+[[ -z $TMUX  ]] && { tmux attach || tmux new; exit; }
 SYSTEM_VER="linux"
 RC_FILE="~/.bashrc"
 
