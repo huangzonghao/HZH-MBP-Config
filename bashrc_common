@@ -7,6 +7,7 @@ set -o vi
 # for common linux distributions the following command is needed for colorful ls
 [[ $SYSTEM_VER = "linux" ]] && alias ls="ls --color=auto" || alias ls="ls -G"
 
+alias sudo='sudo '
 alias la="ls -A"
 alias ll="ls -aoghlF"
 alias ld="ls -aoghlFd"
