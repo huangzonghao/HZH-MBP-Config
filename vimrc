@@ -222,9 +222,7 @@ nnoremap <Space>sa zg
 nnoremap <Space>sc z=
 nnoremap <Space>c. ]c
 nnoremap <Space>c, [c
-nnoremap <Space>dr :diffg RE<CR>
-nnoremap <Space>db :diffg BA<CR>
-nnoremap <Space>dl :diffg LO<CR>
+nnoremap <Space>dr :diffg RE<CR>:diffupdate<CR>
 nnoremap <Space>db :diffg BA<CR>:diffupdate<CR>
 nnoremap <Space>dl :diffg LO<CR>:diffupdate<CR>
 nnoremap <Space>du :diffupdate<CR>
