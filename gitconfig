@@ -11,6 +11,7 @@
     tool = vimdiff
 [alias]
     d = difftool
+    m = mergetool
     lg = log --abbrev-commit
     la = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate --graph
     ll = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate  --numstat
@@ -34,7 +35,6 @@
 [difftool]
     prompt = false
 [core]
-    excludesfile = /Users/huangzonghao/.gitignore_global
     editor = nano
 [filter "lfs"]
     clean = git lfs clean %f
