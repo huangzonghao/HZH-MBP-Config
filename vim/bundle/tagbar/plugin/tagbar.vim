@@ -93,7 +93,7 @@ endif
 
 function! s:setup_keymaps() abort
     let keymaps = [
-        \ ['jump',          '<CR>'],
+        \ ['jump',          ['<CR>','o']],
         \ ['preview',       'p'],
         \ ['previewwin',    'P'],
         \ ['nexttag',       '<C-N>'],
@@ -103,7 +103,7 @@ function! s:setup_keymaps() abort
         \
         \ ['openfold',      ['+', '<kPlus>', 'zo']],
         \ ['closefold',     ['-', '<kMinus>', 'zc']],
-        \ ['togglefold',    ['o', 'za']],
+        \ ['togglefold',    'za'],
         \ ['openallfolds',  ['*', '<kMultiply>', 'zR']],
         \ ['closeallfolds', ['=', 'zM']],
         \ ['nextfold',      'zj'],
