@@ -117,6 +117,9 @@ nnoremap bmm :bm<CR>
 nnoremap bms :sbm<CR>
 
 
+" register commands -- r as leader
+nnoremap rr :reg<CR>
+
 " disable the ex mode and have a short cut for recording
 nnoremap Q @q
 
