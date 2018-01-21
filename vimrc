@@ -5,7 +5,9 @@ if filereadable(expand("$HOME/dotfiles/local_config/vimrc_local"))
     source $HOME/dotfiles/local_config/vimrc_local
 endif
 
-let g:C_FormatDate = '%a %b %d, %y'
+" CVim time format, we need this setting for the general time insertion
+" the current setting is the defult setting of system date
+let g:C_FormatDate = '%a %b %d %H:%M:%S %Z %Y'
 
 syntax on
 filetype on
@@ -320,11 +322,6 @@ endif
 
 " powerline
 let g:Powerline_colorscheme = 'solarized256'
-
-
-" CVim time format, we need this setting for the general time insertion
-let g:C_FormatDate            = '%c'
-let g:C_FormatTime            = '%H:%M'
 
 " esaymotion
 let g:EasyMotion_do_mapping = 0
