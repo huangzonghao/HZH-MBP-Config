@@ -238,6 +238,9 @@ nnoremap <Space>d, 2?<<<<<CR>:noh<CR>+
 " provided by better-whitespace
 nnoremap <Space>cws :StripWhitespace<CR>
 
+" toggle hexmode
+nnoremap <Space>hm :Hexmode<CR>
+
 nnoremap <Space>p "*p
 vnoremap <Space>p "*p
 vnoremap <Space>y "*y
@@ -352,6 +355,10 @@ let g:ycm_complete_in_comments = 1
 
 " markdown
 let g:vim_markdown_math=1
+
+" hexmode
+" The files that would be treated as binary files and opened in hex mode
+let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.npy,*.png'
 
 " pathogen
 " the pathogen disable list
