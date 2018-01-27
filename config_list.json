@@ -1,0 +1,55 @@
+{
+    "general": [
+        "bash_profile",
+        "bashrc",
+        "gitconfig",
+        "gitignore_global",
+        "latexmkrc",
+        "oh-my-zsh",
+        "vim",
+        "vimrc",
+        "zshrc",
+        "tmux.conf"
+    ],
+    "mac_me": [
+        "bashrc_mac_me",
+        "gitconfig",
+        "gitignore_global",
+        "latexmkrc",
+        "oh-my-zsh",
+        "vim",
+        "vimrc",
+        "zshrc",
+        "tmux.conf"
+    ],
+    "mac_pub": [
+        "bashrc_mac_pub",
+        "gitconfig",
+        "gitignore_global",
+        "latexmkrc",
+        "vim",
+        "vimrc",
+        "inputrc",
+        "tmux.conf"
+    ],
+    "ubuntu_me": [
+        "bashrc_ubuntu_me",
+        "gitconfig",
+        "gitignore_global",
+        "latexmkrc",
+        "vim",
+        "vimrc",
+        "inputrc",
+        "tmux.conf"
+    ],
+    "ubuntu_pub": [
+        "bashrc_ubuntu_pub",
+        "gitconfig",
+        "gitignore_global",
+        "latexmkrc",
+        "vim",
+        "vimrc",
+        "inputrc",
+        "tmux.conf"
+    ]
+}
