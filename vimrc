@@ -275,9 +275,6 @@ endif
 "                            Plugin Settings
 " ==============================================================================
 
-" the powerline
-let g:Powerline_symbols = 'unicode'
-
 " the tagbar
 " please don't sort the tags by name....
 let g:tagbar_sort=0
@@ -322,9 +319,6 @@ endif
 "    endif
 "endfunction
 
-
-" powerline
-let g:Powerline_colorscheme = 'solarized256'
 
 " esaymotion
 let g:EasyMotion_do_mapping = 0
