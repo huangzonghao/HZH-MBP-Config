@@ -125,6 +125,8 @@ nnoremap bms :sbm<CR>
 
 
 " register commands -- r as leader
+" but need to find a way to stop this in NERD-Tree
+" Sat Jan 27 15:20:17 EST 2018
 nnoremap rr :reg<CR>
 
 " disable the ex mode and have a short cut for recording
@@ -222,7 +224,7 @@ nnoremap <Space>j o<ESC>
 nnoremap <Space>k O<ESC>
 nnoremap <Space>J 2o<ESC>
 nnoremap <Space>K 2O<ESC>
-nnoremap <Space>r .
+nnoremap <Space>. .
 " set the spell check
 " a stands for add, c stands for correcting
 nnoremap <Space>ts :setlocal spell!<CR>
@@ -244,7 +246,8 @@ nnoremap <Space>d, 2?<<<<<CR>:noh<CR>+
 nnoremap <Space>cws :StripWhitespace<CR>
 
 " toggle hexmode
-nnoremap <Space>hm :Hexmode<CR>
+" can't use hm here as <Space>h is used
+nnoremap <Space>bm :Hexmode<CR>
 
 nnoremap <Space>p "*p
 vnoremap <Space>p "*p
@@ -253,11 +256,16 @@ vnoremap <Space>y "*y
 " ==============================================================================
 "                            Global Commands
 " ==============================================================================
-command VRC !subl ~/dotfiles/vimrc
-command VPI !subl ~/dotfiles/vim/bundle/
-command VIM !subl ~/dotfiles/vim
+" the ! after command told vim to overwrite the previous defined command
+" this helps to avoid vim from issuing errors on commands already exist when
+" reload vimrc
+command! SVRC !subl ~/dotfiles/vimrc
+command! SVPI !subl ~/dotfiles/vim/bundle/
+command! SVIM !subl ~/dotfiles/vim
+command! VRC edit ~/dotfiles/vimrc
+command! VRL source ~/dotfiles/vimrc
 " command WWW w !sudo -s "cat > %"
-command WWW w !sudo tee % >/dev/null
+command! WWW w !sudo tee % >/dev/null
 
 
 " ==============================================================================
