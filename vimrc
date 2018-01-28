@@ -284,6 +284,9 @@ let g:tagbar_sort=0
 let g:NERDSpaceDelims = 1 "So we have padding spaces
 let g:NERDDahuangSexyComs = 1 "So we have my preferred sexy comments
 
+" airline settings
+let g:airline_theme='powerlineish'
+
 
 " CtrlP
 let g:ctrlp_map = 'F'    " f stands for find here
