@@ -113,8 +113,13 @@ nnoremap H   :bprevious<CR>
 nnoremap bsn :sbnext<CR>
 nnoremap bsp :sbprevious<CR>
 nnoremap bsb :buffers<CR>:sb<Space>
-nnoremap bcs :new<CR>
-nnoremap bcv :vnew<CR>
+" open the current buffer in new (v)split
+nnoremap bcs :split<CR>
+nnoremap bcv :vsplit<CR>
+" create a new (v)split
+nnoremap bns :new<CR>
+nnoremap bnv :vnew<CR>
+" move to the next modified buffer
 nnoremap bmm :bm<CR>
 nnoremap bms :sbm<CR>
 
