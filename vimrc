@@ -185,7 +185,8 @@ nnoremap <leader>yc :YcmDiags<CR>
 nnoremap <leader>gt :GoTo<CR>
 
 " shortcuts for git provided by fugitive
-nnoremap <leader>gst :Gstatus<CR>
+" :Gstatus seems to be the most useful, deserives a better shortcut
+nnoremap <leader>gg :Gstatus<CR>
 nnoremap <leader>gci :Gcommit<CR>
 nnoremap <leader>gbl :Gblame<CR>
 " this is to checkout the previous version of the file in the buffer
