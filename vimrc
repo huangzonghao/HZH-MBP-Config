@@ -77,15 +77,24 @@ inoremap <C-E> <C-]><C-U>
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 
-nnoremap <C-N>t :tabnew<CR>
+" tag commands
+nnoremap <C-N> <C-]>
+nnoremap <C-P> <C-T>
+
+" tab commands
+nnoremap <C-T>t :tabnew<CR>
+nnoremap <C-T><Space> :tabclose<CR>
+" this will close the tab and delete all the buffers
+nnoremap <C-T>q :windo bdelete<CR>
+nnoremap <C-L> gt
+nnoremap <C-H> gT
+
 nnoremap h <C-W>h
 nnoremap l <C-W>l
 nnoremap j <C-W>j
 nnoremap k <C-W>k
 nnoremap J j
 nnoremap K k
-nnoremap <C-L> gt
-nnoremap <C-H> gT
 nnoremap <F1> :up<CR>
 nnoremap ; :
 nnoremap <C-W>m <C-W>_
@@ -110,12 +119,9 @@ nnoremap bd  :buffers<CR>:Bdelete<Space>
 nnoremap bo  :Bdelete %<CR>
 nnoremap L   :bnext<CR>
 nnoremap H   :bprevious<CR>
-nnoremap bsn :sbnext<CR>
-nnoremap bsp :sbprevious<CR>
-nnoremap bsb :buffers<CR>:sb<Space>
 " open the current buffer in new (v)split
-nnoremap bcs :split<CR>
-nnoremap bcv :vsplit<CR>
+nnoremap bs :split<CR>
+nnoremap bv :vsplit<CR>
 " create a new (v)split
 nnoremap bns :new<CR>
 nnoremap bnv :vnew<CR>
