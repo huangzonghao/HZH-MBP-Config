@@ -312,6 +312,11 @@ let g:NERDDahuangSexyComs = 1 "So we have my preferred sexy comments
 
 " airline settings
 let g:airline_theme='powerlineish'
+" just don't include the error and warning messages in the statusbar atm
+let g:airline_section_error=''
+let g:airline_section_warning=''
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_section_c = '%n-%f%r%m'
 
 
 " CtrlP
