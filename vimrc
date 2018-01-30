@@ -225,14 +225,16 @@ nnoremap <leader>fp :cprevious<CR>
 nnoremap <Space>sd :!subl .<CR><CR>
 nnoremap <Space>sf :!subl %<CR><CR>
 
-nnoremap <Space><Space> :q<CR>
 " the function is provide by CVim
 nnoremap <Space>id : call C_InsertDateAndTime('d')<CR>a
-nnoremap <Space>w  :up<CR>
-nnoremap <Space>W  :wq<CR>
-nnoremap <Space>qq :qa<CR>
-nnoremap <Space>Q  :q!<CR>
-nnoremap <Space>qQ :qa!<CR>
+nnoremap <Space>u  :up<CR>
+nnoremap <Space>U  :w!<CR>
+nnoremap <Space>w  :wq<CR>
+nnoremap <Space>W  :w!q<CR>
+nnoremap <Space><Space> :q<CR>
+nnoremap <Space>; :q!<CR>
+nnoremap <Space>q :qa<CR>
+nnoremap <Space>Q  :qa!<CR>
 nnoremap <Space>h  :noh<CR>
 nnoremap <Space>tu :let g:autoreadargs={'autoread':1}<CR>
                   \:execute WatchForChanges("*",autoreadargs)<CR>
