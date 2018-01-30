@@ -213,6 +213,11 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap <leader>ea <Plug>(EasyAlign)
 
+" shortcuts for quickfix window
+nnoremap <leader>ff :copen<CR>
+nnoremap <leader>fn :cnext<CR>
+nnoremap <leader>fp :cprevious<CR>
+
 " ------------------------------------------------------------------------------
 "                           Text Editing Keymappings
 "-------------------------------------------------------------------------------
