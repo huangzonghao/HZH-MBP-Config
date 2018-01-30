@@ -401,6 +401,10 @@ let g:vim_markdown_math=1
 " The files that would be treated as binary files and opened in hex mode
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.npy,*.png'
 
+" rooter
+" behavior for non-project files -- same as autochdir
+let g:rooter_change_directory_for_non_project_files = 'current'
+
 " pathogen
 " the pathogen disable list
 let g:pathogen_disabled = ['better-whitespace, syntastic']
@@ -456,21 +460,6 @@ autocmd VimEnter * call CheckStartupStatus()
 
 " Set the current dir to git root if in git repo
 " otherwise autochdir
-function! SetProjectRoot()
-  " don't do anything if is preview window
-  if &previewwindow == 0
-    " default to the current file's directory
-    lcd %:p:h
-    let git_dir = system("git rev-parse --show-toplevel")
-    " See if the command output starts with 'fatal' (if it does, not in a git repo)
-    let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
-    " if git project, change local directory to git project root
-    if empty(is_not_git_dir)
-        lcd `=git_dir`
-    endif
-  endif
-endfunction
-autocmd BufEnter * call SetProjectRoot()
 
 
 function! ToggleProgrammingEnv()
