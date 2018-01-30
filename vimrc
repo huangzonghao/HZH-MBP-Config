@@ -444,14 +444,17 @@ autocmd VimEnter * call CheckStartupStatus()
 " Set the current dir to git root if in git repo
 " otherwise autochdir
 function! SetProjectRoot()
-  " default to the current file's directory
-  lcd %:p:h
-  let git_dir = system("git rev-parse --show-toplevel")
-  " See if the command output starts with 'fatal' (if it does, not in a git repo)
-  let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
-  " if git project, change local directory to git project root
-  if empty(is_not_git_dir)
-    lcd `=git_dir`
+  " don't do anything if is preview window
+  if &previewwindow == 0
+    " default to the current file's directory
+    lcd %:p:h
+    let git_dir = system("git rev-parse --show-toplevel")
+    " See if the command output starts with 'fatal' (if it does, not in a git repo)
+    let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
+    " if git project, change local directory to git project root
+    if empty(is_not_git_dir)
+        lcd `=git_dir`
+    endif
   endif
 endfunction
 autocmd BufEnter * call SetProjectRoot()
