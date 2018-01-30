@@ -57,6 +57,7 @@ set pastetoggle=<F2>
 " set autochdir               " automatically change the current dir
                                 " This actually affects CtrlP and other  plugins
 set shortmess=atI           " sorry i am just a student withno money...
+set tags=./tags;            " Search tags from current file folder and upwards
 
 
 " ==============================================================================
