@@ -54,7 +54,8 @@ set whichwrap+=<,>,h,l      " allow those keys to move to the prev or next line
 set showcmd
 set shiftround              " use multiple of sw when indenting with '<' and '>'
 set pastetoggle=<F2>
-set autochdir               " automatically change the current dir
+" set autochdir               " automatically change the current dir
+                                " This actually affects CtrlP and other  plugins
 set shortmess=atI           " sorry i am just a student withno money...
 
 
@@ -274,6 +275,11 @@ command! VRL source ~/dotfiles/vimrc
 " command WWW w !sudo -s "cat > %"
 command! WWW w !sudo tee % >/dev/null
 
+" ------------------------------------------------------------------------------
+"                           Command Abbervations
+"-------------------------------------------------------------------------------
+" By using abbervation we may define commands start with lowercase letter
+cnoreabbrev j J
 
 " ==============================================================================
 "                            Auto Commands
@@ -429,6 +435,22 @@ function! CheckStartupStatus()
     endif
 endfunction
 autocmd VimEnter * call CheckStartupStatus()
+
+" Set the current dir to git root if in git repo
+" otherwise autochdir
+function! SetProjectRoot()
+  " default to the current file's directory
+  lcd %:p:h
+  let git_dir = system("git rev-parse --show-toplevel")
+  " See if the command output starts with 'fatal' (if it does, not in a git repo)
+  let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
+  " if git project, change local directory to git project root
+  if empty(is_not_git_dir)
+    lcd `=git_dir`
+  endif
+endfunction
+autocmd BufEnter * call SetProjectRoot()
+
 
 function! ToggleProgrammingEnv()
     let s:tagbarwinnr = bufwinnr("__Tagbar__")
