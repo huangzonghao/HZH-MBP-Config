@@ -195,12 +195,18 @@ nnoremap <leader>gt :GoTo<CR>
 " shortcuts for git provided by fugitive
 " :Gstatus seems to be the most useful, deserives a better shortcut
 nnoremap <leader>gg :Gstatus<CR>
-nnoremap <leader>gci :Gcommit<CR>
+nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gbl :Gblame<CR>
-" this is to checkout the previous version of the file in the buffer
-nnoremap <leader>grd :Gread<CR>
+" behavior of the following commands depends on if you are on index or working
+" directory. Essentially transfer contents between the two
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gw :Gwrite<CR>
+" edit the index file
+nnoremap <leader>ge :Gedit<CR>
 " this command can bring up and make editable the stage version of the file
-nnoremap <leader>gdf :Gdiff<CR>
+nnoremap <leader>gd :Gdiff<CR>
+" browse file on github
+nnoremap <leader>gbr :Gbrowse<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
