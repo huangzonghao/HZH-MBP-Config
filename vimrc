@@ -203,6 +203,8 @@ nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>ge :Gedit<CR>
 " this command can bring up and make editable the stage version of the file
 nnoremap <leader>gd :Gdiff<CR>
+" load historical versions of file into quickfix
+nnoremap <leader>gl :Glog<CR><CR><CR>
 " browse file on github
 nnoremap <leader>gbr :Gbrowse<CR>
 
