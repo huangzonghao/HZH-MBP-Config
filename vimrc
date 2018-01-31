@@ -71,8 +71,6 @@ let mapleader = g:Programming_Leader
 "-------------------------------------------------------------------------------
 inoremap <F1> <Esc>:up<CR>
 " make sure to trigger the insertleave autocommand with <c-c>
-inoremap <C-C> <ESC>
-inoremap <C-V> <S-Insert>
 inoremap <C-L> <space><space><space><space>
 imap <C-Space> <Plug>IMAP_JumpForward
 inoremap <C-E> <C-]><C-U>
@@ -80,8 +78,8 @@ inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 
 " tag commands
-nnoremap <C-N> <C-]>
-nnoremap <C-P> <C-T>
+nnoremap <C-J> <C-]>
+nnoremap <C-K> <C-T>
 
 " tab commands
 nnoremap <C-T>t :tabnew<CR>
@@ -95,8 +93,8 @@ nnoremap h <C-W>h
 nnoremap l <C-W>l
 nnoremap j <C-W>j
 nnoremap k <C-W>k
-nnoremap J j
-nnoremap K k
+nnoremap <C-N> j
+nnoremap <C-P> k
 nnoremap <F1> :up<CR>
 nnoremap ; :
 nnoremap <C-W>m <C-W>_
