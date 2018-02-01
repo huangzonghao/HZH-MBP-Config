@@ -380,7 +380,6 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 
 " pathogen
 " the pathogen disable list
-let g:pathogen_disabled = ['better-whitespace']
 " Should be called at the end to make sure all the modification done in this
 " file take effect
 execute pathogen#infect()
