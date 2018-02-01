@@ -1,0 +1,9 @@
+#! /bin/bash
+# the shortcut to go to a dir in $HOME
+if [ $# != '0' ]
+then
+    cd $HOME/$1
+else
+    cd $HOME
+fi
+

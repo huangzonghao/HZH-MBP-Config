@@ -1,0 +1,9 @@
+#! /bin/bash
+# the function to kaiguang a cpp source file --Fri May 22 17:51:04 HKT 2015
+if [ $# -eq 0 ]
+then
+    /bin/cat ~/.vim/template/godbless
+else
+    /bin/cat ~/.vim/template/godbless $1 > TEMPFILE
+    mv TEMPFILE $1
+fi

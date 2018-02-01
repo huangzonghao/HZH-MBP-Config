@@ -1,0 +1,15 @@
+#! /bin/bash
+# Drop an alias of the current folder or the selected file onto the desktop
+if [[ $# == 0 ]]
+then
+    # make sure the spaces in the file names won't cause any troubles here
+    ln -s "$(pwd)" "$HOME/Desktop/$(basename $(pwd))"
+else
+    if [[ -e $1 ]]
+    then
+        ln -s "$(pwd)/$1" "$HOME/Desktop/$1"
+    else
+        echo "Error: cannot find the file $1" >&2
+        return 1
+    fi
+fi

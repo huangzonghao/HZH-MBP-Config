@@ -1,0 +1,34 @@
+#! /bin/bash
+# a function to indent c source file with preset styles
+declare style=mine
+if [[ $1 == "-l" || $1 == "--linux"  ]]
+then
+    style=linux
+elif [[ $i == "-gnu" ]]
+then
+    style=gnu
+fi
+
+for i in $@
+do
+    if [[ -e $i ]]
+    then
+        if [[ $style == "mine" ]]
+        then
+            indent --no-blank-lines-after-declarations \
+                    --blank-lines-after-procedures \
+                    --braces-on-if-line -nce \
+                    --braces-on-func-def-line \
+                    --braces-on-struct-decl-line \
+                    --case-indentation2 \
+                    --case-brace-indentation0 \
+                    $i
+        elif [[ $style == "linux" ]]
+        then
+            indent --linux-style $i
+        elif [[ $style == "gnu" ]]
+        then
+            indent -gnu $i
+        fi
+    fi
+done

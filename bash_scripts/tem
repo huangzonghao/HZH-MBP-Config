@@ -1,0 +1,112 @@
+#! /bin/bash
+
+# a function to package all the templates --Tue Apr  7 13:01:39 HKT 2015
+declare STATUS   # use declare to make all the variable local
+declare USER_OPTION
+declare FILE_NAME
+#declare USER
+if [ $# -eq 0 ]
+then
+    STATUS=0
+else
+    STATUS=1
+    OPTION=$1
+fi
+
+while [ $STATUS -eq 0 ]
+do
+    cat <<-EndofCat
+Templates Available:
+l)atex,
+m)akefile,
+s)batch,
+wp)age,
+ws)ite,
+c)makelists.txt,
+r)oslaunch
+EndofCat
+    read  USER_OPTION
+
+    case $USER_OPTION in
+        "latex" | "l")
+            echo "article(a) or letter(l)?"
+            read USER_OPTION
+            case $USER_OPTION in
+                "acticle" | "a")
+                    echo -n "Please enter the file name : "
+                    read FILE_NAME
+                    cp -i ~/.vim/template/latex/article.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                    ;;
+                "letter" | "l")
+                    echo -n "Please enter the file name : "
+                    read FILE_NAME
+                    cp -i ~/.vim/template/latex/letter.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                    ;;
+            esac
+            STATUS=1;
+            ;;
+        "makefile" | "m")
+            cp -i ~/.vim/template/makefile makefile && vim makefile
+            STATUS=1;
+            ;;
+        "sbatch" | "s")
+            echo -n "Which version? CPU or GPU : "
+            read USER_OPTION
+            echo -n "Please enter the file name : "
+            read FILE_NAME
+            case $USER_OPTION in
+                "cpu" | "CPU")
+                    cp -i ~/.vim/template/sbatchcpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
+                    ;;
+                "gpu" | "GPU")
+                    cp -i ~/.vim/template/sbatchgpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
+                    ;;
+            esac
+            STATUS=1;
+            ;;
+        "webpage" | "wp")
+            echo -n "Please enter the file name : "
+            read FILE_NAME
+            cp -r ~/.vim/template/webpage.html ./$FILE_NAME.html && vim $FILE_NAME.html
+            STATUS=1;
+            ;;
+        "website" | "ws")
+            cp -r ~/.vim/template/website/* .
+            STATUS=1;
+            ;;
+        "cmakelist" | "c")
+            echo -n "cuda or opencl or common? (c, cl, com) :"
+            read FILE_NAME
+            if [[ $FILE_NAME = "c" ]]
+            then
+                cp ~/.vim/template/cmake_cuda.txt ./CMakeLists.txt
+                vim CMakeLists.txt
+            elif [[ $FILE_NAME = "cl" ]]
+            then
+                cp ~/.vim/template/cmake_opencl.txt ./CMakeLists.txt
+                cp -r ~/.vim/template/cmake_opencl_module ./cmake_module
+                vim CMakeLists.txt
+            elif [[ $FILE_NAME = "com" ]]
+            then
+                cp ~/.vim/template/cmake_common.txt ./CMakeLists.txt
+                vim CMakeLists.txt
+            else echo "invalid operation, abort"
+            fi
+            STATUS=1;
+            ;;
+        "roslaunch" | "r")
+            echo -n "Please enter the file name : "
+            read FILE_NAME
+            cp -r ~/.vim/template/ros.launch ./$FILE_NAME.html && vim $FILE_NAME.launch
+            STATUS=1;
+            ;;
+    esac
+    if [ $STATUS -eq 1 ]
+    then
+        echo -n "Anther file? (y/n) : ";
+        read USER_OPTION;
+        if [[ $USER_OPTION = y ]]
+        then STATUS=0;
+        fi
+    fi
+done
