@@ -172,18 +172,9 @@ nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>tt :NERDTreeToggle<CR>
 nnoremap <leader>. :call ToggleProgrammingEnv()<CR>
 
-" toggle errors
-"nnoremap <leader>te :call ToggleSyntasticErrorsPanel()<CR>
-"nnoremap <leader>ts :call SyntasticToggleMode()<CR>
-" to toggle the error list; function provided by ycm
-let g:lt_location_list_toggle_map = "<leader>te"
-let g:lt_quickfix_list_toggle_map = "<leader>tq"
 let g:ycm_key_detailed_diagnostics = "<leader>si"
 
 "*************************** Toggles end ***************************************
-" a single check
-"nnoremap <leader>sc :call SyntasticCheck()<CR>
-"nnoremap <leader>sr :call SyntasticReset()<CR>
 nnoremap <leader>sf :YcmForceCompileAndDiagnostics<CR>
 nnoremap <leader>sd :YcmDiags<CR>
 nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -349,26 +340,6 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" synstastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-" only enable it when we want
-"let g:syntastic_mode_map = {"mode": "passive" }
-"function! ToggleSyntasticErrorsPanel()
-"    let old_last_winnr = winnr('$')
-"    lclose
-"    if old_last_winnr == winnr('$')
-"        " Nothing was closed, open syntastic error location panel
-"        Errors
-"    endif
-"endfunction
-
-
 " esaymotion
 let g:EasyMotion_do_mapping = 0
 
@@ -409,7 +380,7 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 
 " pathogen
 " the pathogen disable list
-let g:pathogen_disabled = ['better-whitespace, syntastic']
+let g:pathogen_disabled = ['better-whitespace']
 " Should be called at the end to make sure all the modification done in this
 " file take effect
 execute pathogen#infect()
