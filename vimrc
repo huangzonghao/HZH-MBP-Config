@@ -317,7 +317,7 @@ let g:NERDSpaceDelims = 1 "So we have padding spaces
 let g:NERDDahuangSexyComs = 1 "So we have my preferred sexy comments
 
 " airline settings
-let g:airline_theme='powerlineish'
+let g:airline_theme='light'
 " just don't include the error and warning messages in the statusbar atm
 let g:airline_section_error=''
 let g:airline_section_warning=''
