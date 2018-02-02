@@ -1,8 +1,8 @@
 " ==============================================================================
 "                            Environment Settings
 " ==============================================================================
-if filereadable(expand("$HOME/dotfiles/local_config/vimrc_local"))
-    source $HOME/dotfiles/local_config/vimrc_local
+if filereadable(expand("$HOME/dotfiles/local_config/vimrc_before_plugin"))
+    source $HOME/dotfiles/local_config/vimrc_before_plugin
 endif
 
 " CVim time format, we need this setting for the general time insertion
@@ -454,3 +454,10 @@ function! CountingChineseCharacters()
     exe '%s/\S/&/gn'
 endfunction
 nnoremap <Space>cc :call CountingChineseCharacters()<CR>
+
+" source local setting
+" make it the last to wait for plugins
+if filereadable(expand("$HOME/dotfiles/local_config/vimrc_after_plugin"))
+    source $HOME/dotfiles/local_config/vimrc_after_plugin
+endif
+
