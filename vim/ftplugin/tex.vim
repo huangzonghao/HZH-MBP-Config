@@ -14,7 +14,7 @@ let g:Tex_ViewRule_dvi = 'open -a /Applications/texniscope.app'
 let g:Tex_TreatMacViewerAsUNIX = 1
 let g:Tex_ExecuteUNIXViewerInForeground = 1
 let g:Tex_SmartKeyDot=0
-set spell
+setlocal spell
 "nmap <F2> \lv
 "map <F3> :up<CR>:silent call Tex_RunLaTeX()<CR>
 "nmap <F2> :!latexmk -pv -pdf *.tex<CR><CR>
@@ -23,12 +23,8 @@ set spell
 
 let g:tex_flavor='latex'
 
-set grepprg=grep\ -nH\ $*
+setlocal grepprg=grep\ -nH\ $*
 "let g:Imap_DeleteEmptyPlaceHolders = 0
-
-
-noremap  <Tab> <C-j>
-
 
 call IMAP ('_', '_{<++>}<++>', "tex")
 call IMAP ('^', '^{<++>}<++>', "tex")
@@ -48,5 +44,10 @@ call IMAP ('DOT', '\dot{<++>}<++>', "tex")
 call IMAP ('SMTX', '\begin{smallmatrix} <++> \end{smallmatrix} <++>', "tex")
 
 " map the slash keys as mentioned in the update note --Sat Jul 25 01:32:14 2015
-inoremap / \
-inoremap \ /
+inoremap <buffer> / \
+inoremap <buffer> \ /
+
+" Let vim wrap the lines automatically --Fri Feb 16 10:45:42 EST 2018
+" set fo+=a
+" TODO:
+" Set handy mappings to  environment generation and command  generation

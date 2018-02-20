@@ -1,18 +1,18 @@
 " Search tags file in the project folder
-set tags=./tags;,tags
-nnoremap <silent> <f8> :update<CR> :!make<CR>
-nnoremap <silent> <f7> :!./executable<CR>
+" set tags=./tags;,tags
+nnoremap <buffer>  <silent> <f8> :update<CR> :!make<CR>
+nnoremap <buffer>  <silent> <f7> :!./executable<CR>
 " add the autoformater for c --Wed May 13 12:42:36 HKT 2015
 " shall be carefully tuned before use, the configuration is not satisfied now
-nnoremap <silent> <F5> :%!astyle --style=linux<CR>
+nnoremap <buffer>  <silent> <F5> :%!astyle --style=linux<CR>
 " vim natural indention settings
 set cinoptions=g0.5s,h0.5s,t0
 
 "the following functions are provided by a.vim
 "go to the partner file
-nnoremap gp :A<CR>
+nnoremap <buffer>  gp :A<CR>
 "show the partner file in v-split mode
-nnoremap gP :AV<CR>
+nnoremap <buffer>  gP :AV<CR>
 
 let g:C_Insert_Mode_Leader = '/'
 
