@@ -64,7 +64,10 @@ set tags=./tags;            " Search tags from current file folder and upwards
 "                            Global Keymappings
 " ==============================================================================
 let g:Programming_Leader = ','
-let g:Text_Editing_Leader = '<Space>'
+let g:Text_Editing_Leader = 'a'
+" The alternative leader serves when the original leader-key combo is hard to
+" press
+let g:Alternative_Leader = 'r'
 let mapleader = g:Programming_Leader
 " ------------------------------------------------------------------------------
 "                              Bare Keymappings
@@ -76,6 +79,8 @@ imap <C-Space> <Plug>IMAP_JumpForward
 inoremap <C-E> <C-]><C-U>
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
+
+nnoremap <Space> a
 
 " tag commands
 nnoremap <C-J> <C-]>
@@ -213,58 +218,61 @@ nnoremap <leader>fp :cprevious<CR>
 "                           Text Editing Keymappings
 "-------------------------------------------------------------------------------
 
-nnoremap <Space>sd :!subl .<CR><CR>
-nnoremap <Space>sf :!subl %<CR><CR>
+exe "nnoremap ".g:Alternative_Leader.g:Text_Editing_Leader." :q<CR>"
+" close the preview window
+exe "nnoremap ".g:Text_Editing_Leader."x :pc<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."h :noh<CR>"
+
+exe "nnoremap ".g:Text_Editing_Leader."sd :!subl .<CR><CR>"
+exe "nnoremap ".g:Text_Editing_Leader."sf :!subl %<CR><CR>"
 
 " the function is provide by CVim
-nnoremap <Space>id : call C_InsertDateAndTime('d')<CR>a
-nnoremap <Space>u  :up<CR>
-nnoremap <Space>U  :w!<CR>
-nnoremap <Space>w  :wq<CR>
-nnoremap <Space>W  :w!q<CR>
-nnoremap <Space><Space> :q<CR>
-nnoremap <Space>; :q!<CR>
-nnoremap <Space>q :qa<CR>
-nnoremap <Space>Q  :qa!<CR>
-nnoremap <Space>h  :noh<CR>
-nnoremap <Space>tu :let g:autoreadargs={'autoread':1}<CR>
-                  \:execute WatchForChanges("*",autoreadargs)<CR>
-nnoremap <Space>tm :call ToggleMouse()<CR>
-nnoremap <Space>rt :retab<CR>
-nnoremap <Space>o o<ESC>k
-nnoremap <Space>O O<ESC>j
-nnoremap <Space>j o<ESC>
-nnoremap <Space>k O<ESC>
-nnoremap <Space>J 2o<ESC>
-nnoremap <Space>K 2O<ESC>
-nnoremap <Space>. .
+exe "nnoremap ".g:Text_Editing_Leader."id : call C_InsertDateAndTime('d')<CR>a"
+exe "nnoremap ".g:Text_Editing_Leader."u  :up<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."U  :w!<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."w  :wq<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."W  :w!q<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."; :q!<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."q :qa<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."Q :qa!<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."tu :let g:autoreadargs={'autoread':1}<CR>:execute WatchForChanges('*',autoreadargs)<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."tm :call ToggleMouse()<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."rt :retab<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."o o<ESC>k"
+exe "nnoremap ".g:Text_Editing_Leader."O O<ESC>j"
+exe "nnoremap ".g:Text_Editing_Leader."j o<ESC>"
+exe "nnoremap ".g:Text_Editing_Leader."k O<ESC>"
+exe "nnoremap ".g:Text_Editing_Leader."J 2o<ESC>"
+exe "nnoremap ".g:Text_Editing_Leader."K 2O<ESC>"
+exe "nnoremap ".g:Text_Editing_Leader.". ."
 " set the spell check
 " a stands for add, c stands for correcting
-nnoremap <Space>ts :setlocal spell!<CR>
-nnoremap <Space>s. ]s
-nnoremap <Space>s, [s
-nnoremap <Space>sa zg
-nnoremap <Space>sc z=
-nnoremap <Space>c. ]c
-nnoremap <Space>c, [c
-nnoremap <Space>dr :diffg RE<CR>:diffupdate<CR>
-nnoremap <Space>db :diffg BA<CR>:diffupdate<CR>
-nnoremap <Space>dl :diffg LO<CR>:diffupdate<CR>
-nnoremap <Space>du :diffupdate<CR>
-nnoremap <Space>d. /<<<<<CR>:noh<CR>+
-nnoremap <Space>d, 2?<<<<<CR>:noh<CR>+
+exe "nnoremap ".g:Text_Editing_Leader."ts :setlocal spell!<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."s. ]s"
+exe "nnoremap ".g:Text_Editing_Leader."s, [s"
+exe "nnoremap ".g:Text_Editing_Leader."ss z=1<CR><CR>"
+exe "nnoremap ".g:Text_Editing_Leader."sa zg"
+exe "nnoremap ".g:Text_Editing_Leader."sc z="
+exe "nnoremap ".g:Text_Editing_Leader."c. ]c"
+exe "nnoremap ".g:Text_Editing_Leader."c, [c"
+exe "nnoremap ".g:Text_Editing_Leader."dr :diffg RE<CR>:diffupdate<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."db :diffg BA<CR>:diffupdate<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."dl :diffg LO<CR>:diffupdate<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."du :diffupdate<CR>"
+exe "nnoremap ".g:Text_Editing_Leader."d. /<<<<<CR>:noh<CR>+"
+exe "nnoremap ".g:Text_Editing_Leader."d, 2?<<<<<CR>:noh<CR>+"
 
 " clean the trailing white spaces
 " provided by better-whitespace
-nnoremap <Space>cws :StripWhitespace<CR>
+exe "nnoremap ".g:Text_Editing_Leader."cws :StripWhitespace<CR>"
 
 " toggle hexmode
-" can't use hm here as <Space>h is used
-nnoremap <Space>bm :Hexmode<CR>
+" can't use hm here as g:Text_Editing_Leader.h is used
+exe "nnoremap ".g:Text_Editing_Leader."bm :Hexmode<CR>"
 
-nnoremap <Space>p "*p
-vnoremap <Space>p "*p
-vnoremap <Space>y "*y
+exe "nnoremap ".g:Text_Editing_Leader.'p "*p'
+exe "vnoremap ".g:Text_Editing_Leader.'p "*p'
+exe "vnoremap ".g:Text_Editing_Leader.'y "*y'
 
 " ==============================================================================
 "                            Global Commands
@@ -326,7 +334,8 @@ let g:airline_section_c = '%n-%f%r%m'
 
 
 " CtrlP
-let g:ctrlp_map = 'F'    " f stands for find here
+" Use a as an leader, f stands for find here
+exe "let g:ctrlp_map ='".g:Text_Editing_Leader."f'"
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -453,7 +462,7 @@ endfunction
 function! CountingChineseCharacters()
     exe '%s/\S/&/gn'
 endfunction
-nnoremap <Space>cc :call CountingChineseCharacters()<CR>
+exe "nnoremap ".g:Text_Editing_Leader."cc :call CountingChineseCharacters()<CR>"
 
 " source local setting
 " make it the last to wait for plugins
