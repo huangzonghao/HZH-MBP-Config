@@ -89,3 +89,6 @@ alias kindletool="k2pdfopt"
 
 # settings for todo.txt
 alias t="todo.sh -d ~/Todo/todo.config"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
