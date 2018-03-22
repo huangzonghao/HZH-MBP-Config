@@ -424,6 +424,9 @@ let g:ycm_complete_in_comments = 1
 " markdown
 let g:vim_markdown_math=1
 
+" autopair
+let g:AutoPairs = {'(':')', '[':']', '{':'}'}
+
 " hexmode
 " The files that would be treated as binary files and opened in hex mode
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.npy,*.png'
