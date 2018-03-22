@@ -416,7 +416,8 @@ let g:ycm_filetype_whitelist ={  'c'      : 1,
                                 \'cpp'    : 1,
                                 \'cuda'   : 1,
                                 \'python' : 1,
-                                \'java' : 1}
+                                \'matlab' : 1,
+                                \'java'   : 1}
 
 let g:ycm_warning_symbol = '->'
 let g:ycm_complete_in_comments = 1
