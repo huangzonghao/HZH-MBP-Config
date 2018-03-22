@@ -395,6 +395,10 @@ endif
 
 " esaymotion
 let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_keys ='AOEUIDPYFGCRL,.JXMWKBSHNT'
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_space_jump_first = 1
+let g:EasyMotion_do_shade = 0
 
 
 " emmet
@@ -421,6 +425,9 @@ let g:ycm_filetype_whitelist ={  'c'      : 1,
 
 let g:ycm_warning_symbol = '->'
 let g:ycm_complete_in_comments = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+" stop vim from poping preview window while completing code
+set completeopt-=preview
 
 " markdown
 let g:vim_markdown_math=1
