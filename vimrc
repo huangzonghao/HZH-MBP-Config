@@ -67,6 +67,11 @@ let g:Programming_Leader = ','
 let g:Text_Editing_Leader = '<Space>'
 let mapleader = g:Programming_Leader
 " ------------------------------------------------------------------------------
+"                       Reserved for Plugins
+"-------------------------------------------------------------------------------
+" These key-mappings shall be set in plugin buffer-wise
+" <C-E>
+" ------------------------------------------------------------------------------
 "                              Bare Keymappings
 "-------------------------------------------------------------------------------
 " this mapping is important for column insertion
@@ -74,46 +79,71 @@ let mapleader = g:Programming_Leader
 inoremap <C-C> <ESC>
 nnoremap <C-C> <ESC>
 
-" tag commands
-nnoremap <C-J> <C-]>
-nnoremap <C-K> <C-T>
+nnoremap ; :
+vnoremap ; :
+nnoremap u O
+nnoremap U u
 
-" tab commands
-nnoremap <C-T>t :tabnew<CR>
-nnoremap <C-T><Space> :tabclose<CR>
-" this will close the tab and delete all the buffers
-nnoremap <C-T>q :windo bdelete<CR>
-nnoremap <C-L> gt
-nnoremap <C-H> gT
+imap <C-_> <Plug>IMAP_JumpForward
+nmap <C-_> <Plug>IMAP_JumpForward
+
+inoremap <C-F> <Right>
+inoremap <C-B> <Left>
+inoremap <C-N> <Down>
+inoremap <C-P> <Up>
+inoremap <C-Space> <C-N>
+inoremap <C-J> <C-Left>
+inoremap <C-K> <C-Right>
+
+" use the following commands to change window size
+" and arrows to navigate in normal mode
+" nnoremap <C-H> h
+" nnoremap <C-L> l
+" nnoremap <C-N> j
+" nnoremap <C-P> k
+" we need to map f back and find another map for n
+" so we can use n as a learder
 
 nnoremap h <C-W>h
 nnoremap l <C-W>l
 nnoremap j <C-W>j
 nnoremap k <C-W>k
-nnoremap <C-N> j
-nnoremap <C-P> k
-nnoremap <F1> :up<CR>
-nnoremap ; :
+
 nnoremap <C-W>m <C-W>_
 nnoremap <C-W>w <C-W>=
 nnoremap <C-W>k 2<C-W>-
-nnoremap <Up> 2<C-W>-
+" nnoremap <Up> 2<C-W>-
 nnoremap <C-W>j 2<C-W>+
-nnoremap <Down> 2<C-W>+
-nnoremap <Left> 2<C-W><
-nnoremap <Right> 2<C-W>>
-"nnoremap <F6> :e<CR>
-"nnoremap <C-j> :m .+1<CR>==
-"nnoremap <C-k> :m .-2<CR>=="
+" nnoremap <Down> 2<C-W>+
+" nnoremap <Left> 2<C-W><
+" nnoremap <Right> 2<C-W>>
+nnoremap <C-W>h 2<C-W><
+nnoremap <C-W>l 2<C-W>>
 
-" nnoremap j gj
-" nnoremap k gk
+" move a line downwards
+nnoremap <C-J> :m .+1<CR>==
+" move a line upwards
+nnoremap <C-K> :m .-2<CR>=="
+" join the current line upwards
+" J is to join the current line downwards by default
+nnoremap K kJ
+
 nnoremap gtf <C-W>gf
+
+" tab commands
+" leader T
+nnoremap TT :tabnew<CR>
+nnoremap TC :tabclose<CR>
+" this will close the tab and delete all the buffers
+nnoremap TD :windo bdelete<CR>
+nnoremap <C-L> gt
+nnoremap <C-H> gT
 
 " buffer commands -- b as leader
 nnoremap bb  :buffers<CR>:buffer<Space>
 nnoremap bd  :buffers<CR>:Bdelete<Space>
 nnoremap bo  :Bdelete %<CR>
+nnoremap bO  :Bdelete! %<CR>
 nnoremap L   :bnext<CR>
 nnoremap H   :bprevious<CR>
 " open the current buffer in new (v)split
@@ -135,29 +165,35 @@ nnoremap rg :reg<CR>
 " disable the ex mode and have a short cut for recording
 nnoremap Q @q
 
-
 vnoremap j gj
 vnoremap k gk
-vnoremap ; :
 
 " note you cannot use noremap on <Plug> mappings
 nmap t <Plug>(easymotion-w)
 nmap e <Plug>(easymotion-b)
 nmap w <Plug>(easymotion-e)
-nmap T <Plug>(easymotion-j)
-nmap E <Plug>(easymotion-k)
-nmap W <Plug>(easymotion-ge)
+nmap - <Plug>(easymotion-bd-jk)
+nmap m <Plug>(easymotion-ge)
 
-vmap W <Plug>(easymotion-w)
-vmap B <Plug>(easymotion-b)
-vmap J <Plug>(easymotion-j)
-vmap K <Plug>(easymotion-k)
-vmap E <Plug>(easymotion-e)
+vmap t <Plug>(easymotion-w)
+vmap e <Plug>(easymotion-b)
+vmap w <Plug>(easymotion-e)
+vmap - <Plug>(easymotion-bd-jk)
+vmap m <Plug>(easymotion-ge)
+" vmap W <Plug>(easymotion-w)
+" vmap B <Plug>(easymotion-b)
+" vmap J <Plug>(easymotion-j)
+" vmap K <Plug>(easymotion-k)
+" vmap E <Plug>(easymotion-e)
 
 " switch f and n for better experience
-nnoremap n f
-nnoremap f n
-nnoremap N F
+" It's actually stupid to have both / and ? for searching. As / + N (or F
+" after mapping) is already that.
+" So we use ? as the leader to take mappings passed by iterm
+noremap n f
+noremap N F
+noremap f n
+noremap F N
 
 nnoremap zz z-
 
@@ -177,6 +213,11 @@ nnoremap <leader>sd :YcmDiags<CR>
 nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>yc :YcmDiags<CR>
 nnoremap <leader>gt :GoTo<CR>
+
+" go downwards to tag
+nnoremap <leader>d <C-]>
+" go upwards and back
+nnoremap <leader>u <C-T>
 
 " shortcuts for git provided by fugitive
 " :Gstatus seems to be the most useful, deserives a better shortcut
@@ -209,6 +250,10 @@ nnoremap <leader>fp :cprevious<CR>
 " ------------------------------------------------------------------------------
 "                           Text Editing Keymappings
 "-------------------------------------------------------------------------------
+nnoremap <Space>a :q<CR>
+" close the preview window
+nnoremap <Space>x :pc<CR>
+nnoremap <Space>nh :noh<CR>
 
 nnoremap <Space>sd :!subl .<CR><CR>
 nnoremap <Space>sf :!subl %<CR><CR>
@@ -219,37 +264,44 @@ nnoremap <Space>u  :up<CR>
 nnoremap <Space>U  :w!<CR>
 nnoremap <Space>w  :wq<CR>
 nnoremap <Space>W  :w!q<CR>
-nnoremap <Space><Space> :q<CR>
 nnoremap <Space>; :q!<CR>
 nnoremap <Space>q :qa<CR>
-nnoremap <Space>Q  :qa!<CR>
-nnoremap <Space>h  :noh<CR>
-nnoremap <Space>tu :let g:autoreadargs={'autoread':1}<CR>
-                  \:execute WatchForChanges("*",autoreadargs)<CR>
+nnoremap <Space>Q :qa!<CR>
+nnoremap <Space>tu :let g:autoreadargs={'autoread':1}<CR>:execute WatchForChanges('*',autoreadargs)<CR>
 nnoremap <Space>tm :call ToggleMouse()<CR>
 nnoremap <Space>rt :retab<CR>
+" to refresh the file
+nnoremap <Space>rr :e<CR>
 nnoremap <Space>o o<ESC>k
-nnoremap <Space>O O<ESC>j
-nnoremap <Space>j o<ESC>
-nnoremap <Space>k O<ESC>
-nnoremap <Space>J 2o<ESC>
-nnoremap <Space>K 2O<ESC>
-nnoremap <Space>. .
+nnoremap <Space>O O<ESC>j<C-E>
+" nnoremap <Space>j o<ESC>
+" nnoremap <Space>k O<ESC><C-E>
+" nnoremap <Space>J 2o<ESC>
+" nnoremap <Space>K 2O<ESC>2<C-E>
+" nnoremap <Space>. .
 " set the spell check
 " a stands for add, c stands for correcting
 nnoremap <Space>ts :setlocal spell!<CR>
-nnoremap <Space>s. ]s
-nnoremap <Space>s, [s
-nnoremap <Space>sa zg
-nnoremap <Space>sc z=
-nnoremap <Space>c. ]c
-nnoremap <Space>c, [c
+nnoremap c. ]s
+nnoremap c, [s
+" correction recommendations
+nnoremap cr z=
+" correct it
+nnoremap ci z=1<CR><CR>
+nnoremap ca zg
+" nnoremap <Space>ss z=1<CR><CR>
+" nnoremap <Space>sa zg
+" nnoremap <Space>sc z=
+nnoremap g. ]c
+nnoremap g, [c
 nnoremap <Space>dr :diffg RE<CR>:diffupdate<CR>
 nnoremap <Space>db :diffg BA<CR>:diffupdate<CR>
 nnoremap <Space>dl :diffg LO<CR>:diffupdate<CR>
 nnoremap <Space>du :diffupdate<CR>
-nnoremap <Space>d. /<<<<<CR>:noh<CR>+
-nnoremap <Space>d, 2?<<<<<CR>:noh<CR>+
+
+nnoremap d. /<<<<<CR>:noh<CR>+
+nnoremap d, 2?<<<<<CR>:noh<CR>+
+
 
 " clean the trailing white spaces
 " provided by better-whitespace
@@ -259,9 +311,9 @@ nnoremap <Space>cws :StripWhitespace<CR>
 " can't use hm here as <Space>h is used
 nnoremap <Space>bm :Hexmode<CR>
 
-nnoremap <Space>p "*p
-vnoremap <Space>p "*p
-vnoremap <Space>y "*y
+" nnoremap <Space>*p
+" vnoremap <Space>*p
+" vnoremap <Space>*y
 
 " ==============================================================================
 "                            Global Commands
@@ -323,7 +375,8 @@ let g:airline_section_c = '%n-%f%r%m'
 
 
 " CtrlP
-let g:ctrlp_map = 'F'    " f stands for find here
+" Use a as an leader, f stands for find here
+let g:ctrlp_map = '<Space>f'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
