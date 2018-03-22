@@ -303,6 +303,8 @@ nnoremap <Space>du :diffupdate<CR>
 nnoremap d. /<<<<<CR>:noh<CR>+
 nnoremap d, 2?<<<<<CR>:noh<CR>+
 
+" wrap graph
+nnoremap <Space>g gwip
 
 " clean the trailing white spaces
 " provided by better-whitespace
