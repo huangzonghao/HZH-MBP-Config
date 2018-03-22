@@ -13,7 +13,17 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
 
-alias laclean="rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps 2>/dev/null"
+laclean(){
+    if [[ $# == 0 ]]
+    then
+        rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps 2>/dev/null
+    else
+        i=${1%.*}
+        rm  $i.out $i.dvi $i.aux $i.fdb_latexmk $i.fls $i.log $i.ps 2>/dev/null
+    fi
+    return 0
+}
+
 lmk(){
     latexmk -xelatex -pvc -pdf *.tex
     if [[ $? == 0 ]]
