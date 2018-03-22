@@ -69,13 +69,10 @@ let mapleader = g:Programming_Leader
 " ------------------------------------------------------------------------------
 "                              Bare Keymappings
 "-------------------------------------------------------------------------------
-inoremap <F1> <Esc>:up<CR>
+" this mapping is important for column insertion
 " make sure to trigger the insertleave autocommand with <c-c>
-inoremap <C-L> <space><space><space><space>
-imap <C-Space> <Plug>IMAP_JumpForward
-inoremap <C-E> <C-]><C-U>
-inoremap <C-F> <Right>
-inoremap <C-B> <Left>
+inoremap <C-C> <ESC>
+nnoremap <C-C> <ESC>
 
 " tag commands
 nnoremap <C-J> <C-]>
