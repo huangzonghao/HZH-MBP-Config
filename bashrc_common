@@ -25,10 +25,31 @@ laclean(){
 }
 
 lmk(){
-    latexmk -xelatex -pvc -pdf *.tex
+    if [[ $# == 0 ]]
+    then
+        ls *.tex >> /dev/null 2>1
+        if [[ $? == 0 ]]
+        then
+            latexmk -xelatex -pvc -pdf *.tex
+            # latexmk  -pdf *.tex
+            # laclean
+        else
+            echo "No tex file found, exit"
+            return
+        fi
+    else
+        if  [[ -e $1 ]]
+        then
+            latexmk -xelatex -pvc -pdf $1
+            # laclean $1
+        else
+            echo "$1 not found, exit"
+            return
+        fi
+    fi
     if [[ $? == 0 ]]
     then
-        laclean
+        latexmk -c
         echo "The temp files have been cleared."
     else
         echo "Error occurred, temp files saved."
