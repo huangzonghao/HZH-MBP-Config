@@ -83,6 +83,7 @@ nnoremap ; :
 vnoremap ; :
 nnoremap u O
 nnoremap U u
+nnoremap * *N
 
 imap <C-_> <Plug>IMAP_JumpForward
 nmap <C-_> <Plug>IMAP_JumpForward
