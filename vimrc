@@ -133,7 +133,7 @@ nnoremap bms :sbm<CR>
 " register commands -- r as leader
 " but need to find a way to stop this in NERD-Tree
 " Sat Jan 27 15:20:17 EST 2018
-nnoremap rr :reg<CR>
+nnoremap rg :reg<CR>
 
 " disable the ex mode and have a short cut for recording
 nnoremap Q @q
