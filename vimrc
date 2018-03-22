@@ -442,6 +442,7 @@ let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.npy,*.png'
 " rooter
 " behavior for non-project files -- same as autochdir
 let g:rooter_change_directory_for_non_project_files = 'current'
+let g:rooter_silent_chdir = 1
 
 " pathogen
 " the pathogen disable list
