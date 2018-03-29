@@ -50,6 +50,10 @@ lmk(){
     if [[ $? == 0 ]]
     then
         latexmk -c
+        if [[ -e 1 ]]
+        then
+            rm 1
+        fi
         echo "The temp files have been cleared."
     else
         echo "Error occurred, temp files saved."
