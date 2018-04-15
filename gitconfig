@@ -19,8 +19,12 @@
     aa = stage -A
     cm = commit -m
     ci = commit
+    co = checkout
+    br = branch
     unstage = reset HEAD --
     r = reset
+    rb = rebase
+    rc = rebase --continue
     r1 = reset HEAD^
     r2 = reset HEAD^^
     rh = reset --hard
