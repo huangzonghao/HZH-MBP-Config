@@ -450,6 +450,9 @@ let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.npy,*.png'
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
 
+" nerdTree
+let NERDTreeIgnore=['\.o$', '\~$', '\.class$']
+
 " pathogen
 " the pathogen disable list
 " Should be called at the end to make sure all the modification done in this
