@@ -277,10 +277,8 @@ nnoremap <Space>tm :call ToggleMouse()<CR>
 nnoremap <Space>rt :retab<CR>
 " to refresh the file
 nnoremap <Space>rr :e<CR>
-nnoremap <Space>o o<ESC>k
-nnoremap <Space>O O<ESC>j<C-E>
-" nnoremap <Space>j o<ESC>
-" nnoremap <Space>k O<ESC><C-E>
+nnoremap <Space>j o<ESC>k
+nnoremap <Space>k O<ESC>j<C-E>
 " nnoremap <Space>J 2o<ESC>
 " nnoremap <Space>K 2O<ESC>2<C-E>
 " nnoremap <Space>. .
@@ -292,7 +290,7 @@ nnoremap c, [s
 " correction recommendations
 nnoremap cr z=
 " correct it
-nnoremap ci z=1<CR><CR>
+nnoremap c<Space> z=1<CR><CR>
 nnoremap ca zg
 " nnoremap <Space>ss z=1<CR><CR>
 " nnoremap <Space>sa zg
