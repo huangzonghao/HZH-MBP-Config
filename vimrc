@@ -207,7 +207,7 @@ nnoremap zz z-
 "-------------------------------------------------------------------------------
 "****************************** Toggles ****************************************
 nnoremap <leader>tb :TagbarToggle<CR>
-nnoremap <leader>tt :NERDTreeToggle<CR>
+nnoremap <leader>r :NERDTreeToggle<CR>
 nnoremap <leader>. :call ToggleProgrammingEnv()<CR>
 
 let g:ycm_key_detailed_diagnostics = "<leader>si"
