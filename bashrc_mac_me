@@ -24,8 +24,8 @@ setWhiteBackground() {
 
 
 # matlab cmd mode
-alias matlab="/Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
-alias mt="cd ~/TEMP/matlab && /Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
+alias matlab="/Applications/MATLAB_R2018a.app/bin/matlab -nodesktop -nosplash"
+alias mt="cd ~/TEMP/matlab && /Applications/MATLAB_R2018a.app/bin/matlab -nodesktop -nosplash"
 
 # alias for javascript interpretor --Thu Feb  5 16:48:50 HKT 2015
 alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc"
