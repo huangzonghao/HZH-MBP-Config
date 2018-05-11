@@ -455,7 +455,13 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
 
 " nerdTree
-let NERDTreeIgnore=['\.o$', '\~$', '\.class$']
+let NERDTreeIgnore=['\.o$', 
+                  \ '\~$', 
+                  \ '\.class$', 
+                  \ '\.mat$', 
+                  \ '\.png$',
+                  \ '^tags$',
+                  \ '\.mex']
 
 " pathogen
 " the pathogen disable list
