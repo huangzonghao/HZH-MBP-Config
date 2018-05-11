@@ -1,3 +1,4 @@
+setlocal textwidth=80
 "source imaps.vim
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_FormatDependency_pdf = 'dvi,ps,pdf'
