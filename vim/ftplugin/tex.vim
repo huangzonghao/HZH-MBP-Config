@@ -27,8 +27,10 @@ setlocal grepprg=grep\ -nH\ $*
 "let g:Imap_DeleteEmptyPlaceHolders = 0
 
 call IMAP ('_', '_{<++>}<++>', "tex")
+call IMAP ('-_', '_', "tex")
 call IMAP ('^', '^{<++>}<++>', "tex")
 call IMAP ('ITE', '\item [<++>]<++>', "tex")
+call IMAP ('ITM', '\item ', "tex")
 call IMAP ('ITT', '\item [] \textbf{<++>}: <++>', "tex")
 call IMAP ('LFL', '\lfloor <++> \rfloor <++>', "tex")
 call IMAP ('BFL', '\left \lfloor <++> \right \rfloor <++>', "tex")
@@ -47,7 +49,11 @@ call IMAP ('SMTX', '\begin{smallmatrix} <++> \end{smallmatrix} <++>', "tex")
 inoremap <buffer> / \
 inoremap <buffer> \ /
 
+nnoremap <buffer> <CR> o<CR>
+nnoremap <buffer> <Space><CR> O<Esc>jo<Esc>k$
 " Let vim wrap the lines automatically --Fri Feb 16 10:45:42 EST 2018
 " set fo+=a
 " TODO:
 " Set handy mappings to  environment generation and command  generation
+call IMAP (g:Tex_Leader.'f', '\frac{<++>}{<++>}<++>', "tex")
+call IMAP (g:Tex_Leader.'.', '\dot', "tex")
