@@ -295,15 +295,19 @@ nnoremap ca zg
 " nnoremap <Space>ss z=1<CR><CR>
 " nnoremap <Space>sa zg
 " nnoremap <Space>sc z=
-nnoremap g. ]c
-nnoremap g, [c
-nnoremap <Space>dr :diffg RE<CR>:diffupdate<CR>
-nnoremap <Space>db :diffg BA<CR>:diffupdate<CR>
-nnoremap <Space>dl :diffg LO<CR>:diffupdate<CR>
-nnoremap <Space>du :diffupdate<CR>
+nnoremap d. ]c
+nnoremap d, [c
 
-nnoremap d. /<<<<<CR>:noh<CR>+
-nnoremap d, 2?<<<<<CR>:noh<CR>+
+" think of a way to set this commands to diff buffer only
+nnoremap d' :.diffput<CR>:diffupdate<CR>
+nnoremap dc :.diffget<CR>:diffupdate<CR>
+nnoremap dr :diffg RE<CR>:diffupdate<CR>
+nnoremap db :diffg BA<CR>:diffupdate<CR>
+nnoremap dl :diffg LO<CR>:diffupdate<CR>
+nnoremap du :diffupdate<CR>
+
+nnoremap g. /<<<<<CR>:noh<CR>+
+nnoremap g, 2?<<<<<CR>:noh<CR>+
 
 " wrap graph
 nnoremap <Space>g gwip
