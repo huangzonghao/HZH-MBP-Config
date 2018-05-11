@@ -68,5 +68,9 @@ let g:Tex_Env_Cfigure = "\\begin{center}\<CR>    \\includegraphics[width=<++>\\l
 " Add the customized environment to the selection menu
 let g:Tex_PromptedEnvironments = g:Tex_PromptedEnvironments.",cfigure"
 " let g:Tex_PromptedEnvironments = "cfigure"
+
+" Define commands expansions
+let g:Tex_Com_center = "{\\centering <++>}"
+
 call IMAP (g:Tex_Leader.'f', '\frac{<++>}{<++>}<++>', "tex")
 call IMAP (g:Tex_Leader.'.', '\dot', "tex")
