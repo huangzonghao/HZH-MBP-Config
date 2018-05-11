@@ -59,5 +59,14 @@ imap <silent> <buffer> <C-Y> <Plug>Tex_FastCommandInsert
 " set fo+=a
 " TODO:
 " Set handy mappings to  environment generation and command  generation
+
+" Define environments which can be expanded by the envirnoment hotkey
+" currently <C-E> --Mon Mar 19 20:19:47 EDT 2018
+let g:Tex_Env_cfigure = "{\\centering\\includegraphics[width=<++>\\linewidth]{<++>}}"
+let g:Tex_Env_Cfigure = "\\begin{center}\<CR>    \\includegraphics[width=<++>\\linewidth]{<++>}\<CR>\\end{center}"
+
+" Add the customized environment to the selection menu
+let g:Tex_PromptedEnvironments = g:Tex_PromptedEnvironments.",cfigure"
+" let g:Tex_PromptedEnvironments = "cfigure"
 call IMAP (g:Tex_Leader.'f', '\frac{<++>}{<++>}<++>', "tex")
 call IMAP (g:Tex_Leader.'.', '\dot', "tex")
