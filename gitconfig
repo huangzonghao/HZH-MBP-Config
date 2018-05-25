@@ -8,7 +8,9 @@
 [push]
     default = matching
 [merge]
-    tool = vimdiff
+    tool = vim
+[mergetool "vim"]
+    cmd = "vim $MERGED"
 [alias]
     d = difftool
     m = mergetool
