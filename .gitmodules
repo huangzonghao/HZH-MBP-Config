@@ -4,3 +4,6 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/HZHVIM/tagbar.git
+[submodule "latex-suite"]
+	path = vim/bundle/vim-latex
+	url = git@github.com:HZHVIM/vim-latex.git
