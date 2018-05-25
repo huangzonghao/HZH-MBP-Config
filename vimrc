@@ -227,6 +227,7 @@ nnoremap <leader>u <C-T>
 " shortcuts for git provided by fugitive
 " :Gstatus seems to be the most useful, deserives a better shortcut
 nnoremap <leader>gg :Gstatus<CR>
+nnoremap <leader>gt :Gtabedit :<CR>:set previewwindow<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gbl :Gblame<CR>
 " behavior of the following commands depends on if you are on index or working
