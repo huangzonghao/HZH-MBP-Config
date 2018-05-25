@@ -22,7 +22,9 @@
     cm = commit -m
     ci = commit
     co = checkout
-    br = branch
+    b = branch
+    bv = branch -v
+    ba = branch -a
     unstage = reset HEAD --
     r = reset
     rb = rebase
@@ -38,6 +40,8 @@
     sp = stash pop
     sd = stash drop
     pinfo = info --no-config
+    pr = pull --rebase
+    subup = submodule update --init --recursive
 [difftool]
     prompt = false
 [core]
