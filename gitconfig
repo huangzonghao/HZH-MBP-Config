@@ -42,6 +42,9 @@
     pinfo = info --no-config
     pr = pull --rebase
     subup = submodule update --init --recursive
+    subups = submodule update --init --recursive --depth 1
+[diff]
+    tool = vimdiff
 [difftool]
     prompt = false
 [core]
