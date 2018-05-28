@@ -131,15 +131,15 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /* :REMARKS:|DATE|:|AUTHORREF|:
  *  <CURSOR>
  */
-== comment.keyword-bug == append ==
+== comment.keyword-bug == below ==
 /* :BUG:|DATE|:|AUTHORREF|: <CURSOR> */
 == comment.keyword-compiler == append ==
 /* :COMPILER:|DATE|:|AUTHORREF|: <CURSOR> */
-== comment.keyword-todo == append ==
+== comment.keyword-todo == below ==
 /* :TODO:|DATE|:|AUTHORREF|:
  *  <CURSOR>
  */
-== comment.keyword-fixit == append ==
+== comment.keyword-fixit == below ==
 /* :FIXIT:|DATE|:|AUTHORREF|:
  *  <CURSOR>
  */
