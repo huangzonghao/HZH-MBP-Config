@@ -13,3 +13,6 @@
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = git@github.com:HZHVIM/fugitive.git
+[submodule "vim/bundle/better-whitespace"]
+	path = vim/bundle/better-whitespace
+	url = git@github.com:HZHVIM/better-whitespace.git
