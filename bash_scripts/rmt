@@ -8,11 +8,12 @@
 
 # rm temp files
 declare USER_OPTION;
+declare TEMP_COUNTER;
 declare STATUS=0;
 while [ $STATUS -ne 1 ]
 do
     echo "Which type of temp files would you like to get rid of ?"
-    echo ".DS_Store(d) Thumbs.db(t) or Customized (c)?"
+    echo ".DS_Store(d) Thumbs.db(t) .orig(o) or Customized (c)?"
     read USER_OPTION
 
     # make sure you finish processing d and t first because the USER_OPTION is gonna be changed in c and afterwards
@@ -39,7 +40,25 @@ do
         echo "Done"
         STATUS=1
     fi
-
+    if [[ $USER_OPTION = *o* ]]
+    then
+        TEMP_COUNTER=$(find . -name "*.orig" | tee /dev/stderr | wc -l)
+        if [[ $TEMP_COUNTER = 0 ]]
+        then
+            echo "No file found"
+        else
+            echo -n "Remove the above files?[y/n]"
+            read USER_OPTION
+            if [[ $USER_OPTION = y ]]
+            then
+                find . -name "*.orig" -delete
+                echo "Done"
+            else
+                echo "Abort"
+            fi
+        fi
+        STATUS=1
+    fi
     if [[ $STATUS = 1 ]]
     then
         echo -n "Another round? (y/n) : "
