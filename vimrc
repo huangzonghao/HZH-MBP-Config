@@ -308,8 +308,8 @@ nnoremap db :diffg BA<CR>:diffupdate<CR>
 nnoremap dl :diffg LO<CR>:diffupdate<CR>
 nnoremap du :diffupdate<CR>
 
-nnoremap g. /<<<<<CR>:noh<CR>+
-nnoremap g, 2?<<<<<CR>:noh<CR>+
+" go to conflict -- use find next to go to next conflict
+nnoremap gc /<<<<<CR>
 
 " wrap graph
 nnoremap <Space>g gwip
