@@ -138,6 +138,7 @@ nnoremap gtf <C-W>gf
 " tab commands
 " leader T
 nnoremap TT :tabnew<CR>
+nnoremap TE :tabedit %<CR>
 nnoremap TC :tabclose<CR>
 " this will close the tab and delete all the buffers
 nnoremap TD :windo bdelete<CR>
