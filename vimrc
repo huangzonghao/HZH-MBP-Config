@@ -238,7 +238,7 @@ nnoremap <leader>gw :Gwrite<CR>
 " edit the index file
 nnoremap <leader>ge :Gedit<CR>
 " this command can bring up and make editable the stage version of the file
-nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gd :Gvdiff<CR>
 " load historical versions of file into quickfix
 nnoremap <leader>gl :Glog<CR><CR><CR>
 " browse file on github
