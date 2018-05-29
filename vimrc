@@ -465,6 +465,13 @@ let NERDTreeIgnore=['\.o$',
                   \ '^tags$',
                   \ '\.mex']
 
+" Better-Whitespace
+let g:better_whitespace_ctermcolor = 'Green'
+" Disable the default mapping
+let g:better_whitespace_operator = ''
+nnoremap <Space>cws :StripWhitespace<CR>
+nnoremap <Space>tws :ToggleWhitespace<CR>
+
 " pathogen
 " the pathogen disable list
 " Should be called at the end to make sure all the modification done in this
