@@ -40,6 +40,8 @@
     sp = stash pop
     sd = stash drop
     pinfo = info --no-config
+    ph = push
+    pl = pull
     pr = pull --rebase
     subup = submodule update --init --recursive
     subups = submodule update --init --recursive --depth 1

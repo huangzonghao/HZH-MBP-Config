@@ -80,6 +80,7 @@ alias tree="tree -C"
 alias du="du -hsc"
 alias cao="./executable"
 alias hosts="sudo vim /etc/hosts"
+alias g="git"
 
 
 #some funny commands
