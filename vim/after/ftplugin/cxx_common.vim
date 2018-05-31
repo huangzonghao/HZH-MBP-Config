@@ -28,22 +28,22 @@ call IMAP('ACR', '\e[<++>m<++>',"")
 
 " a function to automatically update the modified time stamp in cxx files
 " -- 2015.7.26
-function! C_UpdateModifiedTimeStamp()
-   " first save the current cursor position and the search register
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-
-    " then go to the top of the file and search the keyword
-    normal! gg
-    silent! exe "normal /Modified/\<CR>"
-    " make sure the searching result is in the valid region
-    if line('.') > 1 && line('.') < 15
-        normal! wwD
-        call C_InsertDateAndTime('d')
-    endif
-    " now go back to the previous cursor position and restore the search reg
-    let @/=_s
-    call cursor(l, c)
-endfunction
-autocmd BufWritePre *.{c,,cc,cpp,h,cu,cuda,cuh} call C_UpdateModifiedTimeStamp()
+if !exists('*C_UpdateModifiedTimeStamp')
+    function! C_UpdateModifiedTimeStamp()
+    " first save the current cursor position and the search register
+        let _s=@/
+        let win_view = winsaveview()
+        " Search for the time stamp between line 1 and line 15
+        silent! /\%>1l\%<15lModified:\s\{2}\w\{3}\s\w\{3}.*$
+        " Make sure the cursor has really been moved, which indicates a hit
+        if line('.') < 15
+            s/\(Modified:\s\{2}\).*$/\1/g
+            normal! $
+            call C_InsertDateAndTime('d')
+            call winrestview(win_view)
+        endif
+        " now go back to the previous cursor position and restore the search reg
+        let @/=_s
+    endfunction
+    autocmd BufWritePre *.{c,,cc,cpp,h,cu,cuda,cuh} call C_UpdateModifiedTimeStamp()
+endif
