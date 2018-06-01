@@ -47,8 +47,6 @@
     subups = submodule update --init --recursive --depth 1
 [diff]
     tool = vimdiff
-[difftool]
-    prompt = false
 [core]
     editor = nano
 [filter "lfs"]
