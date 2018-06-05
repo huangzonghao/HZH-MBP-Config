@@ -254,6 +254,8 @@ nnoremap <leader>ff :copen<CR>
 nnoremap <leader>fn :cnext<CR>
 nnoremap <leader>fp :cprevious<CR>
 
+nnoremap <leader>ct :checktime<CR>
+
 " ------------------------------------------------------------------------------
 "                           Text Editing Keymappings
 "-------------------------------------------------------------------------------
