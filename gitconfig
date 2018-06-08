@@ -34,6 +34,7 @@
     rh = reset --hard
     rh1 = reset HEAD^ --hard
     rh2 = reset HEAD^^ --hard
+    rl = reflog
     sl = stash list
     sa = stash apply
     ss = stash save
@@ -42,7 +43,7 @@
     pinfo = info --no-config
     ph = push
     pl = pull
-    pr = pull --rebase
+    prb = pull --rebase
     subup = submodule update --init --recursive
     subups = submodule update --init --recursive --depth 1
 [diff]
