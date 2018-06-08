@@ -109,10 +109,10 @@ inoremap <C-K> <C-Right>
 " we need to map f back and find another map for n
 " so we can use n as a learder
 
-nnoremap h <C-W>h
-nnoremap l <C-W>l
-nnoremap j <C-W>j
-nnoremap k <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
 
 nnoremap <C-W>m <C-W>_
 nnoremap <C-W>w <C-W>=
@@ -126,9 +126,9 @@ nnoremap <C-W>h 2<C-W><
 nnoremap <C-W>l 2<C-W>>
 
 " move a line downwards
-nnoremap <C-J> :m .+1<CR>==
+nnoremap mj :m .+1<CR>==
 " move a line upwards
-nnoremap <C-K> :m .-2<CR>=="
+nnoremap mk :m .-2<CR>==
 " join the current line upwards
 " J is to join the current line downwards by default
 nnoremap K kJ
@@ -145,22 +145,17 @@ nnoremap TD :windo bdelete<CR>
 nnoremap <C-L> gt
 nnoremap <C-H> gT
 
-" buffer commands -- b as leader
-nnoremap bb  :buffers<CR>:buffer<Space>
-nnoremap bd  :buffers<CR>:Bdelete<Space>
-nnoremap bo  :Bdelete %<CR>
-nnoremap bO  :Bdelete! %<CR>
+" open the current buffer in new (v)split
+nnoremap ts :vsplit<CR>
+
+nnoremap <Space>o  :Bdelete %<CR>
+nnoremap <Space>O  :Bdelete! %<CR>
 nnoremap L   :bnext<CR>
 nnoremap H   :bprevious<CR>
-" open the current buffer in new (v)split
-nnoremap bs :split<CR>
-nnoremap bv :vsplit<CR>
-" create a new (v)split
-nnoremap bns :new<CR>
-nnoremap bnv :vnew<CR>
+
 " move to the next modified buffer
-nnoremap bmm :bm<CR>
-nnoremap bms :sbm<CR>
+" nnoremap bmm :bm<CR>
+" nnoremap bms :sbm<CR>
 
 
 " register commands -- r as leader
@@ -175,22 +170,13 @@ vnoremap j gj
 vnoremap k gk
 
 " note you cannot use noremap on <Plug> mappings
-nmap t <Plug>(easymotion-w)
-nmap e <Plug>(easymotion-b)
-nmap w <Plug>(easymotion-e)
+nmap mt <Plug>(easymotion-w)
+nmap me <Plug>(easymotion-b)
 nmap - <Plug>(easymotion-bd-jk)
-nmap m <Plug>(easymotion-ge)
 
-vmap t <Plug>(easymotion-w)
-vmap e <Plug>(easymotion-b)
-vmap w <Plug>(easymotion-e)
+vmap mt <Plug>(easymotion-w)
+vmap me <Plug>(easymotion-b)
 vmap - <Plug>(easymotion-bd-jk)
-vmap m <Plug>(easymotion-ge)
-" vmap W <Plug>(easymotion-w)
-" vmap B <Plug>(easymotion-b)
-" vmap J <Plug>(easymotion-j)
-" vmap K <Plug>(easymotion-k)
-" vmap E <Plug>(easymotion-e)
 
 " switch f and n for better experience
 " It's actually stupid to have both / and ? for searching. As / + N (or F
@@ -281,8 +267,8 @@ nnoremap <Space>tm :call ToggleMouse()<CR>
 nnoremap <Space>rt :retab<CR>
 " to refresh the file
 nnoremap <Space>rr :e<CR>
-nnoremap <Space>j o<ESC>k
-nnoremap <Space>k O<ESC>j<C-E>
+nnoremap mo o<ESC>k
+nnoremap mu O<ESC>j<C-E>
 " nnoremap <Space>J 2o<ESC>
 " nnoremap <Space>K 2O<ESC>2<C-E>
 " nnoremap <Space>. .
