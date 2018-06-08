@@ -137,13 +137,15 @@ nnoremap gtf <C-W>gf
 
 " tab commands
 " leader T
-nnoremap TT :tabnew<CR>
-nnoremap TE :tabedit %<CR>
-nnoremap TC :tabclose<CR>
+nnoremap tt :tabnew<CR>
+nnoremap tn :tabedit %<CR>
+nnoremap tc :tabclose<CR>
 " this will close the tab and delete all the buffers
-nnoremap TD :windo bdelete<CR>
-nnoremap <C-L> gt
-nnoremap <C-H> gT
+nnoremap td :windo bdelete<CR>
+nnoremap t. gt
+nnoremap t, gT
+nnoremap t< :tabm -1<CR>
+nnoremap t> :tabm +1<CR>
 
 " open the current buffer in new (v)split
 nnoremap ts :vsplit<CR>
