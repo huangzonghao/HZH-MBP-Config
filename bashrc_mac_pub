@@ -1,6 +1,7 @@
 SYSTEM_VER="mac"
 RC_FILE="~/.bash_profile"
 
+source ~/dotfiles/profile_common
 source ~/dotfiles/bashrc_common
 if [ -e ~/dotfiles/local_config/bashrc_local ]
 then

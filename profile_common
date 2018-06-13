@@ -1,0 +1,1 @@
+export PATH="$HOME/dotfiles/bash_scripts:$HOME/dotfiles/local_config/bash_scripts:/usr/local/sbin:$HOME/local/bin:$PATH:."
