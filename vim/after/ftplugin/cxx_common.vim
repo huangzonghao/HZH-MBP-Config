@@ -45,5 +45,7 @@ if !exists('*C_UpdateModifiedTimeStamp')
         " now go back to the previous cursor position and restore the search reg
         let @/=_s
     endfunction
-    autocmd BufWritePre *.{c,,cc,cpp,h,cu,cuda,cuh} call C_UpdateModifiedTimeStamp()
+    " autocmd BufWritePre *.{c,,cc,cpp,h,cu,cuda,cuh} call C_UpdateModifiedTimeStamp()
 endif
+
+nnoremap <buffer> <silent> <Space>mt :call C_UpdateModifiedTimeStamp()<CR>
