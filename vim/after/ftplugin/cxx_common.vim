@@ -49,3 +49,5 @@ if !exists('*C_UpdateModifiedTimeStamp')
 endif
 
 nnoremap <buffer> <silent> <Space>mt :call C_UpdateModifiedTimeStamp()<CR>
+nnoremap <buffer> <Space>. .
+nnoremap <buffer> . <ESC>

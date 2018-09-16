@@ -273,7 +273,6 @@ nnoremap mo o<ESC>k
 nnoremap mu O<ESC>j<C-E>
 " nnoremap <Space>J 2o<ESC>
 " nnoremap <Space>K 2O<ESC>2<C-E>
-" nnoremap <Space>. .
 " set the spell check
 " a stands for add, c stands for correcting
 nnoremap <Space>ts :setlocal spell!<CR>
