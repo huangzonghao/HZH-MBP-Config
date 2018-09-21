@@ -56,6 +56,9 @@ nnoremap <buffer> <Space><CR> O<Esc>jo<Esc>k$
 imap <silent> <buffer> <C-E> <Plug>Tex_FastEnvironmentInsert
 imap <silent> <buffer> <C-Y> <Plug>Tex_FastCommandInsert
 
+imap <buffer> <Tab> <Plug>IMAP_JumpForward
+nmap <buffer> <Tab> <Plug>IMAP_JumpForward
+
 " Let vim wrap the lines automatically --Fri Feb 16 10:45:42 EST 2018
 " set fo+=a
 " TODO:

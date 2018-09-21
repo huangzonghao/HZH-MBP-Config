@@ -85,9 +85,6 @@ nnoremap u O
 nnoremap U u
 nnoremap * *N
 
-imap <C-_> <Plug>IMAP_JumpForward
-nmap <C-_> <Plug>IMAP_JumpForward
-
 " this brings up a history command window
 cnoremap <C-O> <C-F>
 cnoremap <C-F> <Right>
