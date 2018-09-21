@@ -153,8 +153,7 @@ nnoremap L   :bnext<CR>
 nnoremap H   :bprevious<CR>
 
 " move to the next modified buffer
-" nnoremap bmm :bm<CR>
-" nnoremap bms :sbm<CR>
+nnoremap <Space>b :bm<CR>
 
 
 " register commands -- r as leader
