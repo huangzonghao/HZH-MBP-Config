@@ -20,7 +20,6 @@ set cursorline
 set ttyfast        " for fast terminal... but what the hell is this...
 set lazyredraw
 set nocompatible   " Disable vi-compatibility
-" set scrolloff=5  " useless now as we no longer use jk to scroll
 set backspace=2    " because of the stupid vim7.4
 set tabstop=4
 set shiftwidth=4   " this sets 4 spaces for each indention
@@ -31,7 +30,6 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
 set list
-" set listchars=tab:>.,trail:~,extends:#,nbsp:.
 set listchars=tab:>.,extends:#,nbsp:.
 set cc=80
 highlight ColorColumn ctermbg=gray
@@ -70,7 +68,7 @@ let mapleader = g:Programming_Leader
 "                       Reserved for Plugins
 "-------------------------------------------------------------------------------
 " These key-mappings shall be set in plugin buffer-wise
-" <C-E>
+" <C-E> <C-N> <C-P>
 " ------------------------------------------------------------------------------
 "                              Bare Keymappings
 "-------------------------------------------------------------------------------
@@ -91,20 +89,9 @@ cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
-inoremap <C-N> <Down>
-inoremap <C-P> <Up>
 inoremap <C-Space> <C-N>
 inoremap <C-J> <C-Left>
 inoremap <C-K> <C-Right>
-
-" use the following commands to change window size
-" and arrows to navigate in normal mode
-" nnoremap <C-H> h
-" nnoremap <C-L> l
-" nnoremap <C-N> j
-" nnoremap <C-P> k
-" we need to map f back and find another map for n
-" so we can use n as a learder
 
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
@@ -114,11 +101,7 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-W>m <C-W>_
 nnoremap <C-W>w <C-W>=
 nnoremap <C-W>k 2<C-W>-
-" nnoremap <Up> 2<C-W>-
 nnoremap <C-W>j 2<C-W>+
-" nnoremap <Down> 2<C-W>+
-" nnoremap <Left> 2<C-W><
-" nnoremap <Right> 2<C-W>>
 nnoremap <C-W>h 2<C-W><
 nnoremap <C-W>l 2<C-W>>
 
@@ -198,11 +181,6 @@ nnoremap <leader>. :call ToggleProgrammingEnv()<CR>
 let g:ycm_key_detailed_diagnostics = "<leader>si"
 
 "*************************** Toggles end ***************************************
-nnoremap <leader>sf :YcmForceCompileAndDiagnostics<CR>
-nnoremap <leader>sd :YcmDiags<CR>
-nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>yc :YcmDiags<CR>
-nnoremap <leader>gt :GoTo<CR>
 
 " go downwards to tag
 nnoremap <leader>d <C-]>
@@ -255,6 +233,7 @@ nnoremap <Space>sf :!subl %<CR><CR>
 
 " the function is provide by CVim
 nnoremap <Space>id : call C_InsertDateAndTime('d')<CR>a
+
 nnoremap <Space>u  :up<CR>
 nnoremap <Space>U  :w!<CR>
 nnoremap <Space>w  :wq<CR>
@@ -269,8 +248,7 @@ nnoremap <Space>rt :retab<CR>
 nnoremap <Space>rr :e<CR>
 nnoremap mo o<ESC>k
 nnoremap mu O<ESC>j<C-E>
-" nnoremap <Space>J 2o<ESC>
-" nnoremap <Space>K 2O<ESC>2<C-E>
+
 " set the spell check
 " a stands for add, c stands for correcting
 nnoremap <Space>ts :setlocal spell!<CR>
@@ -281,9 +259,7 @@ nnoremap cr z=
 " correct it
 nnoremap c<Space> z=1<CR><CR>
 nnoremap ca zg
-" nnoremap <Space>ss z=1<CR><CR>
-" nnoremap <Space>sa zg
-" nnoremap <Space>sc z=
+
 nnoremap d. ]c
 nnoremap d, [c
 
@@ -301,17 +277,9 @@ nnoremap gc /<<<<<CR>
 " wrap graph
 nnoremap <Space>g gwip
 
-" clean the trailing white spaces
-" provided by better-whitespace
-nnoremap <Space>cws :StripWhitespace<CR>
-
 " toggle hexmode
 " can't use hm here as <Space>h is used
 nnoremap <Space>bm :Hexmode<CR>
-
-" nnoremap <Space>*p
-" vnoremap <Space>*p
-" vnoremap <Space>*y
 
 " ------------------------------------------------------------------------------
 "                        Keymapping Sequences for ITERM
@@ -444,10 +412,10 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
 
 " nerdTree
-let NERDTreeIgnore=['\.o$', 
-                  \ '\~$', 
-                  \ '\.class$', 
-                  \ '\.mat$', 
+let NERDTreeIgnore=['\.o$',
+                  \ '\~$',
+                  \ '\.class$',
+                  \ '\.mat$',
                   \ '\.png$',
                   \ '^tags$',
                   \ '\.mex']
@@ -480,28 +448,6 @@ function! ToggleMouse()
     endif
 endfunction
 
-" absolutely uselessly ... we have <C-]> to get you out of completion mode...
-"function! DeleteLine()
-"    " check the current cursor position
-"    if col('.') == 1
-"        " before delete to that line, get the number of cols first
-"        normal! k
-"        let s:num_cols = col('$')
-"        exe "normal! j0i\<BS>\<ESC>"
-"        if col('$') == s:num_cols
-"            startinsert!
-"        else
-"            normal! l
-"            startinsert
-"        endif
-"        unlet s:num_cols
-"    else
-"        normal! d0x
-"        startinsert
-"    endif
-"endfunction
-"inoremap <C-B> <ESC>:call DeleteLine()<CR>
-
 " start the nerdtree if there is no file opened
 " the function will be called after all other plugins has been loaded
 function! CheckStartupStatus()
@@ -510,10 +456,6 @@ function! CheckStartupStatus()
     endif
 endfunction
 autocmd VimEnter * call CheckStartupStatus()
-
-" Set the current dir to git root if in git repo
-" otherwise autochdir
-
 
 function! ToggleProgrammingEnv()
     let s:tagbarwinnr = bufwinnr("__Tagbar__")
