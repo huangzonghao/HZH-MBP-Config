@@ -247,6 +247,8 @@ nnoremap <leader>ct :checktime<CR>
 nnoremap <Space>a :q<CR>
 " close the preview window
 nnoremap <Space>x :pc<CR>
+" close the quickfix window
+nnoremap <Space>c :ccl<CR>
 nnoremap <Space>nh :noh<CR>
 
 nnoremap <Space>sd :!subl .<CR><CR>
