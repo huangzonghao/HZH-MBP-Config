@@ -192,6 +192,7 @@ nnoremap <leader>u <C-T>
 nnoremap <leader>gg :Gstatus<CR>
 nnoremap <leader>gt :Gtabedit :<CR>:set previewwindow<CR>
 nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>ga :Gcommit --amend<CR>
 nnoremap <leader>gbl :Gblame<CR>
 " behavior of the following commands depends on if you are on index or working
 " directory. Essentially transfer contents between the two
@@ -205,6 +206,12 @@ nnoremap <leader>gd :Gvdiff<CR>
 nnoremap <leader>gl :Glog<CR><CR><CR>
 " browse file on github
 nnoremap <leader>gbr :Gbrowse<CR>
+nnoremap <leader>gph :Gpush<CR>
+nnoremap <leader>gpl :Gpull<CR>
+nnoremap <leader>gpr :Gpull --rebase<CR>
+" for git status tab
+nnoremap <Space>k <C-W>k:only<CR>
+
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
