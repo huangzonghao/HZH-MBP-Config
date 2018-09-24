@@ -34,6 +34,9 @@ set listchars=tab:>.,extends:#,nbsp:.
 set cc=80
 highlight ColorColumn ctermbg=gray
 
+set swapfile
+set dir=~/dotfiles/local_config/vim_tmp
+
 " ==============================================================================
 "                            Global Behavior Settings
 " ==============================================================================
