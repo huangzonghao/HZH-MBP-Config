@@ -16,16 +16,6 @@ nnoremap <buffer>  gP :AV<CR>
 
 let g:C_Insert_Mode_Leader = '/'
 
-call IMAP('INT', "size_t","")
-call IMAP('--', "->","")
-call IMAP(',,', "<< \"<++>\"<++>","")
-"shortcut for true color
-call IMAP('TCR', '\e[38;5;<++>m<++>',"")
-"shortcut for the background color
-call IMAP('BCR', '\e[48;5;<++>m<++>',"")
-"shortcut for the ancii color
-call IMAP('ACR', '\e[<++>m<++>',"")
-
 " a function to automatically update the modified time stamp in cxx files
 " -- 2015.7.26
 if !exists('*C_UpdateModifiedTimeStamp')
