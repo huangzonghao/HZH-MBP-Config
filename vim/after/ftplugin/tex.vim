@@ -54,7 +54,7 @@ nnoremap <buffer> <CR> o<CR>
 nnoremap <buffer> <Space><CR> O<Esc>jo<Esc>k$
 
 imap <silent> <buffer> <C-E> <Plug>Tex_FastEnvironmentInsert
-imap <silent> <buffer> <C-Y> <Plug>Tex_FastCommandInsert
+imap <silent> <buffer> <C-N> <Plug>Tex_FastCommandInsert
 
 imap <buffer> <Tab> <Plug>IMAP_JumpForward
 nmap <buffer> <Tab> <Plug>IMAP_JumpForward
@@ -62,19 +62,45 @@ nmap <buffer> <Tab> <Plug>IMAP_JumpForward
 " Let vim wrap the lines automatically --Fri Feb 16 10:45:42 EST 2018
 " set fo+=a
 " TODO:
-" Set handy mappings to  environment generation and command  generation
+" Set handy mappings to  environment generation and command generation
 
 " Define environments which can be expanded by the envirnoment hotkey
 " currently <C-E> --Mon Mar 19 20:19:47 EDT 2018
 let g:Tex_Env_cfigure = "{\\centering\\includegraphics[width=<++>\\linewidth]{<++>}}"
 let g:Tex_Env_Cfigure = "\\begin{center}\<CR>    \\includegraphics[width=<++>\\linewidth]{<++>}\<CR>\\end{center}"
+" bm bracket matrix, pm parenthesis matrix, vm vertical matrix
+let g:Tex_Env_bm_aliasto = "bmatrix"
+let g:Tex_Env_pm_aliasto = "pmatrix"
+let g:Tex_Env_vm_aliasto = "vmatrix"
+let g:Tex_Env_Vm_aliasto = "Vmatrix"
+let g:Tex_Env_eq_aliasto = "equation"
+let g:Tex_Env_es_aliasto = "equation*"
+let g:Tex_Env_mc_aliasto = "multicols"
 
 " Add the customized environment to the selection menu
 let g:Tex_PromptedEnvironments = g:Tex_PromptedEnvironments.",cfigure"
-" let g:Tex_PromptedEnvironments = "cfigure"
+let g:Tex_PromptedEnvironments = "cfigure"
 
 " Define commands expansions
 let g:Tex_Com_center = "{\\centering <++>}"
+let g:Tex_Com_b = "\\textbf{<++>}<++>"
+let g:Tex_Com_i = "\\textit{<++>}<++>"
+let g:Tex_Com_ig = "\\includegraphics[width=<++>\\linewidth]{<++>}"
+let g:Tex_Com_ip = "\\includegraphics[width=<++>\\linewidth, page=<++>]{<++>}"
+let g:Tex_Com_ips = "\\includepdf[pages={<++>}, pagecommand={<++>}]{<++>}"
+let g:Tex_Com_lb = "\\label{<++>}<++>"
 
-call IMAP (g:Tex_Leader.'f', '\frac{<++>}{<++>}<++>', "tex")
-call IMAP (g:Tex_Leader.'.', '\dot', "tex")
+" The mapping below are taking from some seldom used greek letters.
+" n - nu, k - kappa, c - chi, h - eta, z - zeta, v - varsigma, 9, 0
+" They are either never used or just similar to english letters
+call IMAP (g:Tex_Leader.'n', '\frac{<++>}{<++>}<++>', "tex")
+call IMAP (g:Tex_Leader.'c', '\theta', "tex")
+
+function! CreateMatrix(rows, ...) abort
+  let cols = a:0 ? a:1 : 3
+  let matrix = ['\begin{bmatrix}']
+  call extend(matrix, repeat([repeat('<++> & ', cols - 1) . '<++>\\'], a:rows))
+  call add(matrix, '\end{bmatrix}<++>')
+  call append(line('.') - 1, matrix)
+endfunction
+command! -nargs=+ Matrix silent call CreateMatrix(<f-args>)
