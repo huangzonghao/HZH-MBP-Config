@@ -22,13 +22,15 @@
     cm = commit -m
     ci = commit
     co = checkout
+    cp = cherry-pick
+    cpc = cherry-pick --continue
     b = branch
     bv = branch -v
     ba = branch -a
     unstage = reset HEAD --
     r = reset
     rb = rebase
-    rc = rebase --continue
+    rbc = rebase --continue
     r1 = reset HEAD^
     r2 = reset HEAD^^
     rh = reset --hard
