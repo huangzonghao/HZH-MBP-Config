@@ -1,30 +1,29 @@
-\documentclass[11pt, letterpaper]{letter}
-
+\documentclass[draft, 11pt, letterpaper]{letter}
+% Preamble {{{1 %
 \usepackage[margin=1in]{geometry}
 \longindentation=0pt
-
-% Your address, will appear on the top right corner,
-\address{<++>}
-% The date will appear right under your address, default is today
-% \date{}
-% Your name, will appear on the second last line
-\signature{HUANG Zonghao}
+% 1}}} %
 
 \begin{document}
+% \date{}
+% Sender Address
+\address{
+    Street,\\
+    City,\\
+    State
+}
+\signature{HUANG Zonghao}
+% Receiver Address
+\begin{letter}{
+    Street,\\
+    City,\\
+    State\\
+}
+\opening{Dear Sir/Madam}
 
-% The receiver's address, will appear on the left after your address
-\begin{letter}{<++>}
-% The "Dear Sir/Madam" part
-\opening{<++>}
-% The page style for the first page of the letter is set at the "opening"
-% command to either firstpage -- if your address is set or
-% empty -- if your address is empty. So you can set it again here
-%\thispagestyle{}
 
-<++>
 
 \closing{Yours Faithfully,}
-
+% \cc{Additional Recipient}
 \end{letter}
-
 \end{document}
