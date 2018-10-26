@@ -37,6 +37,8 @@ highlight ColorColumn ctermbg=gray
 set swapfile
 set dir=~/dotfiles/local_config/vim_tmp
 
+set foldmethod=marker
+
 " ==============================================================================
 "                            Global Behavior Settings
 " ==============================================================================
