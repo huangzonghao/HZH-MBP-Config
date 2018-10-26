@@ -28,8 +28,7 @@ lmk(){
         ls *.tex >> /dev/null 2>1
         if [[ $? == 0 ]]
         then
-            latexmk -xelatex -pvc -pdf *.tex
-            # latexmk  -pdf *.tex
+            latexmk  -xelatex -pvc *.tex
             # laclean
         else
             echo "No tex file found, exit"
@@ -38,7 +37,7 @@ lmk(){
     else
         if  [[ -e $1 ]]
         then
-            latexmk -xelatex -pvc -pdf $1
+            latexmk -xelatex -pvc $1
             # laclean $1
         else
             echo "$1 not found, exit"
