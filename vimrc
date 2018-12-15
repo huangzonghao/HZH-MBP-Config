@@ -92,6 +92,8 @@ nnoremap * *N
 cnoremap <C-O> <C-F>
 cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
+" to quickly insert group parenthesis in search
+cnoremap <C-G> \(\)<Left><Left>
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 inoremap <C-Space> <C-N>
@@ -122,7 +124,7 @@ nnoremap gtf <C-W>gf
 
 " tab commands
 " leader T
-nnoremap tt :tabnew<CR>
+nnoremap tt :tabnew<Space>
 nnoremap tn :tabedit %<CR>
 nnoremap tc :tabclose<CR>
 " this will close the tab and delete all the buffers
@@ -133,7 +135,7 @@ nnoremap t< :tabm -1<CR>
 nnoremap t> :tabm +1<CR>
 
 " open the current buffer in new (v)split
-nnoremap ts :vsplit<CR>
+nnoremap tv :vsplit<CR>
 
 nnoremap <Space>o  :Bdelete %<CR>
 nnoremap <Space>O  :Bdelete! %<CR>
