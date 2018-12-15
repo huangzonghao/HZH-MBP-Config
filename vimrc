@@ -436,6 +436,7 @@ let NERDTreeIgnore=['\.o$',
                   \ '\.png$',
                   \ '^tags$',
                   \ '\.mex']
+let g:NERDTreeMapOpenInTab = 'to'
 
 " Better-Whitespace
 let g:better_whitespace_ctermcolor = 'Green'
