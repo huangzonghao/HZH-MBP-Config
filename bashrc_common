@@ -14,10 +14,10 @@ alias mkdir="mkdir -p"
 laclean(){
     if [[ $# == 0 ]]
     then
-        rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps 2>/dev/null
+        rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps *.bbl 2>/dev/null
     else
         i=${1%.*}
-        rm  $i.out $i.dvi $i.aux $i.fdb_latexmk $i.fls $i.log $i.ps 2>/dev/null
+        rm  $i.out $i.dvi $i.aux $i.fdb_latexmk $i.fls $i.log $i.ps $i.bbl 2>/dev/null
     fi
     return 0
 }
@@ -51,6 +51,7 @@ lmk(){
         then
             rm 1
         fi
+        rm *.xdv
         echo "The temp files have been cleared."
     else
         echo "Error occurred, temp files saved."
