@@ -344,6 +344,8 @@ endif
 " please don't sort the tags by name....
 let g:tagbar_sort=0
 "let g:tagbar_left=1
+let g:tagbar_map_jump = 'o'
+let g:tagbar_map_togglefold = '<CR>'
 
 " the nerd-commenter
 let g:NERDSpaceDelims = 1 "So we have padding spaces
