@@ -4,6 +4,7 @@
 declare STATUS   # use declare to make all the variable local
 declare USER_OPTION
 declare FILE_NAME
+declare TEMPLATE_PATH="$HOME/dotfiles/template"
 #declare USER
 if [ $# -eq 0 ]
 then
@@ -35,12 +36,12 @@ EndofCat
                 "acticle" | "a")
                     echo -n "Please enter the file name : "
                     read FILE_NAME
-                    cp -i ~/.vim/template/latex/article.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                    cp -i $TEMPLATE_PATH/latex/article.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
                     ;;
                 "letter" | "l")
                     echo -n "Please enter the file name : "
                     read FILE_NAME
-                    cp -i ~/.vim/template/latex/letter.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                    cp -i $TEMPLATE_PATH/latex/letter.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
                     ;;
             esac
             STATUS=1;
@@ -56,10 +57,10 @@ EndofCat
             read FILE_NAME
             case $USER_OPTION in
                 "cpu" | "CPU")
-                    cp -i ~/.vim/template/sbatchcpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
+                    cp -i $TEMPLATE_PATH/sbatchcpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
                     ;;
                 "gpu" | "GPU")
-                    cp -i ~/.vim/template/sbatchgpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
+                    cp -i $TEMPLATE_PATH/sbatchgpu.sh $FILE_NAME.sh && vim $FILE_NAME.sh
                     ;;
             esac
             STATUS=1;
@@ -67,11 +68,11 @@ EndofCat
         "webpage" | "wp")
             echo -n "Please enter the file name : "
             read FILE_NAME
-            cp -r ~/.vim/template/webpage.html ./$FILE_NAME.html && vim $FILE_NAME.html
+            cp -r $TEMPLATE_PATH/webpage.html ./$FILE_NAME.html && vim $FILE_NAME.html
             STATUS=1;
             ;;
         "website" | "ws")
-            cp -r ~/.vim/template/website/* .
+            cp -r $TEMPLATE_PATH/website/* .
             STATUS=1;
             ;;
         "cmakelist" | "c")
@@ -79,16 +80,16 @@ EndofCat
             read FILE_NAME
             if [[ $FILE_NAME = "c" ]]
             then
-                cp ~/.vim/template/cmake_cuda.txt ./CMakeLists.txt
+                cp $TEMPLATE_PATH/cmake_cuda.txt ./CMakeLists.txt
                 vim CMakeLists.txt
             elif [[ $FILE_NAME = "cl" ]]
             then
-                cp ~/.vim/template/cmake_opencl.txt ./CMakeLists.txt
+                cp $TEMPLATE_PATH/cmake_opencl.txt ./CMakeLists.txt
                 cp -r ~/.vim/template/cmake_opencl_module ./cmake_module
                 vim CMakeLists.txt
             elif [[ $FILE_NAME = "com" ]]
             then
-                cp ~/.vim/template/cmake_common.txt ./CMakeLists.txt
+                cp $TEMPLATE_PATH/cmake_common.txt ./CMakeLists.txt
                 vim CMakeLists.txt
             else echo "invalid operation, abort"
             fi
@@ -97,7 +98,7 @@ EndofCat
         "roslaunch" | "r")
             echo -n "Please enter the file name : "
             read FILE_NAME
-            cp -r ~/.vim/template/ros.launch ./$FILE_NAME.html && vim $FILE_NAME.launch
+            cp -r $TEMPLATE_PATH/ros.launch ./$FILE_NAME.html && vim $FILE_NAME.launch
             STATUS=1;
             ;;
     esac
