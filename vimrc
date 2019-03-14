@@ -251,7 +251,7 @@ nnoremap <Space>id : call C_InsertDateAndTime('d')<CR>a
 nnoremap <Space>u  :up<CR>
 nnoremap <Space>U  :w!<CR>
 nnoremap <Space>w  :wq<CR>
-nnoremap <Space>W  :w!q<CR>
+nnoremap <Space>W  :wq!<CR>
 nnoremap <Space>; :q!<CR>
 nnoremap <Space>q :qa<CR>
 nnoremap <Space>Q :qa!<CR>
