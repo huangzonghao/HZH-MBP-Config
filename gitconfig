@@ -27,10 +27,10 @@
     b = branch
     bv = branch -v
     ba = branch -a
-    unstage = reset HEAD --
-    r = reset
     rb = rebase
     rbc = rebase --continue
+    rbt = "!less .git/rebase-merge/git-rebase-todo"
+    r = reset
     r1 = reset HEAD^
     r2 = reset HEAD^^
     rh = reset --hard
