@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [[ $$1 == 'text' ]]
+then
+    qrencode "$1" -t EPS -o $2.eps
+elif [[ $1 == 'wifi' ]]
+then
+    qrencode "WIFI:S:$2;T:WPA;P:$3;;" -t EPS -o $4.eps
+else
+cat <<-EOF
+Usage:
+    qr text <text> <filename>
+    qr wifi <BSSID> <PASSWD> <filename>
+EOF
+fi
