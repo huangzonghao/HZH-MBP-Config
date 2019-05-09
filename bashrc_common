@@ -47,10 +47,9 @@ lmk(){
     if [[ $? == 0 ]]
     then
         latexmk -c
-        if [[ -e 1 ]]
-        then
-            rm 1
-        fi
+        ls *.bbl >> /dev/null 2>1
+        [[ $? == 0 ]] && rm *.bbl
+        [[ -e 1 ]] && rm 1
         rm *.xdv
         echo "The temp files have been cleared."
     else
