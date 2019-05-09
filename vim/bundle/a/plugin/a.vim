@@ -727,7 +727,11 @@ function! <SID>FindOrCreateBuffer(fileName, doSplit, findSimilar)
            endif
         endif
         if (bufName != "")
-           let bufNr = bufnr(bufName)
+           " Let's just make sure that all switch to alternative file happen
+           " IN PLACE. To restore default behavior, uncomment the following
+           " command.
+           " -- Sat Mar 09 21:56:32 EST 2019
+           " let bufNr = bufnr(bufName)
            let FILENAME = bufName
         endif
      endif
