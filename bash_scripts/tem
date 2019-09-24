@@ -30,7 +30,13 @@ EndofCat
 
     case $USER_OPTION in
         "latex" | "l")
-            echo "article(a) letter(l) or beamer(b)?"
+            cat <<-EndofCat
+article(a)
+letter(l)
+beamer(b)
+lecture notes(ln)
+ieee(ie)
+EndofCat
             read USER_OPTION
             case $USER_OPTION in
                 "acticle" | "a")
@@ -47,6 +53,17 @@ EndofCat
                     echo -n "Please enter the file name : "
                     read FILE_NAME
                     cp -i $TEMPLATE_PATH/latex/beamer.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                    ;;
+                "lecture notes" | "ln")
+                    echo -n "Please enter the file name : "
+                    read FILE_NAME
+                    cp -i $TEMPLATE_PATH/latex/lecturenotes.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                    ;;
+                "ieee" | "ie")
+                    echo -n "Please enter the file name : "
+                    read FILE_NAME
+                    cp -i $TEMPLATE_PATH/latex/IEEEtran.cls .;
+                    cp -i $TEMPLATE_PATH/latex/ieee.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
                     ;;
             esac
             STATUS=1;
