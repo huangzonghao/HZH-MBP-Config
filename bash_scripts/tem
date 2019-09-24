@@ -4,6 +4,7 @@
 declare STATUS   # use declare to make all the variable local
 declare USER_OPTION
 declare FILE_NAME
+declare TEMPLATE_NAME
 declare TEMPLATE_PATH="$HOME/dotfiles/template"
 #declare USER
 if [ $# -eq 0 ]
@@ -40,32 +41,25 @@ EndofCat
             read USER_OPTION
             case $USER_OPTION in
                 "acticle" | "a")
-                    echo -n "Please enter the file name : "
-                    read FILE_NAME
-                    cp -i $TEMPLATE_PATH/latex/article.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                    TEMPLATE_NAME=article.tex
                     ;;
                 "letter" | "l")
-                    echo -n "Please enter the file name : "
-                    read FILE_NAME
-                    cp -i $TEMPLATE_PATH/latex/letter.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                    TEMPLATE_NAME=letter.tex
                     ;;
                 "beamer" | "b")
-                    echo -n "Please enter the file name : "
-                    read FILE_NAME
-                    cp -i $TEMPLATE_PATH/latex/beamer.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                    TEMPLATE_NAME=beamer.tex
                     ;;
                 "lecture notes" | "ln")
-                    echo -n "Please enter the file name : "
-                    read FILE_NAME
-                    cp -i $TEMPLATE_PATH/latex/lecturenotes.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
+                    TEMPLATE_NAME=lecturenotes.tex
                     ;;
                 "ieee" | "ie")
-                    echo -n "Please enter the file name : "
-                    read FILE_NAME
+                    TEMPLATE_NAME=ieee.tex
                     cp -i $TEMPLATE_PATH/latex/IEEEtran.cls .;
-                    cp -i $TEMPLATE_PATH/latex/ieee.tex $FILE_NAME.tex; vim $FILE_NAME.tex;
                     ;;
             esac
+            echo -n "Please enter the file name : "
+            read FILE_NAME
+            cp -i $TEMPLATE_PATH/latex/$TEMPLATE_NAME $FILE_NAME.tex; vim $FILE_NAME.tex;
             STATUS=1;
             ;;
         "makefile" | "m")
