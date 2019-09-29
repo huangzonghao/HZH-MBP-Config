@@ -286,6 +286,8 @@ nnoremap dr :diffg RE<CR>:diffupdate<CR>
 nnoremap db :diffg BA<CR>:diffupdate<CR>
 nnoremap dl :diffg LO<CR>:diffupdate<CR>
 nnoremap du :diffupdate<CR>
+nnoremap dt :diffthis<CR>
+nnoremap <Space>nd :diffoff<CR>
 
 " go to conflict -- use find next to go to next conflict
 nnoremap gc /<<<<<CR>
