@@ -35,3 +35,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# vim:set et sw=4 ts=4 ft=bash:

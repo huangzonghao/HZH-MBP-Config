@@ -14,3 +14,5 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # matlab cmd mode
 alias matlab="/Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
 alias mt="cd ~/TEMP/matlab && /Applications/MATLAB_R2014a.app/bin/matlab -nodesktop"
+
+# vim:set et sw=4 ts=4 ft=bash:

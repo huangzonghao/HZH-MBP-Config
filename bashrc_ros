@@ -66,3 +66,5 @@ source /usr/local/git/contrib/completion/git-completion.bash
 alias ydl="youtube-dl"
 
 alias bashrc="source ~/.bashrc"
+
+# vim:set et sw=4 ts=4 ft=bash:

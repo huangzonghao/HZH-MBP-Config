@@ -309,3 +309,5 @@ unset enLINK
 rm temp_config_list
 rm temp_general_list
 echo "All processes done successfully, exit."
+
+# vim:set et sw=4 ts=4 ft=bash:

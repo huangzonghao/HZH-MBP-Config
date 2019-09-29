@@ -23,3 +23,5 @@ fi
 
 source $HOME/dotfiles/profile_common
 [[ -e $HOME/dotfiles/local_config/profile_local ]] && source $HOME/dotfiles/local_config/profile_local
+
+# vim:set et sw=4 ts=4 ft=bash:

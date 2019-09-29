@@ -10,3 +10,5 @@ fi
 
 
 export PS1="\[\e[0;31m\]Public Ubuntu\[\e[m\e[0;33m\]:\w\$\[\e[m\] "
+
+# vim:set et sw=4 ts=4 ft=bash:

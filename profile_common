@@ -1,1 +1,3 @@
 export PATH="$HOME/local/bin:$PATH:$HOME/dotfiles/bash_scripts:$HOME/dotfiles/local_config/bash_scripts:."
+
+# vim:set et sw=4 ts=4 ft=bash:

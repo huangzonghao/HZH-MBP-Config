@@ -131,3 +131,4 @@ fi
 # the shortcut for making a directory and cd into it
 mcd(){ [ $# != '0' ] && mkdir $1 && cd $1; }
 
+# vim:set et sw=4 ts=4 ft=bash:

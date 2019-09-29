@@ -515,3 +515,4 @@ if filereadable(expand("$HOME/dotfiles/local_config/vimrc_after_plugin"))
     source $HOME/dotfiles/local_config/vimrc_after_plugin
 endif
 
+" vim:set et sw=4 ts=4 ft=vim:
