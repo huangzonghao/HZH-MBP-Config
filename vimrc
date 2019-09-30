@@ -244,8 +244,8 @@ nnoremap <Space>x :pc<CR>
 nnoremap <Space>c :ccl<CR>
 nnoremap <Space>nh :noh<CR>
 
-nnoremap <Space>sd :!subl .<CR><CR>
-nnoremap <Space>sf :!subl %<CR><CR>
+nnoremap <Space>sd :silent !subl .<CR>:redraw!<CR>
+nnoremap <Space>sf :silent !subl %<CR>:redraw!<CR>
 
 " the function is provide by CVim
 nnoremap <Space>id : call C_InsertDateAndTime('d')<CR>a
