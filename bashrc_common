@@ -24,16 +24,12 @@ alias ebrcl="vim ~/dotfiles/local_config/bashrc_local"
 alias evrc="vim ~/dotfiles/vimrc"
 alias evn="vim ~/dotfiles/vim/docs/updating_notes.txt"
 alias e="vim"
-alias el="vim -u NONE"
-alias v="view"
-alias vd="vimdiff"
 alias n="nano"
 alias tree="tree -C"
 alias du="du -hsc"
 alias cao="./executable"
 alias hosts="sudo vim /etc/hosts"
 alias g="git"
-
 
 #some funny commands
 # sl fortune cowsay cmatrix figlet

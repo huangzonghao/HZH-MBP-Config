@@ -13,24 +13,12 @@ export PS1="\[\e[32m\]HZH-MBP\[\e[m\e[0;33m\]:\w\$\[\e[m\] "
 # LSCOLORS default : exfxcxdxbxegedabagacad
 export LSCOLORS="GxFxcxdxbxegedabagacad"
 
-# a small function to change the iterm background color  --Wed Apr  8 03:29:48 HKT 2015
-setWhiteBackground() {
-        echo -e "\033]Phffffff\033\\"
-        echo -e "\033]Pg000000\033\\"
-}
-
-# resetting the java path for mac ox x mavericks --by huangzonghao@2014.7.15
-# export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-
-
-
 # matlab cmd mode
 alias mt="/Applications/MATLAB_R2018a.app/bin/matlab -nodesktop -nosplash"
 alias matlab="cd ~/TEMP/matlab && /Applications/MATLAB_R2018a.app/bin/matlab -nodesktop -nosplash"
 
 # alias for javascript interpretor --Thu Feb  5 16:48:50 HKT 2015
 alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc"
-
 
 #alias for dot --Tue Mar  3 17:23:32 HKT 2015
 ComplieDot() {
@@ -44,39 +32,9 @@ ComplieDot() {
 alias dt="ComplieDot"
 #alias dt="/usr/local/bin/dot -Tpng -O"
 
-#the function to beauitfy the js code -Sat Mar 28 14:19:03 HKT 2015
-beautifyJS(){
-    #if [ $# -eq 1]
-    #then
-    js-beautify -f $1 -r --type $2;
-    #rm $1;
-    #mv __temp_$1 $1;
-    #fi
-}
-alias btf="beautifyJS"
-#by the way this plugin is just garbage, you should use the plugin in the sublime text 3
-
-
 #some funny commands
 # sl fortune cowsay cmatrix figlet
 # the alias for sublime text --Tue Apr 14 17:23:50 HKT 2015
-
-
-# the alias for apache --Sun Apr 26 14:21:29 HKT 2015
-alias apache="sudo apachectl"
-
-
-# the setup for visual studio code --Sat May  9 12:07:11 HKT 2015
-vsc () {
-    if [[ $# = 0 ]]
-    then
-        echo shabileba;
-        open -a "Visual Studio Code"
-    else
-        [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-        open -a "Visual Studio Code" --args "$F"
-    fi
-}
 
 # alias for youtube-dl --Sun May 17 13:09:28 HKT 2015
 alias ydl="youtube-dl"
