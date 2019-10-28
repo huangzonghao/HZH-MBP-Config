@@ -413,6 +413,8 @@ let g:ycm_filetype_whitelist ={  'c'      : 1,
                                 \'cuda'   : 1,
                                 \'python' : 1,
                                 \'matlab' : 1,
+                                \'vb'     : 1,
+                                \'arduino': 1,
                                 \'java'   : 1}
 
 let g:ycm_warning_symbol = '->'
