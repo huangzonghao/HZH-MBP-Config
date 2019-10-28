@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ $$1 == 'text' ]]
+if [[ $1 == 'text' ]]
 then
     qrencode "$1" -t EPS -o $2.eps
 elif [[ $1 == 'wifi' ]]
