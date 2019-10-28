@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# smt stands for ssh mount
+
+# ssh_mount_list.txt line sample
+# name login@address mount_point
+# name is the name associate with the line and should be passed to sm for identification
+# login is the login name in the remote machine
+# address is the ip or domain of the remote host
+# mount_point is the mounting position on the local machine
+
+if [[ ! -e ~/dotfiles/local_config/ssh_mount_list.txt ]]
+then
+    echo "Error: ~/local_config/dotfiles/ssh_list.txt not found"
+    exit 1
+fi
+
+if (( $# != 0 ))
+then
+    # search for given name
+    while read -r line
+    do
+        if [[ -n $line ]] && [[ `echo $line | head -c 1` != "#" ]]
+        then
+            READ_SSH_TEMP=( $line )
+            if [[ ${READ_SSH_TEMP[0]} == $1 ]]
+            then
+                sshfs ${READ_SSH_TEMP[1]} ${READ_SSH_TEMP[2]}
+                exit 0
+            fi
+        fi
+    done < ~/dotfiles/local_config/ssh_mount_list.txt
+fi
+
+# list all the available options
+while read -r line
+do
+    if [[ -n $line ]] && [[ `echo $line | head -c 1` != "#" ]]
+    then
+        READ_SSH_TEMP=( $line )
+        echo ${READ_SSH_TEMP[0]}
+    fi
+done < ~/dotfiles/local_config/ssh_mount_list.txt
+
+# vim:set et sw=4 ts=4 ft=bash:
+

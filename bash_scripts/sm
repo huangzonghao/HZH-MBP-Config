@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# sm stands for ssh manager
+
+# ssh_list.txt line sample
+# [0|1] name login@address
+# 0 means direct ssh, 1 means ssh with -X option
+# name is the name associate with the line and should be passed to sm for identification
+# login is the login name in the remote machine
+# address is the ip or domain of the remote host
+
+if [[ ! -e ~/dotfiles/local_config/ssh_list.txt ]]
+then
+    echo "Error: ~/local_config/dotfiles/ssh_list.txt not found"
+    exit 1
+fi
+
+if (( $# != 0 ))
+then
+    # search for given name
+    while read -r line
+    do
+        if [[ -n $line ]] && [[ `echo $line | head -c 1` != "#" ]]
+        then
+            READ_SSH_TEMP=( $line )
+            if [[ ${READ_SSH_TEMP[1]} == $1 ]]
+            then
+                if [[ ${READ_SSH_TEMP[0]} == 0 ]]
+                then
+                    ssh ${READ_SSH_TEMP[2]} < /dev/tty
+                else
+                    ssh -X ${READ_SSH_TEMP[2]} </dev/tty
+                fi
+                exit 0
+            fi
+        fi
+    done < ~/dotfiles/local_config/ssh_list.txt
+fi
+
+# list all the available options
+while read -r line
+do
+    if [[ -n $line ]] && [[ `echo $line | head -c 1` != "#" ]]
+    then
+        READ_SSH_TEMP=( $line )
+        echo ${READ_SSH_TEMP[1]}
+    fi
+done < ~/dotfiles/local_config/ssh_list.txt
+
+# vim:set et sw=4 ts=4 ft=bash:
+
