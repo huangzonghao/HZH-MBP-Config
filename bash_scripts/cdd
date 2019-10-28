@@ -1,8 +1,0 @@
-#! /bin/bash
-# the shortcut t ogo to a dir in Desktop
-if [ $# != '0' ]
-then
-    cd $HOME/Desktop/$1
-else
-    cd $HOME/Desktop
-fi
