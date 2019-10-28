@@ -1,11 +1,42 @@
-\documentclass{article}[11pt]
-\usepackage{fullpage,graphicx, setspace, latexsym, cite,amsmath,amssymb,color,subfigure}
-%\usepackage{epstopdf}
-%\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.mps}
-\usepackage{amssymb} %maths
-\usepackage{amsmath} %maths
-\usepackage{amsthm}
+\documentclass[draft, 11pt]{article}
+% Preamble {{{1 %
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{graphicx}
+% \usepackage{color}
+\usepackage{comment}
+% \usepackage{algorithm, algpseudocode}
+% \usepackage{tcolorbox}
+% \usepackage{pdfpages}
+% \usepackage{multicol}
+% \usepackage{listings}
+% \usepackage{todonotes}
+% \usepackage{changepage}
+% \usepackage{enumerate}
+% \usepackage{easylist}
+% \usepackage{cases}
+% \usepackage{hyperref}
 
+% \definecolor{dkgreen}{rgb}{0,0.6,0}
+% \definecolor{gray}{rgb}{0.5,0.5,0.5}
+% \definecolor{mauve}{rgb}{0.58,0,0.82}
+% \lstset{frame=tb,
+%   language=matlab,
+%   aboveskip=3mm,
+%   belowskip=3mm,
+%   showstringspaces=false,
+%   columns=flexible,
+%   basicstyle={\small\ttfamily},
+%   numbers=none,
+%   numberstyle=\tiny\color{gray},
+%   keywordstyle=\color{blue},
+%   commentstyle=\color{dkgreen},
+%   stringstyle=\color{mauve},
+%   breaklines=true,
+%   breakatwhitespace=true,
+%   tabsize=3,
+%   frame=single
+% }
 \bibliographystyle{unsrt}
 
 \newtheorem{theorem}{Theorem}
@@ -51,9 +82,9 @@
    \framebox{
       \vbox{\vspace{2mm}
     \hbox to 6.28in {{ \bf
-        ESE 680-004: Learning and Control
+        Course Title
         \hfill
-        Fall 2019
+        Semester
     }}
        \vspace{4mm}
        \hbox to 6.28in {{\Large \hfill Lecture #1: #2  \hfill}}
@@ -78,6 +109,13 @@
 \def \P{\mathbb P}
 \def \R{\mathbb R}
 \def \A{\cal A}
+
+% uncomment this line to send ref to table of contents
+% \usepackage[nottoc,numbib]{tocbibind}
+% uncomment this line to add keyword Appendix in table of contents
+% \usepackage[titletoc]{appendix}
+
+% 1}}} %
 
 \begin{document}
 
