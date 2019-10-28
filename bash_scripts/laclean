@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [[ $# == 0 ]]
+then
+    rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps *.bbl 2>/dev/null
+else
+    i=${1%.*}
+    rm  $i.out $i.dvi $i.aux $i.fdb_latexmk $i.fls $i.log $i.ps $i.bbl 2>/dev/null
+fi

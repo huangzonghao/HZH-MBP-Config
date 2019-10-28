@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+if [[ $# == 0 ]]
+then
+    ls *.tex >> /dev/null 2>1
+    if [[ $? == 0 ]]
+    then
+        latexmk  -xelatex -pvc *.tex
+        # laclean
+    else
+        echo "No tex file found, exit"
+        return
+    fi
+else
+    if  [[ -e $1 ]]
+    then
+        latexmk -xelatex -pvc $1
+        # laclean $1
+    else
+        echo "$1 not found, exit"
+        return
+    fi
+fi
+if [[ $? == 0 ]]
+then
+    latexmk -c
+    ls *.bbl >> /dev/null 2>1
+    [[ $? == 0 ]] && rm *.bbl
+    [[ -e 1 ]] && rm 1
+    rm *.xdv
+    echo "The temp files have been cleared."
+else
+    echo "Error occurred, temp files saved."
+fi

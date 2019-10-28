@@ -11,52 +11,6 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
 
-laclean(){
-    if [[ $# == 0 ]]
-    then
-        rm  *.out *.dvi *.aux *.fdb_latexmk *.fls *.log *.ps *.bbl 2>/dev/null
-    else
-        i=${1%.*}
-        rm  $i.out $i.dvi $i.aux $i.fdb_latexmk $i.fls $i.log $i.ps $i.bbl 2>/dev/null
-    fi
-    return 0
-}
-
-lmk(){
-    if [[ $# == 0 ]]
-    then
-        ls *.tex >> /dev/null 2>1
-        if [[ $? == 0 ]]
-        then
-            latexmk  -xelatex -pvc *.tex
-            # laclean
-        else
-            echo "No tex file found, exit"
-            return
-        fi
-    else
-        if  [[ -e $1 ]]
-        then
-            latexmk -xelatex -pvc $1
-            # laclean $1
-        else
-            echo "$1 not found, exit"
-            return
-        fi
-    fi
-    if [[ $? == 0 ]]
-    then
-        latexmk -c
-        ls *.bbl >> /dev/null 2>1
-        [[ $? == 0 ]] && rm *.bbl
-        [[ -e 1 ]] && rm 1
-        rm *.xdv
-        echo "The temp files have been cleared."
-    else
-        echo "Error occurred, temp files saved."
-    fi
-}
-
 # note alias doesn't take variables. so it has to be a function
 brc(){
     eval source $RC_FILE
