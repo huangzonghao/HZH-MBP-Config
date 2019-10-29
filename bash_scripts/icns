@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+declare RESOLUTION
+if [[ $# == 0 ]]
+then
+cat <<-EOF
+Convert image to macOS icns logo
+    Usage: $(basename "$0") <imagefile> [resolution]
+
+    resolution: 256, 512(default), or 1024
+
+EOF
+exit 0
+fi
+if [[ $# == 2 ]] &&  [[ $2 == 256 || $2 == 512 || $2 == 1024 ]]
+then
+    RESOLUTION=$2
+else
+    RESOLUTION=512
+fi
+
+sips -z $RESOLUTION $RESOLUTION $1 --out tmp_$1
+sips -s format icns tmp_$1 --out ${1%.*}.icns
+rm tmp_$1
+
+# vim:set et sw=4 ts=4 ft=sh:
+
