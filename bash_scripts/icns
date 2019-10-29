@@ -4,13 +4,19 @@ declare RESOLUTION
 if [[ $# == 0 ]]
 then
 cat <<-EOF
-Convert image to macOS icns logo
+Convert image to macOS icns file
     Usage: $(basename "$0") <imagefile> [resolution]
 
-    resolution: 256, 512(default), or 1024
+    resolution: 256, 512(default), or 1024.
+                0 means no rescale, only use 0 when you know what you are doing
 
 EOF
 exit 0
+fi
+if [[ $# == 2 && $2 == 0 ]]
+then
+    sips -s format icns $1 --out ${1%.*}.icns
+    exit 0
 fi
 if [[ $# == 2 ]] &&  [[ $2 == 256 || $2 == 512 || $2 == 1024 ]]
 then
