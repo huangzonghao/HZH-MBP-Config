@@ -13,15 +13,19 @@ for i in $@
 do
     if [[ -e $i ]]
     then
+        echo $i
         if [[ $style == "mine" ]]
         then
             indent --no-blank-lines-after-declarations \
                     --blank-lines-after-procedures \
-                    --braces-on-if-line -nce \
+                    --braces-on-if-line \
+                    --dont-cuddle-else \
+                    -ncdw \
                     --braces-on-func-def-line \
                     --braces-on-struct-decl-line \
-                    --case-indentation2 \
+                    --case-indentation0 \
                     --case-brace-indentation0 \
+                    --no-tabs\
                     $i
         elif [[ $style == "linux" ]]
         then
