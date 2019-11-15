@@ -35,4 +35,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
+[ -f /home/huangzonghao/.linuxbrew/etc/profile.d/autojump.sh ] && . /home/huangzonghao/.linuxbrew/etc/profile.d/autojump.sh
+
 # vim:set et sw=4 ts=4 ft=bash:
