@@ -31,3 +31,9 @@
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git@github.com:HZHVIM/nerdcommenter.git
+[submodule "vim/bundle/vim-mediawiki-editor"]
+	path = vim/bundle/vim-mediawiki-editor
+	url = git@github.com:HZHVIM/vim-mediawiki-editor.git
+[submodule "vim/bundle/mediawiki.vim"]
+	path = vim/bundle/mediawiki.vim
+	url = git@github.com:HZHVIM/mediawiki.vim.git

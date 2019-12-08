@@ -323,6 +323,7 @@ command! WWW w !sudo tee % >/dev/null
 " By using abbervation we may define commands start with lowercase letter
 cnoreabbrev j J
 cnoreabbrev ; !
+cnoreabbrev mw MWRead
 
 " ==============================================================================
 "                            Auto Commands
