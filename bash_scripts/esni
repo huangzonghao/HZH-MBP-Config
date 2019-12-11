@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cd ~/dotfiles/vim/bundle/vim-snippets && vim
