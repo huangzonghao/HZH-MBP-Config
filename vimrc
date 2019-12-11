@@ -299,6 +299,12 @@ nnoremap <Space>g gwip
 " can't use hm here as <Space>h is used
 nnoremap <Space>bm :Hexmode<CR>
 
+" interacting with system clipboard -- Tue Dec 10 19:46:49 EST 2019
+nnoremap <Space>y "*yy
+nnoremap <Space>p "*p
+vnoremap <Space>y "*y
+
+
 " ------------------------------------------------------------------------------
 "                        Keymapping Sequences for ITERM
 "-------------------------------------------------------------------------------
