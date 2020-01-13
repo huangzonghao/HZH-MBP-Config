@@ -474,6 +474,23 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
 " file take effect
 execute pathogen#infect()
 
+" manually the color of the vim background to 264 which is defined in iterm
+" color panel as normal white
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.light': {
+  \       'override' : {
+  \         'color00' : ['', '263'],
+  \         'color07' : ['#000000', '']
+  \       },
+  \        'transparent_background' : 1
+  \     }
+  \   }
+  \ }
+
+set background=light
+colo PaperColor
+
 " ==============================================================================
 "                            My Functions
 " ==============================================================================
