@@ -168,17 +168,29 @@ echo "by huangzonghao"
 echo "===================="
 echo "Make sure that this is ~/dotfiles before you move on"
 
-# make sure all the submodules are loaded
-git submodule update --init --recursive
-
-# Frist ask for the setup specifications
+# first check the environment -- the git urls depend on this
 while [ $STATUS -eq 0 ]
+do
+    echo "Private or Public? (me, pub)"
+    read USER_OPTION_Ver
+    if [[ $USER_OPTION_Ver = "me" ]]
+    then
+        let STATUS=$STATUS+1
+    elif [[ $USER_OPTION_Ver = "pub" ]]
+    then
+        # convert all git url to https
+        let STATUS=$STATUS+1
+    fi
+done
+
+# ask for the setup specifications
+while [ $STATUS -eq 1 ]
 do
     echo "Installation or restore? (i, r)"
     read USER_OPTION_Operation
     if [[  $USER_OPTION_Operation = "i" ]]
     then
-        STATUS=1
+        STATUS=2
         enLINK="y"
 
     elif [[ $USER_OPTION_Operation = "r" ]]
@@ -186,20 +198,11 @@ do
     fi
 done
 
-while [ $STATUS -eq 1 ]
+while [ $STATUS -eq 2 ]
 do
     echo "Operating System? (mac, ubuntu)"
     read USER_OPTION_OS
     if [[ $USER_OPTION_OS = "mac" ]] || [[ $USER_OPTION_OS = "ubuntu" ]]
-    then let STATUS=$STATUS+1
-    fi
-done
-
-while [ $STATUS -eq 2 ]
-do
-    echo "Private or Public? (me, pub)"
-    read USER_OPTION_Ver
-    if [[ $USER_OPTION_Ver = "me" ]] || [[ $USER_OPTION_Ver = "pub" ]]
     then let STATUS=$STATUS+1
     fi
 done
@@ -243,6 +246,10 @@ let STATUS=$STATUS+1
 enCLEAN=y
 
 # now start the operations
+
+# make sure all the submodules are loaded
+git submodule update --init --recursive
+
 if [ $STATUS -eq 5 ]
 then
     if [[ $enBACKUP = "y" ]]
