@@ -304,6 +304,8 @@ if [ -z USER_COMMANDS ]
 then $USER_COMMANDS
 fi
 
+mkdir -p local_config/vim_tmp
+
 unset STATUS
 unset USER_OPTION_Operation
 unset USER_OPTION_OS
