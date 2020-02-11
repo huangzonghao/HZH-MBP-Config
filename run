@@ -207,7 +207,7 @@ done
 # Now generate the list files
 if [[  $USER_OPTION_Operation = "i" ]]
 then
-    python parser.py  ${USER_OPTION_OS}_${USER_OPTION_Ver}
+    which python > /dev/null && python parser.py  ${USER_OPTION_OS}_${USER_OPTION_Ver} || python3 parser.py  ${USER_OPTION_OS}_${USER_OPTION_Ver}
 fi
 
 #no need to put this action into a while loop
