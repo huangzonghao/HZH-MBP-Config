@@ -36,6 +36,7 @@
 *.cache
 *.swp
 .ycm_extra_conf.py*
+Session.vim
 
 # OS generated files #
 ######################

@@ -488,6 +488,11 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
 
+" vim-obsession
+nnoremap <Space>ss :Obsession .<CR>
+nnoremap <Space>sd :Obsession!<CR>
+nnoremap <Space>sl :source Session.vim<CR>
+
 set background=light
 colo PaperColor
 

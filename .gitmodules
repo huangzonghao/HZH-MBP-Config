@@ -37,3 +37,9 @@
 [submodule "vim/bundle/mediawiki.vim"]
 	path = vim/bundle/mediawiki.vim
 	url = git@github.com:HZHVIM/mediawiki.vim.git
+[submodule "vim/bundle/vim-session"]
+	path = vim/bundle/vim-session
+	url = git@github.com:HZHVIM/vim-session.git
+[submodule "vim/bundle/vim-obsession"]
+	path = vim/bundle/vim-obsession
+	url = git@github.com:HZHVIM/vim-obsession.git
