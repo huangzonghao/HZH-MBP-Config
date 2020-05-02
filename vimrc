@@ -361,6 +361,7 @@ let g:tagbar_map_togglefold = '<CR>'
 " the nerd-commenter
 let g:NERDSpaceDelims = 1 "So we have padding spaces
 let g:NERDDahuangSexyComs = 1 "So we have my preferred sexy comments
+let g:NERDCustomDelimiters = { 'cmakecache': { 'left': '//','right': '' } }
 
 " airline settings
 let g:airline_theme='light'
