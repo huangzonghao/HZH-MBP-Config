@@ -43,3 +43,6 @@
 [submodule "vim/bundle/vim-obsession"]
 	path = vim/bundle/vim-obsession
 	url = git@github.com:HZHVIM/vim-obsession.git
+[submodule "vim/bundle/vim-cmakecache-syntax"]
+	path = vim/bundle/vim-cmakecache-syntax
+	url = git@github.com:HZHVIM/vim-cmakecache-syntax.git
