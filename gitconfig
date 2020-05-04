@@ -15,7 +15,7 @@
     d = difftool
     m = mergetool
     lg = log --abbrev-commit
-    la = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate --graph
+    la = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%ai)' --decorate --graph
     ll = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate  --numstat
     st = status -s
     aa = stage -A
