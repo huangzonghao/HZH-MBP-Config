@@ -35,6 +35,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[ -f /home/huangzonghao/.linuxbrew/etc/profile.d/autojump.sh ] && . /home/huangzonghao/.linuxbrew/etc/profile.d/autojump.sh
+[ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
+
+# the drive tool is so cool that deserves a shortcut --Wed Aug 22 20:55:52 EDT 2018
+alias d="drive"
+
+# brew no autoupdate -- Wed Nov 06 02:39:53 EST 2019
+alias brew="HOMEBREW_NO_AUTO_UPDATE=1 brew"
 
 # vim:set et sw=4 ts=4 ft=bash:
