@@ -1,0 +1,11 @@
+#! /bin/bash
+if [[ $# == 0 ]]
+then
+cat << EOF
+Usage: dg <time stamp> <git command>
+    <time stamp> format: "2020-05-16 18:49:00 -0400", time zone can be omitted
+EOF
+exit 0
+fi
+
+GIT_COMMITTER_DATE="$1" GIT_AUTHOR_DATE="$1" git "${@:2}"
