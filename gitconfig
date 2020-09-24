@@ -14,7 +14,6 @@
 [alias]
     d = difftool
     m = mergetool
-    lg = log --abbrev-commit
     la = log --pretty=format:'%C(bold yellow)%h %C(cyan)%an%C(green)(%ad) %Creset%s%C(bold red)%d' --decorate --graph --date=format:'%y-%m-%d %H:%M%z'
     ll = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate  --numstat
     st = status -s
@@ -30,18 +29,14 @@
     rb = rebase
     rbc = rebase --continue
     rbt = "!less .git/rebase-merge/git-rebase-todo"
-    r = reset
-    r1 = reset HEAD^
-    r2 = reset HEAD^^
-    rh = reset --hard
-    rh1 = reset HEAD^ --hard
-    rh2 = reset HEAD^^ --hard
+    r = "!f() { [ $# -eq 1 ] && git reset HEAD~$1 || git reset; }; f"
+    rh = "!f() { [ $# -eq 1 ] && git reset HEAD~$1 --hard || git reset --hard; }; f"
     rl = reflog
     sl = stash list
-    sa = stash apply
     ss = stash save
-    sp = stash pop
-    sd = stash drop
+    sa = "!f() { [ $# -eq 1 ] && git stash apply stash@{$1} || git stash apply; }; f"
+    sp = "!f() { [ $# -eq 1 ] && git stash pop stash@{$1} || git stash pop; }; f"
+    sd = "!f() { [ $# -eq 1 ] && git stash drop stash@{$1} || git stash drop; }; f"
     pinfo = info --no-config
     ph = push
     pl = pull
