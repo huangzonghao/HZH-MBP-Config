@@ -7,6 +7,26 @@ then
     source ~/dotfiles/local_config/bashrc_local
 fi
 
+# check if this is a ros terminal
+if [[ -n $TMUX_ROS ]]
+then
+
+    if [[ -n $TMUX_ROS_CATKIN_WS_PATH ]]
+    then
+        source $TMUX_ROS_CATKIN_WS_PATH/devel/setup.bash
+    else
+        if [[ -e .catkin_workspace ]]
+        then
+            source devel/setup.bash
+            # no need to set the path variable here because the variable cannot
+            # be shared to other terminals in the same tmux
+        else
+            source /opt/ros/noetic/setup.bash
+        fi
+    fi
+source ~/dotfiles/bashrc_ros
+fi
+
 #need to install graphviz first
 #alias for dot --Tue Mar  3 17:23:32 HKT 2015
 ComplieDot() {
@@ -42,5 +62,23 @@ alias d="drive"
 
 # brew no autoupdate -- Wed Nov 06 02:39:53 EST 2019
 alias brew="HOMEBREW_NO_AUTO_UPDATE=1 brew"
+
+ros(){
+    export TMUX_ROS=1
+    if [[ -e .catkin_workspace ]]
+    then
+        export TMUX_ROS_CATKIN_WS_PATH=$PWD
+    fi
+    tmux new-session -d -s ROS -n Sys
+    tmux set status-bg black
+    tmux set status-fg white
+    tmux new-window -n Launches
+    tmux new-window -n Nodes
+    tmux attach -t ROS
+}
+
+setros(){
+    export TMUX_ROS_CATKIN_WS_PATH=$PWD
+}
 
 # vim:set et sw=4 ts=4 ft=bash:
