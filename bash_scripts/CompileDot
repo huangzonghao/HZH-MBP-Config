@@ -1,0 +1,9 @@
+#! /bin/bash
+
+#alias for dot --Tue Mar  3 17:23:32 HKT 2015
+if [ $# -eq 0 ] #the number of input arguments equal to zero
+then
+    /usr/local/bin/dot -Tpng -O *.dot;
+else
+    /usr/local/bin/dot -Tpng -o $1.png $1.dot;
+fi

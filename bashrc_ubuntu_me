@@ -2,10 +2,6 @@ SYSTEM_VER="linux"
 RC_FILE="~/.bashrc"
 
 source ~/dotfiles/bashrc_common
-if [ -e ~/dotfiles/local_config/bashrc_local ]
-then
-    source ~/dotfiles/local_config/bashrc_local
-fi
 
 # check if this is a ros terminal
 if [[ -n $TMUX_ROS ]]
@@ -27,25 +23,6 @@ then
 source ~/dotfiles/bashrc_ros
 fi
 
-#need to install graphviz first
-#alias for dot --Tue Mar  3 17:23:32 HKT 2015
-ComplieDot() {
-        if [ $# -eq 0 ] #the number of input arguments equal to zero
-                then
-                        /usr/local/bin/dot -Tpng -O *.dot;
-                else
-                        /usr/local/bin/dot -Tpng -o $1.png $1.dot;
-        fi
-}
-alias dt="ComplieDot"
-
-#some funny commands
-# sl fortune cowsay cmatrix figlet
-
-# need to install youtube-dl
-# alias for youtube-dl --Sun May 17 13:09:28 HKT 2015
-alias ydl="youtube-dl"
-
 # for the auto-completion in bash
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -57,14 +34,9 @@ fi
 
 [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 
-# the drive tool is so cool that deserves a shortcut --Wed Aug 22 20:55:52 EDT 2018
-alias d="drive"
 
 # brew no autoupdate -- Wed Nov 06 02:39:53 EST 2019
 alias brew="HOMEBREW_NO_AUTO_UPDATE=1 brew"
-
-# Thu May 17 18:08:17 EDT 2018
-alias mt="matlab -nodesktop -nosplash"
 
 ros(){
     export TMUX_ROS=1

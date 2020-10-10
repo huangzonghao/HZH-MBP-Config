@@ -3,41 +3,12 @@ RC_FILE="~/.bash_profile"
 
 source ~/dotfiles/profile_common
 source ~/dotfiles/bashrc_common
-if [ -e ~/dotfiles/local_config/bashrc_local ]
-then
-    source ~/dotfiles/local_config/bashrc_local
-fi
 
 #settings for the layout of the bash --Tue Apr  7 17:27:17 HKT 2015
 export PS1="\[\e[32m\]HZH-MBP\[\e[m\e[0;33m\]:\w\$\[\e[m\] "
-# LSCOLORS default : exfxcxdxbxegedabagacad
-export LSCOLORS="GxFxCxdxbxExexBcBcGhGH"
-
-# matlab cmd mode
-alias mt="/Applications/MATLAB_R2018a.app/bin/matlab -nodesktop -nosplash"
-alias matlab="cd ~/TEMP/matlab && /Applications/MATLAB_R2018a.app/bin/matlab -nodesktop -nosplash"
 
 # alias for javascript interpretor --Thu Feb  5 16:48:50 HKT 2015
 alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc"
-
-#alias for dot --Tue Mar  3 17:23:32 HKT 2015
-ComplieDot() {
-    if [ $# -eq 0 ] #the number of input arguments equal to zero
-    then
-        /usr/local/bin/dot -Tpng -O *.dot;
-    else
-        /usr/local/bin/dot -Tpng -o $1.png $1.dot;
-    fi
-}
-alias dt="ComplieDot"
-#alias dt="/usr/local/bin/dot -Tpng -O"
-
-#some funny commands
-# sl fortune cowsay cmatrix figlet
-# the alias for sublime text --Tue Apr 14 17:23:50 HKT 2015
-
-# alias for youtube-dl --Sun May 17 13:09:28 HKT 2015
-alias ydl="youtube-dl"
 
 # alias for a kindle tool Fri Aug 21 23:55:33 2015
 alias kindletool="k2pdfopt"
