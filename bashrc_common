@@ -3,10 +3,10 @@
 [[ $SYSTEM_VER = "linux" ]] && alias ls="ls --color=auto" || alias ls="ls -Gp"
 
 alias sudo='sudo '
-alias la="ls -A"
+alias la="ls -AF"
 alias al="la"
 alias ll="ls -aoghlF"
-alias ld="ls -aoghlFd"
+alias ld="ls -ahlFd"
 alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
