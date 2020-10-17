@@ -35,7 +35,9 @@ set cc=80
 highlight ColorColumn ctermbg=gray
 
 set swapfile
-set dir=~/dotfiles/local_config/vim_tmp
+if isdirectory(expand("$HOME/dotfiles/local_config/vim_tmp"))
+    set dir=~/dotfiles/local_config/vim_tmp
+endif
 
 set foldmethod=marker
 
