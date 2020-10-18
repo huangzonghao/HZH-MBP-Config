@@ -1,8 +1,6 @@
 SYSTEM_VER="linux"
 RC_FILE="~/.bashrc"
 
-source $DOTFILES_PATH/bashrc_common
-
 # check if this is a ros terminal
 if [[ -n $TMUX_ROS ]]
 then

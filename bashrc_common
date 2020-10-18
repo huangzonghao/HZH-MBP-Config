@@ -6,6 +6,7 @@ then
     alias ls="ls --color=auto"
 elif [[ $SYSTEM_VER = "mac" ]]
 then
+    source $DOTFILES_PATH/profile_common
     export LSCOLORS="GxFxCxdxbxExexBcBcGhGH"
     alias ls="ls -Gp"
 fi
@@ -73,10 +74,4 @@ g2ua(){
 
 # the shortcut for making a directory and cd into it
 mcd(){ [ $# != '0' ] && mkdir $1 && cd $1; }
-
-if [ -e $DOTFILES_PATH/local_config/bashrc_local ]
-then
-    source $DOTFILES_PATH/local_config/bashrc_local
-fi
-
 # vim:set et sw=4 ts=4 ft=bash:
