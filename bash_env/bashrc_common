@@ -28,7 +28,7 @@ ebrc(){
     eval vim $RC_FILE
 }
 
-alias ebrcc="vim $DOTFILES_PATH/bashrc_common"
+alias ebrcc="vim $DOTFILES_PATH/bash_env/bashrc_common"
 alias ebrcl="vim $DOTFILES_PATH/local_config/bashrc_local"
 alias evrc="vim $DOTFILES_PATH/vimrc"
 alias evn="vim $DOTFILES_PATH/vim/docs/updating_notes.txt"
