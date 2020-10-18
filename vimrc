@@ -129,6 +129,7 @@ nnoremap gtf <C-W>gf
 nnoremap tt :tabnew<Space>
 nnoremap tn :tabedit %<CR>
 nnoremap tc :tabclose<CR>
+nnoremap te :enew<CR>
 " this will close the tab and delete all the buffers
 nnoremap td :windo bdelete<CR>
 nnoremap t. gt
