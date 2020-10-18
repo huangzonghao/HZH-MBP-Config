@@ -405,10 +405,10 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " rainbow parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax   * RainbowParenthesesLoadRound
-au Syntax   * RainbowParenthesesLoadSquare
-au Syntax   * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax   * RainbowParenthesesLoadRound
+" au Syntax   * RainbowParenthesesLoadSquare
+" au Syntax   * RainbowParenthesesLoadBraces
 
 " supertab
 let g:SuperTabDefaultCompletionType = '<C-n>'
