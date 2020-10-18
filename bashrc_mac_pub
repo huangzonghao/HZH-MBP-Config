@@ -1,7 +1,7 @@
 SYSTEM_VER="mac"
 RC_FILE="~/.bash_profile"
 
-source ~/dotfiles/profile_common
-source ~/dotfiles/bashrc_common
+source $DOTFILES_PATH/profile_common
+source $DOTFILES_PATH/bashrc_common
 
 # vim:set et sw=4 ts=4 ft=bash:

@@ -2,7 +2,7 @@
 SYSTEM_VER="linux"
 RC_FILE="~/.bashrc"
 
-source ~/dotfiles/bashrc_common
+source $DOTFILES_PATH/bashrc_common
 
 
 export PS1="\[\e[0;31m\]Public Ubuntu\[\e[m\e[0;33m\]:\w\$\[\e[m\] "

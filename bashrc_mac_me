@@ -1,8 +1,8 @@
 SYSTEM_VER="mac"
 RC_FILE="~/.bash_profile"
 
-source ~/dotfiles/profile_common
-source ~/dotfiles/bashrc_common
+source $DOTFILES_PATH/profile_common
+source $DOTFILES_PATH/bashrc_common
 
 #settings for the layout of the bash --Tue Apr  7 17:27:17 HKT 2015
 export PS1="\[\e[32m\]HZH-MBP\[\e[m\e[0;33m\]:\w\$\[\e[m\] "

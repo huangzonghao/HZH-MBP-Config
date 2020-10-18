@@ -21,7 +21,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-source $HOME/dotfiles/profile_common
-[[ -e $HOME/dotfiles/local_config/profile_local ]] && source $HOME/dotfiles/local_config/profile_local
+source $DOTFILES_PATH/profile_common
+[[ -e $DOTFILES_PATH/local_config/profile_local ]] && source $DOTFILES_PATH/local_config/profile_local
 
 # vim:set et sw=4 ts=4 ft=bash:

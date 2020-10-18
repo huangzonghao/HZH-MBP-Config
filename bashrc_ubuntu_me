@@ -1,7 +1,7 @@
 SYSTEM_VER="linux"
 RC_FILE="~/.bashrc"
 
-source ~/dotfiles/bashrc_common
+source $DOTFILES_PATH/bashrc_common
 
 # check if this is a ros terminal
 if [[ -n $TMUX_ROS ]]
@@ -20,7 +20,7 @@ then
             source /opt/ros/noetic/setup.bash
         fi
     fi
-source ~/dotfiles/bashrc_ros
+source $DOTFILES_PATH/bashrc_ros
 fi
 
 # for the auto-completion in bash

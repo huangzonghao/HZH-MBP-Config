@@ -305,6 +305,7 @@ then $USER_COMMANDS
 fi
 
 mkdir -p local_config/vim_tmp
+echo DOTFILES_PATH="$(pwd)" >> local_config/bashrc_local
 
 unset STATUS
 unset USER_OPTION_Operation
