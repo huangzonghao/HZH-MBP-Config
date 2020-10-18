@@ -52,6 +52,9 @@ alias dt="ComplieDot"
 # alias for youtube-dl --Sun May 17 13:09:28 HKT 2015
 alias ydl="youtube-dl"
 
+#Sun Oct 18 13:25:45 EDT 2020
+alias ht="sudo htop"
+
 
 #some funny commands
 # sl fortune cowsay cmatrix figlet
