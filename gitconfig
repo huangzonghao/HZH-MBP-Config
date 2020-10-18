@@ -10,10 +10,11 @@
 [alias]
     d = difftool
     m = mergetool
+    me = merge
+    mec = merge --continue
     la = log --pretty=format:'%C(bold yellow)%h %C(cyan)%an%C(green)(%ad) %Creset%s%C(bold red)%d' --decorate --graph --date=format:'%y-%m-%d %H:%M%z'
     ll = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate  --numstat
     st = status -s
-    aa = stage -A
     cm = commit -m
     ci = commit
     co = checkout
@@ -25,8 +26,6 @@
     rb = rebase
     rbc = rebase --continue
     rbt = "!less .git/rebase-merge/git-rebase-todo"
-    r = "!f() { [ $# -eq 1 ] && git reset HEAD~$1 || git reset; }; f"
-    rh = "!f() { [ $# -eq 1 ] && git reset HEAD~$1 --hard || git reset --hard; }; f"
     rl = reflog
     sl = stash list
     ss = stash save
