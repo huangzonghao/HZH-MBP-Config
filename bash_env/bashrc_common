@@ -38,6 +38,7 @@ alias n="nano"
 alias tree="tree -C"
 alias du="du -hsc"
 alias cao="./executable"
+alias dao="gdb ./executable"
 alias hosts="sudo vim /etc/hosts"
 alias g="git"
 
