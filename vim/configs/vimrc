@@ -187,8 +187,8 @@ noremap <leader>w :set wrap!<CR>
 "-------------------------------------------------------------------------------
 "****************************** Toggles ****************************************
 nnoremap <leader>tb :TagbarToggle<CR>
-nnoremap <leader>r :NERDTreeToggle<CR>
 nnoremap <leader>. :call ToggleProgrammingEnv()<CR>
+nmap <leader>r <Plug>VinegarUp
 
 let g:ycm_key_detailed_diagnostics = "<leader>si"
 
@@ -452,16 +452,6 @@ let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.npy,*.png'
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
 
-" nerdTree
-let NERDTreeIgnore=['\.o$',
-                  \ '\~$',
-                  \ '\.class$',
-                  \ '\.mat$',
-                  \ '\.png$',
-                  \ '^tags$',
-                  \ '\.mex']
-let g:NERDTreeMapOpenInTab = 'to'
-
 " Better-Whitespace
 let g:better_whitespace_ctermcolor = 'Green'
 " Disable the default mapping
@@ -515,29 +505,6 @@ function! ToggleMouse()
     else
         " enable mouse everywhere
         set mouse=a
-    endif
-endfunction
-
-" start the nerdtree if there is no file opened
-" the function will be called after all other plugins has been loaded
-function! CheckStartupStatus()
-    if @% == ""
-        NERDTree
-    endif
-endfunction
-autocmd VimEnter * call CheckStartupStatus()
-
-function! ToggleProgrammingEnv()
-    let s:tagbarwinnr = bufwinnr("__Tagbar__")
-    let s:nerdtreewinnr = bufwinnr("NERD_tree_1")
-    if s:tagbarwinnr != -1 && s:nerdtreewinnr != -1 ||
-      \s:tagbarwinnr == -1 && s:nerdtreewinnr == -1
-        NERDTreeToggle
-        TagbarToggle
-    elseif s:tagbarwinnr == -1
-        TagbarToggle
-    elseif s:nerdtreewinnr == -1
-        NERDTreeToggle
     endif
 endfunction
 

@@ -4,9 +4,6 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/HZHVIM/tagbar.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = git@github.com:HZHVIM/nerdtree.git
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = git@github.com:HZHVIM/fugitive.git
@@ -22,9 +19,6 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = git@github.com:HZHVIM/supertab.git
-[submodule "vim/bundle/nerdtree-git-plugin"]
-	path = vim/bundle/nerdtree-git-plugin
-	url = git@github.com:HZHVIM/nerdtree-git-plugin.git
 [submodule "vim/bundle/vimtex"]
 	path = vim/bundle/vimtex
 	url = git@github.com:HZHVIM/vimtex.git
@@ -46,3 +40,6 @@
 [submodule "vim/bundle/vim-cmakecache-syntax"]
 	path = vim/bundle/vim-cmakecache-syntax
 	url = git@github.com:HZHVIM/vim-cmakecache-syntax.git
+[submodule "vim/bundle/vim-vinegar"]
+	path = vim/bundle/vim-vinegar
+	url = git@github.com:HZHVIM/vim-vinegar.git
