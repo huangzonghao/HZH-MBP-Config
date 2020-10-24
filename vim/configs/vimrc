@@ -333,6 +333,7 @@ command! WWW w !sudo tee % >/dev/null
 cnoreabbrev j J
 cnoreabbrev ; !
 cnoreabbrev mw MWRead
+cnoreabbrev g Git
 
 " ==============================================================================
 "                            Auto Commands
