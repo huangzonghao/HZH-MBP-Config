@@ -75,4 +75,10 @@ g2ua(){
 
 # the shortcut for making a directory and cd into it
 mcd(){ [ $# != '0' ] && mkdir $1 && cd $1; }
+
+export PYTHONPATH="~/local/python"
+
+# why not -- Sun Oct 20 20:14:34 EDT 2019
+alias history="history | less"
+
 # vim:set et sw=4 ts=4 ft=bash:
