@@ -14,8 +14,6 @@ nnoremap <buffer>  gp :A<CR>
 "show the partner file in v-split mode
 nnoremap <buffer>  gP :AV<CR>
 
-let g:C_Insert_Mode_Leader = '/'
-
 " a function to automatically update the modified time stamp in cxx files
 " -- 2015.7.26
 if !exists('*C_UpdateModifiedTimeStamp')
@@ -39,5 +37,3 @@ if !exists('*C_UpdateModifiedTimeStamp')
 endif
 
 nnoremap <buffer> <silent> <Space>mt :call C_UpdateModifiedTimeStamp()<CR>
-nnoremap <buffer> <Space>. .
-nnoremap <buffer> . <ESC>
