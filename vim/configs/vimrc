@@ -83,6 +83,7 @@ let mapleader = g:Programming_Leader
 " make sure to trigger the insertleave autocommand with <c-c>
 inoremap <C-C> <ESC>
 nnoremap <C-C> <ESC>
+vnoremap <C-C> <Esc>
 
 nnoremap ; :
 vnoremap ; :
