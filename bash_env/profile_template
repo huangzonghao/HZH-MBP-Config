@@ -10,9 +10,21 @@
 
 # define local exported varibales here
 export DOTFILES_PATH="$HOME/dotfiles"
+export SYSTEM_VER = "linux"
+# export SYSTEM_VER = "mac"
 # Makes more sense to set the PS1 variable here
+# TODO: figure out what modified the PS1 later when launching bash
 export PS1="\[\e[0;31m\]HZH-Computer\[\e[m\e[0;33m\]:\w\$\[\e[m\] "
 
+source $DOTFILES_PATH/bash_env/profile_common
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# bashrc need to be put on the last, as the tmux command would stop running of
+# any of the following commands.
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -20,12 +32,5 @@ if [ -n "$BASH_VERSION" ]; then
     . "$HOME/.bashrc"
     fi
 fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-source $DOTFILES_PATH/bash_env/profile_common
 
 # vim:set et sw=4 ts=4 ft=bash:
