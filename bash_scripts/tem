@@ -23,6 +23,7 @@ l)atex,
 m)akefile,
 s)batch,
 wp)age,
+wf)rame,
 ws)ite,
 c)makelists.txt,
 r)oslaunch
@@ -85,6 +86,12 @@ EndofCat
             echo -n "Please enter the file name : "
             read FILE_NAME
             cp -r $TEMPLATE_PATH/webpage.html ./$FILE_NAME.html && vim $FILE_NAME.html
+            STATUS=1;
+            ;;
+        "webpage" | "wp")
+            echo -n "Please enter the file name : "
+            read FILE_NAME
+            cp -r $TEMPLATE_PATH/webframe.html ./$FILE_NAME.html && vim $FILE_NAME.html
             STATUS=1;
             ;;
         "website" | "ws")
