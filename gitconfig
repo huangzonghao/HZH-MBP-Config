@@ -13,6 +13,7 @@
     me = merge
     mec = merge --continue
     la = log --pretty=format:'%C(bold yellow)%h %C(cyan)%an%C(green)(%ad) %Creset%s%C(bold red)%d' --decorate --graph --date=format:'%y-%m-%d %H:%M%z'
+    lc = log --pretty=format:'%C(bold yellow)%h %C(cyan)%an%C(green)(%ad %C(blue)%ci) %Creset%s%C(bold red)%d' --decorate --graph --date=format:'%y-%m-%d %H:%M%z'
     ll = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate  --numstat
     l = la -n 10
     st = status -s
@@ -39,6 +40,7 @@
     prb = pull --rebase
     subup = submodule update --init --recursive
     subups = submodule update --init --recursive --depth 1
+    settime = commit --amend --reset-author --no-edit
 [diff]
     tool = vimdiff
 [core]
