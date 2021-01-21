@@ -1,4 +1,4 @@
 # define common exported variables here
-export PATH="$HOME/local/bin:$DOTFILES_PATH/bash_scripts:$PATH:."
+export PATH="$HOME/local/bin:$HOME/.local/bin:$DOTFILES_PATH/bash_scripts:$PATH:."
 
 # vim:set et sw=4 ts=4 ft=bash:
