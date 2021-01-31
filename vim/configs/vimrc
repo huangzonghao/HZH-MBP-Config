@@ -64,6 +64,7 @@ set pastetoggle=<F2>
 set shortmess=atI           " sorry i am just a student withno money...
 set tags=./tags;            " Search tags from current file folder and upwards
 
+set visualbell
 
 " ==============================================================================
 "                            Global Keymappings
