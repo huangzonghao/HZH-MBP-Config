@@ -203,26 +203,29 @@ nnoremap <leader>u <C-T>
 
 " shortcuts for git provided by fugitive
 " :Gstatus seems to be the most useful, deserives a better shortcut
-nnoremap <leader>gg :Gstatus<CR>
+nnoremap <leader>gg :Git<CR>
 nnoremap <leader>gt :Gtabedit :<CR>:set previewwindow<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>ga :Gcommit --amend<CR>
-nnoremap <leader>gbl :Gblame<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>ga :Git commit --amend<CR>
+nnoremap <leader>gbl :Git blame<CR>
 " behavior of the following commands depends on if you are on index or working
 " directory. Essentially transfer contents between the two
 nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gR :Gread<Space>
 nnoremap <leader>gw :Gwrite<CR>
 " edit the index file
 nnoremap <leader>ge :Gedit<CR>
 " this command can bring up and make editable the stage version of the file
-nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>gd :Gvdiffsplit<CR>
+nnoremap <leader>gD :Gvdiffsplit<Space>
 " load historical versions of file into quickfix
-nnoremap <leader>gl :Glog<CR><CR><CR>
+nnoremap <leader>gl :Gclog<CR>
+nnoremap <leader>gla :G -p la<CR>
 " browse file on github
-nnoremap <leader>gbr :Gbrowse<CR>
-nnoremap <leader>gph :Gpush<CR>
-nnoremap <leader>gpl :Gpull<CR>
-nnoremap <leader>gpr :Gpull --rebase<CR>
+nnoremap <leader>gbr :GBrowse<CR>
+nnoremap <leader>gph :Git push<CR>
+nnoremap <leader>gpl :Git pull<CR>
+nnoremap <leader>gpr :Git pull --rebase<CR>
 " for git status tab
 nnoremap <Space>k <C-W>k:only<CR>
 
