@@ -228,7 +228,8 @@ nnoremap <leader>gpl :Git pull<CR>
 nnoremap <leader>gpr :Git pull --rebase<CR>
 " for git status tab
 nnoremap <Space>k <C-W>k:only<CR>
-
+" for quickfix/location list window
+nnoremap <Space>j <C-W>j:only<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
@@ -239,6 +240,15 @@ nmap <leader>ea <Plug>(EasyAlign)
 nnoremap <leader>ff :copen<CR>
 nnoremap <leader>fn :cnext<CR>
 nnoremap <leader>fp :cprevious<CR>
+" close the quickfix window
+nnoremap <Space>c :ccl<CR>
+
+" shortcuts for location list window
+nnoremap <leader>ll :lopen<CR>
+nnoremap <leader>ln :lnext<CR>
+nnoremap <leader>lp :lprevious<CR>
+" close the location list window
+nnoremap <Space>l :lcl<CR>
 
 nnoremap <leader>ct :checktime<CR>
 
@@ -248,8 +258,6 @@ nnoremap <leader>ct :checktime<CR>
 nnoremap <Space>a :q<CR>
 " close the preview window
 nnoremap <Space>x :pc<CR>
-" close the quickfix window
-nnoremap <Space>c :ccl<CR>
 nnoremap <Space>nh :noh<CR>
 
 nnoremap <Space>sd :silent !subl .<CR>:redraw!<CR>
