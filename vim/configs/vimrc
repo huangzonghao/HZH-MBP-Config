@@ -190,7 +190,7 @@ noremap <leader>w :set wrap!<CR>
 "****************************** Toggles ****************************************
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>. :call ToggleProgrammingEnv()<CR>
-nmap <leader>r <Plug>VinegarUp
+nnoremap <leader>r :Ntree<CR>
 
 let g:ycm_key_detailed_diagnostics = "<leader>si"
 
@@ -359,6 +359,31 @@ endif
 " ==============================================================================
 "                            Plugin Settings
 " ==============================================================================
+
+" netrw
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+
+" To use some netrw internal functions that are not exported as <Plug>, the
+" following needs to be done to get <SID> translated to the right script ID.
+function! Netrw_Disabled(islocal) abort
+    return ''
+endfunction
+function! NetrwMapping_t(islocal) abort
+    return ":call <SID>NetrwSplit(4)"
+endfunction
+function! NetrwMapping_Tb(islocal) abort
+    return ":<C-U>call <SID>NetrwSetTgt(1,'h',v:count)"
+endfunction
+function! NetrwMapping_Th(islocal) abort
+    return ":<C-U>call <SID>NetrwSetTgt(1,'h',v:count)"
+endfunction
+
+let g:Netrw_UserMaps = [["T", "NetrwMapping_t"],
+                      \ ["tb", "NetrwMapping_Tb"],
+                      \ ["th", "NetrwMapping_th"],
+                      \]
 
 " the tagbar
 " please don't sort the tags by name....

@@ -40,6 +40,3 @@
 [submodule "vim/bundle/vim-cmakecache-syntax"]
 	path = vim/bundle/vim-cmakecache-syntax
 	url = git@github.com:HZHVIM/vim-cmakecache-syntax.git
-[submodule "vim/bundle/vim-vinegar"]
-	path = vim/bundle/vim-vinegar
-	url = git@github.com:HZHVIM/vim-vinegar.git
