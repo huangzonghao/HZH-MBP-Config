@@ -529,4 +529,10 @@ if filereadable(expand("$HOME/dotfiles/local_config/vimrc_after_plugin"))
     source $HOME/dotfiles/local_config/vimrc_after_plugin
 endif
 
+" launch netrw if no file to open
+augroup ProjectDrawer
+    autocmd!
+    autocmd VimEnter * if argc() == 0 | Explore! | endif
+augroup END
+
 " vim:set et sw=4 ts=4 ft=vim:
