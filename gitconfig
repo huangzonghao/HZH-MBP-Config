@@ -43,6 +43,8 @@
     settime = commit --amend --reset-author --no-edit
 [diff]
     tool = vimdiff
+    indentHeuristic = true
+    algorithm = histogram
 [core]
     editor = vim
 [filter "lfs"]
