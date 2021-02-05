@@ -85,6 +85,7 @@ let mapleader = g:Programming_Leader
 inoremap <C-C> <ESC>
 nnoremap <C-C> <ESC>
 vnoremap <C-C> <Esc>
+snoremap <C-C> <Esc>
 
 nnoremap ; :
 vnoremap ; :
