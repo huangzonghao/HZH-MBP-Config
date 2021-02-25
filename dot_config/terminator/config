@@ -1,0 +1,54 @@
+[global_config]
+  focus = system
+  broadcast_default = off
+  title_transmit_bg_color = "#d30102"
+  suppress_multiple_term_dialog = True
+[keybindings]
+  zoom_in = <Super>equal
+  zoom_out = <Super>minus
+  zoom_normal = <Super>0
+  new_tab = <Super>t
+  go_up = <Alt>k
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  split_horiz = <Shift><Super>d
+  split_vert = <Super>d
+  copy = <Super>c
+  paste = <Super>v
+  search = <Super>f
+  move_tab_right = <Alt><Super>l
+  move_tab_left = <Alt><Super>h
+  next_tab = <Super>l
+  prev_tab = <Super>h
+  full_screen = <Super>Return
+  reset_clear = <Super>k
+  hide_window = <Super>e
+  group_all = None
+  group_tab = None
+  new_window = None
+  new_terminator = None
+  broadcast_group = None
+  broadcast_all = None
+  layout_launcher = None
+[profiles]
+  [[default]]
+    background_color = "#f5f5f5"
+    cursor_blink = False
+    cursor_color = "#b1b1b1"
+    font = Ubuntu Mono 13
+    foreground_color = "#000000"
+    scrollback_lines = 1200
+    palette = "#000000:#ba2c2c:#0d8c2a:#bba947:#1731b3:#ab09b4:#04b5b5:#888a85:#888a85:#f70e0e:#28e55f:#efad04:#1214f6:#ca1df4:#06eedb:#d3d7cf"
+    custom_command = source /etc/profile.d/vte-2.91.sh
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = solarized-dark
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
