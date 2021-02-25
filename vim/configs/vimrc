@@ -191,7 +191,7 @@ noremap <leader>w :set wrap!<CR>
 "****************************** Toggles ****************************************
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>. :call ToggleProgrammingEnv()<CR>
-nnoremap <leader>r :Ntree<CR>
+nmap <leader>r <Plug>VinegarUp
 
 let g:ycm_key_detailed_diagnostics = "<leader>si"
 
