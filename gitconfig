@@ -13,12 +13,14 @@
     me = merge
     mec = merge --continue
     la = log --pretty=format:'%C(bold yellow)%h %C(cyan)%an%C(green)(%ad) %Creset%s%C(bold red)%d' --decorate --graph --date=format:'%y-%m-%d %H:%M%z'
-    lc = log --pretty=format:'%C(bold yellow)%h %C(cyan)%an%C(green)(%ad %C(blue)%ci) %Creset%s%C(bold red)%d' --decorate --graph --date=format:'%y-%m-%d %H:%M%z'
+    lac = log --pretty=format:'%C(bold yellow)%h %C(cyan)%an%C(green)(%ad %C(blue)%ci) %Creset%s%C(bold red)%d' --decorate --graph --date=format:'%y-%m-%d %H:%M%z'
     ll = log --pretty=format:'%C(bold yellow)%h%Cred%d  %Creset%s %C(cyan)  <%an> %C(green) (%aD)' --decorate  --numstat
     l = la -n 10
+    lc = lac -n 10
     st = status -s
     cm = commit -m
     ci = commit
+    ca = commit --amend --no-edit
     co = checkout
     cp = cherry-pick
     cpc = cherry-pick --continue
@@ -27,6 +29,7 @@
     ba = branch -a
     rb = rebase
     rbc = rebase --continue
+    rbd = rebase --committer-date-is-author-date
     rbt = "!less .git/rebase-merge/git-rebase-todo"
     rl = reflog
     sl = stash list
