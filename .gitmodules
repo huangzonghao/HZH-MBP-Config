@@ -43,3 +43,6 @@
 [submodule "vim/bundle/vim-vinegar"]
 	path = vim/bundle/vim-vinegar
 	url = git@github.com:HZHVIM/vim-vinegar.git
+[submodule "vim/bundle/linediff.vim"]
+	path = vim/bundle/linediff.vim
+	url = git@github.com:HZHVIM/linediff.vim.git
