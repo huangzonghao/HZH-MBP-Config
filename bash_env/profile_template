@@ -33,4 +33,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+# Enable windows terminal to open new tab in current directory -- Thu May 27 13:35:36 EDT 2021
+# export PROMPT_COMMAND='printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")"'
+
 # vim:set et sw=4 ts=4 ft=bash:

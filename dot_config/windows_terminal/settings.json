@@ -40,7 +40,7 @@
             "keys": "alt+w"
         },
         {
-            "command": "newTab",
+            "command": "duplicateTab",
             "keys": "alt+t"
         },
         {
@@ -106,6 +106,7 @@
                 "suppressApplicationTitle": false,
                 "closeOnExit": "always",
                 "startingDirectory": "\\\\wsl$\\Ubuntu\\home\\huangzonghao",
+                "bellStype": "visual",
                 // "tabTitle": "bash",
             },
             {
