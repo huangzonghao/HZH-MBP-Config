@@ -1,5 +1,8 @@
 # [[ -z $TMUX  ]] && { tmux attach || tmux new; exit; }
 
+# PS1 would be overwritten in /etc/bash.bashrc, so we need to set in here instead of .profile
+export PS1="\[\e[0;31m\]HZH-Computer\[\e[m\e[0;33m\]:\w\$\[\e[m\] "
+
 source $DOTFILES_PATH/bash_env/bashrc_common
 
 # vim:set et sw=4 ts=4 ft=bash:

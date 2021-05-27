@@ -12,9 +12,6 @@
 export DOTFILES_PATH="$HOME/dotfiles"
 export SYSTEM_VER = "linux"
 # export SYSTEM_VER = "mac"
-# Makes more sense to set the PS1 variable here
-# TODO: figure out what modified the PS1 later when launching bash
-export PS1="\[\e[0;31m\]HZH-Computer\[\e[m\e[0;33m\]:\w\$\[\e[m\] "
 
 source $DOTFILES_PATH/bash_env/profile_common
 
