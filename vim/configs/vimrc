@@ -88,8 +88,6 @@ snoremap <C-C> <Esc>
 
 nnoremap ; :
 vnoremap ; :
-nnoremap u O
-nnoremap U u
 nnoremap * *N
 
 " this brings up a history command window
