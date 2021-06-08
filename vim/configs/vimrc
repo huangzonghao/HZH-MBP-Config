@@ -132,8 +132,8 @@ nnoremap tc :tabclose<CR>
 nnoremap te :enew<CR>
 " this will close the tab and delete all the buffers
 nnoremap td :windo bdelete<CR>
-nnoremap t. gt
-nnoremap t, gT
+nnoremap L gt
+nnoremap H gT
 nnoremap t< :tabm -1<CR>
 nnoremap t> :tabm +1<CR>
 
@@ -142,8 +142,8 @@ nnoremap tv :vsplit<CR>
 
 nnoremap <Space>o  :Bdelete %<CR>
 nnoremap <Space>O  :Bdelete! %<CR>
-nnoremap L   :bnext<CR>
-nnoremap H   :bprevious<CR>
+nnoremap M   :bnext<CR>
+nnoremap B   :bprevious<CR>
 
 " move to the next modified buffer
 nnoremap <Space>b :bm<CR>
