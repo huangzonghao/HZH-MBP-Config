@@ -369,9 +369,9 @@ endif
 " ==============================================================================
 
 " netrw
-
+let g:netrw_use_errorwindow = 0
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
+let g:netrw_liststyle = 0
 
 " To use some netrw internal functions that are not exported as <Plug>, the
 " following needs to be done to get <SID> translated to the right script ID.
