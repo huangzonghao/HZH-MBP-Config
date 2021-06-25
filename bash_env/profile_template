@@ -10,7 +10,7 @@
 
 # define local exported varibales here
 export DOTFILES_PATH="$HOME/dotfiles"
-export SYSTEM_VER = "linux"
+export SYSTEM_VER="linux"
 # export SYSTEM_VER = "mac"
 
 source $DOTFILES_PATH/bash_env/profile_common
