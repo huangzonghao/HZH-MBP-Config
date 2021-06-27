@@ -436,6 +436,24 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+" CtrlSF
+nnoremap <Space>ss :Obsession .<CR>
+nnoremap <Space>sd :Obsession!<CR>
+nnoremap <Space>sl :source Session.vim<CR>
+nnoremap ? :CtrlSF<Space>
+nnoremap <Space>? :<C-U><Space><C-R>=getcwd()<CR><Home>CtrlSF<Space>
+vmap ? <Plug>CtrlSFVwordPath
+nnoremap <Space>st :CtrlSFToggle<CR>
+" Search within the project directory, fallback current working directory
+let g:ctrlsf_default_root = 'project+fw'
+let g:ctrlsf_mapping = { "open" : "O",
+                       \ "openb": "<CR>",
+                       \ "popen": "o",
+                       \ "next" : "<C-N>",
+                       \ "prev" : "<C-P>",
+                       \ "tab"  : "tt"}
+
+
 " esaymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_keys ='AOEUIDPYFGCRL,.JXMWKBSHNT'
