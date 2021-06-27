@@ -94,6 +94,8 @@ nnoremap * *N
 cnoremap <C-O> <C-F>
 cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
+cnoremap <C-A> <Home>
+cnoremap <C-S> <C-R>=getcwd()<CR>
 " to quickly insert group parenthesis in search
 cnoremap <C-G> \(\)<Left><Left>
 inoremap <C-F> <Right>
@@ -349,6 +351,7 @@ cnoreabbrev j J
 cnoreabbrev ; !
 cnoreabbrev mw MWRead
 cnoreabbrev g Git
+cnoreabbrev dir <C-R>=getcwd()<CR>
 
 " ==============================================================================
 "                            Auto Commands
