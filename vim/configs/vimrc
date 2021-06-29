@@ -51,6 +51,7 @@ set incsearch               " show search matches as you type
 set hidden                  " then we don't have to save the file before leaving
 set nowrap                  " don't wrap lines
 set ignorecase              " ignore case when searching
+set wildignorecase          " ignore case when when completing file names and directories
 set smartcase               " ignore case if search pattern is all lowercase,
                             " case-sensitive otherwise
 set wildmenu
