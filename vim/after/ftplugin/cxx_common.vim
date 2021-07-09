@@ -35,5 +35,10 @@ if !exists('*C_UpdateModifiedTimeStamp')
     endfunction
     " autocmd BufWritePre *.{c,,cc,cpp,h,cu,cuda,cuh} call C_UpdateModifiedTimeStamp()
 endif
-
 nnoremap <buffer> <silent> <Space>mt :call C_UpdateModifiedTimeStamp()<CR>
+
+" do not expand tab if there are any tab indention used in the first 50 lines
+if len(filter(getbufline(bufname("%"), 1, 50), 'v:val =~ "^\\t"')) > 0
+    setlocal noexpandtab
+endif
+
