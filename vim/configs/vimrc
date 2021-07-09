@@ -527,6 +527,7 @@ let NERDTreeIgnore=['\.o$',
                   \ '\.png$',
                   \ '^tags$',
                   \ '\.mex']
+let NERDTreeCustomOpenArgs = {'file': {'reuse': 'currenttab', 'where': 'p'}, 'dir': {}}
 let g:NERDTreeMapOpenInTab = 'to'
 let g:NERDTreeHijackNetrw = 0
 
