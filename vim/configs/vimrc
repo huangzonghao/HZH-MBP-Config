@@ -277,7 +277,7 @@ nnoremap <Space>tu :let g:autoreadargs={'autoread':1}<CR>:execute WatchForChange
 nnoremap <Space>tm :call ToggleMouse()<CR>
 nnoremap <Space>rt :retab<CR>
 " to refresh the file
-nnoremap <Space>rr :e<CR>
+nnoremap <Space>rf :e<CR>
 nnoremap mo o<ESC>k
 nnoremap mu O<ESC>j<C-E>
 
