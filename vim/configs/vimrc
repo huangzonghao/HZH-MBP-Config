@@ -450,6 +450,7 @@ let g:ctrlsf_default_root = 'project+fw'
 let g:ctrlsf_mapping = { "open" : "O",
                        \ "openb": "<CR>",
                        \ "popen": "o",
+                       \ "quit" : "",
                        \ "next" : "<C-N>",
                        \ "prev" : "<C-P>",
                        \ "tab"  : "tt"}
