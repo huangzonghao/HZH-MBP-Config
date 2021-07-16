@@ -266,9 +266,6 @@ nnoremap <Space>nh :noh<CR>
 nnoremap <Space>sd :silent !subl .<CR>:redraw!<CR>
 nnoremap <Space>sf :silent !subl %<CR>:redraw!<CR>
 
-" the function is provide by CVim
-nnoremap <Space>id : call C_InsertDateAndTime('d')<CR>a
-
 nnoremap <Space>u  :up<CR>
 nnoremap <Space>U  :w!<CR>
 nnoremap <Space>w  :wq<CR>
