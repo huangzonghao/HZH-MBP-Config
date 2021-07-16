@@ -614,7 +614,7 @@ endif
 " launch netrw if no file to open
 augroup ProjectDrawer
     autocmd!
-    autocmd VimEnter * if argc() == 0 | Explore! | endif
+    autocmd VimEnter * if argc() == 0 | NERDTreeToggle | endif
 augroup END
 
 " vim:set et sw=4 ts=4 ft=vim:
