@@ -438,10 +438,12 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" CtrlSF
+" Obsession
 nnoremap <Space>ss :Obsession .<CR>
 nnoremap <Space>sd :Obsession!<CR>
 nnoremap <Space>sl :source Session.vim<CR>
+
+" CtrlSF
 nnoremap ? :CtrlSF<Space>
 nnoremap <Space>? :<C-U><Space><C-R>=getcwd()<CR><Home>CtrlSF<Space>
 vmap ? <Plug>CtrlSFVwordPath
@@ -464,17 +466,20 @@ let g:EasyMotion_use_upper = 1
 let g:EasyMotion_space_jump_first = 1
 let g:EasyMotion_do_shade = 0
 
-
 " emmet
 " some changes for emmet -- an editor for html --Sun Feb  8 02:55:52 HKT 2015
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " rainbow parentheses
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax   * RainbowParenthesesLoadRound
-" au Syntax   * RainbowParenthesesLoadSquare
-" au Syntax   * RainbowParenthesesLoadBraces
+let rainbow_blacklist = ['cmake']
+augroup RainbowParentheses
+    autocmd!
+    autocmd VimEnter * if index(rainbow_blacklist, &ft) < 0 | RainbowParenthesesToggle
+    autocmd Syntax   * if index(rainbow_blacklist, &ft) < 0 | RainbowParenthesesLoadRound
+    autocmd Syntax   * if index(rainbow_blacklist, &ft) < 0 | RainbowParenthesesLoadSquare
+    autocmd Syntax   * if index(rainbow_blacklist, &ft) < 0 | RainbowParenthesesLoadBraces
+augroup END
 
 " supertab
 let g:SuperTabDefaultCompletionType = '<C-n>'
