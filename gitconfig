@@ -3,6 +3,8 @@
     email = coding@hzh.io
 [push]
     default = matching
+[pull]
+    ff = only
 [merge]
     tool = vim
 [mergetool "vim"]
