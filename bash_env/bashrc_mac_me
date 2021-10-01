@@ -7,8 +7,6 @@ export PS1="\[\e[32m\]HZH-MBP\[\e[m\e[0;33m\]:\w\$\[\e[m\] "
 # alias for javascript interpretor --Thu Feb  5 16:48:50 HKT 2015
 alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc"
 
-# alias for m4a --Sat Oct 12 23:49:09 EDT 2019
-alias ydla="youtube-dl -f 140"
 # alias to get url for aria2 downolad
 ydlg(){
     youtube-dl -g $1 | pbcopy

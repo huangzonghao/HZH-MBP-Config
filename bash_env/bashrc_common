@@ -54,10 +54,13 @@ alias dt="ComplieDot"
 
 # alias for youtube-dl --Sun May 17 13:09:28 HKT 2015
 alias ydl="youtube-dl"
+# alias for m4a --Sat Oct 12 23:49:09 EDT 2019
+alias ydla="youtube-dl -f 140"
+# download from a file containing a list of urls
+alias ydlf="youtube-dl -a"
 
 #Sun Oct 18 13:25:45 EDT 2020
 alias ht="sudo htop"
-
 
 #some funny commands
 # sl fortune cowsay cmatrix figlet
@@ -72,7 +75,6 @@ g2ua(){
             recode GB18030..UTF8 $i
     done
 }
-
 
 # the shortcut for making a directory and cd into it
 mcd(){ [ $# != '0' ] && mkdir $1 && cd $1; }
