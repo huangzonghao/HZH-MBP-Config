@@ -1,6 +1,8 @@
 [user]
     name = HuangZonghao
     email = coding@hzh.io
+[init]
+    defaultBranch = master
 [push]
     default = matching
 [pull]
