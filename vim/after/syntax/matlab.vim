@@ -1,1 +1,1 @@
-syn keyword matlabConditional function
+syn keyword matlabConditional function continue
