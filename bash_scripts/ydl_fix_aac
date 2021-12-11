@@ -1,0 +1,20 @@
+#! /bin/bash
+#
+# Sometimes after finish downloading video file, youtube-dl would call a ffmpeg
+# command to fix malformed aac bitstream. The sample output is something like:
+#     [ffmpeg] Fixing malformed AAC bitstream in "video file name"
+# But if ffmpeg was not installed when the video was downloaded, the last step
+# would be omitted, leaving the video file unsuitable for playing back (the player
+# would have to fix the bitstream on the fly, causing delay when jumping back and forth)
+# This tool is to do this final touch, if the file was not previously fixed by youtube-dl
+
+if [[ $# > 1 ]]
+then
+    echo Wrong number of inputs. Input target file name only.
+    exit 0
+fi
+
+mv "$1"{,_tmp}
+ffmpeg -i "$1_tmp" -c copy -f mp4 -bsf:a aac_adtstoasc "$1"
+touch -r "$1_tmp" "$1"
+rm "$1_tmp"
