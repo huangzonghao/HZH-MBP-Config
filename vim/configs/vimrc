@@ -444,8 +444,23 @@ nnoremap <Space>sd :Obsession!<CR>
 nnoremap <Space>sl :source Session.vim<CR>
 
 " CtrlSF
+" TODO: this probably won't work for paths with spaces
+function! CtrlSFSearchWrapper(...) abort
+    " Ideally the dir path should be the first argument for me, and it seems
+    " the plugin use it as the last one. So I am just putting the first
+    " argument to the last here.
+    let tmp_args = ''
+    " Note: a:000 doesn't contain a:0. a:0 is the number of arguments
+    for i in a:000[1:]
+        let tmp_args = tmp_args . ' ' . i
+    endfor
+    let tmp_args = tmp_args . ' ' . a:1
+    call ctrlsf#Search(tmp_args)
+endfunction
+command! -nargs=* CtrlSFF call CtrlSFSearchWrapper(<f-args>)
 nnoremap ? :CtrlSF<Space>
-nnoremap <Space>? :<C-U><Space><C-R>=getcwd()<CR><Home>CtrlSF<Space>
+nnoremap <Space>/ :<C-U><Space><C-R>=expand('%:p:h')<CR><Home>CtrlSFF<End><Space>
+nnoremap <Space>? :<C-U><Space><C-R>=getcwd()<CR><Home>CtrlSFF<End><Space>
 vmap ? <Plug>CtrlSFVwordPath
 nnoremap <Space>st :CtrlSFToggle<CR>
 " Search within the project directory, fallback current working directory
