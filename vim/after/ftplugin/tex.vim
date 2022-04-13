@@ -1,8 +1,9 @@
 setlocal textwidth=80
 
-" for tex files, 2 spaces indent is well enough
-setlocal ts=2
-setlocal sw=2
+" compatible with overleaf
+setlocal ts=4
+setlocal sw=4
+setlocal wrap
 
 setlocal spell
 let g:tex_flavor='latex'
