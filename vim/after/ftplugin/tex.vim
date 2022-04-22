@@ -11,8 +11,8 @@ let g:tex_flavor='latex'
 setlocal grepprg=grep\ -nH\ $*
 
 " map the slash keys as mentioned in the update note --Sat Jul 25 01:32:14 2015
-inoremap <buffer> / \
-inoremap <buffer> \ /
+" inoremap <buffer> / \
+" inoremap <buffer> \ /
 
 nnoremap <buffer> <CR> o<CR>
 nnoremap <buffer> <Space><CR> O<Esc>jo<Esc>k$
