@@ -17,7 +17,7 @@ then
             source /opt/ros/noetic/setup.bash
         fi
     fi
-source $DOTFILES_PATH/bashrc_ros
+source $DOTFILES_PATH/bash_env/bashrc_ros
 fi
 
 # for the auto-completion in bash
