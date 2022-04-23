@@ -1,4 +1,3 @@
-SYSTEM_VER="linux"
 RC_FILE="~/.bashrc"
 
 # check if this is a ros terminal
