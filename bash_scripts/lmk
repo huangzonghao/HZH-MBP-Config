@@ -2,7 +2,7 @@
 
 if [[ $# == 0 ]]
 then
-    ls *.tex >> /dev/null 2>1
+    ls *.tex >> /dev/null 2>&1
     if [[ $? == 0 ]]
     then
         latexmk  -xelatex -pvc *.tex
