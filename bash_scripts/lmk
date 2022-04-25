@@ -1,32 +1,36 @@
 #!/usr/bin/env bash
+LATEXMK_OPTIONS="-xelatex -pvc"
 
 if [[ $# == 0 ]]
 then
-    ls *.tex >> /dev/null 2>&1
-    if [[ $? == 0 ]]
+    num_tex=$(ls *.tex 2>/dev/null | wc -w)
+    if (( num_tex == 0 ))
     then
-        latexmk  -xelatex -pvc *.tex
-        # laclean
-    else
         echo "No tex file found, exit"
-        return
+        exit
+    elif (( num_tex == 1  ))
+    then
+        latexmk $LATEXMK_OPTIONS *.tex
+    else
+        latexmk $LATEXMK_OPTIONS main.tex
     fi
 else
     if  [[ -e $1 ]]
     then
-        latexmk -xelatex -pvc $1
+        latexmk $LATEXMK_OPTIONS $1
         # laclean $1
     else
         echo "$1 not found, exit"
-        return
+        exit
     fi
 fi
 if [[ $? == 0 ]]
 then
     latexmk -c
-    ls *.bbl >> /dev/null 2>1
-    [[ $? == 0 ]] && rm *.bbl
-    [[ -e 1 ]] && rm 1
+    if (( $(ls *.bbl 2>/dev/null | wc -w) > 0 ))
+    then
+        rm *.bbl
+    fi
     rm *.xdv
     echo "The temp files have been cleared."
 else
