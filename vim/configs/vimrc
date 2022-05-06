@@ -25,6 +25,7 @@ set tabstop=4
 set shiftwidth=4   " this sets 4 spaces for each indention
 set expandtab
 set softtabstop=4  " delete 4 spaces at a time
+set formatoptions+=or " automatically insert comment marker
 
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
