@@ -38,6 +38,18 @@
 .ycm_extra_conf.py*
 Session.vim
 
+# Latexmk Temps #
+################
+*.aux
+*.fdb_latexmk
+*.fls
+comment.cut
+*.out
+*.xdv
+*.bbl
+*.blg
+main.pdf
+
 # OS generated files #
 ######################
 .DS_Store

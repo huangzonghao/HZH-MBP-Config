@@ -549,6 +549,15 @@ let NERDTreeIgnore=['\.o$',
                   \ '\.png$',
                   \ '^tags$',
                   \ '\.mlapp$',
+                  \ '\.aux$',
+                  \ '\.bbl$',
+                  \ '\.blg$',
+                  \ '\.fdb_latexmk$',
+                  \ '\.fls$',
+                  \ '\.log$',
+                  \ '\.out$',
+                  \ '\.mlapp$',
+                  \ '\.xdv$',
                   \ '\.mex']
 let NERDTreeCustomOpenArgs = {'file': {'reuse': 'currenttab', 'where': 'p'}, 'dir': {}}
 let g:NERDTreeMapOpenInTab = 'to'
