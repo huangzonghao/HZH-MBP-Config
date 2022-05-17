@@ -27,11 +27,7 @@ fi
 if [[ $? == 0 ]]
 then
     latexmk -c
-    if (( $(ls *.bbl 2>/dev/null | wc -w) > 0 ))
-    then
-        rm *.bbl
-    fi
-    rm *.xdv
+    [[ -e comment.cut ]] && rm comment.cut
     echo "The temp files have been cleared."
 else
     echo "Error occurred, temp files saved."
