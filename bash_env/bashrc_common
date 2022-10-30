@@ -42,6 +42,7 @@ alias cao="./executable"
 alias dao="gdb ./executable"
 alias hosts="sudo vim /etc/hosts"
 alias g="git"
+alias echopath='echo $PATH | sed "s/:/\n/g"'
 
 # the drive tool is so cool that deserves a shortcut --Wed Aug 22 20:55:52 EDT 2018
 alias d="drive"
