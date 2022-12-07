@@ -1,4 +1,4 @@
-# this is the git excludes file in the global scope, please make sure 
+# this is the git excludes file in the global scope, please make sure
 # the filename matches the setting in the ~/.gitconfig
 
 *~
