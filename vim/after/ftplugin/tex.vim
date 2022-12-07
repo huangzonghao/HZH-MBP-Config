@@ -4,8 +4,10 @@ setlocal textwidth=80
 setlocal ts=4
 setlocal sw=4
 setlocal wrap
-
 setlocal spell
+nnoremap <buffer> <silent> j gj
+nnoremap <buffer> <silent> k gk
+
 let g:tex_flavor='latex'
 
 setlocal grepprg=grep\ -nH\ $*
@@ -39,5 +41,8 @@ endif
 
 nnoremap <buffer> <silent> <Space>td :call Tex_ToggleDraft()<CR>
 
+" the pattern that vim uses to recognize lists
+" l: means local buffer
+let &l:formatlistpat = '^\s*\\\(end\|item\)\>'
 " Let vim wrap the lines automatically --Fri Feb 16 10:45:42 EST 2018
-" set fo+=a
+setlocal formatoptions+=nljr
