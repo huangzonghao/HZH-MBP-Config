@@ -19,6 +19,8 @@ alias ld="ls -ahlFd"
 alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
+alias df="df -hPT | column -t"
+alias lsblk="lsblk -o name,size,fstype,label,model"
 
 # note alias doesn't take variables. so it has to be a function
 brc(){
