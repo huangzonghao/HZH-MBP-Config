@@ -4,6 +4,14 @@
     "actions":
     [
         {
+            "command": "duplicateTab",
+            "keys": "alt+t"
+        },
+        {
+            "command": "paste",
+            "keys": "alt+v"
+        },
+        {
             "command":
             {
                 "action": "newTab",
@@ -21,6 +29,33 @@
         {
             "command":
             {
+                "action": "clearBuffer",
+                "clear": "all"
+            },
+            "keys": "alt+k"
+        },
+        {
+            "command":
+            {
+                "action": "newTab",
+                "index": 2
+            },
+            "keys": "alt+3"
+        },
+        {
+            "command":
+            {
+                "action": "commandPalette"
+            },
+            "keys": "alt+period"
+        },
+        {
+            "command": "openNewTabDropdown",
+            "keys": "alt+comma"
+        },
+        {
+            "command":
+            {
                 "action": "copy"
             },
             "keys": "alt+c"
@@ -33,16 +68,8 @@
             "keys": "alt+h"
         },
         {
-            "command": "paste",
-            "keys": "alt+v"
-        },
-        {
             "command": "find",
             "keys": "alt+f"
-        },
-        {
-            "command": "duplicateTab",
-            "keys": "alt+t"
         },
         {
             "command":
@@ -52,21 +79,6 @@
                 "splitMode": "duplicate"
             },
             "keys": "alt+d"
-        },
-        {
-            "command":
-            {
-                "action": "closeTab"
-            },
-            "keys": "alt+f12"
-        },
-        {
-            "command":
-            {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "alt+shift+l"
         },
         {
             "command": "unbound",
@@ -103,30 +115,25 @@
         {
             "command":
             {
+                "action": "closeTab"
+            },
+            "keys": "alt+f12"
+        },
+        {
+            "command":
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "alt+shift+l"
+        },
+        {
+            "command":
+            {
                 "action": "moveFocus",
                 "direction": "left"
             },
             "keys": "alt+shift+h"
-        },
-        {
-            "command":
-            {
-                "action": "clearBuffer",
-                "clear": "all"
-            },
-            "keys": "alt+k"
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 2
-            },
-            "keys": "alt+3"
-        },
-        {
-            "command": "openNewTabDropdown",
-            "keys": "alt+comma"
         },
         {
             "command":
@@ -143,13 +150,6 @@
                 "index": 3
             },
             "keys": "alt+4"
-        },
-        {
-            "command":
-            {
-                "action": "commandPalette"
-            },
-            "keys": "alt+period"
         }
     ],
     "alwaysShowTabs": true,
@@ -157,6 +157,12 @@
     "copyOnSelect": false,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "launchMode": "maximized",
+    "newTabMenu":
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles":
     {
         "defaults": {},
@@ -172,7 +178,7 @@
                 "font":
                 {
                     "face": "Consolas",
-                    "size": 11,
+                    "size": 11.0,
                     "weight": "thin"
                 },
                 "foreground": "#000000",
@@ -183,10 +189,14 @@
                 "selectionBackground": "#000000",
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory": "\\\\wsl$\\Ubuntu\\home\\huangzonghao",
-                "suppressApplicationTitle": false,
-                "tabTitle": null
+                "suppressApplicationTitle": false
             },
             {
+                "colorScheme": "Campbell Powershell",
+                "font":
+                {
+                    "size": 11.0
+                },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
@@ -197,25 +207,24 @@
                 "elevate": false,
                 "font":
                 {
-                    "size": 11
+                    "size": 11.0
                 },
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
-                "name": "Command Prompt",
-                "startingDirectory": "E:\\"
+                "name": "Command Prompt"
             },
             {
                 "altGrAliasing": true,
                 "antialiasingMode": "grayscale",
                 "closeOnExit": "automatic",
-                "colorScheme": "Campbell",
+                "colorScheme": "Campbell Powershell",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "cursorShape": "bar",
                 "elevate": true,
                 "font":
                 {
                     "face": "Cascadia Mono",
-                    "size": 12
+                    "size": 12.0
                 },
                 "guid": "{e3d69742-ed93-4188-b88b-4b6b644946bb}",
                 "hidden": false,
@@ -238,7 +247,7 @@
                 "font":
                 {
                     "face": "Cascadia Mono",
-                    "size": 12
+                    "size": 12.0
                 },
                 "guid": "{c1dafc7d-ac12-4749-b5ef-4943c244ceb1}",
                 "hidden": false,
@@ -249,30 +258,6 @@
                 "snapOnInput": true,
                 "startingDirectory": "%USERPROFILE%",
                 "useAcrylic": false
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": true,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{030d5f54-76f0-5bde-8fb3-1405bfc84d84}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2019",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{51943f32-30cb-5724-872a-f5d643d6c14f}",
-                "hidden": true,
-                "name": "Developer PowerShell for VS 2019",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{072fe60d-5739-5219-816a-f0fb6945c5b6}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2017",
-                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
@@ -486,6 +471,29 @@
             "yellow": "#C4A000"
         },
         {
+            "background": "#300A24",
+            "black": "#171421",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#08458F",
+            "brightCyan": "#2C9FB3",
+            "brightGreen": "#26A269",
+            "brightPurple": "#A347BA",
+            "brightRed": "#C01C28",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#A2734C",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#26A269",
+            "name": "Ubuntu-ColorScheme",
+            "purple": "#881798",
+            "red": "#C21A23",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#A2734C"
+        },
+        {
             "background": "#000000",
             "black": "#000000",
             "blue": "#000080",
@@ -511,5 +519,7 @@
     ],
     "showTabsInTitlebar": true,
     "showTerminalTitleInTitlebar": false,
-    "tabSwitcherMode": "disabled"
+    "tabSwitcherMode": "disabled",
+    "theme": "light",
+    "themes": []
 }
