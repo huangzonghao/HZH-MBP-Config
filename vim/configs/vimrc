@@ -353,6 +353,27 @@ command! VRL source ~/dotfiles/vimrc
 " command WWW w !sudo -s "cat > %"
 command! WWW w !sudo tee % >/dev/null
 
+function! EditTempFunction()
+    let l:file_path = expand("$HOME/dotfiles/local_config/vim_temp_functions")
+    if !filereadable(l:file_path)
+        execute 'silent !cp ' . expand("$HOME/dotfiles/vim/configs/vim_temp_functions_template")
+                             \. ' '
+                             \. l:file_path
+    endif
+    execute 'tabnew ' . l:file_path
+endfunction
+function! SourceTempFunction()
+    let l:file_path = expand("$HOME/dotfiles/local_config/vim_temp_functions")
+    if !filereadable(l:file_path)
+        echohl ErrorMsg | echo "Temp Function file doesn't exit. Run EditTF(etf) first" | echohl None
+    endif
+    execute 'source ' . l:file_path
+endfunction
+command! EditTF call EditTempFunction()
+command! SourceTF call SourceTempFunction()
+cnoreabbrev etf EditTF
+cnoreabbrev stf SourceTF
+
 " ------------------------------------------------------------------------------
 "                           Command Abbervations
 "-------------------------------------------------------------------------------

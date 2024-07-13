@@ -1,0 +1,16 @@
+" function! TempFunctionF3()
+    " echo "echo from TempFunctionF3()"
+" endfunction
+" nnoremap <buffer> <F3> :call TempFunctionF3()<CR>
+
+" function! TempFunctionF4()
+    " echo "echo from TempFunctionF4()"
+" endfunction
+" nnoremap <buffer> <F4> :call TempFunctionF4()<CR>
+
+" function! TempFunctionF5()
+    " echo "echo from TempFunctionF5()"
+" endfunction
+" nnoremap <buffer> <F5> :call TempFunctionF5()<CR>
+
+" vim:set et sw=4 ts=4 ft=vim:
