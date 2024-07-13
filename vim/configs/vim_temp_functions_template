@@ -1,3 +1,7 @@
+" Usage: define the temp functions to be used here and run `stf` in the buffer
+"   that these functions shall be used.
+"   Run `etf` to quickly come back here
+
 " function! TempFunctionF3()
     " echo "echo from TempFunctionF3()"
 " endfunction
