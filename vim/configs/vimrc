@@ -1,9 +1,20 @@
 " ==============================================================================
 "                            Environment Settings
 " ==============================================================================
-if filereadable(expand("$HOME/dotfiles/local_config/vimrc_before_plugin"))
-    source $HOME/dotfiles/local_config/vimrc_before_plugin
+let s:vimrc_pre = expand("$HOME/dotfiles/local_config/vimrc_before_plugin")
+let s:vimrc_post = expand("$HOME/dotfiles/local_config/vimrc_after_plugin")
+if !filereadable(s:vimrc_pre)
+    execute 'silent !cp ' . expand("$HOME/dotfiles/vim/configs/vimrc_before_plugin_template")
+                         \. ' '
+                         \. s:vimrc_pre
 endif
+if !filereadable(s:vimrc_post)
+    execute 'silent !cp ' . expand("$HOME/dotfiles/vim/configs/vimrc_after_plugin_template")
+                         \. ' '
+                         \. s:vimrc_post
+endif
+
+execute 'source ' . s:vimrc_pre
 
 " CVim time format, we need this setting for the general time insertion
 " the current setting is the defult setting of system date
@@ -638,9 +649,7 @@ nnoremap <Space>cc :call CountingChineseCharacters()<CR>
 
 " source local setting
 " make it the last to wait for plugins
-if filereadable(expand("$HOME/dotfiles/local_config/vimrc_after_plugin"))
-    source $HOME/dotfiles/local_config/vimrc_after_plugin
-endif
+execute 'source ' . s:vimrc_post
 
 " launch netrw if no file to open
 augroup ProjectDrawer
